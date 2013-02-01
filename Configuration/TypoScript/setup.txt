@@ -1,0 +1,11 @@
+# Module configuration
+module.tx_sourcero {
+	persistence {
+		storagePid = {$module.tx_sourcero.persistence.storagePid}
+	}
+	view {
+		templateRootPath = {$module.tx_sourcero.view.templateRootPath}
+		partialRootPath = {$module.tx_sourcero.view.partialRootPath}
+		layoutRootPath = {$module.tx_sourcero.view.layoutRootPath}
+	}
+}

@@ -1,0 +1,27 @@
+<f:layout name="Default" />
+
+This template displays a NEW form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        New.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+<h1>New Repository</h1>
+
+<f:flashMessages />
+
+<f:render partial="FormErrors" />
+
+<f:form action="performCommit" arguments="{repository:repository.title}">
+<f:form.textarea name="commitMessage" rows="10" cols="30" additionalAttributes="{placeholder:'Your commit message'}" />
+
+<f:form.submit value="Commit" />
+
+</f:form>
+</f:section>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-02-09T13:53:09Z" product-name="sourcero">
+		<header/>
+		<body>
+
+			<trans-unit id="title.description">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="path.description">
+				<source>Path</source>
+			</trans-unit>
+			<trans-unit id="homepage.description">
+				<source>Project homepage</source>
+			</trans-unit>
+			<trans-unit id="remote_url.description">
+				<source>Remote repository URL</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

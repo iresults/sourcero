@@ -1,0 +1,14 @@
+{
+    "name": "iresults/sourcero",
+    "description": "Source code management",
+    "require": {
+        "symfony/process": "*"
+    },
+    "authors": [
+        {
+            "name": "Daniel Corn",
+            "email": "cod@iresults.li"
+        }
+    ],
+    "minimum-stability": "dev"
+}
