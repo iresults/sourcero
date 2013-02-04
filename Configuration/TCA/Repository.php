@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_sourcero_domain_model_repository'] = array(
 	'ctrl' => $TCA['tx_sourcero_domain_model_repository']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, path, homepage, remote_url',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, type, path, homepage, remote_url',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, path, homepage, remote_url,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, type, path, homepage, remote_url,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -96,6 +96,15 @@ $TCA['tx_sourcero_domain_model_repository'] = array(
 		'title' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:sourcero/Resources/Private/Language/locallang_db.xlf:tx_sourcero_domain_model_repository.title',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim,required'
+			),
+		),
+		'type' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:sourcero/Resources/Private/Language/locallang_db.xlf:tx_sourcero_domain_model_repository.type',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,

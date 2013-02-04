@@ -5,7 +5,7 @@
  *
  *  (c) 2013 Andreas Thurnheer-Meier <tma@iresults.li>, iresults
  *  Daniel Corn <cod@iresults.li>, iresults
- *
+ *  
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -35,19 +35,20 @@
 class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
-	 * Type
-	 *
-	 * @var string
-	 */
-	protected $type;
-
-	/**
 	 * Title
 	 *
 	 * @var string
 	 * @validate NotEmpty
 	 */
 	protected $title;
+
+	/**
+	 * SCM type
+	 *
+	 * @var string
+	 * @validate NotEmpty
+	 */
+	protected $type;
 
 	/**
 	 * Path

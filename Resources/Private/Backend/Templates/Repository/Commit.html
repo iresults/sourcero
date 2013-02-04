@@ -12,16 +12,19 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-<h1>New Repository</h1>
+
+<f:render partial="Menu" arguments="{repository:repository}" />
+
+<h1>New commit</h1>
 
 <f:flashMessages />
 
 <f:render partial="FormErrors" />
 
 <f:form action="performCommit" arguments="{repository:repository.title}">
-<f:form.textarea name="commitMessage" rows="10" cols="30" additionalAttributes="{placeholder:'Your commit message'}" />
-
-<f:form.submit value="Commit" />
-
+	<f:form.textarea name="commitMessage" rows="10" cols="50" class="input-block-level" additionalAttributes="{placeholder:'Your commit message'}" />
+	<button type="submit" class="btn">Commit</button>
 </f:form>
+
+<f:link.action action="list">Back to list</f:link.action>
 </f:section>

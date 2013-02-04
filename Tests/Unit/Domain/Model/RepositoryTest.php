@@ -72,6 +72,23 @@ class Tx_Sourcero_Domain_Model_RepositoryTest extends Tx_Extbase_Tests_Unit_Base
 	/**
 	 * @test
 	 */
+	public function getTypeReturnsInitialValueForString() { }
+
+	/**
+	 * @test
+	 */
+	public function setTypeForStringSetsType() { 
+		$this->fixture->setType('Conceived at T3CON10');
+
+		$this->assertSame(
+			'Conceived at T3CON10',
+			$this->fixture->getType()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
 	public function getPathReturnsInitialValueForString() { }
 
 	/**

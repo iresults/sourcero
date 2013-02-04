@@ -25,12 +25,8 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-ini_set('display_errors', TRUE);
-Ir::forceDebug();
-
 Tx_CunddComposer_Autoloader::register();
 use Symfony\Component\Process\Process;
-
 
 /**
  *
@@ -119,21 +115,21 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 	/**
 	 * action new
 	 *
-	 * @param Tx_Sourcero_Domain_Model_Repository $newRepository
+	 * @param string $newRepository
 	 * @dontvalidate $newRepository
 	 * @return void
 	 */
-	public function newAction(Tx_Sourcero_Domain_Model_Repository $newRepository = NULL) {
+	public function newAction($newRepository = NULL) {
 		$this->view->assign('newRepository', $newRepository);
 	}
 
 	/**
 	 * action create
 	 *
-	 * @param Tx_Sourcero_Domain_Model_Repository $newRepository
+	 * @param string $newRepository
 	 * @return void
 	 */
-	public function createAction(Tx_Sourcero_Domain_Model_Repository $newRepository) {
+	public function createAction($newRepository) {
 		$this->repositoryRepository->add($newRepository);
 		$this->flashMessageContainer->add('Your new Repository was created.');
 		$this->redirect('list');
@@ -142,20 +138,20 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 	/**
 	 * action edit
 	 *
-	 * @param Tx_Sourcero_Domain_Model_Repository $repository
+	 * @param string $repository
 	 * @return void
 	 */
-	public function editAction(Tx_Sourcero_Domain_Model_Repository $repository) {
+	public function editAction($repository) {
 		$this->view->assign('repository', $repository);
 	}
 
 	/**
 	 * action update
 	 *
-	 * @param Tx_Sourcero_Domain_Model_Repository $repository
+	 * @param string $repository
 	 * @return void
 	 */
-	public function updateAction(Tx_Sourcero_Domain_Model_Repository $repository) {
+	public function updateAction($repository) {
 		$this->repositoryRepository->update($repository);
 		$this->flashMessageContainer->add('Your Repository was updated.');
 		$this->redirect('list');
@@ -164,10 +160,10 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 	/**
 	 * action delete
 	 *
-	 * @param Tx_Sourcero_Domain_Model_Repository $repository
+	 * @param string $repository
 	 * @return void
 	 */
-	public function deleteAction(Tx_Sourcero_Domain_Model_Repository $repository) {
+	public function deleteAction($repository) {
 		$this->repositoryRepository->remove($repository);
 		$this->flashMessageContainer->add('Your Repository was removed.');
 		$this->redirect('list');
@@ -204,21 +200,49 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 	}
 
 	/**
+	 * Action to execute a command
+	 *
+	 * @param string $repository
+	 * @param string $command
+	 * @param array  $arguments
+	 * @return void
+	 * @dontvalidate
+	 */
+	public function executeCommandAction($repository, $command, $arguments = array()) {
+		if (!is_object($repository)) {
+			$repository = $this->repositoryRepository->findByUid($repository);
+		}
+		$this->view->assign('repository', $repository);
+		$this->view->assign('command', $command);
+		$this->view->assign('commandOutput', $this->_performAction($repository, $command, $arguments));
+	}
+
+	/**
 	 * action push
 	 *
+	 * @param string $repository
 	 * @return void
 	 */
-	public function pushAction() {
-
+	public function pushAction($repository) {
+		if (!is_object($repository)) {
+			$repository = $this->repositoryRepository->findByUid($repository);
+		}
+		$this->view->assign('repository', $repository);
+		$this->view->assign('commandOutput', $this->_performAction($repository, 'push', array('origin', 'master')));
 	}
 
 	/**
 	 * action pull
 	 *
+	 * @param string $repository
 	 * @return void
 	 */
-	public function pullAction() {
-
+	public function pullAction($repository) {
+		if (!is_object($repository)) {
+			$repository = $this->repositoryRepository->findByUid($repository);
+		}
+		$this->view->assign('repository', $repository);
+		$this->view->assign('commandOutput', $this->_performAction($repository, 'pull', array('origin', 'master')));
 	}
 
 	/**
@@ -231,11 +255,20 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 	 */
 	protected function _performAction($repository, $action, $arguments = array(), &$error = FALSE) {
 		$command = '';
-		Ir::pd($repository);
 		if ($repository->getType() === 'git') {
 			$command = 'git ' . $action . ' ';
+
+			$username = $GLOBALS['BE_USER']->user['username'];
+			$realname = $GLOBALS['BE_USER']->user['realName'];
+			$email = $GLOBALS['BE_USER']->user['email'];
+
+			$name = $username;
+			if ($realname) {
+				$name = $realname . ' (' . $username . ')';
+			}
 			$environment = array(
-				'GIT_AUTHOR_NAME' => 'Sourcero',
+				'GIT_AUTHOR_NAME' => $name,
+				'GIT_AUTHOR_EMAIL' => $email,
 			);
 		}
 
@@ -245,10 +278,6 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 			}
 			$command .= escapeshellarg($argument) . ' ';
 		}
-
-		#$command .= '2>&1';
-
-		Ir::pd($command, $repository->getPath());
 
 		$workingDir = $repository->getPath();
 		$process = new Process($command);
@@ -263,10 +292,9 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 		$error = FALSE;
 
 		$output = $process->getOutput();
-		Ir::pd($output, $process->getErrorOutput());
+		
+		#Ir::pd($output, $process->getErrorOutput());
 		return $output;
-
-		return $process->getOutput();
 	}
 
 }

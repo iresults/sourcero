@@ -16,27 +16,27 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:flashMessages />
 
-<table  class="tx_sourcero" >
+<table  class="tx_sourcero table table-striped" >
 	<tr>
 		<th><f:translate key="tx_sourcero_domain_model_repository.title" /></th>
+		<th><f:translate key="tx_sourcero_domain_model_repository.type" /></th>
 		<th><f:translate key="tx_sourcero_domain_model_repository.path" /></th>
 		<th><f:translate key="tx_sourcero_domain_model_repository.homepage" /></th>
 		<th><f:translate key="tx_sourcero_domain_model_repository.remote_url" /></th>
-		<th> </th>
-		<th> </th>
+		<!-- <th> </th> -->
+		<!-- <th> </th> -->
 	</tr>
 
 	<f:for each="{repositories}" as="repository">
 		<tr>
 			<td><f:link.action action="show" arguments="{repository : repository.title}"> {repository.title}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{repository : repository.title}"> {repository.type}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{repository : repository.title}"> {repository.path}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{repository : repository.title}"> {repository.homepage}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{repository : repository.title}"> {repository.remoteUrl}</f:link.action></td>
-			<td><f:link.action action="edit" arguments="{repository : repository.title}">Edit</f:link.action></td>
-			<td><f:link.action action="delete" arguments="{repository : repository.title}">Delete</f:link.action></td>
+			<!-- <td><f:link.action action="edit" arguments="{repository : repository.title}">Edit</f:link.action></td> -->
+			<!-- <td><f:link.action action="delete" arguments="{repository : repository.title}">Delete</f:link.action></td> -->
 		</tr>
 	</f:for>
 </table>
-
-<f:link.action action="new">New Repository</f:link.action>
 </f:section>

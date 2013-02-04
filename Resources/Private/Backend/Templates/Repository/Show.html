@@ -1,5 +1,4 @@
 <f:layout name="Default" />
-{namespace ir=Tx_Iresults_ViewHelpers}
 
 This Template is responsible for displaying a single view for a domain object
 
@@ -13,22 +12,15 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-<h1>Single View for Repository</h1>
+
+<f:render partial="Menu" arguments="{repository:repository}" />
+
+<h1>Status</h1>
 
 <f:flashMessages />
 <f:render partial="Repository/Properties" arguments="{repository:repository}" />
-<f:link.action action="list">Back to list</f:link.action><br />
 
-<f:link.action action="log" arguments="{repository:repository.title}">Log</f:link.action><br />
-<f:link.action action="push" arguments="{repository:repository.title}">Push</f:link.action><br />
-<f:link.action action="pull" arguments="{repository:repository.title}">Pull</f:link.action><br />
-<f:link.action action="add" arguments="{repository:repository.title, add: '.'}">Add</f:link.action><br />
-<f:link.action action="commit" arguments="{repository:repository.title}">Commit</f:link.action><br />
-
-
-<h2>Status</h2>
 <pre>{commandOutput}</pre>
 
-<f:link.action action="list">Back to list</f:link.action><br />
-<f:link.action action="create">New Repository</f:link.action>
+<f:link.action action="list">Back to list</f:link.action>
 </f:section>

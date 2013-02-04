@@ -7,6 +7,7 @@ CREATE TABLE tx_sourcero_domain_model_repository (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	title varchar(255) DEFAULT '' NOT NULL,
+	type varchar(255) DEFAULT '' NOT NULL,
 	path varchar(255) DEFAULT '' NOT NULL,
 	homepage varchar(255) DEFAULT '' NOT NULL,
 	remote_url varchar(255) DEFAULT '' NOT NULL,

@@ -1,5 +1,4 @@
 <f:layout name="Default" />
-{namespace ir=Tx_Iresults_ViewHelpers}
 
 This Template is responsible for displaying a single view for a domain object
 
@@ -16,15 +15,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:render partial="Menu" arguments="{repository:repository}" />
 
-<h1>Commit view</h1>
+<h1>Push</h1>
 
 <f:flashMessages />
-<f:render partial="Repository/Properties" arguments="{repository:repository}" />
 
-<h3>Commit message</h3>
-<pre>{commitMessage}</pre>
-
-<h3>Output</h3>
 <pre>{commandOutput}</pre>
 
 <f:link.action action="list">Back to list</f:link.action>

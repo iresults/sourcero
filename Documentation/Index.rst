@@ -18,7 +18,7 @@ Extension Name
 :Language: en
 :Author: Andreas Thurnheer-Meier, Daniel Corn
 :Creation: 2013-02-01
-:Generation: 13:53
+:Generation: 19:51
 :Licence: Open Content License available from `www.opencontent.org/opl.shtml <http://www.opencontent.org/opl.shtml>`_
 
 The content of this document is related to TYPO3, a GNU/GPL CMS/Framework available from `www.typo3.org

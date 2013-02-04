@@ -9,6 +9,6 @@ module.tx_sourcero {
 	}
 	persistence {
 		# cat=module.tx_sourcero//a; type=string; label=Default storage PID
-		storagePid = 
+		storagePid =
 	}
 }

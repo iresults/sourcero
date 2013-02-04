@@ -12,17 +12,14 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-<h1>Single View for Repository</h1>
+
+<f:render partial="Menu" arguments="{repository:repository}" />
+
+<h1>Log</h1>
 
 <f:flashMessages />
-<f:render partial="Repository/Properties" arguments="{repository:repository}" />
-<f:link.action action="list">Back to list</f:link.action><br />
 
-<h2>Status</h2>
-<pre>
-	{commandOutput}
-</pre>
+<pre>{commandOutput}</pre>
 
-<f:link.action action="list">Back to list</f:link.action><br />
-<f:link.action action="create">New Repository</f:link.action>
+<f:link.action action="list">Back to list</f:link.action>
 </f:section>

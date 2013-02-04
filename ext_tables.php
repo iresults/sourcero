@@ -14,7 +14,7 @@ if (TYPO3_MODE === 'BE') {
 		'sourcero',	// Submodule key
 		'',						// Position
 		array(
-			'Repository' => 'list, show, log, add, new, create, edit, update, delete, commit, performCommit, push, pull',
+			'Repository' => 'list, show, new, create, edit, update, delete, commit, performCommit, push, pull, log, status, add, executeCommand',
 		),
 		array(
 			'access' => 'user,group',
@@ -50,7 +50,7 @@ $TCA['tx_sourcero_domain_model_repository'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'title,path,homepage,remote_url,',
+		'searchFields' => 'title,type,path,homepage,remote_url,',
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Repository.php',
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_sourcero_domain_model_repository.gif'
 	),
