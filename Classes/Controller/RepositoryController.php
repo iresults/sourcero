@@ -292,7 +292,7 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 		$error = FALSE;
 
 		$output = $process->getOutput();
-		
+
 		#Ir::pd($output, $process->getErrorOutput());
 		return $output;
 	}
