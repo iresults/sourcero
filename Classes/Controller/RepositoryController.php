@@ -45,6 +45,12 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 	protected $repositoryRepository;
 
 	/**
+	 * @var Tx_Sourcero_Service_SCMService
+	 * @inject
+	 */
+	protected $scmService;
+
+	/**
 	 * injectRepositoryRepository
 	 *
 	 * @param Tx_Sourcero_Domain_Repository_RepositoryRepository $repositoryRepository
@@ -52,6 +58,14 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 	 */
 	public function injectRepositoryRepository(Tx_Sourcero_Domain_Repository_RepositoryRepository $repositoryRepository) {
 		$this->repositoryRepository = $repositoryRepository;
+	}
+
+	/**
+	 * Action to display the info page
+	 * @return void
+	 */
+	public function infoAction() {
+
 	}
 
 	/**
@@ -254,49 +268,8 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 	 * @return string            Command output
 	 */
 	protected function _performAction($repository, $action, $arguments = array(), &$error = FALSE) {
-		$command = '';
-		if ($repository->getType() === 'git') {
-			$command = 'git ' . $action . ' ';
-
-			$username = $GLOBALS['BE_USER']->user['username'];
-			$realname = $GLOBALS['BE_USER']->user['realName'];
-			$email = $GLOBALS['BE_USER']->user['email'];
-
-			$name = $username;
-			if ($realname) {
-				$name = $realname . ' (' . $username . ')';
-			}
-			$environment = array(
-				'GIT_AUTHOR_NAME' => $name,
-				'GIT_AUTHOR_EMAIL' => $email,
-			);
-		}
-
-		foreach ($arguments as $key => $argument) {
-			if (is_string($key)) {
-				$command .= escapeshellarg($key) . ' ';
-			}
-			$command .= escapeshellarg($argument) . ' ';
-		}
-
-		$workingDir = $repository->getPath();
-		$process = new Process($command);
-		$process->setWorkingDirectory($workingDir);
-		$process->setTimeout(3600);
-		$process->setEnv($environment);
-		$process->run();
-		if (!$process->isSuccessful()) {
-			$error = TRUE;
-			return $process->getErrorOutput();
-		}
-		$error = FALSE;
-
-		$output = $process->getOutput();
-
-		#Ir::pd($output, $process->getErrorOutput());
-		return $output;
+		return $this->scmService->performAction($repository, $action, $arguments, $error);
 	}
-
 }
 ?>
 

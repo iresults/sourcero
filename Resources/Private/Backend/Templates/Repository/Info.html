@@ -1,0 +1,56 @@
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+
+<style type="text/css">
+	body {
+		background-color: #555;
+	}
+	.info-wrap {
+		background-color: #2F2F2F;
+		width: 440px;
+		margin-right: auto;
+		margin-left: auto;
+		-webkit-box-shadow: 0px 0px 4px 0px #000;
+		box-shadow: 0px 0px 4px 0px #000;
+	}
+	.info-container {
+		/*padding-top: 1em;*/
+	}
+	.info-container .info-text {
+		padding: 0 2em;
+	}
+	.info-container .info-button-container {
+		padding: 0 2em 2em 2em;
+	}
+
+</style>
+
+
+<div class="info-wrap">
+	<div class="info-container">
+		<f:image src="{f:uri.resource(path:'Icons/info.png')}" alt="Info image" />
+
+
+		<div class="info-text">
+			<p>Sourcero allows you to manage your projects that are under source control. The currently supported source control system is git, a distributed version control system.</p>
+			<p>This tool is provided as open source, proudly presented to you by <a href="http:/www.iresults.li">iresults</a>, the TYPO3 web agency in Liechtenstein.</p>
+		</div>
+
+		<div class="info-button-container">
+			<f:link.action action="list" class="btn">Back to list</f:link.action>
+		</div>
+	</div>
+</div>
+</f:section>

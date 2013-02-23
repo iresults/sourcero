@@ -168,7 +168,7 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 	 * @param string $prefix Optional prefix for the SCM directory
 	 * @return array<string>
 	 */
-	protected function _getDirectoryBasedRepositoriesWithType($type, $prefix = ".") {
+	protected function _getDirectoryBasedRepositoriesWithType($type, $prefix = '.') {
 		$repositories = array();
 		$extensions = explode(',', t3lib_extMgm::getEnabledExtensionList());
 
@@ -189,7 +189,7 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 	 * @param string $prefix Optional prefix for the SCM directory
 	 * @return array<string>	Returns the repository data or NULL if it wasn't found
 	 */
-	protected function _getDirectoryBasedRepositoryWithType($extensionKey, $type, $prefix = ".") {
+	protected function _getDirectoryBasedRepositoryWithType($extensionKey, $type, $prefix = '.') {
 		$directoryRootPath = t3lib_extMgm::extPath($extensionKey);
 		$directoryPath = $directoryRootPath . $prefix . $type;
 		if (file_exists($directoryPath)) {

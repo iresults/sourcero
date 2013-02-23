@@ -14,7 +14,7 @@ if (TYPO3_MODE === 'BE') {
 		'sourcero',	// Submodule key
 		'',						// Position
 		array(
-			'Repository' => 'list, show, new, create, edit, update, delete, commit, performCommit, push, pull, log, status, add, executeCommand',
+			'Repository' => 'list, show, new, create, edit, update, delete, commit, performCommit, push, pull, log, status, add, executeCommand, info',
 		),
 		array(
 			'access' => 'user,group',

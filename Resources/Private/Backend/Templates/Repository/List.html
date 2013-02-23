@@ -12,11 +12,19 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-<h1>Listing for Repository</h1>
+
+<header class="header-section">
+	<div class="logo-container">
+		<f:image src="{f:uri.resource(path:'Icons/Icon-white-200.png')}" width="200" height="200" alt="Icon" />
+	</div>
+	<div class="header-title">
+		<h1>Repositories</h1>
+	</div>
+</header>
 
 <f:flashMessages />
 
-<table  class="tx_sourcero table table-striped" >
+<table class="tx_sourcero table table-striped">
 	<tr>
 		<th><f:translate key="tx_sourcero_domain_model_repository.title" /></th>
 		<th><f:translate key="tx_sourcero_domain_model_repository.type" /></th>
@@ -29,14 +37,28 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 	<f:for each="{repositories}" as="repository">
 		<tr>
-			<td><f:link.action action="show" arguments="{repository : repository.title}"> {repository.title}</f:link.action></td>
+			<td class="title">
+				<f:link.action action="show" arguments="{repository : repository.title}" class="title-badge">
+					<f:render partial="Status" arguments="{repository: repository}" />
+				</f:link.action>
+
+				<f:link.action action="show" arguments="{repository : repository.title}">
+					{repository.title}
+				</f:link.action>
+			</td>
 			<td><f:link.action action="show" arguments="{repository : repository.title}"> {repository.type}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{repository : repository.title}"> {repository.path}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{repository : repository.title}"> {repository.homepage}</f:link.action></td>
+			<td>
+				<f:if condition="{repository.homepage}">
+					<a href="{repository.homepage}" class="external-link"> {repository.homepage} <i class="icon-eye-open icon-white"></i></a>
+				</f:if>
+			</td>
 			<td><f:link.action action="show" arguments="{repository : repository.title}"> {repository.remoteUrl}</f:link.action></td>
 			<!-- <td><f:link.action action="edit" arguments="{repository : repository.title}">Edit</f:link.action></td> -->
 			<!-- <td><f:link.action action="delete" arguments="{repository : repository.title}">Delete</f:link.action></td> -->
 		</tr>
 	</f:for>
 </table>
+
+<f:link.action action="info"><i class="icon-heart icon-white"></i></f:link.action> <f:link.action action="info">Info</f:link.action>
 </f:section>

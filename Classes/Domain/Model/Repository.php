@@ -5,7 +5,7 @@
  *
  *  (c) 2013 Andreas Thurnheer-Meier <tma@iresults.li>, iresults
  *  Daniel Corn <cod@iresults.li>, iresults
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -33,6 +33,11 @@
  *
  */
 class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_AbstractEntity {
+	/**
+	 * @var Tx_Sourcero_Service_SCMService
+	 * @inject
+	 */
+	protected $_scmService;
 
 	/**
 	 * Title
@@ -70,6 +75,12 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 	 * @var string
 	 */
 	protected $remoteUrl;
+
+	/**
+	 * Additional product data
+	 * @var array
+	 */
+	protected $_additionalData;
 
 	/**
 	 * Returns the title
@@ -134,6 +145,9 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 	 * @return string $homepage
 	 */
 	public function getHomepage() {
+		if (!$this->homepage) {
+			$this->homepage = $this->getAdditionalDataForKey('homepage');
+		}
 		return $this->homepage;
 	}
 
@@ -153,6 +167,9 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 	 * @return string $remoteUrl
 	 */
 	public function getRemoteUrl() {
+		if (!$this->remoteUrl) {
+			$this->remoteUrl = $this->getAdditionalDataForKey('remoteUrl');
+		}
 		return $this->remoteUrl;
 	}
 
@@ -164,6 +181,31 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function setRemoteUrl($remoteUrl) {
 		$this->remoteUrl = $remoteUrl;
+	}
+
+	/**
+	 * Returns the status code
+	 * @return integer
+	 */
+	public function getStatusCode() {
+		return $this->_scmService->getStatusCodeForRepository($this);
+	}
+
+	/**
+	 * Returns the additional data for this repository
+	 * @param  string $key Data key to retrieve
+	 * @return mixed
+	 */
+	protected function getAdditionalDataForKey($key) {
+		if (!$this->_additionalData) {
+			if (file_exists($this->getPath() . 'composer.json')) {
+				$this->_additionalData = json_decode(file_get_contents($this->getPath() . 'composer.json'), TRUE);
+			}
+		}
+		if ($this->_additionalData && isset($this->_additionalData[$key])) {
+			return $this->_additionalData[$key];
+		}
+		return FALSE;
 	}
 
 }

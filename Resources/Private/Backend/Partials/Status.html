@@ -1,0 +1,14 @@
+<!-- Status code -->
+<f:if condition="{repository.statusCode} == 1">
+	<span class="badge badge-small badge-success"><i class="icon-white icon-ok-sign"></i></span>
+</f:if>
+<f:if condition="{repository.statusCode} == 2">
+	<span class="badge badge-small badge-important"><i class="icon-white icon-exclamation-sign"></i></span>
+</f:if>
+<f:if condition="{repository.statusCode} == 3">
+	<span class="badge badge-small badge-warning"><i class="icon-white icon-circle-arrow-down"></i></span>
+</f:if>
+<f:if condition="{repository.statusCode} == 4">
+	<span class="badge badge-small badge-info"><i class="icon-white icon-circle-arrow-up"></i></span>
+</f:if>
+<!--  -->
