@@ -192,6 +192,15 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 	}
 
 	/**
+	 * Returns the path
+	 *
+	 * @return string $path
+	 */
+	public function getRelativePath() {
+		return str_replace(PATH_site, '', $this->path);
+	}
+
+	/**
 	 * Returns the additional data for this repository
 	 * @param  string $key Data key to retrieve
 	 * @return mixed

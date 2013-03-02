@@ -14,8 +14,7 @@
 				<f:link.action action="log" arguments="{repository:repository.title}">Log</f:link.action>
 			</li>
 			<li>
-				<!-- <f:link.action action="executeCommand" arguments="{repository:repository.title, command:'diff', arguments:{0:'--color'}}">Diff</f:link.action> -->
-				<f:link.action action="executeCommand" arguments="{repository:repository.title, command:'diff'}">Diff</f:link.action>
+				<f:link.action action="executeCommand" arguments="{repository:repository.title, command:'diff', arguments:{0: 'HEAD', 1:'--color'}}">Diff</f:link.action>
 			</li>
 			<li>
 				<f:link.action action="add" arguments="{repository:repository.title, add: '.'}">Add</f:link.action>

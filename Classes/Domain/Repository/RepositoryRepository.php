@@ -111,10 +111,23 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 	 * @api
 	 */
 	public function findOneByTitle($title) {
-		$object = $this->_getDirectoryBasedRepositoryWithType($title, 'git');
+		ini_set('display_errors', TRUE);
+		try {
+			$object = $this->_getDirectoryBasedRepositoryWithType($title, 'git');
+		} catch (BadFunctionCallException $exception) {
+			/*
+			 * If the given $title is not an $extension name look inside the
+			 * composer directory
+			 */
+			$composerVendorDir = $this->_getComposerVendorDirectory();
+			if ($composerVendorDir && $exception->getCode() === 1270853878) {
+				$object = $this->_getDirectoryBasedRepositoryWithType($title, 'git', '.', $composerVendorDir . $title . '/');
+			}
+		}
 		if ($object) {
 			$object = $this->_getObjectFromRepositoryData($object);
 		}
+
 		return $object;
 	}
 
@@ -178,7 +191,50 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 				$repositories[$repository['title']] = $repository;
 			}
 		}
+
+		if ($this->_getComposerVendorDirectory()) {
+			$repositories = array_merge($repositories, $this->_getComposerDirectoryBasedRepositoriesWithType($type, $prefix));
+		}
 		return $repositories;
+	}
+
+	/**
+	 * Returns the list of all packages inside of cundd_composer that contain a
+	 * repository
+	 *
+	 * @param string $type Type/name of the SCM directory (i.e.: 'git', 'svn')
+	 * @param string $prefix Optional prefix for the SCM directory
+	 * @return array<string>
+	 */
+	protected function _getComposerDirectoryBasedRepositoriesWithType($type, $prefix = '.') {
+		$repositories = array();
+		$composerVendorDir = $this->_getComposerVendorDirectory();
+		if (file_exists($composerVendorDir)) {
+			foreach (new GlobIterator($composerVendorDir . '*/*') as $fileInfo) {
+				Ir::pd($fileInfo, $fileInfo->isDir(), $fileInfo->getPathname());
+				if ($fileInfo->isDir()) {
+					$extension = basename($fileInfo->getPath()) . '/' .  $fileInfo->getFilename();
+					$repository = $this->_getDirectoryBasedRepositoryWithType($extension, $type, $prefix, $fileInfo->getPathname() . '/');
+					if ($repository) {
+						$repositories[$repository['title']] = $repository;
+					}
+				}
+			#	if($fileInfo->isDot()) continue;
+			#	echo $fileInfo->getFilename() . "<br>\n";
+			}
+		}
+		return $repositories;
+	}
+
+	/**
+	 * Returns the path to the composer extensions vendor dir
+	 * @return string Returns the path or FALSE if cundd_composer isn't loaded
+	 */
+	public function _getComposerVendorDirectory() {
+		if (t3lib_extMgm::isLoaded('cundd_composer')) {
+			return t3lib_extMgm::extPath('cundd_composer') . 'vendor/';
+		}
+		return FALSE;
 	}
 
 	/**
@@ -187,10 +243,13 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 	 * @param string $extensionKey
 	 * @param string $type Type/name of the SCM directory (i.e.: 'git', 'svn')
 	 * @param string $prefix Optional prefix for the SCM directory
+	 * @param string $directoryRootPath Path to the $extension, can be used to monitor SCMs outside of extensions
 	 * @return array<string>	Returns the repository data or NULL if it wasn't found
 	 */
-	protected function _getDirectoryBasedRepositoryWithType($extensionKey, $type, $prefix = '.') {
-		$directoryRootPath = t3lib_extMgm::extPath($extensionKey);
+	protected function _getDirectoryBasedRepositoryWithType($extensionKey, $type, $prefix = '.', $directoryRootPath = '') {
+		if (!$directoryRootPath) {
+			$directoryRootPath = t3lib_extMgm::extPath($extensionKey);
+		}
 		$directoryPath = $directoryRootPath . $prefix . $type;
 		if (file_exists($directoryPath)) {
 			return array(

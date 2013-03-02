@@ -90,7 +90,23 @@ class Tx_Sourcero_Service_SCMService implements t3lib_singleton {
 	 * @return string            Command output
 	 */
 	public function performAction($repository, $action, $arguments = array(), &$error = FALSE) {
+		return $this->styleOutput($this->_performAction($repository, $action, $arguments, $error));
+	}
+
+	/**
+	 * Performs the given action
+	 * @param  Tx_Sourcero_Domain_Model_Repository $repository
+	 * @param  string $action    Action to perform
+	 * @param  array  $arguments Additional arguments
+	 * @param  boolean	$error 	 Reference that will be set to TRUE if an error occured
+	 * @return string            Command output
+	 */
+	protected function _performAction($repository, $action, $arguments = array(), &$error = FALSE) {
 		$command = '';
+		$timeout = 60 * 5;
+		if ($repository === NULL) {
+			throw new UnexpectedValueException('The given repository doesn\'t seem to exits', 1362134953);
+		}
 		if ($repository->getType() === 'git') {
 			$command = 'git ' . $action . ' ';
 
@@ -106,6 +122,8 @@ class Tx_Sourcero_Service_SCMService implements t3lib_singleton {
 				'GIT_AUTHOR_NAME' => $name,
 				'GIT_AUTHOR_EMAIL' => $email,
 			);
+
+			$timeout = 30;
 		}
 
 		foreach ($arguments as $key => $argument) {
@@ -115,10 +133,12 @@ class Tx_Sourcero_Service_SCMService implements t3lib_singleton {
 			$command .= escapeshellarg($argument) . ' ';
 		}
 
+		$command = trim($command);
+
 		$workingDir = $repository->getPath();
 		$process = new Process($command);
 		$process->setWorkingDirectory($workingDir);
-		$process->setTimeout(3600);
+		$process->setTimeout($timeout);
 		$process->setEnv($environment);
 		$process->run();
 		if (!$process->isSuccessful()) {
@@ -132,5 +152,54 @@ class Tx_Sourcero_Service_SCMService implements t3lib_singleton {
 			return $process->getErrorOutput();
 		}
 		return $output;
+	}
+
+	/**
+	 * Converts the console colors to colored spans
+	 * @param  string $output The original output
+	 * @return string         The colored output
+	 */
+	public function styleOutput($output) {
+		$output = htmlspecialchars($output);
+		$output = htmlspecialchars($output);
+
+		$lines = explode(PHP_EOL, $output);
+		foreach ($lines as $lineNumber => &$line) {
+		#	$line = htmlspecialchars($line);
+			$line = $this->replaceColorWithClassInLine('[1m', 'bold', $line);
+			$line = $this->replaceColorWithClassInLine('[31m', 'red', $line);
+			$line = $this->replaceColorWithClassInLine('[32m', 'green', $line);
+			$line = $this->replaceColorWithClassInLine('[36m', 'cyan', $line);
+		}
+
+
+		return implode(PHP_EOL, $lines);
+	}
+
+	/**
+	 * Replace the given color with the CSS class in the given line
+	 * @param  string $commandColor
+	 * @param  string $class
+	 * @param  string $line
+	 * @return string
+	 */
+	protected function replaceColorWithClassInLine($commandColor, $class, $line) {
+		$signal = "\033";
+
+		if (strpos($line, $signal . $commandColor) !== FALSE) {
+			// Replace the commands with a special keyword
+			$line = str_replace($signal . $commandColor, 'SPECIAL_COMMAND_SIGNAL_BEGINN', $line);
+
+			// Escape the HTML special chars
+#			$line = htmlspecialchars($line);
+
+			// Add the span
+			$line = str_replace('SPECIAL_COMMAND_SIGNAL_BEGINN', '<span class="' . $class .'">', $line);
+		}
+
+		// Close all spans
+		$line = str_replace($signal . '[m', '</span>', $line);
+
+		return $line;
 	}
 }

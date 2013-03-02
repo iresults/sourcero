@@ -270,6 +270,19 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 	protected function _performAction($repository, $action, $arguments = array(), &$error = FALSE) {
 		return $this->scmService->performAction($repository, $action, $arguments, $error);
 	}
+
+	/**
+     * Dumps a given variable (or the given variables) wrapped into a 'pre' tag.
+     * @var mixed $var1
+     */
+    public function pd($var1 = '__iresults_pd_noValue') {
+		echo '<pre>';
+		foreach (func_get_args() as $var) {
+			if ($var !== '__iresults_pd_noValue')
+				var_dump($var);
+		}
+		echo '</pre>';
+    }
 }
 ?>
 

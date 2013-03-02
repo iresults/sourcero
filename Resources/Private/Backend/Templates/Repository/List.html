@@ -47,7 +47,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 				</f:link.action>
 			</td>
 			<td><f:link.action action="show" arguments="{repository : repository.title}"> {repository.type}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{repository : repository.title}"> {repository.path}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{repository : repository.title}"> {repository.relativePath}</f:link.action></td>
 			<td>
 				<f:if condition="{repository.homepage}">
 					<a href="{repository.homepage}" class="external-link"> {repository.homepage} <i class="icon-eye-open icon-white"></i></a>
