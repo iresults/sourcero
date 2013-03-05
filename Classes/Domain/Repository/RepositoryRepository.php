@@ -211,7 +211,7 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 		$composerVendorDir = $this->_getComposerVendorDirectory();
 		if (file_exists($composerVendorDir)) {
 			foreach (new GlobIterator($composerVendorDir . '*/*') as $fileInfo) {
-				Ir::pd($fileInfo, $fileInfo->isDir(), $fileInfo->getPathname());
+				#Ir::pd($fileInfo, $fileInfo->isDir(), $fileInfo->getPathname());
 				if ($fileInfo->isDir()) {
 					$extension = basename($fileInfo->getPath()) . '/' .  $fileInfo->getFilename();
 					$repository = $this->_getDirectoryBasedRepositoryWithType($extension, $type, $prefix, $fileInfo->getPathname() . '/');
