@@ -1,0 +1,35 @@
+<f:layout name="Default" />
+
+This Template is responsible for displaying a single view for a domain object
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        Show.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+
+<f:render partial="Menu" arguments="{repository:repository}" />
+
+<h1>Reset</h1>
+
+<f:flashMessages />
+<f:render partial="Repository/Properties" arguments="{repository:repository}" />
+
+<br />
+<div class="well">
+	<p>Are you sure you want to remove the following changes?</p>
+	<p>This can NOT be undone</p>
+
+	<f:link.action class="btn btn-primary" action="show" arguments="{repository:repository.title}">Cancel</f:link.action>
+	<f:link.action class="btn btn-danger" action="performReset" arguments="{repository:repository.title, really:'true'}">Really reset</f:link.action>
+</div>
+
+
+<pre><f:format.htmlentitiesDecode>{commandOutput}</f:format.htmlentitiesDecode></pre>
+
+</f:section>

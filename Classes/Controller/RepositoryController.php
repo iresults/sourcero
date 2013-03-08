@@ -184,6 +184,42 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 	}
 
 	/**
+	 * action reset
+	 *
+	 * @param string $repository
+	 * @return void
+	 */
+	public function resetAction($repository) {
+		if (!is_object($repository)) {
+			$repository = $this->repositoryRepository->findByUid($repository);
+		}
+		$this->view->assign('repository', $repository);
+		$this->view->assign('commandOutput', $this->_performAction($repository, 'status'));
+	}
+
+	/**
+	 * action reset
+	 *
+	 * @param string $repository
+	 * @param boolean $really
+	 * @return void
+	 */
+	public function performResetAction($repository, $really = FALSE) {
+		if (!$really) {
+			$this->redirect('list');
+			return '';
+		}
+		if (!is_object($repository)) {
+			$repository = $this->repositoryRepository->findByUid($repository);
+		}
+		$command = 'reset';
+		$arguments = array('--hard');
+		$this->view->assign('repository', $repository);
+		$this->view->assign('command', $command);
+		$this->view->assign('commandOutput', $this->_performAction($repository, $command, $arguments));
+	}
+
+	/**
 	 * action commit
 	 *
 	 * @param string $repository
@@ -223,6 +259,13 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 	 * @dontvalidate
 	 */
 	public function executeCommandAction($repository, $command, $arguments = array()) {
+		/*
+		 * If a dedicated action method for the given command exists forward to it
+		 */
+		if (method_exists($this, $command . 'Action')) {
+			$this->redirect($command, NULL, NULL, array('repository' => $repository->getTitle()));
+			return '';
+		}
 		if (!is_object($repository)) {
 			$repository = $this->repositoryRepository->findByUid($repository);
 		}

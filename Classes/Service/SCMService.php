@@ -121,6 +121,8 @@ class Tx_Sourcero_Service_SCMService implements t3lib_singleton {
 			$environment = array(
 				'GIT_AUTHOR_NAME' => $name,
 				'GIT_AUTHOR_EMAIL' => $email,
+				'GIT_COMMITTER_NAME' => $name,
+				'GIT_COMMITTER_EMAIL' => $email,
 			);
 
 			$timeout = 30;
@@ -134,6 +136,10 @@ class Tx_Sourcero_Service_SCMService implements t3lib_singleton {
 		}
 
 		$command = trim($command);
+
+		// echo '<pre>';
+		// var_dump($environment);
+		// echo '</pre>';
 
 		$workingDir = $repository->getPath();
 		$process = new Process($command);
