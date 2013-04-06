@@ -83,6 +83,12 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 	protected $_additionalData;
 
 	/**
+	 * Current states of the repository
+	 * @var Tx_Sourcero_Service_SCMService::STATUS_CODE
+	 */
+	protected $_statusCode;
+
+	/**
 	 * Returns the title
 	 *
 	 * @return string $title
@@ -188,7 +194,10 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 	 * @return integer
 	 */
 	public function getStatusCode() {
-		return $this->_scmService->getStatusCodeForRepository($this);
+		if ($this->_statusCode === NULL) {
+			$this->_statusCode = $this->_scmService->getStatusCodeForRepository($this);
+		}
+		return $this->_statusCode;
 	}
 
 	/**

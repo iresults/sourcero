@@ -67,9 +67,15 @@ class Tx_Sourcero_Service_SCMService implements t3lib_singleton {
 		$type = $repository->getType();
 		switch ($type) {
 			case 'git':
+				$this->performAction($repository, 'fetch', array('--all'));
 				$output = $this->performAction($repository, 'status');
+				echo "<pre>$output</pre>";
 				if (strpos($output, 'nothing to commit (working directory clean)') !== FALSE) {
 					$status = self::STATUS_CODE_OK;
+				} else if (strpos($output, 'Your branch is ahead of') !== FALSE) {
+					$status = self::STATUS_CODE_SHOULD_PUSH;
+				} else if (strpos($output, 'Your branch is behind') !== FALSE) {
+					$status = self::STATUS_CODE_SHOULD_PULL;
 				} else if (strpos($output, 'Untracked files') !== FALSE
 					|| strpos($output, 'Changes to be committed') !== FALSE
 					|| strpos($output, 'Changes not staged for commit') !== FALSE
