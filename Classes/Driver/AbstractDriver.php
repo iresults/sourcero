@@ -1,0 +1,205 @@
+<?php
+
+/***************************************************************
+ *  Copyright notice
+ *
+ *  (c) 2013 Andreas Thurnheer-Meier <tma@iresults.li>, iresults
+ *  Daniel Corn <cod@iresults.li>, iresults
+ *
+ *  All rights reserved
+ *
+ *  This script is part of the TYPO3 project. The TYPO3 project is
+ *  free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  The GNU General Public License can be found at
+ *  http://www.gnu.org/copyleft/gpl.html.
+ *
+ *  This script is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ***************************************************************/
+
+
+
+/**
+ * Abstract class for drivers
+ *
+ * @package sourcero
+ * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
+ *
+ */
+abstract class Tx_Sourcero_Driver_AbstractDriver implements Tx_Sourcero_Driver_DriverInterface {
+	/**
+	 * The managed repository
+	 * @var Tx_Sourcero_Domain_Model_Repository
+	 */
+	protected $repository;
+
+
+	/**
+	 * Executes the given command
+	 * @param  string $command   	Command to execute
+	 * @param  array  $arguments	Additional arguments
+	 * @param  boolean	$error 	 	Reference that will be set to TRUE if an error occured
+	 * @return string            	Raw command output
+	 */
+	abstract protected function _executeCommand($command, $arguments = array(), &$error = FALSE);
+
+	/**
+	 * Constructor
+	 * @param Tx_Sourcero_Domain_Model_Repository $repository The managed repository
+	 */
+	public function __construct(Tx_Sourcero_Domain_Model_Repository $repository) {
+		$this->repository = $repository;
+	}
+
+	/**
+	 * Returns the managed repository
+	 * @return  Tx_Sourcero_Domain_Model_Repository
+	 */
+	public function getRepository() {
+		return $this->repository;
+	}
+
+	/**
+	 * Returns the status message for the given repository
+	 * @param  array  $arguments	Additional arguments
+	 * @return string
+	 */
+	public function status($arguments = array()) {
+		return $this->executeCommand('status', $arguments, $error);
+	}
+
+	/**
+	 * Returns the log message for the given repository
+	 * @param  array  $arguments	Additional arguments
+	 * @return string
+	 */
+	public function log($arguments = array()) {
+		return $this->executeCommand('log', $arguments, $error);
+	}
+
+	/**
+	 * Returns the diff message for the given repository
+	 * @param  array  $arguments	Additional arguments
+	 * @return string
+	 */
+	public function diff($arguments = array()) {
+		return $this->executeCommand('diff', $arguments, $error);
+	}
+
+	/**
+	 * Adds files to the given repository
+	 * @param  array  $arguments	Additional arguments
+	 * @return string
+	 */
+	public function add($arguments = array()) {
+		return $this->executeCommand('add', $arguments, $error);
+	}
+
+	/**
+	 * Commit the changes the given repository
+	 * @param  string  $message 	The commit message
+	 * @param  array  $arguments	Additional arguments
+	 * @return string
+	 */
+	public function commit($message, $arguments = array()) {
+		return $this->executeCommand('commit', $arguments, $error);
+	}
+
+	/**
+	 * Pull remote changes
+	 * @param  array  $arguments	Additional arguments
+	 * @return string
+	 */
+	public function pull($arguments = array()) {
+		return $this->executeCommand('pull', $arguments, $error);
+	}
+
+	/**
+	 * Push local changes
+	 * @param  array  $arguments	Additional arguments
+	 * @return string
+	 */
+	public function push($arguments = array()) {
+		return $this->executeCommand('push', $arguments, $error);
+	}
+
+	/**
+	 * Reset local changes
+	 * @param  array  $arguments	Additional arguments
+	 * @return string
+	 */
+	public function reset($arguments = array()) {
+		return $this->executeCommand('reset', $arguments, $error);
+	}
+
+	/**
+	 * Executes the given command
+	 * @param  string $command   	Command to execute
+	 * @param  array  $arguments	Additional arguments
+	 * @param  boolean	$error 	 	Reference that will be set to TRUE if an error occured
+	 * @return string            	Command output
+	 */
+	public function executeCommand($command, $arguments = array(), &$error = FALSE) {
+		if ($command === NULL) {
+			throw new UnexpectedValueException('No command specified', 1362134973);
+		}
+		return $this->styleOutput($this->_executeCommand($command, $arguments, $error));
+	}
+
+	/**
+	 * Converts the console colors to colored spans
+	 * @param  string $output The original output
+	 * @return string         The colored output
+	 */
+	public function styleOutput($output) {
+		$output = htmlspecialchars($output);
+		$output = htmlspecialchars($output);
+
+		$lines = explode(PHP_EOL, $output);
+		foreach ($lines as $lineNumber => &$line) {
+		#	$line = htmlspecialchars($line);
+			$line = $this->replaceColorWithClassInLine('[1m', 'bold', $line);
+			$line = $this->replaceColorWithClassInLine('[31m', 'red', $line);
+			$line = $this->replaceColorWithClassInLine('[32m', 'green', $line);
+			$line = $this->replaceColorWithClassInLine('[36m', 'cyan', $line);
+		}
+
+
+		return implode(PHP_EOL, $lines);
+	}
+
+	/**
+	 * Replace the given color with the CSS class in the given line
+	 * @param  string $commandColor
+	 * @param  string $class
+	 * @param  string $line
+	 * @return string
+	 */
+	protected function replaceColorWithClassInLine($commandColor, $class, $line) {
+		$signal = "\033";
+
+		if (strpos($line, $signal . $commandColor) !== FALSE) {
+			// Replace the commands with a special keyword
+			$line = str_replace($signal . $commandColor, 'SPECIAL_COMMAND_SIGNAL_BEGINN', $line);
+
+			// Escape the HTML special chars
+#			$line = htmlspecialchars($line);
+
+			// Add the span
+			$line = str_replace('SPECIAL_COMMAND_SIGNAL_BEGINN', '<span class="' . $class .'">', $line);
+		}
+
+		// Close all spans
+		$line = str_replace($signal . '[m', '</span>', $line);
+
+		return $line;
+	}
+}

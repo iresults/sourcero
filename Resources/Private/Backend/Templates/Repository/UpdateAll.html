@@ -1,0 +1,49 @@
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+
+<header class="header-section">
+	<div class="logo-container">
+		<f:image src="{f:uri.resource(path:'Icons/Icon-white-200.png')}" width="200" height="200" alt="Icon" />
+	</div>
+	<div class="header-title">
+		<h1>Repositories</h1>
+	</div>
+</header>
+
+<f:flashMessages />
+
+<table class="tx_sourcero table table-striped">
+	<f:for each="{driversAndOutputs}" as="driverAndOutput">
+		<tr>
+			<td class="title">
+				<f:link.action action="show" arguments="{repository : driverAndOutput.driver.repository.title}" class="title-badge">
+					<f:render partial="Status" arguments="{statusCode: driverAndOutput.driver.repository.localStatusCode}" />
+				</f:link.action>
+
+				<f:link.action action="show" arguments="{repository : driverAndOutput.driver.repository.title}">
+					{driverAndOutput.driver.repository.title}
+				</f:link.action>
+			</td>
+			<td>
+				<pre>{driverAndOutput.output}</pre>
+			</td>
+		</tr>
+	</f:for>
+</table>
+
+<f:link.action action="list" target="_blank"><i class="icon-arrow-left icon-white"></i></f:link.action> <f:link.action action="list">Back to list</f:link.action>
+
+
+</f:section>

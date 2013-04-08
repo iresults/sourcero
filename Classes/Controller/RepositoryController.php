@@ -78,6 +78,33 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 		$this->view->assign('repositories', $repositories);
 	}
 
+
+	/**
+	 * Update/pull all repositories
+	 * @return void
+	 */
+	public function updateAllAction() {
+		$repositories = $this->repositoryRepository->findAll();
+		$drivers = array();
+		$methodOutputs = array();
+		$driversAndOutputs = array();
+
+		foreach ($repositories as $repository) {
+			$driver = $this->scmService->getDriverForRepository($repository);
+			$output = $driver->pull();
+
+			$drivers[] = $driver;
+			$methodOutputs[] = $output;
+
+			$driversAndOutputs[] = array(
+				'driver' => $driver,
+				'output' => $output,
+			);
+		}
+
+		$this->view->assign('driversAndOutputs', $driversAndOutputs);
+	}
+
 	/**
 	 * action show
 	 *

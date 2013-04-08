@@ -111,7 +111,6 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 	 * @api
 	 */
 	public function findOneByTitle($title) {
-		ini_set('display_errors', TRUE);
 		try {
 			$object = $this->_getDirectoryBasedRepositoryWithType($title, 'git');
 		} catch (BadFunctionCallException $exception) {

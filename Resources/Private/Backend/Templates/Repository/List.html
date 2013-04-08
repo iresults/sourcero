@@ -39,7 +39,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		<tr>
 			<td class="title">
 				<f:link.action action="show" arguments="{repository : repository.title}" class="title-badge">
-					<f:render partial="Status" arguments="{repository: repository}" />
+					<f:render partial="Status" arguments="{statusCode: repository.localStatusCode}" />
 				</f:link.action>
 
 				<f:link.action action="show" arguments="{repository : repository.title}">
@@ -60,6 +60,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	</f:for>
 </table>
 
-<f:link.action action="info"><i class="icon-heart icon-white"></i></f:link.action> <f:link.action action="info">Info</f:link.action>
+<f:link.action action="updateAll"><i class="icon-circle-arrow-down icon-white"></i></f:link.action> <f:link.action action="updateAll">Update all</f:link.action>
 <f:link.action action="list" target="_blank"><i class="icon-fullscreen icon-white"></i></f:link.action> <f:link.action action="list" target="_blank">Open in new window</f:link.action>
+
+<f:link.action action="info"><i class="icon-heart icon-white"></i></f:link.action> <f:link.action action="info">Info</f:link.action>
+
 </f:section>

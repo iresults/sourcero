@@ -201,6 +201,17 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 	}
 
 	/**
+	 * Returns the local status code
+	 * @return integer
+	 */
+	public function getLocalStatusCode() {
+		if ($this->_statusCode === NULL) {
+			$this->_statusCode = $this->_scmService->getStatusCodeForRepository($this, TRUE);
+		}
+		return $this->_statusCode;
+	}
+
+	/**
 	 * Returns the path
 	 *
 	 * @return string $path
