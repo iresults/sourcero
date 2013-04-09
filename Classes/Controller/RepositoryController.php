@@ -338,7 +338,19 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 	 * @return string            Command output
 	 */
 	protected function _performAction($repository, $action, $arguments = array(), &$error = FALSE) {
+		if (!$this->scmService->hasDriverForRepository($repository)) {
+			return $this->getDriverNotFoundMessage($repository);
+		}
 		return $this->scmService->performAction($repository, $action, $arguments, $error);
+	}
+
+	/**
+	 * Returns the message that will be shown if no driver was found
+	 * @param  Tx_Sourcero_Domain_Model_Repository $repository
+	 * @return string
+	 */
+	public function getDriverNotFoundMessage($repository) {
+		return 'No driver found for SCM type ' . $repository->getType();
 	}
 
 	/**

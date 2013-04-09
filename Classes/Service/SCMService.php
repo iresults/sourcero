@@ -37,6 +37,16 @@ use Symfony\Component\Process\Process;
  */
 class Tx_Sourcero_Service_SCMService implements t3lib_singleton {
 	/**
+	 * Status of the SCM
+	 */
+	const STATUS_CODE = -1000;
+
+	/**
+	 * The status could not be detected
+	 */
+	const STATUS_CODE_UNKNOWN = 0;
+
+	/**
 	 * The working copy doesn't contain any modifications and is up to date
 	 */
 	const STATUS_CODE_OK = 1;
@@ -68,14 +78,35 @@ class Tx_Sourcero_Service_SCMService implements t3lib_singleton {
 	 * @return Tx_Sourcero_Driver_DriverInterface
 	 */
 	public function getDriverForRepository($repository) {
-		$driver = NULL;
 		$type = $repository->getType();
-		switch ($type) {
-			default:
-				$driver = $this->objectManager->create('Tx_Sourcero_Driver_' . ucfirst($type) . 'Driver', $repository);
-				break;
+		$driverClassName = 'Tx_Sourcero_Driver_' . ucfirst($type) . 'Driver';
+		return $this->createDriverInstanceWithClass($driverClassName, $repository);
+	}
+
+	/**
+	 * Returns if a driver for the given repository exists
+	 * @param  Tx_Sourcero_Domain_Model_Repository $repository
+	 * @return Tx_Sourcero_Driver_DriverInterface
+	 */
+	public function hasDriverForRepository($repository) {
+		$type = $repository->getType();
+		$driverClassName = 'Tx_Sourcero_Driver_' . ucfirst($type) . 'Driver';
+		return class_exists($driverClassName);
+	}
+
+	/**
+	 * Returns a new instance of the given driver class, managing the given
+	 * repository
+	 * @param  string $driverClassName Class name of the driver
+	 * @param Tx_Sourcero_Domain_Model_Repository $repository The managed repository
+	 * @return Tx_Sourcero_Driver_DriverInterface
+	 * @throws Tx_Sourcero_Service_Exception_DriverNotFoundException If the driver class doesn't exist
+	 */
+	protected function createDriverInstanceWithClass($driverClassName, $repository) {
+		if (!class_exists($driverClassName)) {
+			throw new Tx_Sourcero_Service_Exception_DriverNotFoundException('Class ' . $driverClassName . ' doesn\'t seem to exist', 1365509951);
 		}
-		return $driver;
+		return $this->objectManager->create($driverClassName, $repository);
 	}
 
 	/**
@@ -85,6 +116,9 @@ class Tx_Sourcero_Service_SCMService implements t3lib_singleton {
 	 * @return integer
 	 */
 	public function getStatusCodeForRepository($repository, $onlyLocal = FALSE) {
+		if (!$this->hasDriverForRepository($repository)) {
+			return self::STATUS_CODE_UNKNOWN;
+		}
 		return $this->getDriverForRepository($repository)->getStatusCode($onlyLocal);
 	}
 

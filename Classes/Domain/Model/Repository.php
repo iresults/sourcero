@@ -212,6 +212,14 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 	}
 
 	/**
+	 * Returns if a driver for this SCM exists
+	 * @return boolean
+	 */
+	public function getHasDriver() {
+		return $this->_scmService->hasDriverForRepository($this);
+	}
+
+	/**
 	 * Returns the path
 	 *
 	 * @return string $path

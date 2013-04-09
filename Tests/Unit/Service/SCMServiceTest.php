@@ -26,7 +26,11 @@
  ***************************************************************/
 
 if (!class_exists('Tx_Sourcero_Driver_SvnDriver')) {
-	class Tx_Sourcero_Driver_SvnDriver extends Tx_Sourcero_Driver_AbstractDriver {
+	class Tx_Sourcero_Driver_SubversionDriver extends Tx_Sourcero_Driver_AbstractDriver {
+		public function getStatusCode($onlyLocal = FALSE) {}
+		protected function _executeCommand($command, $arguments = array(), &$error = FALSE) {}
+	}
+	class Tx_Sourcero_Driver_MercurialDriver extends Tx_Sourcero_Driver_AbstractDriver {
 		public function getStatusCode($onlyLocal = FALSE) {}
 		protected function _executeCommand($command, $arguments = array(), &$error = FALSE) {}
 	}
@@ -59,23 +63,45 @@ class Tx_Sourcero_Service_SCMServiceTest extends Tx_Extbase_Tests_Unit_BaseTestC
 	 * @test
 	 */
 	public function getDriverTest() {
-
 		$gitRepository = new Tx_Sourcero_Domain_Model_Repository();
 		$gitRepository->setTitle('MyRepo');
 		$gitRepository->setPath('/path/to/nowhere/');
 		$gitRepository->setHomepage('http://www.myrepo-home.com/MyRepo');
 		$gitRepository->setRemoteUrl('http://www.myrepo-home.com/MyRepo.git');
-		$gitRepository->setType('git');
+		$gitRepository->setType(Tx_Sourcero_Domain_Enum_SCMType::GIT);
 
 		$svnRepository = new Tx_Sourcero_Domain_Model_Repository();
 		$svnRepository->setTitle('MyRepo');
 		$svnRepository->setPath('/path/to/nowhere/');
 		$svnRepository->setHomepage('http://www.myrepo-home.com/MyRepo');
 		$svnRepository->setRemoteUrl('http://www.myrepo-home.com/MyRepo.git');
-		$svnRepository->setType('svn');
+		$svnRepository->setType(Tx_Sourcero_Domain_Enum_SCMType::SUBVERSION);
+
+		$mercurialRepository = new Tx_Sourcero_Domain_Model_Repository();
+		$mercurialRepository->setTitle('MyRepo');
+		$mercurialRepository->setPath('/path/to/nowhere/');
+		$mercurialRepository->setHomepage('http://www.myrepo-home.com/MyRepo');
+		$mercurialRepository->setRemoteUrl('http://www.myrepo-home.com/MyRepo.git');
+		$mercurialRepository->setType(Tx_Sourcero_Domain_Enum_SCMType::MERCURIAL);
 
 		$this->assertInstanceOf('Tx_Sourcero_Driver_GitDriver', $this->fixture->getDriverForRepository($gitRepository));
-		$this->assertInstanceOf('Tx_Sourcero_Driver_SvnDriver', $this->fixture->getDriverForRepository($svnRepository));
+		$this->assertInstanceOf('Tx_Sourcero_Driver_SubversionDriver', $this->fixture->getDriverForRepository($svnRepository));
+		$this->assertInstanceOf('Tx_Sourcero_Driver_MercurialDriver', $this->fixture->getDriverForRepository($mercurialRepository));
+	}
+
+	/**
+	 * @test
+	 * @expectedException Tx_Sourcero_Service_Exception_DriverNotFoundException
+	 */
+	public function unfoundDriverTest() {
+		$repository = new Tx_Sourcero_Domain_Model_Repository();
+		$repository->setTitle('MyRepo');
+		$repository->setPath('/path/to/nowhere/');
+		$repository->setHomepage('http://www.myrepo-home.com/MyRepo');
+		$repository->setRemoteUrl('http://www.myrepo-home.com/MyRepo.git');
+		$repository->setType('badType');
+
+		$this->fixture->getDriverForRepository($repository);
 	}
 
 }

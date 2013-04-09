@@ -1,43 +1,44 @@
-<style type="text/css">
-	.navbar-image {
-		width: 30px;
-	}
-</style>
 <div class="navbar">
 	<div class="navbar-inner">
 		<!-- <a class="brand" href="#"><f:image src="{f:uri.resource(path:'Icons/Icon-white-200.png')}" class="navbar-image" alt="Icon" /></a> -->
 		<ul class="nav">
-			<li>
-				<f:link.action action="show" arguments="{repository:repository.title}">Status</f:link.action>
-			</li>
-			<li>
-				<f:link.action action="log" arguments="{repository:repository.title}">Log</f:link.action>
-			</li>
-			<li>
-				<f:link.action action="executeCommand" arguments="{repository:repository.title, command:'diff', arguments:{0: 'HEAD', 1:'--color'}}">Diff</f:link.action>
-			</li>
-			<li>
-				<f:link.action action="add" arguments="{repository:repository.title, add: '.'}">Add</f:link.action>
-			</li>
-			<li>
-				<f:link.action action="commit" arguments="{repository:repository.title}">Commit</f:link.action>
-			</li>
-			<li>
-				<f:link.action action="pull" arguments="{repository:repository.title}">Pull <i class="icon-circle-arrow-down icon-white"></i></f:link.action>
-			</li>
-			<li>
-				<f:link.action action="push" arguments="{repository:repository.title}">Push <i class="icon-circle-arrow-up icon-white"></i></f:link.action>
-			</li>
-			<li>
-				<f:link.action action="reset" arguments="{repository:repository.title}">Reset <i class="icon-warning-sign icon-white"></i></f:link.action>
-			</li>
+			<f:if condition="{repository.hasDriver}">
+				<li>
+					<f:link.action action="show" arguments="{repository:repository.title}">Status</f:link.action>
+				</li>
+				<li>
+					<f:link.action action="log" arguments="{repository:repository.title}">Log</f:link.action>
+				</li>
+				<li>
+					<f:link.action action="executeCommand" arguments="{repository:repository.title, command:'diff', arguments:{0: 'HEAD', 1:'--color'}}">Diff</f:link.action>
+				</li>
+				<li>
+					<f:link.action action="add" arguments="{repository:repository.title, add: '.'}">Add</f:link.action>
+				</li>
+				<li>
+					<f:link.action action="commit" arguments="{repository:repository.title}">Commit</f:link.action>
+				</li>
+				<li>
+					<f:link.action action="pull" arguments="{repository:repository.title}">Pull <i class="icon-circle-arrow-down icon-white"></i></f:link.action>
+				</li>
+				<li>
+					<f:link.action action="push" arguments="{repository:repository.title}">Push <i class="icon-circle-arrow-up icon-white"></i></f:link.action>
+				</li>
+				<li>
+					<f:link.action action="reset" arguments="{repository:repository.title}">Reset <i class="icon-warning-sign icon-white"></i></f:link.action>
+				</li>
+			</f:if>
+
 			<li>
 				<f:link.action action="list">Back to list</f:link.action>
 			</li>
 		</ul>
-		<f:form action="executeCommand" arguments="{repository:repository.title}" class="navbar-form pull-right">
-			<f:form.textfield name="command" class="span2" additionalAttributes="{placeholder:'Command'}" />
-			<button type="submit" class="btn">Execute</button>
-		</f:form>
+
+		<f:if condition="{repository.hasDriver}">
+			<f:form action="executeCommand" arguments="{repository:repository.title}" class="navbar-form pull-right">
+				<f:form.textfield name="command" class="span2" additionalAttributes="{placeholder:'Command'}" />
+				<button type="submit" class="btn">Execute</button>
+			</f:form>
+		</f:if>
 	</div>
 </div>

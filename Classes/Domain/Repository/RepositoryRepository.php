@@ -33,7 +33,6 @@
  *
  */
 class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Persistence_Repository {
-
 	/**
 	 * The property mapper
 	 *
@@ -58,6 +57,31 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 	protected $repositories = NULL;
 
 	/**
+	 * An array of SCM types with their according directory names
+	 * @var array
+	 */
+	protected $directoryNameForSCMType = array(
+		Tx_Sourcero_Domain_Enum_SCMType::GIT			=> 'git',
+		Tx_Sourcero_Domain_Enum_SCMType::MERCURIAL 		=> 'hg',
+		Tx_Sourcero_Domain_Enum_SCMType::SUBVERSION 	=> 'svn',
+		Tx_Sourcero_Domain_Enum_SCMType::CVS 			=> 'cvs',
+
+		// Aliases
+		'Concurrent Versions System' 					=> 'cvs',
+	);
+
+	/**
+	 * An array of directory names with their according SCM types
+	 * @var array
+	 */
+	protected $SCMTypeForDirectoryName = array(
+		'git'	=> Tx_Sourcero_Domain_Enum_SCMType::GIT,
+		'hg' 	=> Tx_Sourcero_Domain_Enum_SCMType::MERCURIAL,
+		'svn' 	=> Tx_Sourcero_Domain_Enum_SCMType::SUBVERSION,
+		'cvs' 	=> Tx_Sourcero_Domain_Enum_SCMType::CVS,
+	);
+
+	/**
 	 * Returns all objects of this repository.
 	 *
 	 * @return array
@@ -67,7 +91,7 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 		if (!$this->repositories) {
 			$this->repositories = new \SplObjectStorage();
 
-			$repositoryList = $this->getGitRepositories();
+			$repositoryList = $this->_getDirectoryBasedRepositoriesWithWildcard();
 			ksort($repositories);
 			$index = 0;
 			foreach ($repositories as &$repository) {
@@ -81,7 +105,6 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 				}
 			}
 		}
-
 		return $this->repositories;
 	}
 
@@ -112,7 +135,7 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 	 */
 	public function findOneByTitle($title) {
 		try {
-			$object = $this->_getDirectoryBasedRepositoryWithType($title, 'git');
+			$object = $this->_getDirectoryBasedRepositoryWithWildcard($title);
 		} catch (BadFunctionCallException $exception) {
 			/*
 			 * If the given $title is not an $extension name look inside the
@@ -120,7 +143,7 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 			 */
 			$composerVendorDir = $this->_getComposerVendorDirectory();
 			if ($composerVendorDir && $exception->getCode() === 1270853878) {
-				$object = $this->_getDirectoryBasedRepositoryWithType($title, 'git', '.', $composerVendorDir . $title . '/');
+				$object = $this->_getDirectoryBasedRepositoryWithWildcard($title, NULL, '.', $composerVendorDir . $title . '/');
 			}
 		}
 		if ($object) {
@@ -173,6 +196,10 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 		return $this->_getDirectoryBasedRepositoriesWithType('git');
 	}
 
+
+	/* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
+	/* GET REPOSITORY WITH KNOWN TYPE   WMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
+	/* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
 	/**
 	 * Returns the list of all extensions that contain a repository
 	 *
@@ -194,6 +221,9 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 		if ($this->_getComposerVendorDirectory()) {
 			$repositories = array_merge($repositories, $this->_getComposerDirectoryBasedRepositoriesWithType($type, $prefix));
 		}
+		if (!$repositories) {
+			$repositories = array();
+		}
 		return $repositories;
 	}
 
@@ -213,7 +243,13 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 				#Ir::pd($fileInfo, $fileInfo->isDir(), $fileInfo->getPathname());
 				if ($fileInfo->isDir()) {
 					$extension = basename($fileInfo->getPath()) . '/' .  $fileInfo->getFilename();
-					$repository = $this->_getDirectoryBasedRepositoryWithType($extension, $type, $prefix, $fileInfo->getPathname() . '/');
+
+					// Check if the given type is a wildcard
+					if ($type === NULL) {
+						$repository = $this->_getDirectoryBasedRepositoryWithWildcard($extension, $type, $prefix, $fileInfo->getPathname() . '/');
+					} else {
+						$repository = $this->_getDirectoryBasedRepositoryWithType($extension, $type, $prefix, $fileInfo->getPathname() . '/');
+					}
 					if ($repository) {
 						$repositories[$repository['title']] = $repository;
 					}
@@ -226,18 +262,7 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 	}
 
 	/**
-	 * Returns the path to the composer extensions vendor dir
-	 * @return string Returns the path or FALSE if cundd_composer isn't loaded
-	 */
-	public function _getComposerVendorDirectory() {
-		if (t3lib_extMgm::isLoaded('cundd_composer')) {
-			return t3lib_extMgm::extPath('cundd_composer') . 'vendor/';
-		}
-		return FALSE;
-	}
-
-	/**
-	 * Returns the repository data for the given extension key and SCM type
+	 * Returns the repository data for the repository with the given key and SCM type
 	 *
 	 * @param string $extensionKey
 	 * @param string $type Type/name of the SCM directory (i.e.: 'git', 'svn')
@@ -249,7 +274,9 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 		if (!$directoryRootPath) {
 			$directoryRootPath = t3lib_extMgm::extPath($extensionKey);
 		}
-		$directoryPath = $directoryRootPath . $prefix . $type;
+
+		$directoryName = $this->getDirectoryNameForSCMType($type);
+		$directoryPath = $directoryRootPath . $prefix . $directoryName;
 		if (file_exists($directoryPath)) {
 			return array(
 				'type' 		=> $type,
@@ -258,6 +285,113 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 			);
 		}
 		return NULL;
+	}
+
+
+	/* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
+	/* GET REPOSITORY WITH UNKNOWN TYPE   WMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
+	/* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
+	/**
+	 * Returns the list of all repositories
+	 *
+	 * @param string $wildcard Wildcard to match the SCM directory
+	 * @param string $prefix Optional prefix for the SCM directory
+	 * @return array<string>
+	 */
+	protected function _getDirectoryBasedRepositoriesWithWildcard($wildcard = NULL, $prefix = '.') {
+		$repositories = array();
+		$extensions = explode(',', t3lib_extMgm::getEnabledExtensionList());
+
+		foreach ($extensions as $extension) {
+			$repository = $this->_getDirectoryBasedRepositoryWithWildcard($extension, $wildcard, $prefix);
+			if ($repository) {
+				$repositories[$repository['title']] = $repository;
+			}
+		}
+
+		if ($this->_getComposerVendorDirectory()) {
+			$repositories = array_merge($repositories, $this->_getComposerDirectoryBasedRepositoriesWithType($wildcard, $prefix));
+		}
+		if (!$repositories) {
+			$repositories = array();
+		}
+		return $repositories;
+	}
+
+	/**
+	 * Returns the repository data for the repository with the given key and an unknown type
+	 *
+	 * @param string $extensionKey
+	 * @param string $wildcard Wildcard to match the SCM directory
+	 * @param string $prefix Optional prefix for the SCM directory
+	 * @param string $directoryRootPath Path to the $extension, can be used to monitor SCMs outside of extensions
+	 * @return array<string>	Returns the repository data or NULL if it wasn't found
+	 */
+	protected function _getDirectoryBasedRepositoryWithWildcard($extensionKey, $wildcard = NULL, $prefix = '.', $directoryRootPath = '') {
+		if (!$directoryRootPath) {
+			$directoryRootPath = t3lib_extMgm::extPath($extensionKey);
+		}
+		if ($wildcard === NULL) {
+			$wildcard = '{' . implode(',', $this->_getAllDirectoryNameForSCMTypes()) . '}';
+		}
+		$directoryPath = $directoryRootPath . $prefix . $wildcard;
+		$foundPaths = glob($directoryPath, GLOB_BRACE);
+
+		$currentPath = current($foundPaths);
+		$currentDirectoryName = basename($currentPath);
+		while ($currentDirectoryName === '.' || $currentDirectoryName === '..') {
+			$currentPath = next($foundPaths);
+			$currentDirectoryName = basename($currentPath);
+		}
+		if (!$currentPath) {
+			return NULL;
+		}
+
+		$directoryName = substr($currentDirectoryName, strlen($prefix));
+		$type = $this->getSCMTypeForDirectoryName($directoryName);
+
+		return array(
+			'type' 			=> $type,
+			'title' 		=> $extensionKey,
+			'path' 			=> $directoryRootPath,
+			'directoryName' => $directoryName,
+		);
+	}
+
+
+	/* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
+	/* HELPER METHODS                     WMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
+	/* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
+	/**
+	 * Returns the name of the directory where the versioning systems data is stored
+	 * @param  string $type Type/name of the SCM
+	 * @return string
+	 */
+	public function getDirectoryNameForSCMType($type) {
+		if (isset($this->directoryNameForSCMType[$type])) {
+			return $this->directoryNameForSCMType[$type];
+		}
+		return strtolower($type);
+	}
+
+	/**
+	 * Returns the SCM type of the directory name
+	 * @param  string $directoryName
+	 * @return string
+	 */
+	public function getSCMTypeForDirectoryName($directoryName) {
+		if (isset($this->SCMTypeForDirectoryName[$directoryName])) {
+			return $this->SCMTypeForDirectoryName[$directoryName];
+		}
+		return NULL;
+	}
+
+	/**
+	 * Returns the directory names for all SCM types
+	 * @return array<string>
+	 */
+	protected function _getAllDirectoryNameForSCMTypes() {
+		return array_flip(array_flip($this->directoryNameForSCMType));
 	}
 
 	/**
@@ -272,6 +406,17 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 			$properties = array_keys($properties->_getProperties());
 		}
 		return $properties;
+	}
+
+	/**
+	 * Returns the path to the composer extensions vendor dir
+	 * @return string Returns the path or FALSE if cundd_composer isn't loaded
+	 */
+	public function _getComposerVendorDirectory() {
+		if (t3lib_extMgm::isLoaded('cundd_composer')) {
+			return t3lib_extMgm::extPath('cundd_composer') . 'vendor/';
+		}
+		return FALSE;
 	}
 
 }
