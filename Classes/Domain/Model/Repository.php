@@ -190,6 +190,15 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 	}
 
 	/**
+	 * Returns the path
+	 *
+	 * @return string $path
+	 */
+	public function getUrl() {
+		return substr($this->path, strlen(PATH_site));
+	}
+
+	/**
 	 * Returns the status code
 	 * @return integer
 	 */
@@ -217,15 +226,6 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function getHasDriver() {
 		return $this->_scmService->hasDriverForRepository($this);
-	}
-
-	/**
-	 * Returns the path
-	 *
-	 * @return string $path
-	 */
-	public function getRelativePath() {
-		return str_replace(PATH_site, '', $this->path);
 	}
 
 	/**
