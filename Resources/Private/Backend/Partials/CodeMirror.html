@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="{codeMirror.installPath}/lib/codemirror.css">
+
+<!-- Use the combined file -->
+<script type="text/javascript" src="{f:uri.resource(path:'Scripts/codemirror-compressed.js')}"></script>
+<script type="text/javascript" src="{f:uri.resource(path:'Scripts/CodeMirrorAddons/hint/php-hint.js')}"></script>
+
+<!-- Or load the JavaScript files manually -->
+<!-- <script type="text/javascript" src="{codeMirror.installPath}/lib/codemirror.js"></script> -->
+<!-- <script type="text/javascript" src="{codeMirror.installPath}/mode/php/php.js"></script> -->
+<!-- <f:for each="{codeMirror.addons}" as="addon"> -->
+<!--	<script type="text/javascript" src="{addon.uri}"></script> -->
+<!-- </f:for> -->
+
+<link rel="stylesheet" href="{codeMirror.installPath}/theme/monokai.css">
+
+<link rel="stylesheet" href="{codeMirror.installPath}/addon/dialog/dialog.css"/>
+<link rel="stylesheet" href="{codeMirror.installPath}/addon/hint/show-hint.css"/>
+<link rel="stylesheet" href="{codeMirror.installPath}/addon/lint/lint.css"/>
+
+<script type="text/javascript">
+var codeMirrorMode = "{codeMirror.mode}",
+	codeTextarea = document.getElementById("code"),
+	codeFolding,
+	editor;
+
+CodeMirror.commands.autocomplete = function(cm) {
+	CodeMirror.showHint(cm, CodeMirror.{codeMirror.mode}Hint);
+}
+CodeMirror.commands.saveFile = function(cm) {
+	codeTextarea.form.submit();
+}
+
+codeFolding = CodeMirror.newFoldFunction(CodeMirror.braceRangeFinder);
+
+
+
+editor = CodeMirror.fromTextArea(codeTextarea, {
+	// Add a comment, so this is not treated as Fluid variable
+	lineNumbers: true,
+	matchBrackets: true,
+	theme: "monokai",
+	mode: codeMirrorMode,
+	indentUnit: 4,
+	indentWithTabs: true,
+	enterMode: "keep",
+	tabMode: "shift",
+	autoCloseTags: true,
+	autoCloseBrackets: true,
+	lineWrapping: true,
+	styleActiveLine: true,
+	highlightSelectionMatches: true,
+	extraKeys: {
+		"Cmd-Space": "autocomplete",
+		"Ctrl-Space": "autocomplete",
+		"Cmd-S": "saveFile",
+		"Ctrl-S": "saveFile"
+	}
+});
+editor.on("gutterClick", codeFolding);
+
+
+
+</script>

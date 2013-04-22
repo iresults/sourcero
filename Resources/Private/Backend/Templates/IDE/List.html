@@ -1,0 +1,26 @@
+{namespace sourcero=Tx_Sourcero_ViewHelpers}
+<f:layout name="Default" />
+
+This template displays a EDIT form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+Edit.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+
+<f:link.action action="list" controller="Repository" class="pull-right">
+	<div class="btn btn-inverse">
+		<i class="icon-off icon-white"></i>
+	</div>
+</f:link.action>
+
+<f:render partial="FileBrowser" arguments="{_all}" />
+
+
+</f:section>
