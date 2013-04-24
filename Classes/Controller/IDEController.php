@@ -59,6 +59,7 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		'js' => 'application/x-javascript',
 		'json' => 'application/x-javascript',
 		'css' => 'text/css',
+		'scss' => 'text/x-scss',
 		'html' => 'text/html',
 		'xhtml' => 'text/html',
 		'phtml' => 'text/html',
@@ -165,6 +166,8 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 
 		if ($mode === 'html') {
 			$mode = 'htmlmixed';
+		} else if ($mode === 'scss') {
+			$mode = 'text/x-scss';
 		}
 		return $mode;
 	}
@@ -175,15 +178,22 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 * @return string
 	 */
 	protected function getMimeTypeOfFile($file) {
+		$suffix = $file->getSuffix();
+
+		if ($suffix === 'scss') {
+			return $this->mimeTypeForSuffix['scss'];
+		}
+
 		$finfo = finfo_open(FILEINFO_MIME_TYPE);
 		$mimeType = finfo_file($finfo, $file->getPath());
 		finfo_close($finfo);
 
 		if ($mimeType === 'text/plain') {
-			if (isset($this->mimeTypeForSuffix[$file->getSuffix()])) {
-				$mimeType = $this->mimeTypeForSuffix[$file->getSuffix()];
+			if (isset($this->mimeTypeForSuffix[$suffix])) {
+				$mimeType = $this->mimeTypeForSuffix[$suffix];
 			}
 		}
+
 		return $mimeType;
 	}
 
