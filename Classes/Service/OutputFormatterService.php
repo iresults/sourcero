@@ -65,7 +65,7 @@ class Tx_Sourcero_Service_OutputFormatterService implements t3lib_singleton {
 		if ($repository) {
 			$this->repository = $repository;
 		}
-		return $this->addLinks(
+        return $this->addLinks(
 			$this->colorize($code)
 		);
 	}
@@ -82,17 +82,14 @@ class Tx_Sourcero_Service_OutputFormatterService implements t3lib_singleton {
 	public function addLinks($code) {
 		$matches = array();
 		$output = $code;
-		if (preg_match_all('!'
-			. '([\w_\-]+\/)+([\w_\-]+\.[\w_\-]+)+\W' // File with a subdirectory
-			. '|'
-			. '[\w_\-]+\.[\w_\-]+\W' // File in the root directory
-			. '!u', $code, $matches)) {
+		if (preg_match_all('!\.*([\w_\-]+\/)*([\w_\-]+\.[\w_\-]+)+\W|[\w_\-]+\.[\w_\-]+\W!u', $code, $matches)) {
 			$matches = current($matches);
+            $matches = array_unique($matches);
 			foreach ($matches as $match) {
 				$match = trim($match);
 
 				$link = $this->buildLinkForFile($match);
-				$output = str_replace($match, $link, $output);
+                $output = preg_replace("!$match!", $link, $output);
 			}
 		}
 		return $output;

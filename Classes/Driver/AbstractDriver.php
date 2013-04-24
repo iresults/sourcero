@@ -149,15 +149,20 @@ abstract class Tx_Sourcero_Driver_AbstractDriver implements Tx_Sourcero_Driver_D
 
 	/**
 	 * Executes the given command
-	 * @param  string $command   	Command to execute
-	 * @param  array  $arguments	Additional arguments
-	 * @param  boolean	$error 	 	Reference that will be set to TRUE if an error occured
+	 * @param  string $command   	  Command to execute
+	 * @param  array  $arguments	  Additional arguments
+	 * @param  boolean	$error 	 	  Reference that will be set to TRUE if an error occured
+     * @param  boolean  $formatOutput If set to FALSE the output will not be formatted
 	 * @return string            	Command output
 	 */
-	public function executeCommand($command, $arguments = array(), &$error = FALSE) {
+	public function executeCommand($command, $arguments = array(), &$error = FALSE, $formatOutput = TRUE) {
 		if ($command === NULL) {
 			throw new UnexpectedValueException('No command specified', 1362134973);
-		}
-		return $this->outputFormatterService->styleOutput($this->_executeCommand($command, $arguments, $error), $this->repository);
-	}
+        }
+        $output = $this->_executeCommand($command, $arguments, $error);
+        if ($formatOutput) {
+            $output = $this->outputFormatterService->styleOutput($output, $this->repository);
+        }
+        return $output;
+    }
 }
