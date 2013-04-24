@@ -59,15 +59,19 @@ class Tx_Sourcero_Service_OutputFormatterService implements t3lib_singleton {
 	 * Converts the console colors to colored spans
 	 * @param  string $code The original output
 	 * @param  Tx_Sourcero_Domain_Model_Repository $repository
+	 * @param  string $executedCommand
 	 * @return string         The colored output
 	 */
-	public function styleOutput($code, Tx_Sourcero_Domain_Model_Repository $repository = NULL) {
+	public function styleOutput($code, Tx_Sourcero_Domain_Model_Repository $repository = NULL, $executedCommand = '') {
 		if ($repository) {
 			$this->repository = $repository;
 		}
-		return $this->addLinks(
-			$this->colorize($code)
-		);
+		$code = $this->colorize($code);
+
+		if ($executedCommand === 'diff') {
+			return $code;
+		}
+		return $this->addLinks($code);
 	}
 
 

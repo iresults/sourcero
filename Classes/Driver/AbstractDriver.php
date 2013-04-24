@@ -158,6 +158,6 @@ abstract class Tx_Sourcero_Driver_AbstractDriver implements Tx_Sourcero_Driver_D
 		if ($command === NULL) {
 			throw new UnexpectedValueException('No command specified', 1362134973);
 		}
-		return $this->outputFormatterService->styleOutput($this->_executeCommand($command, $arguments, $error), $this->repository);
+		return $this->outputFormatterService->styleOutput($this->_executeCommand($command, $arguments, $error), $this->repository, $command);
 	}
 }
