@@ -158,7 +158,7 @@ abstract class Tx_Sourcero_Driver_AbstractDriver implements Tx_Sourcero_Driver_D
 	public function executeCommand($command, $arguments = array(), &$error = FALSE, $formatOutput = TRUE) {
 		if ($command === NULL) {
 			throw new UnexpectedValueException('No command specified', 1362134973);
-        }
+		}
         $output = $this->_executeCommand($command, $arguments, $error);
         if ($formatOutput) {
             $output = $this->outputFormatterService->styleOutput($output, $this->repository);
