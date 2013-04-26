@@ -25,9 +25,15 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+if (!defined('TYPO3_MODE') || TYPO3_MODE !== 'BE') {
+	echo 'Access denied';
+	die();
+}
+
 Tx_CunddComposer_Autoloader::register();
 use Symfony\Component\Process\Process;
 use Iresults\FS as FS;
+
 
 /**
  *
