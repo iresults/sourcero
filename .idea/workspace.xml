@@ -10,7 +10,7 @@
     <file path="/preg.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367050680754" ignored="false" />
     <file path="/OutputFormatterService.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367051205403" ignored="false" />
     <file path="/AbstractDriver.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367003721849" ignored="false" />
-    <file path="/GitDriver.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1366833751907" ignored="false" />
+    <file path="/GitDriver.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367227483944" ignored="false" />
     <file path="/a.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052112770" ignored="false" />
     <file path="/a.css" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052113625" ignored="false" />
     <file path="/a.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052114797" ignored="false" />
@@ -120,7 +120,7 @@
       <file leaf-file-name="GitDriver.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Classes/Driver/GitDriver.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="33" selection-start="1470" selection-end="1483" vertical-scroll-proportion="0.2753623">
+            <state line="56" column="8" selection-start="1912" selection-end="1912" vertical-scroll-proportion="0.46376812">
               <folding />
             </state>
           </provider>
@@ -738,7 +738,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Classes/Driver/GitDriver.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="33" selection-start="1470" selection-end="1483" vertical-scroll-proportion="0.2753623">
+        <state line="56" column="8" selection-start="1912" selection-end="1912" vertical-scroll-proportion="0.46376812">
           <folding />
         </state>
       </provider>

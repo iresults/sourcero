@@ -49,17 +49,17 @@ class Tx_Sourcero_Driver_GitDriver extends Tx_Sourcero_Driver_AbstractCliDriver 
 
         $error = NULL;
 		$output = $this->executeCommand('status', array(), $error);
-		if (strpos($output, 'Your branch is ahead of') !== FALSE) {
+		if (strpos($output, 'Untracked files') !== FALSE
+			|| strpos($output, 'Changes to be committed') !== FALSE
+			|| strpos($output, 'Changes not staged for commit') !== FALSE
+			) {
+			 $status = Tx_Sourcero_Service_SCMService::STATUS_CODE_DIRTY;
+		} else if (strpos($output, 'Your branch is ahead of') !== FALSE) {
 			$status = Tx_Sourcero_Service_SCMService::STATUS_CODE_SHOULD_PUSH;
 		} else if (strpos($output, 'Your branch is behind') !== FALSE) {
 			$status = Tx_Sourcero_Service_SCMService::STATUS_CODE_SHOULD_PULL;
 		} else if (strpos($output, 'nothing to commit (working directory clean)') !== FALSE) {
 			$status = Tx_Sourcero_Service_SCMService::STATUS_CODE_OK;
-		} else if (strpos($output, 'Untracked files') !== FALSE
-			|| strpos($output, 'Changes to be committed') !== FALSE
-			|| strpos($output, 'Changes not staged for commit') !== FALSE
-			) {
-			 $status = Tx_Sourcero_Service_SCMService::STATUS_CODE_DIRTY;
 		}
 		return $status;
 	}
