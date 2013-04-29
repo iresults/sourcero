@@ -2,30 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225cf487-373c-44f3-a29c-0ed742c9060a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Driver/AbstractDriver.php" afterPath="$PROJECT_DIR$/Classes/Driver/AbstractDriver.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Add.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/ExecuteCommand.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/ExecuteCommand.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Driver/GitDriver.php" afterPath="$PROJECT_DIR$/Classes/Driver/GitDriver.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Controller/IDEController.php" afterPath="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Log.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Log.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Service/OutputFormatterService.php" afterPath="$PROJECT_DIR$/Classes/Service/OutputFormatterService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformCommit.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformCommit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformReset.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformReset.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Pull.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Pull.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Push.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Push.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Controller/RepositoryController.php" afterPath="$PROJECT_DIR$/Classes/Controller/RepositoryController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Reset.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Reset.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Service/SCMService.php" afterPath="$PROJECT_DIR$/Classes/Service/SCMService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sourcero.iml" afterPath="$PROJECT_DIR$/.idea/sourcero.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sourcero.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -131,10 +108,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IDEController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="IDEController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="65" selection-start="2561" selection-end="2561" vertical-scroll-proportion="0.23483366">
+            <state line="82" column="65" selection-start="2561" selection-end="2561" vertical-scroll-proportion="-10.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GitDriver.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Classes/Driver/GitDriver.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="33" selection-start="1470" selection-end="1483" vertical-scroll-proportion="0.2753623">
               <folding />
             </state>
           </provider>
@@ -159,7 +145,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Classes/Service/OutputFormatterService.php" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Add.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/ExecuteCommand.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Log.html" />
@@ -175,6 +160,7 @@
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" />
         <option value="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" />
         <option value="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
+        <option value="$PROJECT_DIR$/Classes/Driver/GitDriver.php" />
       </list>
     </option>
   </component>
@@ -504,6 +490,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Driver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -641,11 +645,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Pull.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="23" selection-start="560" selection-end="560" vertical-scroll-proportion="0.30493706" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Push.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="23" selection-start="560" selection-end="560" vertical-scroll-proportion="0.30493706" />
@@ -732,7 +731,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="65" selection-start="2561" selection-end="2561" vertical-scroll-proportion="0.23483366">
+        <state line="82" column="65" selection-start="2561" selection-end="2561" vertical-scroll-proportion="-10.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Driver/GitDriver.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="33" selection-start="1470" selection-end="1483" vertical-scroll-proportion="0.2753623">
           <folding />
         </state>
       </provider>
