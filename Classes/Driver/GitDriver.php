@@ -48,7 +48,7 @@ class Tx_Sourcero_Driver_GitDriver extends Tx_Sourcero_Driver_AbstractCliDriver 
 		}
 
         $error = NULL;
-		$output = $this->executeCommand('status', array(), $error, FALSE);
+		$output = $this->executeCommand('status', array(), $error);
 		if (strpos($output, 'nothing to commit (working directory clean)') !== FALSE) {
 			$status = Tx_Sourcero_Service_SCMService::STATUS_CODE_OK;
 		} else if (strpos($output, 'Untracked files') !== FALSE
@@ -85,7 +85,7 @@ class Tx_Sourcero_Driver_GitDriver extends Tx_Sourcero_Driver_AbstractCliDriver 
 
 		if ($fetchIsRequired) {
             $error = NULL;
-			return $this->executeCommand('fetch', array('--all'), $error, FALSE);
+			return $this->executeCommand('fetch', array('--all'), $error);
 		}
 		return FALSE;
 	}

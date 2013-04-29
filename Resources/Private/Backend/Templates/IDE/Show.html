@@ -43,6 +43,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	</div>
 
 	<div class="span1">
+		<f:flashMessages />
 		<f:link.action action="list" controller="Repository" class="pull-right">
 			<div class="btn btn-inverse">
 				<i class="icon-off icon-white"></i>
@@ -51,7 +52,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	</div>
 </header>
 
-<f:flashMessages />
+
 <f:render partial="FormErrors" />
 
 
@@ -71,7 +72,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	<f:else>
 
 		<f:form action="update" method="POST">
-			<sourcero:form.textarea rows="100" cols="100" name="contents" id="code" value="{file.contents -> f:format.raw()}" class="input-block-level" />
+			<sourcero:form.textarea rows="100" cols="100" name="contents" id="code" value="{file.contents -> f:format.raw()}" class="input-block-level" additionalAttributes="{autofocus:autofocus}"/>
 			<f:form.hidden name="path" value="{file.path}" />
 
 

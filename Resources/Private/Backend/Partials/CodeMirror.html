@@ -18,46 +18,11 @@
 <link rel="stylesheet" href="{codeMirror.installPath}/addon/lint/lint.css"/>
 
 <script type="text/javascript">
-var codeMirrorMode = "{codeMirror.mode}",
-	codeTextarea = document.getElementById("code"),
-	codeFolding,
-	editor;
-
-CodeMirror.commands.autocomplete = function(cm) {
-	CodeMirror.showHint(cm, CodeMirror.{codeMirror.mode}Hint);
-}
-CodeMirror.commands.saveFile = function(cm) {
-	codeTextarea.form.submit();
-}
-
-codeFolding = CodeMirror.newFoldFunction(CodeMirror.braceRangeFinder);
-
-
-
-editor = CodeMirror.fromTextArea(codeTextarea, {
-	// Add a comment, so this is not treated as Fluid variable
-	lineNumbers: true,
-	matchBrackets: true,
-	theme: "monokai",
-	mode: codeMirrorMode,
-	indentUnit: 4,
-	indentWithTabs: true,
-	enterMode: "keep",
-	tabMode: "shift",
-	autoCloseTags: true,
-	autoCloseBrackets: true,
-	lineWrapping: true,
-	styleActiveLine: true,
-	highlightSelectionMatches: true,
-	extraKeys: {
-		"Cmd-Space": "autocomplete",
-		"Ctrl-Space": "autocomplete",
-		"Cmd-S": "saveFile",
-		"Ctrl-S": "saveFile"
-	}
-});
-editor.on("gutterClick", codeFolding);
-
-
+	var codeMirrorMode = "{codeMirror.mode}",
+			codeMirrorModeHint = "{codeMirror.mode}Hint";
 
 </script>
+
+
+<script type="text/javascript" src="{f:uri.resource(path:'Scripts/Delegate.js')}"></script>
+

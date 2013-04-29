@@ -314,9 +314,12 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 			$currentRelativePath = substr($uri, strpos($uri, '/'));
 
 			$files[] = array(
+				'name' => basename($currentRelativePath),
 				'path' => $currentPath,
 				'relativePath' => $currentRelativePath,
-				'uri' => 'EXT:' . $uri
+				'relativeDir' => dirname($currentRelativePath),
+				'uri' => 'EXT:' . $uri,
+				'isDirectory' => is_dir($currentPath),
 			);
 		}
 		return $files;

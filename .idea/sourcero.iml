@@ -7,14 +7,6 @@
     <orderEntry type="module-library">
       <library name="PHP">
         <CLASSES>
-<<<<<<< HEAD
-          <root url="file://$MODULE_DIR$/../cundd_composer/vendor/iresults/core" />
-          <root url="file://$MODULE_DIR$/../cundd_composer/vendor/iresults/fs" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../cundd_composer/vendor/iresults/core" />
-          <root url="file://$MODULE_DIR$/../cundd_composer/vendor/iresults/fs" />
-=======
           <root url="file://$MODULE_DIR$/../Iresults.Core" />
           <root url="file://$MODULE_DIR$/../Iresults.FS" />
           <root url="file://$MODULE_DIR$/../iresults.framework" />
@@ -23,7 +15,6 @@
           <root url="file://$MODULE_DIR$/../Iresults.Core" />
           <root url="file://$MODULE_DIR$/../Iresults.FS" />
           <root url="file://$MODULE_DIR$/../iresults.framework" />
->>>>>>> 156810842bd24c5c41fc02f881f48fc88a5664e9
         </SOURCES>
       </library>
     </orderEntry>

@@ -341,7 +341,7 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 		if (!$this->scmService->hasDriverForRepository($repository)) {
 			return $this->getDriverNotFoundMessage($repository);
 		}
-		return $this->scmService->performAction($repository, $action, $arguments, $error);
+		return $this->scmService->executeCommand($repository, $action, $arguments, $error);
 	}
 
 	/**

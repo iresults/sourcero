@@ -42,14 +42,6 @@ abstract class Tx_Sourcero_Driver_AbstractDriver implements Tx_Sourcero_Driver_D
 	protected $repository;
 
 	/**
-	 * Output formatter service
-	 * @var Tx_Sourcero_Service_OutputFormatterService
-	 * @inject
-	 */
-	protected $outputFormatterService;
-
-
-	/**
 	 * Executes the given command
 	 * @param  string $command   	Command to execute
 	 * @param  array  $arguments	Additional arguments
@@ -152,17 +144,12 @@ abstract class Tx_Sourcero_Driver_AbstractDriver implements Tx_Sourcero_Driver_D
 	 * @param  string $command   	  Command to execute
 	 * @param  array  $arguments	  Additional arguments
 	 * @param  boolean	$error 	 	  Reference that will be set to TRUE if an error occured
-     * @param  boolean  $formatOutput If set to FALSE the output will not be formatted
 	 * @return string            	Command output
 	 */
-	public function executeCommand($command, $arguments = array(), &$error = FALSE, $formatOutput = TRUE) {
+	public function executeCommand($command, $arguments = array(), &$error = FALSE) {
 		if ($command === NULL) {
 			throw new UnexpectedValueException('No command specified', 1362134973);
 		}
-        $output = $this->_executeCommand($command, $arguments, $error);
-        if ($formatOutput) {
-            $output = $this->outputFormatterService->styleOutput($output, $this->repository);
-        }
-        return $output;
+        return $this->_executeCommand($command, $arguments, $error);
     }
 }

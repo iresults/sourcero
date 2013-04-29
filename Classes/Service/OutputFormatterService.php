@@ -56,6 +56,15 @@ class Tx_Sourcero_Service_OutputFormatterService implements t3lib_singleton {
 	protected $request;
 
 	/**
+	 * An array of commands whose output should be checked for file paths
+	 * @var array
+	 */
+	protected $commandsWithLinks = array(
+		'status',
+
+	);
+
+	/**
 	 * Converts the console colors to colored spans
 	 * @param  string $code The original output
 	 * @param  Tx_Sourcero_Domain_Model_Repository $repository
@@ -68,10 +77,10 @@ class Tx_Sourcero_Service_OutputFormatterService implements t3lib_singleton {
 		}
 		$code = $this->colorize($code);
 
-		if ($executedCommand === 'diff') {
-			return $code;
+		if ($executedCommand && in_array($executedCommand, $this->commandsWithLinks)) {
+			return $this->addLinks($code);
 		}
-		return $this->addLinks($code);
+		return $code;
 	}
 
 
@@ -86,7 +95,12 @@ class Tx_Sourcero_Service_OutputFormatterService implements t3lib_singleton {
 	public function addLinks($code) {
 		$matches = array();
 		$output = $code;
-		if (preg_match_all('!\.*([\w_\-]+\/)*([\w_\-]+\.[\w_\-]+)+\W|[\w_\-]+\.[\w_\-]+\W!u', $code, $matches)) {
+
+		// !#\t+((new file:\s+){0,1}|(modi:\s+){0,1})!u
+		// !([\w\-]+[/\.]+)+!
+		// !\.*([\w_\-]+\/)*([\w_\-]+\.[\w_\-]+)+\W|[\w_\-]+\.[\w_\-]+\W!u
+
+		if (preg_match_all('!\s[\w/\.\-]+\.[\w/\.\-]+\s!', $code, $matches)) {
 			$matches = current($matches);
             $matches = array_unique($matches);
 			foreach ($matches as $match) {
@@ -160,9 +174,23 @@ class Tx_Sourcero_Service_OutputFormatterService implements t3lib_singleton {
 		$lines = explode(PHP_EOL, $code);
 		foreach ($lines as $lineNumber => &$line) {
 			$line = $this->replaceColorWithClassInLine('[1m', 'bold', $line);
+
 			$line = $this->replaceColorWithClassInLine('[31m', 'red', $line);
 			$line = $this->replaceColorWithClassInLine('[32m', 'green', $line);
+			$line = $this->replaceColorWithClassInLine('[33m', 'yellow', $line);
+			$line = $this->replaceColorWithClassInLine('[34m', 'blue', $line);
+			$line = $this->replaceColorWithClassInLine('[35m', 'magenta', $line);
 			$line = $this->replaceColorWithClassInLine('[36m', 'cyan', $line);
+			$line = $this->replaceColorWithClassInLine('[37m', 'white', $line);
+
+
+			$line = $this->replaceColorWithClassInLine('[41m', 'ascii-bg background-red', $line);
+			$line = $this->replaceColorWithClassInLine('[42m', 'ascii-bg background-green', $line);
+			$line = $this->replaceColorWithClassInLine('[43m', 'ascii-bg background-yellow', $line);
+			$line = $this->replaceColorWithClassInLine('[44m', 'ascii-bg background-blue', $line);
+			$line = $this->replaceColorWithClassInLine('[45m', 'ascii-bg background-magenta', $line);
+			$line = $this->replaceColorWithClassInLine('[46m', 'ascii-bg background-cyan', $line);
+			$line = $this->replaceColorWithClassInLine('[47m', 'ascii-bg background-white', $line);
 		}
 		return implode(PHP_EOL, $lines);
 	}

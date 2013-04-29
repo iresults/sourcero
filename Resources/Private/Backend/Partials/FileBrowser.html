@@ -3,7 +3,15 @@
 
 	<div class="fileBrowserInner">
 		<f:for each="{fileBrowser}" as="currentFile">
-			<div><f:link.action action="show" arguments="{file: currentFile.uri}">{currentFile.relativePath}</f:link.action></div>
+			<f:if condition="{currentFile.isDirectory}">
+				<f:then>
+					<div class="item itemDirectory"><span class="directory">{currentFile.relativePath}</span></div>
+				</f:then>
+				<f:else>
+					<div class="item itemFile"><f:link.action action="show" arguments="{file: currentFile.uri}"><span class="fileDirectory">{currentFile.relativeDir}/</span>{currentFile.name}</f:link.action></div>
+				</f:else>
+			</f:if>
+
 		</f:for>
 	</div>
 </div>

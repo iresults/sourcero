@@ -73,6 +73,19 @@ class Tx_Sourcero_Service_SCMService implements t3lib_singleton {
 	protected $objectManager;
 
 	/**
+	 * Specifies if the code should be formatted
+	 * @var boolean
+	 */
+	protected $formatCode = TRUE;
+
+	/**
+	 * Output formatter service
+	 * @var Tx_Sourcero_Service_OutputFormatterService
+	 * @inject
+	 */
+	protected $outputFormatterService;
+
+	/**
 	 * Returns the driver for the given repository
 	 * @param  Tx_Sourcero_Domain_Model_Repository $repository
 	 * @return Tx_Sourcero_Driver_DriverInterface
@@ -123,14 +136,35 @@ class Tx_Sourcero_Service_SCMService implements t3lib_singleton {
 	}
 
 	/**
-	 * Performs the given action
+	 * Executes the given command
 	 * @param  Tx_Sourcero_Domain_Model_Repository $repository
-	 * @param  string $action    Action to perform
+	 * @param  string $command    Command to execute
 	 * @param  array  $arguments Additional arguments
 	 * @param  boolean	$error 	 Reference that will be set to TRUE if an error occured
 	 * @return string            Command output
 	 */
-	public function performAction($repository, $action, $arguments = array(), &$error = FALSE) {
-		return $this->getDriverForRepository($repository)->executeCommand($action, $arguments, $error);
+	public function executeCommand($repository, $command, $arguments = array(), &$error = FALSE) {
+		$output = $this->getDriverForRepository($repository)->executeCommand($command, $arguments, $error);
+		if ($this->getFormatCode()) {
+			$output = $this->outputFormatterService->styleOutput($output, $repository, $command);
+		}
+		return $output;
 	}
+
+	/**
+	 * @param boolean $formatCode
+	 */
+	public function setFormatCode($formatCode) {
+		$this->formatCode = $formatCode;
+	}
+
+	/**
+	 * @return boolean
+	 */
+	public function getFormatCode() {
+		return $this->formatCode;
+	}
+
+
+
 }

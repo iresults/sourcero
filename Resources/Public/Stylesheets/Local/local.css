@@ -72,18 +72,36 @@ textarea.input-block-level:hover {
 }
 
 /* Styles console output */
-#typo3-inner-docbody pre .bold {	font-weight: bold;	}
-#typo3-inner-docbody pre .red {		color: red;	}
-#typo3-inner-docbody pre .green {	color: green;	}
-#typo3-inner-docbody pre .cyan {	color: cyan;	}
+#typo3-inner-docbody pre .bold		{	font-weight: bold;	}
+#typo3-inner-docbody pre .red		{	color: red;		}
+#typo3-inner-docbody pre .green		{	color: green;	}
+#typo3-inner-docbody pre .yellow	{	color: yellow;	}
+#typo3-inner-docbody pre .blue		{	color: blue;	}
+#typo3-inner-docbody pre .magenta	{	color: magenta;	}
+#typo3-inner-docbody pre .cyan		{	color: cyan;	}
+#typo3-inner-docbody pre .white		{	color: white;	}
 
+#typo3-inner-docbody pre .background-red		{	background-color: red;		}
+#typo3-inner-docbody pre .background-green		{	background-color: green;	}
+#typo3-inner-docbody pre .background-yellow		{	background-color: yellow;	}
+#typo3-inner-docbody pre .background-blue		{	background-color: blue;		}
+#typo3-inner-docbody pre .background-magenta	{	background-color: magenta;	}
+#typo3-inner-docbody pre .background-cyan		{	background-color: cyan;		}
+#typo3-inner-docbody pre .background-white		{	background-color: white;	}
 
+#typo3-inner-docbody pre.scm-output {}
+#typo3-inner-docbody pre.scm-output span {
+	border: 0 none;
+}
 
 /* SCM info table */
 .scm-info {
 	margin-bottom: 1em;
 }
 
+a.editLink {
+    background: rgba(0, 136, 204, 0.2);
+}
 a.editLink i {
 	opacity: 0;
 }
@@ -129,5 +147,19 @@ h1.editorHeader {
 .fileBrowser.toggle:hover .fileBrowserInner {
 	display: block;
 }
-
-
+.fileBrowser .fileBrowserInner .item {
+	width: 100%;
+}
+.fileBrowser .fileBrowserInner .itemFile .fileDirectory {
+	color: rgba(0, 136, 204, 0.4);
+}
+.fileBrowser .fileBrowserInner .itemDirectory {
+	border-top: 2px solid #333;
+	margin-top: 10px;
+	padding-top: 10px;
+}
+.fileBrowser .fileBrowserInner .itemDirectory + .itemDirectory {
+	margin-top: inherit;
+	padding-top: inherit;
+	border-top: 0 none;
+}

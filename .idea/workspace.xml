@@ -2,22 +2,53 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225cf487-373c-44f3-a29c-0ed742c9060a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Driver/AbstractDriver.php" afterPath="$PROJECT_DIR$/Classes/Driver/AbstractDriver.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Add.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Add.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/ExecuteCommand.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/ExecuteCommand.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Driver/GitDriver.php" afterPath="$PROJECT_DIR$/Classes/Driver/GitDriver.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Controller/IDEController.php" afterPath="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Log.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Log.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Service/OutputFormatterService.php" afterPath="$PROJECT_DIR$/Classes/Service/OutputFormatterService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformCommit.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformCommit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformReset.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformReset.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Pull.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Pull.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Push.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Push.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Controller/RepositoryController.php" afterPath="$PROJECT_DIR$/Classes/Controller/RepositoryController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Reset.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Reset.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Service/SCMService.php" afterPath="$PROJECT_DIR$/Classes/Service/SCMService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sourcero.iml" afterPath="$PROJECT_DIR$/.idea/sourcero.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sourcero.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367003262254" ignored="false" />
-    <file path="/preg.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1366832672643" ignored="false" />
-    <file path="/OutputFormatterService.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1366833909855" ignored="false" />
-    <file path="/AbstractDriver.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1366833636509" ignored="false" />
+    <file path="/Dummy.txt" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367226829249" ignored="false" />
+    <file path="/preg.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367050680754" ignored="false" />
+    <file path="/OutputFormatterService.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367051205403" ignored="false" />
+    <file path="/AbstractDriver.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367003721849" ignored="false" />
     <file path="/GitDriver.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1366833751907" ignored="false" />
-    <file path="/a.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367003467124" ignored="false" />
-    <file path="/a.css" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367003473164" ignored="false" />
-    <file path="/a.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367003477974" ignored="false" />
-    <file path="/a.sass" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367003479552" ignored="false" />
-    <file path="/a.xml" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367003500512" ignored="false" />
+    <file path="/a.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052112770" ignored="false" />
+    <file path="/a.css" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052113625" ignored="false" />
+    <file path="/a.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052114797" ignored="false" />
+    <file path="/a.sass" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052104147" ignored="false" />
+    <file path="/a.xml" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052108735" ignored="false" />
+    <file path="/SCMService.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367004981067" ignored="false" />
+    <file path="/RepositoryController.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367004052404" ignored="false" />
+    <file path="/local.css" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367070846102" ignored="false" />
+    <file path="/a.twig" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052106222" ignored="false" />
+    <file path="/Add.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052531461" ignored="false" />
+    <file path="/Delegate.js" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367069702032" ignored="false" />
+    <file path="/CodeMirror.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367053854942" ignored="false" />
+    <file path="/Show.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367066221613" ignored="false" />
+    <file path="/IDEController.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367071026791" ignored="false" />
+    <file path="/FileBrowser.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367070652216" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,86 +68,73 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="IDEController.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Delegate.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="65" column="27" selection-start="2082" selection-end="2082" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CodeMirror.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="30" selection-start="1106" selection-end="1124" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Downloads/JS.Class 3.0.9/src/core.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="50" column="15" selection-start="2184" selection-end="2184" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="php-hint.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/CodeMirrorAddons/hint/php-hint.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="46" selection-start="502" selection-end="502" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Show.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="23" selection-start="1196" selection-end="1196" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="local.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="0" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileBrowser.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="37" selection-start="411" selection-end="411" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IDEController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="0" selection-start="3511" selection-end="3511" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RepositoryController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/Controller/RepositoryController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="33" selection-start="333" selection-end="335" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SCMService.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/Service/SCMService.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="72" selection-start="3881" selection-end="3894" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractCliDriver.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/Driver/AbstractCliDriver.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DriverInterface.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/Driver/DriverInterface.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GitDriver.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/Driver/GitDriver.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="26" selection-start="3054" selection-end="3054" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="preg.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../preg.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="142" selection-start="516" selection-end="646" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1366832672000" expanded="true" signature="1652:1696" placeholder="..." />
-                <marker date="1366832672000" expanded="true" signature="1814:1969" placeholder="..." />
-                <marker date="1366832672000" expanded="true" signature="1830:1878" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractDriver.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Classes/Driver/AbstractDriver.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="160" column="9" selection-start="4774" selection-end="4774" vertical-scroll-proportion="0.82575023">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OutputFormatterService.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/Service/OutputFormatterService.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="0" selection-start="1568" selection-end="1568" vertical-scroll-proportion="-16.875">
+            <state line="82" column="65" selection-start="2561" selection-end="2561" vertical-scroll-proportion="0.23483366">
               <folding />
             </state>
           </provider>
@@ -133,6 +151,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
+    <option name="myStructureFilterPaths" />
     <option name="myDateState">
       <MyDateState />
     </option>
@@ -140,10 +159,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../../../preg.php" />
-        <option value="$PROJECT_DIR$/Classes/Driver/GitDriver.php" />
         <option value="$PROJECT_DIR$/Classes/Service/OutputFormatterService.php" />
-        <option value="$PROJECT_DIR$/Classes/Driver/AbstractDriver.php" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Add.html" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/ExecuteCommand.html" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Log.html" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformCommit.html" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformReset.html" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Pull.html" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Push.html" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Reset.html" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html" />
+        <option value="$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" />
+        <option value="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" />
+        <option value="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
       </list>
     </option>
   </component>
@@ -184,7 +215,9 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Project Files" />
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -213,7 +246,233 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Classes" />
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeMirrorAddons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hint" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IDE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Backend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -228,28 +487,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sourcero" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sourcero" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Driver" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -278,19 +515,40 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="editor.preferences.tabs" />
+    <property name="options.lastSelected" value="preferences.keymap" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../cundd_composer/vendor/iresults/fs" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="225cf487-373c-44f3-a29c-0ed742c9060a" name="Default" comment="" />
@@ -300,19 +558,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1856" height="1178" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="22" width="1856" height="1178" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986766" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2552486" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26574585" sideWeight="0.67013234" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986766" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -383,122 +641,98 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Classes/Service/OutputFormatterService.php">
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Pull.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="42" selection-start="2744" selection-end="2744" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="23" selection-start="560" selection-end="560" vertical-scroll-proportion="0.30493706" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Driver/AbstractCliDriver.php">
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Push.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="23" selection-start="560" selection-end="560" vertical-scroll-proportion="0.30493706" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Driver/AbstractDriver.php">
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Reset.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="22" selection-start="3934" selection-end="3934" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="32" column="23" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.464666" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Driver/DriverInterface.php">
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="22" column="23" selection-start="643" selection-end="643" vertical-scroll-proportion="0.3194579" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Driver/GitDriver.php">
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/UpdateAll.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="26" selection-start="3054" selection-end="3054" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../preg.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="142" selection-start="516" selection-end="646" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1366832672000" expanded="true" signature="1652:1696" placeholder="..." />
-            <marker date="1366832672000" expanded="true" signature="1814:1969" placeholder="..." />
-            <marker date="1366832672000" expanded="true" signature="1830:1878" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../preg.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="142" selection-start="516" selection-end="646" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1366832672000" expanded="true" signature="1652:1696" placeholder="..." />
-            <marker date="1366832672000" expanded="true" signature="1814:1969" placeholder="..." />
-            <marker date="1366832672000" expanded="true" signature="1830:1878" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="0" selection-start="3511" selection-end="3511" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Classes/Controller/RepositoryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="33" selection-start="333" selection-end="335" vertical-scroll-proportion="0.0">
+        <state line="25" column="45" selection-start="1005" selection-end="1005" vertical-scroll-proportion="-15.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="4" selection-start="6" selection-end="6" vertical-scroll-proportion="0.014492754" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_sftp-config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/JS.Class 3.0.9/src/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="15" selection-start="2184" selection-end="2184" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Driver/AbstractCliDriver.php">
+    <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/CodeMirrorAddons/hint/php-hint.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="20" column="46" selection-start="502" selection-end="502" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Service/SCMService.php">
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="72" selection-start="3881" selection-end="3894" vertical-scroll-proportion="0.0">
+        <state line="55" column="23" selection-start="1196" selection-end="1196" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Driver/GitDriver.php">
+    <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="26" selection-start="3054" selection-end="3054" vertical-scroll-proportion="0.0">
+        <state line="65" column="27" selection-start="2082" selection-end="2082" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Driver/DriverInterface.php">
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="21" column="30" selection-start="1106" selection-end="1124" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Service/OutputFormatterService.php">
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="1568" selection-end="1568" vertical-scroll-proportion="-16.875">
+        <state line="10" column="37" selection-start="411" selection-end="411" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Driver/AbstractDriver.php">
+    <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="9" selection-start="4774" selection-end="4774" vertical-scroll-proportion="0.82575023">
+        <state line="22" column="0" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="65" selection-start="2561" selection-end="2561" vertical-scroll-proportion="0.23483366">
           <folding />
         </state>
       </provider>
