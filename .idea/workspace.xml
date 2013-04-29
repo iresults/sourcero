@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225cf487-373c-44f3-a29c-0ed742c9060a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Driver/GitDriver.php" afterPath="$PROJECT_DIR$/Classes/Driver/GitDriver.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Controller/IDEController.php" afterPath="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
     </list>
     <ignored path="sourcero.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367226829249" ignored="false" />
-    <file path="/preg.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367050680754" ignored="false" />
+    <file path="/preg.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367242173745" ignored="false" />
     <file path="/OutputFormatterService.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367051205403" ignored="false" />
     <file path="/AbstractDriver.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367003721849" ignored="false" />
     <file path="/GitDriver.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367227483944" ignored="false" />
@@ -24,7 +24,7 @@
     <file path="/Delegate.js" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367069702032" ignored="false" />
     <file path="/CodeMirror.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367053854942" ignored="false" />
     <file path="/Show.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367066221613" ignored="false" />
-    <file path="/IDEController.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367071026791" ignored="false" />
+    <file path="/IDEController.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367242707798" ignored="false" />
     <file path="/FileBrowser.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367070652216" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,19 +108,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IDEController.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="IDEController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="65" selection-start="2561" selection-end="2561" vertical-scroll-proportion="-10.0">
+            <state line="250" column="64" selection-start="6824" selection-end="6824" vertical-scroll-proportion="2.715264">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GitDriver.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GitDriver.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Classes/Driver/GitDriver.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="8" selection-start="1912" selection-end="1912" vertical-scroll-proportion="0.46376812">
+            <state line="94" column="5" selection-start="3198" selection-end="3198" vertical-scroll-proportion="-41.875">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="preg.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../preg.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="0" selection-start="49" selection-end="49" vertical-scroll-proportion="-2.5">
               <folding />
             </state>
           </provider>
@@ -145,7 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Add.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/ExecuteCommand.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Log.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformCommit.html" />
@@ -159,8 +167,9 @@
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" />
         <option value="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" />
-        <option value="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
         <option value="$PROJECT_DIR$/Classes/Driver/GitDriver.php" />
+        <option value="$PROJECT_DIR$/../../../preg.php" />
+        <option value="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
       </list>
     </option>
   </component>
@@ -645,11 +654,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Push.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="23" selection-start="560" selection-end="560" vertical-scroll-proportion="0.30493706" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Reset.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="23" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.464666" />
@@ -729,16 +733,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
+    <entry file="file://$PROJECT_DIR$/Classes/Driver/GitDriver.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="65" selection-start="2561" selection-end="2561" vertical-scroll-proportion="-10.0">
+        <state line="94" column="5" selection-start="3198" selection-end="3198" vertical-scroll-proportion="-41.875">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Driver/GitDriver.php">
+    <entry file="file://$PROJECT_DIR$/../../../preg.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="8" selection-start="1912" selection-end="1912" vertical-scroll-proportion="0.46376812">
+        <state line="4" column="0" selection-start="49" selection-end="49" vertical-scroll-proportion="-2.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="250" column="64" selection-start="6824" selection-end="6824" vertical-scroll-proportion="2.715264">
           <folding />
         </state>
       </provider>

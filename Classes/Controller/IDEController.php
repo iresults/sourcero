@@ -247,6 +247,8 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	public function updateAction($path, $contents) {
 		$fileManager = FS\FileManager::sharedFileManager();
 		$file = $fileManager->getResourceAtUrl($path);
+
+		$contents = $this->removeTrailingWhitespaces($contents);
 		$success = $file->setContents($contents);
 
 		if ($success) {
@@ -279,6 +281,19 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 			$this->flashMessageContainer->add('Could not delete', 'Error', t3lib_Flashmessage::WARNING);
 		}
 		$this->redirect('list', 'Repository');
+	}
+
+	/**
+	 * Replaces trailing whitespaces
+	 * @param string $text
+	 * @return string
+	 */
+	protected function removeTrailingWhitespaces($text) {
+		$lines = explode("\n", $text);
+		foreach ($lines as &$line) {
+			$line = rtrim($line);
+		}
+		return implode(PHP_EOL, $lines);
 	}
 
 	/**
