@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="{codeMirror.installPath}/lib/codemirror.css">
+
+<!-- Use the combined file -->
+<script type="text/javascript" src="{f:uri.resource(path:'Scripts/codemirror-compressed.js')}"></script>
+<script type="text/javascript" src="{f:uri.resource(path:'Scripts/CodeMirrorAddons/hint/php-hint.js')}"></script>
+
+<!-- Or load the JavaScript files manually -->
+<!-- <script type="text/javascript" src="{codeMirror.installPath}/lib/codemirror.js"></script> -->
+<!-- <script type="text/javascript" src="{codeMirror.installPath}/mode/php/php.js"></script> -->
+<!-- <f:for each="{codeMirror.addons}" as="addon"> -->
+<!--	<script type="text/javascript" src="{addon.uri}"></script> -->
+<!-- </f:for> -->
+
+<link rel="stylesheet" href="{codeMirror.installPath}/theme/monokai.css">
+
+<link rel="stylesheet" href="{codeMirror.installPath}/addon/dialog/dialog.css"/>
+<link rel="stylesheet" href="{codeMirror.installPath}/addon/hint/show-hint.css"/>
+<link rel="stylesheet" href="{codeMirror.installPath}/addon/lint/lint.css"/>
+
+<script type="text/javascript">
+	var codeMirrorMode = "{codeMirror.mode}",
+			codeMirrorModeHint = "{codeMirror.mode}Hint";
+
+</script>
+
+
+<script type="text/javascript" src="{f:uri.resource(path:'Scripts/Delegate.js')}"></script>
+

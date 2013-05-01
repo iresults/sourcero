@@ -1,0 +1,122 @@
+{namespace sourcero=Tx_Sourcero_ViewHelpers}
+<f:layout name="Default" />
+
+This template displays a EDIT form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+Edit.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+
+<style type="text/css">
+	.CodeMirror {
+		border: 1px solid #eee;
+		height: 600px !important;
+	}
+	.CodeMirror-scroll {
+		height: 800px;
+	}
+	.CodeMirror pre {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+	}
+</style>
+
+
+<header class="row-fluid">
+	<div class="span11">
+		<f:if condition="{file.exists}">
+			<f:then>
+				<h1 class="editorHeader">Edit File</h1>
+			</f:then>
+			<f:else>
+				<h1 class="editorHeader">New File</h1>
+			</f:else>
+		</f:if>
+	</div>
+
+	<div class="span1">
+		<f:flashMessages />
+		<f:link.action action="list" controller="Repository" class="pull-right">
+			<div class="btn btn-inverse">
+				<i class="icon-off icon-white"></i>
+			</div>
+		</f:link.action>
+	</div>
+</header>
+
+
+<f:render partial="FormErrors" />
+
+
+
+<f:if condition="{fileIsBinary}">
+	<f:then>
+		<div class="well">
+			<f:format.raw>{fileBinaryData}</f:format.raw>
+		</div>
+
+		<div>
+			<f:link.action action="delete" arguments="{file: file.uri}">
+				Delete file <i class="icon-trash icon-white"></i>
+			</f:link.action>
+		</div>
+	</f:then>
+	<f:else>
+
+		<f:form action="update" method="POST">
+			<sourcero:form.textarea rows="100" cols="100" name="contents" id="code" value="{file.contents -> f:format.raw()}" class="input-block-level" additionalAttributes="{autofocus:autofocus}"/>
+			<f:form.hidden name="path" value="{file.path}" />
+
+
+			<div class="row-fluid">
+				<div class="span3">
+					<div class="buttons">
+						<button type="submit" class="btn btn-primary">Save</button>
+					</div>
+				</div>
+
+				<div class="span9">
+					<table class="table">
+						<tr>
+							<td>Path</td>
+							<td>{file.path}</td>
+						</tr>
+						<tr>
+							<td>Mime-Type</td>
+							<td>{fileMimeType}</td>
+						</tr>
+						<tr>
+							<td>Delete file</td>
+							<td>
+								<f:link.action action="delete" arguments="{file: file.uri}">
+									<i class="icon-trash icon-white"></i>
+								</f:link.action>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</f:form>
+
+
+
+		<f:render partial="CodeMirror" arguments="{_all}" />
+		<f:render partial="FileBrowser" arguments="{_all}" />
+
+
+	</f:else>
+</f:if>
+
+
+
+
+
+</f:section>

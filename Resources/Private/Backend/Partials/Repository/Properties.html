@@ -1,4 +1,4 @@
-<table class="tx-sourcero" >
+<table class="scm-info">
 	<tr>
 		<td>
 			<f:translate key="tx_sourcero_domain_model_repository.title" />
@@ -21,7 +21,7 @@
 			<f:translate key="tx_sourcero_domain_model_repository.path" />
 		</td>
 		<td>
-			{repository.relativePath}
+			{repository.url}
 		</td>
 	</tr>
 	<tr>
@@ -38,6 +38,13 @@
 		</td>
 		<td>
 			{repository.remoteUrl}
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<f:link.action action="list" controller="IDE" arguments="{file:repository.path}">
+				<i class="icon-pencil icon-white"></i> Open repository in editor
+			</f:link.action>
 		</td>
 	</tr>
 </table>

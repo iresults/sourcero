@@ -2,7 +2,19 @@
 	"folders":
 	[
 		{
-			"path": "../../../../sourcero"
+			"path": "/Applications/MAMP/web_cvjm/typo3conf/ext/sourcero"
+		},
+		{
+			"path": "/Applications/MAMP/web_cvjm/typo3conf/ext/cundd_composer/vendor/iresults/fs"
+		},
+		{
+			"path": "/Applications/MAMP/web_cvjm/typo3conf/ext/cundd_composer/vendor/iresults/core"
+		},
+		{
+			"path": "/Applications/MAMP/web_cvjm/typo3_src-6.0.4/typo3/sysext/extbase"
+		},
+		{
+			"path": "/Applications/MAMP/web_cvjm/typo3conf/ext/bingo"
 		}
 	]
 }

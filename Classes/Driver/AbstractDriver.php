@@ -41,7 +41,6 @@ abstract class Tx_Sourcero_Driver_AbstractDriver implements Tx_Sourcero_Driver_D
 	 */
 	protected $repository;
 
-
 	/**
 	 * Executes the given command
 	 * @param  string $command   	Command to execute
@@ -142,64 +141,15 @@ abstract class Tx_Sourcero_Driver_AbstractDriver implements Tx_Sourcero_Driver_D
 
 	/**
 	 * Executes the given command
-	 * @param  string $command   	Command to execute
-	 * @param  array  $arguments	Additional arguments
-	 * @param  boolean	$error 	 	Reference that will be set to TRUE if an error occured
+	 * @param  string $command   	  Command to execute
+	 * @param  array  $arguments	  Additional arguments
+	 * @param  boolean	$error 	 	  Reference that will be set to TRUE if an error occured
 	 * @return string            	Command output
 	 */
 	public function executeCommand($command, $arguments = array(), &$error = FALSE) {
 		if ($command === NULL) {
 			throw new UnexpectedValueException('No command specified', 1362134973);
 		}
-		return $this->styleOutput($this->_executeCommand($command, $arguments, $error));
-	}
-
-	/**
-	 * Converts the console colors to colored spans
-	 * @param  string $output The original output
-	 * @return string         The colored output
-	 */
-	public function styleOutput($output) {
-		$output = htmlspecialchars($output);
-		$output = htmlspecialchars($output);
-
-		$lines = explode(PHP_EOL, $output);
-		foreach ($lines as $lineNumber => &$line) {
-		#	$line = htmlspecialchars($line);
-			$line = $this->replaceColorWithClassInLine('[1m', 'bold', $line);
-			$line = $this->replaceColorWithClassInLine('[31m', 'red', $line);
-			$line = $this->replaceColorWithClassInLine('[32m', 'green', $line);
-			$line = $this->replaceColorWithClassInLine('[36m', 'cyan', $line);
-		}
-
-
-		return implode(PHP_EOL, $lines);
-	}
-
-	/**
-	 * Replace the given color with the CSS class in the given line
-	 * @param  string $commandColor
-	 * @param  string $class
-	 * @param  string $line
-	 * @return string
-	 */
-	protected function replaceColorWithClassInLine($commandColor, $class, $line) {
-		$signal = "\033";
-
-		if (strpos($line, $signal . $commandColor) !== FALSE) {
-			// Replace the commands with a special keyword
-			$line = str_replace($signal . $commandColor, 'SPECIAL_COMMAND_SIGNAL_BEGINN', $line);
-
-			// Escape the HTML special chars
-#			$line = htmlspecialchars($line);
-
-			// Add the span
-			$line = str_replace('SPECIAL_COMMAND_SIGNAL_BEGINN', '<span class="' . $class .'">', $line);
-		}
-
-		// Close all spans
-		$line = str_replace($signal . '[m', '</span>', $line);
-
-		return $line;
-	}
+        return $this->_executeCommand($command, $arguments, $error);
+    }
 }

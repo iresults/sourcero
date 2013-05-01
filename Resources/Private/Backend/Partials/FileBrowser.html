@@ -1,0 +1,19 @@
+<div class="well fileBrowser {f:if(condition: fileBrowserOpen, then: 'open', else: 'toggle')}">
+	<h3>File Browser</h3>
+
+	<div class="fileBrowserInner">
+		<f:for each="{fileBrowser}" as="currentFile">
+			<f:if condition="{currentFile.isDirectory}">
+				<f:then>
+					<div class="item itemDirectory"><span class="directory">{currentFile.relativePath}</span></div>
+				</f:then>
+				<f:else>
+					<div class="item itemFile"><f:link.action action="show" arguments="{file: currentFile.uri}"><span class="fileDirectory">{currentFile.relativeDir}/</span>{currentFile.name}</f:link.action></div>
+				</f:else>
+			</f:if>
+
+		</f:for>
+	</div>
+</div>
+
+

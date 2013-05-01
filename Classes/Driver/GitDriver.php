@@ -47,10 +47,9 @@ class Tx_Sourcero_Driver_GitDriver extends Tx_Sourcero_Driver_AbstractCliDriver 
 			$this->_fetchIfRequired();
 		}
 
-		$output = $this->executeCommand('status');
-		if (strpos($output, 'nothing to commit (working directory clean)') !== FALSE) {
-			$status = Tx_Sourcero_Service_SCMService::STATUS_CODE_OK;
-		} else if (strpos($output, 'Untracked files') !== FALSE
+        $error = NULL;
+		$output = $this->executeCommand('status', array(), $error);
+		if (strpos($output, 'Untracked files') !== FALSE
 			|| strpos($output, 'Changes to be committed') !== FALSE
 			|| strpos($output, 'Changes not staged for commit') !== FALSE
 			) {
@@ -59,6 +58,8 @@ class Tx_Sourcero_Driver_GitDriver extends Tx_Sourcero_Driver_AbstractCliDriver 
 			$status = Tx_Sourcero_Service_SCMService::STATUS_CODE_SHOULD_PUSH;
 		} else if (strpos($output, 'Your branch is behind') !== FALSE) {
 			$status = Tx_Sourcero_Service_SCMService::STATUS_CODE_SHOULD_PULL;
+		} else if (strpos($output, 'nothing to commit (working directory clean)') !== FALSE) {
+			$status = Tx_Sourcero_Service_SCMService::STATUS_CODE_OK;
 		}
 		return $status;
 	}
@@ -83,7 +84,8 @@ class Tx_Sourcero_Driver_GitDriver extends Tx_Sourcero_Driver_AbstractCliDriver 
 		}
 
 		if ($fetchIsRequired) {
-			return $this->executeCommand('fetch', array('--all'));
+            $error = NULL;
+			return $this->executeCommand('fetch', array('--all'), $error);
 		}
 		return FALSE;
 	}
