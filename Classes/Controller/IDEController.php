@@ -289,11 +289,18 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 * @return string
 	 */
 	protected function removeTrailingWhitespaces($text) {
+		// Normalize line endings
+		// Convert all line-endings to UNIX format
+		$text = str_replace("\r\n", "\n", $text);
+		$text = str_replace("\r", "\n", $text);
+		// Don't allow out-of-control blank lines
+		$text = preg_replace("/\n{2,}/", "\n\n", $text);
+
 		$lines = explode("\n", $text);
 		foreach ($lines as &$line) {
 			$line = rtrim($line);
 		}
-		return implode(PHP_EOL, $lines);
+		return implode("\n", $lines);
 	}
 
 	/**
