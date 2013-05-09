@@ -127,22 +127,22 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		$fileManager = FS\FileManager::sharedFileManager();
 		$file = $fileManager->getResourceAtUrl($file);
 
-		$this->initCodeMirrorForFile($file);
+		$this->initACEForFile($file);
 		#$this->redirect('edit', 'IDE', NULL, array('file' => $file));
 
 		$this->view->assign('fileBrowser', $this->getFileBrowserForFile($file, FALSE));
 	}
 
 	/**
-	 * Returns the default CodeMirror configuration
+	 * Returns the default ACE configuration
 	 * @return array
 	 */
-	public function getCodeMirrorConfiguration() {
-		$absoluteCodeMirrorInstallPath = t3lib_extMgm::extPath('cundd_composer') . 'vendor/marijnh/codemirror/';
-		$relativeCodeMirrorInstallPath = t3lib_extMgm::extRelPath('cundd_composer') . 'vendor/marijnh/codemirror/';
+	public function getACEConfiguration() {
+		$absoluteACEInstallPath = t3lib_extMgm::extPath('cundd_composer') . 'vendor/marijnh/ACE/';
+		$relativeACEInstallPath = t3lib_extMgm::extRelPath('cundd_composer') . 'vendor/marijnh/ACE/';
 
 		// Find all Addons
-		$addons = FS\FileManager::find($absoluteCodeMirrorInstallPath . 'addon/*/*.js');
+		$addons = FS\FileManager::find($absoluteACEInstallPath . 'addon/*/*.js');
 
 		// Add a method to the FS\File class to return the type of the addon
 		FS\File::_instanceMethodForSelector('getAddonType', function($that) {return basename(dirname($that->getPath()));});
@@ -150,19 +150,19 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		// Filter remove all Addons with type "runmode"
 		$addons = array_filter($addons, function ($addon) {return $addon->getAddonType() !== 'runmode';});
 
-		$codeMirrorConfiguration = array(
+		$ACEConfiguration = array(
 			'addons' => $addons,
-			'installPath' => $relativeCodeMirrorInstallPath,
+			'installPath' => $relativeACEInstallPath,
 		);
-		return $codeMirrorConfiguration;
+		return $ACEConfiguration;
 	}
 
 	/**
-	 * Returns the name of the CodeMirror mode for the given file
+	 * Returns the name of the ACE mode for the given file
 	 * @param  Iresults\FS\Filesystem $file
 	 * @return string
 	 */
-	protected function getCodeMirrorModeForFile($file) {
+	protected function getACEModeForFile($file) {
 		$mimeType = $this->getMimeTypeOfFile($file);
 		$mode = str_replace(
 			array(
@@ -353,14 +353,14 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 * @param Tx_Sourcero_Domain_Model_File $file
 	 * @return void
 	 */
-	protected function initCodeMirrorForFile($file) {
+	protected function initACEForFile($file) {
 		$mimeType = $this->getMimeTypeOfFile($file);
-		$codeMirrorConfiguration = $this->getCodeMirrorConfiguration();
-		$codeMirrorConfiguration['mode'] = $this->getCodeMirrorModeForFile($file);
+		$ACEConfiguration = $this->getACEConfiguration();
+		$ACEConfiguration['mode'] = $this->getACEModeForFile($file);
 
 		$this->view->assign('file', $file);
 		$this->view->assign('fileMimeType', $mimeType);
-		$this->view->assign('codeMirror', $codeMirrorConfiguration);
+		$this->view->assign('ACE', $ACEConfiguration);
 
 
 		// Detect binary files

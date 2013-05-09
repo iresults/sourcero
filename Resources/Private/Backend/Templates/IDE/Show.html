@@ -72,7 +72,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	<f:else>
 
 		<f:form action="update" method="POST">
-			<sourcero:form.textarea rows="100" cols="100" name="contents" id="code" value="{file.contents -> f:format.raw()}" class="input-block-level" additionalAttributes="{autofocus:autofocus}"/>
+			<sourcero:form.textarea rows="100" cols="100" name="contents" id="codeTextarea" value="{file.contents -> f:format.raw()}" class="input-block-level" additionalAttributes="{autofocus:autofocus}"/>
+			<div id="code">{file.contents -> f:format.raw()}</div>
 			<f:form.hidden name="path" value="{file.path}" />
 
 
@@ -108,7 +109,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 
 
-		<f:render partial="CodeMirror" arguments="{_all}" />
+		<f:render partial="ACE" arguments="{_all}" />
 		<f:render partial="FileBrowser" arguments="{_all}" />
 
 
