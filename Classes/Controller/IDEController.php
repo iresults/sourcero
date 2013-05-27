@@ -34,7 +34,6 @@ Tx_CunddComposer_Autoloader::register();
 use Symfony\Component\Process\Process;
 use Iresults\FS as FS;
 
-
 /**
  *
  *
@@ -186,20 +185,13 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	protected function getMimeTypeOfFile($file) {
 		$suffix = $file->getSuffix();
 
-		if ($suffix === 'scss') {
-			return $this->mimeTypeForSuffix['scss'];
+		if (isset($this->mimeTypeForSuffix[$suffix])) {
+			return $this->mimeTypeForSuffix[$suffix];
 		}
 
 		$finfo = finfo_open(FILEINFO_MIME_TYPE);
 		$mimeType = finfo_file($finfo, $file->getPath());
 		finfo_close($finfo);
-
-		if ($mimeType === 'text/plain') {
-			if (isset($this->mimeTypeForSuffix[$suffix])) {
-				$mimeType = $this->mimeTypeForSuffix[$suffix];
-			}
-		}
-
 		return $mimeType;
 	}
 
@@ -233,7 +225,6 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	public function editAction($file) {
 		$fileManager = FS\FileManager::sharedFileManager();
 		$file = $fileManager->getResourceAtUrl($file);
-
 
 	}
 
@@ -362,7 +353,6 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		$this->view->assign('fileMimeType', $mimeType);
 		$this->view->assign('codeMirror', $codeMirrorConfiguration);
 
-
 		// Detect binary files
 		if (substr($mimeType, 0, 6) === 'image/') {
 			$this->view->assign('fileBinaryData', '<img alt="Embedded Image" src="data:' . $mimeType . ';base64,' . base64_encode($file->getContents()) . '" />');
@@ -376,6 +366,4 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	}
 }
 ?>
-
-
 

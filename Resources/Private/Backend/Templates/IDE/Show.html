@@ -15,6 +15,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:section name="content">
 
 <style type="text/css">
+/*
 	.CodeMirror {
 		border: 1px solid #eee;
 		height: 600px !important;
@@ -27,8 +28,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		-moz-box-shadow: none;
 		box-shadow: none;
 	}
+*/
 </style>
-
 
 <header class="row-fluid">
 	<div class="span11">
@@ -52,10 +53,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	</div>
 </header>
 
-
 <f:render partial="FormErrors" />
-
-
 
 <f:if condition="{fileIsBinary}">
 	<f:then>
@@ -74,7 +72,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		<f:form action="update" method="POST">
 			<sourcero:form.textarea rows="100" cols="100" name="contents" id="code" value="{file.contents -> f:format.raw()}" class="input-block-level" additionalAttributes="{autofocus:autofocus}"/>
 			<f:form.hidden name="path" value="{file.path}" />
-
 
 			<div class="row-fluid">
 				<div class="span3">
@@ -106,17 +103,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			</div>
 		</f:form>
 
-
-
 		<f:render partial="CodeMirror" arguments="{_all}" />
 		<f:render partial="FileBrowser" arguments="{_all}" />
 
-
 	</f:else>
 </f:if>
-
-
-
-
 
 </f:section>

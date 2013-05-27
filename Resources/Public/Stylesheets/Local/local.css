@@ -109,7 +109,6 @@ a.editLink:hover i {
 	opacity: 1;
 }
 
-
 /* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW */
 /* EDITOR */
 /* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW */
@@ -123,7 +122,8 @@ h1.editorHeader {
 }
 
 .CodeMirror {
-	height: 600px !important;
+	border: 1px solid #eee;
+	height: 800px !important;
 }
 .CodeMirror-focused .cm-matchhighlight {
 	text-decoration: underline;
@@ -135,6 +135,11 @@ h1.editorHeader {
 	background: rgba(255, 255, 255, 0.3);
 }
 
+.CodeMirror pre {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
 
 /* FileBrowser */
 .fileBrowser {
