@@ -19,10 +19,26 @@
 
 <script type="text/javascript">
 	var codeMirrorMode = "{codeMirror.mode}",
-			codeMirrorModeHint = "{codeMirror.mode}Hint";
+		codeMirrorModeHint = "{codeMirror.mode}Hint",
+		IDE = window.IDE || {};
+
+	IDE.currentFile = {
+		path: "{file.path}", // Path of the file
+		name: "{file.name}", // Name
+		directory: "{file.directory}",
+		information: {
+			<f:for each="{file.information}" as="value" key="key">
+				{key}: "{value}",
+			</f:for>
+		}
+	};
+
+	IDE.extension = {
+		extensionKey: "{file.extensionKey}", // Extension key
+		extensionPath: "{file.extensionPath}"
+	};
 
 </script>
-
 
 <script type="text/javascript" src="{f:uri.resource(path:'Scripts/Delegate.js')}"></script>
 
