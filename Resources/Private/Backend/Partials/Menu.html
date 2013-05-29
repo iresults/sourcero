@@ -1,5 +1,6 @@
 <div class="navbar">
 	<div class="navbar-inner">
+		<f:link.action action="show" arguments="{repository:repository.title}" class="brand">{repository.title}</f:link.action>
 		<!-- <a class="brand" href="#"><f:image src="{f:uri.resource(path:'Icons/Icon-white-200.png')}" class="navbar-image" alt="Icon" /></a> -->
 		<ul class="nav">
 			<f:if condition="{repository.hasDriver}">
@@ -29,13 +30,9 @@
 				</li>
 			</f:if>
 
-			<li>
-				<f:link.action action="list">Back to list</f:link.action>
-			</li>
-
 			<li class="divider-vertical"></li>
 			<li>
-				<a class="" href="#">{repository.title}</a>
+				<f:link.action action="list">Projects list</f:link.action>
 			</li>
 		</ul>
 
