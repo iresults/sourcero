@@ -137,8 +137,9 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 * @return array
 	 */
 	public function getCodeMirrorConfiguration() {
-		$absoluteCodeMirrorInstallPath = t3lib_extMgm::extPath('cundd_composer') . 'vendor/marijnh/codemirror/';
-		$relativeCodeMirrorInstallPath = t3lib_extMgm::extRelPath('cundd_composer') . 'vendor/marijnh/codemirror/';
+
+		$absoluteCodeMirrorInstallPath = t3lib_extMgm::extPath('sourcero') . 'Resources/Public/Stylesheets/Library/CodeMirror/';
+		$relativeCodeMirrorInstallPath = t3lib_extMgm::extRelPath('sourcero') . 'Resources/Public/Stylesheets/Library/CodeMirror/';
 
 		// Find all Addons
 		$addons = FS\FileManager::find($absoluteCodeMirrorInstallPath . 'addon/*/*.js');

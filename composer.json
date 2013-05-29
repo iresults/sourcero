@@ -1,6 +1,6 @@
 {
     "name": "iresults/sourcero",
-    "description": "Source code management",
+    "description": "Source code management from the TYPO3 CMS Backend",
     "keywords": ["typo3cms"],
     "repositories": [
         {
@@ -26,8 +26,7 @@
     ],
     "require": {
         "symfony/process": "*",
-        "iresults/fs": "*",
-        "marijnh/codemirror": "*"
+        "iresults/fs": "*"
     },
     "authors": [
         {
