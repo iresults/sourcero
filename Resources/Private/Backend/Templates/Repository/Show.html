@@ -20,6 +20,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:flashMessages />
 <f:render partial="Repository/Properties" arguments="{repository:repository}" />
 
-<pre class="scm-output"><f:format.htmlentitiesDecode>{commandOutput}</f:format.htmlentitiesDecode></pre>
+<div class="scm-output-container">
+	<pre class="scm-output"><f:format.htmlentitiesDecode>{commandOutput}</f:format.htmlentitiesDecode></pre>
+</div>
 
 </f:section>

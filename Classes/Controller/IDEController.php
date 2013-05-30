@@ -71,17 +71,27 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	);
 
 	protected function initializeAction() {
-		FS\File::_instanceMethodForSelector('getExists', function($that) {return $that->exists();});
-		FS\File::_instanceMethodForSelector('getSuffix', function($that) {
+		$getExists = function($that) {return $that->exists();};
+		$getSuffix = function($that) {
 			return pathinfo($that->getPath(), PATHINFO_EXTENSION);
-		});
-		FS\File::_instanceMethodForSelector('getExtensionKey', function($that) {
+		};
+		$getExtensionKey = function($that) {
 			$relativeExtensionPath = substr($that->getPath(), strlen(PATH_typo3conf . 'ext/'));
 			return substr($relativeExtensionPath, 0, strpos($relativeExtensionPath, '/'));
-		});
-		FS\File::_instanceMethodForSelector('getExtensionPath', function($that) {
+		};
+		$getExtensionPath = function($that) {
 			return t3lib_extMgm::extPath($that->getExtensionKey());
-		});
+		};
+
+		FS\File::_instanceMethodForSelector('getExists', $getExists);
+		FS\File::_instanceMethodForSelector('getSuffix', $getSuffix);
+		FS\File::_instanceMethodForSelector('getExtensionKey', $getExtensionKey);
+		FS\File::_instanceMethodForSelector('getExtensionPath', $getExtensionPath);
+
+		FS\Directory::_instanceMethodForSelector('getExists', $getExists);
+		FS\Directory::_instanceMethodForSelector('getSuffix', $getSuffix);
+		FS\Directory::_instanceMethodForSelector('getExtensionKey', $getExtensionKey);
+		FS\Directory::_instanceMethodForSelector('getExtensionPath', $getExtensionPath);
 	}
 
 	/**
@@ -106,6 +116,7 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 
 		$fileManager = FS\FileManager::sharedFileManager();
 		$file = $fileManager->getResourceAtUrl($file);
+		$this->view->assign('file', $file);
 		$this->view->assign('fileBrowser', $this->getFileBrowserForFile($file, FALSE));
 		$this->view->assign('fileBrowserOpen', TRUE);
 	}

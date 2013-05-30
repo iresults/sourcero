@@ -105,10 +105,6 @@ textarea.input-block-level:hover {
 #typo3-inner-docbody pre .background-cyan		{	background-color: cyan;		}
 #typo3-inner-docbody pre .background-white		{	background-color: white;	}
 
-#typo3-inner-docbody pre.scm-output {}
-#typo3-inner-docbody pre.scm-output span {
-	border: 0 none;
-}
 
 /* SCM info table */
 .scm-info {
@@ -135,10 +131,30 @@ a.diffLink {
 	opacity: 1;
 }
 
+
+/* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW */
+/* SCM COMMAND OUTPUT */
+/* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW */
+pre.scm-output {}
+pre.scm-output span {
+	border: 0 none;
+}
+.command-container {
+
+}
+h2.pre-caption {
+	color: #555;
+	margin-bottom: -0.4em;
+	font-size: 14px;
+	line-height: 14px;
+	font-weight: normal;
+	margin-left: 7px;
+	text-shadow: 0 0 4px #000;
+}
+
 /* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW */
 /* EDITOR */
 /* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW */
-
 h1.editorHeader {
 	text-align: left;
 }

@@ -16,11 +16,17 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:render partial="Menu" arguments="{repository:repository}" />
 
 <!--<h1>{command}</h1>-->
-<pre class="alert alert-info">{command}</pre>
+<div class="command-container">
+	<h2 class="pre-caption">Command</h2>
+	<pre class="command">{command}</pre>
+</div>
+
 
 <f:flashMessages />
 
-
-<pre class="scm-output"><f:format.htmlentitiesDecode>{commandOutput}</f:format.htmlentitiesDecode></pre>
+<div class="scm-output-container">
+	<h2 class="pre-caption">Output</h2>
+	<pre class="scm-output"><f:format.htmlentitiesDecode>{commandOutput}</f:format.htmlentitiesDecode></pre>
+</div>
 
 </f:section>
