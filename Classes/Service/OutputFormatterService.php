@@ -106,7 +106,9 @@ class Tx_Sourcero_Service_OutputFormatterService implements t3lib_singleton {
 			foreach ($matches as $match) {
 				$match = trim($match);
 
-				$link = $this->buildLinkForFile($match);
+				$link = '';
+				$link .= $this->buildEditLinkForFile($match);
+				$link .= $this->buildDiffLinkForFile($match);
                 $output = preg_replace("!$match!", $link, $output);
 			}
 		}
@@ -114,27 +116,58 @@ class Tx_Sourcero_Service_OutputFormatterService implements t3lib_singleton {
 	}
 
 	/**
-	 * Returns the link to the given file of the current repository
+	 * Returns the link to edit the given file of the current repository
 	 * @param  string $relativePath Relative path to the file
 	 * @return string               Full link code
 	 */
-	public function buildLinkForFile($relativePath) {
-		$url = $this->getUriForFile($relativePath);
+	public function buildEditLinkForFile($relativePath) {
+		$url = $this->getUriForFileAndAction($relativePath, 'show', 'IDE');
 		$icon = ' <i class="icon-pencil icon-white"></i>';
-		return '<a href="' . $url . '" target="_blank" class="editLink">' . $relativePath . $icon . '</a>';
+		return '<a href="' . $url . '" target="_blank" class="editLink"><span class="editLinkFile">' . $relativePath . '</span>' . $icon . '</a>';
 	}
 
 	/**
-	 * Returns the link to the given file of the current repository
+	 * Returns the link to edit the given file of the current repository
 	 * @param  string $relativePath Relative path to the file
+	 * @return string               Full link code
+	 */
+	public function buildDiffLinkForFile($relativePath) {
+		$arguments = array(
+			'command' => 'diff --color ' . $this->getAbsolutePathOfFile($relativePath, FALSE),
+			'repository' => $this->repository->getTitle()
+		);
+
+
+		$url = $this->getUriForFileAndAction($relativePath, 'executeCommand', 'Repository', $arguments);
+		return '<a href="' . $url . '" target="" class="diffLink icon-rotate-90 icon-code-fork"></a>';
+	}
+
+	/**
+	 * Returns the link to the given file and action of the current repository
+	 * @param  string $relativePath Relative path to the file
+	 * @param  string $action		Action to invoke
+	 * @param  string $controller	Name of the controller
+	 * @param  array  $arguments	An array of arguments
 	 * @return string               URL to the file
 	 */
-	public function getUriForFile($relativePath) {
-		$filePath = $this->repository->getPath() . $relativePath;
-		$filePath = urlencode($filePath);
-
+	public function getUriForFileAndAction($relativePath, $action = 'executeCommand', $controller = 'Repository', $arguments = array()) {
+		$arguments['file'] = $this->getAbsolutePathOfFile($relativePath);
 		$this->getUriBuilder()->reset();
-		return $this->getUriBuilder()->uriFor('show', array('file' => $filePath), 'IDE', 'sourcero', 'tools_sourcerosourcero');
+		return $this->getUriBuilder()->uriFor($action, $arguments, $controller, 'sourcero', 'tools_sourcerosourcero');
+	}
+
+	/**
+	 * Returns the absolute path to the given file in the current repository
+	 * @param string $relativePath
+	 * @param bool $urlencoded
+	 * @return string
+	 */
+	public function getAbsolutePathOfFile($relativePath, $urlencoded = TRUE) {
+		$filePath = $this->repository->getPath() . $relativePath;
+		if ($urlencoded) {
+			$filePath = urlencode($filePath);
+		}
+		return $filePath;
 	}
 
 	/**
