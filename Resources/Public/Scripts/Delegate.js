@@ -23,7 +23,9 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-(function() {
+
+
+(function($) {
     var root = this,
         codeFolding;
 
@@ -183,5 +185,4 @@
         root.delegate.saveFile();
     }
     codeFolding = CodeMirror.newFoldFunction(CodeMirror.braceRangeFinder);
-
-})(this);
+})(jQuery);

@@ -5,6 +5,9 @@ div#typo3-docbody {
 body {
 	background-image: url('../../Images/debut_dark/debut_dark.png');
 }
+table {
+	font-size: 14px;
+}
 .header-section {
 	height: 200px;
 }
@@ -183,9 +186,19 @@ h1.editorHeader {
 	box-shadow: none;
 }
 
+.editorInfoTable {
+}
+.editorInfoTable td.caption {
+	white-space: nowrap;
+}
+.editorInfoTable td.value {
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
 /* FileBrowser */
 .fileBrowser {
-
+	overflow-x: hidden;
 }
 .fileBrowser h3 {
 	margin: 0;
@@ -219,4 +232,35 @@ h1.editorHeader {
 	margin-top: inherit;
 	padding-top: inherit;
 	border-top: 0 none;
+}
+
+.fileBrowser .act > a {
+	background: rgba(255, 255, 255, 0.1);
+}
+.fileBrowser .directory-container {
+	display: none;
+}
+.fileBrowser .act > .directory-container {
+	display: block;
+}
+
+
+.fileBrowser .directoryEdit:after {
+	font-family: FontAwesome;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: inherit;
+	-webkit-font-smoothing: antialiased;
+	*margin-right: .3em;
+	content: "\f0da";
+	padding: 0 5px;
+}
+.fileBrowser .directoryEdit.open:after {
+	content: "\f0d7";
+}
+.fileBrowser .directory-root {
+	margin-left: 0;
+}
+.fileBrowser .node > a {
+	display: block;
 }

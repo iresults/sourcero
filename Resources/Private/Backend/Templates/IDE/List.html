@@ -14,13 +14,22 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="content">
 
-<f:link.action action="show" controller="Repository" class="pull-right" arguments="{repository: file.extensionKey}">
-	<div class="btn btn-inverse">
-		<i class="icon-off icon-white"></i>
-	</div>
-</f:link.action>
+	<f:link.action action="show" controller="Repository" class="pull-right" arguments="{repository: file.extensionKey}">
+		<div class="btn btn-inverse">
+			<i class="icon-off icon-white"></i>
+		</div>
+	</f:link.action>
 
-<f:render partial="FileBrowser" arguments="{_all}" />
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span3">
+				<f:render partial="FileBrowser" arguments="{_all}" />
+			</div>
+			<div class="span9">
+				<!--Body content-->
+			</div>
+		</div>
+	</div>
 
 
 </f:section>

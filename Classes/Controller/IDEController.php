@@ -117,7 +117,8 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		$fileManager = FS\FileManager::sharedFileManager();
 		$file = $fileManager->getResourceAtUrl($file);
 		$this->view->assign('file', $file);
-		$this->view->assign('fileBrowser', $this->getFileBrowserForFile($file, FALSE));
+		#$this->view->assign('fileBrowser', $this->getFileBrowserForFile($file, FALSE));
+		$this->view->assign('fileBrowserCode', $this->getFileBrowserCodeForFile($file));
 		$this->view->assign('fileBrowserOpen', TRUE);
 	}
 
@@ -140,7 +141,9 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		$this->initCodeMirrorForFile($file);
 		#$this->redirect('edit', 'IDE', NULL, array('file' => $file));
 
-		$this->view->assign('fileBrowser', $this->getFileBrowserForFile($file, FALSE));
+		#$this->view->assign('fileBrowser', $this->getFileBrowserForFile($file, TRUE));
+		$this->view->assign('fileBrowserCode', $this->getFileBrowserCodeForFile($file));
+		$this->view->assign('fileBrowserOpen', TRUE);
 	}
 
 	/**
@@ -307,6 +310,129 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	}
 
 	/**
+	 * Returns the filebrowser HTML code of the extensions files
+	 * @param Tx_Sourcero_Domain_Model_File $file
+	 * @param boolean $wit
+	 * @return array
+	 */
+	public function getFileBrowserCodeForFile($file) {
+		if ($file instanceof FS\File) {
+			$path = $file->getExtensionPath();
+		} else {
+			$path = $file->getPath();
+		}
+
+		$filePath = $file->getPath();
+		$filePathLength = strlen($filePath);
+
+		#act = rootline
+		#cur = current
+
+		/**
+		 * @var SplFileInfo $object
+		 */
+		$object = NULL;
+		$objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path), RecursiveIteratorIterator::SELF_FIRST);
+		$dom = new DomDocument('1.0');
+		$list = $dom->createElement('ul');
+		$list->setAttribute('class', 'directory-root');
+		$dom->appendChild($list);
+		$node = $list;
+		$depth = 0;
+		foreach ($objects as $path => $object) {
+			$current = FALSE;
+			$act = FALSE;
+			$classOpenFiles = '';
+
+
+			// Hide dot-files and folders
+			if (strpos($path, '/.') !== FALSE) {
+				continue;
+			}
+
+			// Detect open file paths
+			$objectPath = $object->getRealPath();
+
+//			echo 'obp:' . $objectPath . '<br>';
+//			echo 'flp:' . $filePath . '<br>';
+//			echo substr($filePath, 0, strlen($objectPath)) . ' : ' . $objectPath . ' ' . (substr($filePath, 0, strlen($objectPath)) === $objectPath) . '<br>';
+
+			if ($objectPath === $filePath) {
+				$current = TRUE;
+				$act = TRUE;
+				$classOpenFiles = 'act cur open ';
+			} else if (substr($filePath, 0, strlen($objectPath)) === $objectPath) {
+				$act = TRUE;
+				$classOpenFiles = 'act open ';
+			}
+
+			// Create the link
+			$link = $this->getEditUriForFile($object);
+			$linkElement = $dom->createElement('a', $object->getFilename());
+			$linkElement->setAttribute('href', '#');
+
+			$class = $classOpenFiles . 'fileEdit';
+			if ($object->isDir()) {
+				$class = $classOpenFiles . 'directoryEdit';
+			} else {
+				$linkElement->setAttribute('href', $link);
+			}
+			$linkElement->setAttribute('class', $class);
+
+
+			if ($objects->getDepth() == $depth) {
+				//the depth hasnt changed so just add another li
+				$li = $dom->createElement('li');
+				$li->setAttribute('class', $classOpenFiles . 'node');
+				$li->appendChild($linkElement);
+
+				$node->appendChild($li);
+			} elseif ($objects->getDepth() > $depth) {
+				//the depth increased, the last li is a non-empty folder
+				$li = $node->lastChild;
+				#echo $classOpenFiles . $object->getRealPath() . '<br>';
+				#$li->setAttribute('class', $classOpenFiles . 'directory');
+				$ul = $dom->createElement('ul');
+				$ul->setAttribute('class', $classOpenFiles . 'directory-container');
+				$li->appendChild($ul);
+
+				$filesystemLi = $dom->createElement('li');
+				$filesystemLi->setAttribute('class', $classOpenFiles . 'node');
+				$filesystemLi->appendChild($linkElement);
+
+				$ul->appendChild($filesystemLi);
+				$node = $ul;
+			} else {
+				//the depth decreased, going up $difference directories
+				$difference = $depth - $objects->getDepth();
+				for ($i = 0; $i < $difference; $difference--){
+					$node = $node->parentNode->parentNode;
+				}
+				$li = $dom->createElement('li');
+				$li->setAttribute('class', $classOpenFiles . 'node');
+				$li->appendChild($linkElement);
+
+				$node->appendChild($li);
+			}
+			$depth = $objects->getDepth();
+		}
+		return $dom->saveHtml();
+	}
+
+	/**
+	 * Returns the URI to edit the given file
+	 * @param  SplFileInfo $file 	File object
+	 * @param  array  $arguments	An array of arguments
+	 * @return string               Full link code
+	 */
+	public function getEditUriForFile($file, $arguments = array()) {
+		$path = $file->getRealPath();
+		$arguments['file'] = urlencode($path);
+		$this->uriBuilder->reset();
+		return $this->uriBuilder->uriFor('show', $arguments, 'IDE', 'sourcero', 'tools_sourcerosourcero');
+	}
+
+	/**
 	 * Returns the list of the extensions files
 	 * @param Tx_Sourcero_Domain_Model_File $file
 	 * @param boolean $wit
@@ -324,7 +450,49 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 			new RecursiveDirectoryIterator($path),
 			RecursiveTreeIterator::BYPASS_CURRENT);
 
-		foreach($treeIterator as $currentPath) {
+		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_LEFT, '</div><div class="line" style=""><span class="pop">[');
+//		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_LEFT, '</div><div class="line" style=""><span class="pop" style="width:340px;display:inline-block;">&nbsp;{L&nbsp;&nbsp;');
+		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_MID_HAS_NEXT, '-&nbsp;');
+//		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_MID_HAS_NEXT, '&nbsp;{m&nbsp;&nbsp;');
+		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_MID_LAST, '—&nbsp;');
+		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_END_HAS_NEXT, '⎜');
+//		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_END_HAS_NEXT, '&nbsp;{e&nbsp;&nbsp;');
+		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_END_LAST, '⎦&nbsp;'); // Is last
+		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_RIGHT, '</span>');
+//		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_RIGHT, '&nbsp;&nbsp;R}&nbsp;</span>');
+
+
+//		const integer PREFIX_LEFT = 0 ;
+//		const integer PREFIX_MID_HAS_NEXT = 1 ;
+//		const integer PREFIX_MID_LAST = 2 ;
+//		const integer PREFIX_END_HAS_NEXT = 3 ;
+//		const integer PREFIX_END_LAST = 4 ;
+//		const integer PREFIX_RIGHT = 5 ;
+
+
+
+		echo <<<ECHOS
+<style>
+.line {
+}
+
+.line:hover {
+background: rgba(230, 45, 45, 0.5);
+}
+.pop {
+width:110px;
+display:inline-block;
+background: rgba(45, 230, 45, 0.2);
+}
+</style>
+ECHOS;
+
+
+
+		$lastDepth = 0;
+		foreach($treeIterator as $key => $currentPath) {
+			$currentDepth = $treeIterator->getDepth();
+
 			// Hide dot-files and folders
 			if (strpos($currentPath, '/.')) {
 				continue;
@@ -335,17 +503,25 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 				continue;
 			}
 
+			#echo $key . '<br>';
+
 			$uri = substr($currentPath, strlen(PATH_typo3conf . 'ext/'));
 			$currentRelativePath = substr($uri, strpos($uri, '/'));
 
 			$files[] = array(
-				'name' => basename($currentRelativePath),
-				'path' => $currentPath,
-				'relativePath' => $currentRelativePath,
-				'relativeDir' => dirname($currentRelativePath),
-				'uri' => 'EXT:' . $uri,
-				'isDirectory' => is_dir($currentPath),
+				'name' 			=> basename($currentRelativePath),
+				'path' 			=> $currentPath,
+				'relativePath' 	=> $currentRelativePath,
+				'relativeDir' 	=> dirname($currentRelativePath),
+				'uri' 			=> 'EXT:' . $uri,
+				'isDirectory' 	=> is_dir($currentPath),
+				'isLast' 		=> strpos($key, '{E}'),
+				'depth' 		=> $currentDepth,
+				'depthDiff'		=> $lastDepth - $currentDepth,
+				'close' 		=> str_repeat('</ul>', $lastDepth - $currentDepth),
 			);
+
+			$lastDepth = $currentDepth;
 		}
 		return $files;
 	}
