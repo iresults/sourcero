@@ -38,22 +38,22 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	<f:for each="{repositories}" as="repository">
 		<tr>
 			<td class="title">
-				<f:link.action action="show" arguments="{repository : repository.title}" class="title-badge">
+				<f:link.action action="show" arguments="{repository : repository.title}" class="title-badge" target="_blank">
 					<f:render partial="Status" arguments="{statusCode: repository.localStatusCode}" />
 				</f:link.action>
 
-				<f:link.action action="show" arguments="{repository : repository.title}">
+				<f:link.action action="show" arguments="{repository : repository.title}" target="_blank">
 					{repository.title}
 				</f:link.action>
 			</td>
-			<td><f:link.action action="show" arguments="{repository : repository.title}"> {repository.type}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{repository : repository.title}"> {repository.relativePath}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{repository : repository.title}" target="_blank"> {repository.type}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{repository : repository.title}" target="_blank"> {repository.relativePath}</f:link.action></td>
 			<td>
 				<f:if condition="{repository.homepage}">
-					<a href="{repository.homepage}" class="external-link"> {repository.homepage} <i class="icon-eye-open icon-white"></i></a>
+					<a href="{repository.homepage}" class="external-link" target="_blank"> {repository.homepage} <i class="icon-eye-open icon-white"></i></a>
 				</f:if>
 			</td>
-			<td><f:link.action action="show" arguments="{repository : repository.title}"> {repository.remoteUrl}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{repository : repository.title}" target="_blank"> {repository.remoteUrl}</f:link.action></td>
 			<!-- <td><f:link.action action="edit" arguments="{repository : repository.title}">Edit</f:link.action></td> -->
 			<!-- <td><f:link.action action="delete" arguments="{repository : repository.title}">Delete</f:link.action></td> -->
 		</tr>

@@ -2,17 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225cf487-373c-44f3-a29c-0ed742c9060a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Scripts/FileBrowser.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/AdministratorManual.rst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/DeveloperCorner.rst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/_De/Images/UserManual/BackendView.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/_De/UserManual.rst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/_Fr/Images/UserManual/BackendView.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/_Fr/UserManual.rst" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Layouts/Default.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Layouts/Default.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js" afterPath="$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Controller/IDEController.php" afterPath="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/List.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/List.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Partials/Menu.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/Menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Service/OutputFormatterService.php" afterPath="$PROJECT_DIR$/Classes/Service/OutputFormatterService.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sourcero.iml" afterPath="$PROJECT_DIR$/.idea/sourcero.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Documentation/_IncludedDirectives.rst" afterPath="$PROJECT_DIR$/Documentation/_IncludedDirectives.rst" />
     </list>
     <ignored path="sourcero.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,12 +34,12 @@
     <file path="/local.css" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1370010966021" ignored="false" />
     <file path="/a.twig" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052106222" ignored="false" />
     <file path="/Add.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052531461" ignored="false" />
-    <file path="/Delegate.js" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1370004040609" ignored="false" />
+    <file path="/Delegate.js" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1370090256494" ignored="false" />
     <file path="/CodeMirror.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367053854942" ignored="false" />
-    <file path="/Show.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1370010906463" ignored="false" />
-    <file path="/IDEController.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1370002795014" ignored="false" />
+    <file path="/Show.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1370090333746" ignored="false" />
+    <file path="/IDEController.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1370086757291" ignored="false" />
     <file path="/FileBrowser.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1370004215705" ignored="false" />
-    <file path="/a.dummy" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1369909056003" ignored="false" />
+    <file path="/a.dummy" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1370090506235" ignored="false" />
     <file path="/ACE.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367414666400" ignored="false" />
     <file path="/RepositoryRepository.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1368729225908" ignored="false" />
     <file path="$PROJECT_DIR$/../rest/Classes/Cundd/Rest/App.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1368734735633" ignored="false" />
@@ -45,13 +48,14 @@
     <file path="$PROJECT_DIR$/../rest/index.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1368776391084" ignored="false" />
     <file path="$PROJECT_DIR$/../rest/ext_emconf.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1368776272059" ignored="false" />
     <file path="$PROJECT_DIR$/../rest/composer.json" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1368776436538" ignored="false" />
-    <file path="/Default.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1369905057620" ignored="false" />
+    <file path="/Default.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1370088896181" ignored="false" />
     <file path="/ExecuteCommand.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1369915537851" ignored="false" />
     <file path="/Menu.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1369919076493" ignored="false" />
     <file path="/dummy.xml" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1369915529768" ignored="false" />
     <file path="/PerformCommit.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1369915676137" ignored="false" />
     <file path="/Core.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1369918002903" ignored="false" />
     <file path="/FileBrowser.js" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1370005094772" ignored="false" />
+    <file path="/List.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1370090416388" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,46 +75,57 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Show.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Show.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="54" selection-start="2663" selection-end="2663" vertical-scroll-proportion="-9.959184">
+            <state line="37" column="0" selection-start="991" selection-end="991" vertical-scroll-proportion="0.5815832">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="local.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css">
+      <file leaf-file-name="IDEController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="165" column="21" selection-start="3754" selection-end="3754" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="549" column="120" selection-start="16715" selection-end="16715" vertical-scroll-proportion="-30.666666">
+              <folding>
+                <element signature="e#1155#1193#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="font-awesome.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/css/font-awesome.css">
+      <file leaf-file-name="Delegate.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="22" selection-start="1618" selection-end="1778" vertical-scroll-proportion="-23.4">
+            <state line="237" column="58" selection-start="7715" selection-end="7715" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileBrowser.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/FileBrowser.js">
+      <file leaf-file-name="Default.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Layouts/Default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="46" selection-start="1125" selection-end="1125" vertical-scroll-proportion="0.0">
+            <state line="2" column="58" selection-start="225" selection-end="225" vertical-scroll-proportion="-1.25">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Menu.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="LegacyClassesForIde.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../typo3/sysext/core/Migrations/Code/LegacyClassesForIde.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1096" column="77" selection-start="32945" selection-end="32995" vertical-scroll-proportion="-14.125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Menu.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/Menu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="53" selection-start="1803" selection-end="1803" vertical-scroll-proportion="0.5740181">
+            <state line="41" column="0" selection-start="1821" selection-end="1821" vertical-scroll-proportion="-18.083334">
               <folding />
             </state>
           </provider>
@@ -119,8 +134,37 @@
       <file leaf-file-name="List.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="448" selection-end="448" vertical-scroll-proportion="-9.375">
+            <state line="17" column="21" selection-start="581" selection-end="582" vertical-scroll-proportion="-5.2040815">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="List.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/List.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="102" selection-start="1459" selection-end="1459" vertical-scroll-proportion="-21.375">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Show.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OutputFormatterService.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/Service/OutputFormatterService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="141" column="38" selection-start="4449" selection-end="4449" vertical-scroll-proportion="-9.938775">
+              <folding>
+                <element signature="e#7#1025#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -144,22 +188,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Log.html" />
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformCommit.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformReset.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Pull.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Push.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html" />
         <option value="$PROJECT_DIR$/../cundd_composer/vendor/iresults/core/Classes/Iresults/Core/Core.php" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html" />
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Layouts/Default.html" />
-        <option value="$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js" />
         <option value="$PROJECT_DIR$/Resources/Public/Scripts/FileBrowser.js" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" />
-        <option value="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" />
         <option value="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" />
+        <option value="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Layouts/Default.html" />
+        <option value="$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/List.html" />
+        <option value="$PROJECT_DIR$/Classes/Service/OutputFormatterService.php" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/Menu.html" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" />
       </list>
     </option>
   </component>
@@ -357,8 +401,38 @@
               <option name="myItemId" value="Library" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="font-awesome" />
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bootstrap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -388,37 +462,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="font-awesome" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sourcero" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sourcero" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Library" />
+              <option name="myItemId" value="Bootstrap" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -525,6 +569,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Repository" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -828,10 +876,10 @@
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986766" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986766" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986766" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32986766" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24932066" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24456522" sideWeight="0.6025057" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24456522" sideWeight="0.67013234" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -906,65 +954,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/Repository/Properties.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="12" selection-start="804" selection-end="974" vertical-scroll-proportion="-27.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../cundd_composer/vendor/iresults/core/Classes/Iresults/Core/Core.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="56" selection-start="3561" selection-end="3561" vertical-scroll-proportion="-12.708333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/SPL.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1376" column="20" selection-start="43359" selection-end="43359" vertical-scroll-proportion="-1.2372881">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Service/OutputFormatterService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="4" selection-start="3419" selection-end="3604" vertical-scroll-proportion="0.21148036">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../cundd_composer/vendor/iresults/core/Tests/Unit/Core/ObjectTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="55" selection-start="3770" selection-end="3796" vertical-scroll-proportion="-34.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="187" column="0" selection-start="6328" selection-end="6328" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/FileBrowser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="46" selection-start="1125" selection-end="1125" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/css/font-awesome.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="22" selection-start="1618" selection-end="1778" vertical-scroll-proportion="-23.4">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Layouts/Default.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="67" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -983,23 +975,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
+    <entry file="file://$PROJECT_DIR$/../../../typo3/sysext/core/Migrations/Code/LegacyClassesForIde.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="7" selection-start="4025" selection-end="4025" vertical-scroll-proportion="0.39274925">
+        <state line="1096" column="77" selection-start="32945" selection-end="32995" vertical-scroll-proportion="-14.125">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html">
+    <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/css/font-awesome.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="448" selection-end="448" vertical-scroll-proportion="-9.375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="54" selection-start="2663" selection-end="2663" vertical-scroll-proportion="-9.959184">
+        <state line="42" column="22" selection-start="1618" selection-end="1778" vertical-scroll-proportion="-23.4">
           <folding />
         </state>
       </provider>
@@ -1011,9 +996,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Library/Bootstrap/js/bootstrap.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Layouts/Default.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="58" selection-start="225" selection-end="225" vertical-scroll-proportion="-1.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="549" column="120" selection-start="16715" selection-end="16715" vertical-scroll-proportion="-30.666666">
+          <folding>
+            <element signature="e#1155#1193#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="237" column="58" selection-start="7715" selection-end="7715" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="21" selection-start="581" selection-end="582" vertical-scroll-proportion="-5.2040815">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/List.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="102" selection-start="1459" selection-end="1459" vertical-scroll-proportion="-21.375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Service/OutputFormatterService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="141" column="38" selection-start="4449" selection-end="4449" vertical-scroll-proportion="-9.938775">
+          <folding>
+            <element signature="e#7#1025#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/Menu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="53" selection-start="1803" selection-end="1803" vertical-scroll-proportion="0.5740181">
+        <state line="41" column="0" selection-start="1821" selection-end="1821" vertical-scroll-proportion="-18.083334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="991" selection-end="991" vertical-scroll-proportion="0.5815832">
           <folding />
         </state>
       </provider>

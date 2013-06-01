@@ -33,6 +33,7 @@ if (!defined('TYPO3_MODE') || TYPO3_MODE !== 'BE') {
 Tx_CunddComposer_Autoloader::register();
 use Symfony\Component\Process\Process;
 use Iresults\FS as FS;
+use \TYPO3\CMS\Core\Utility as Utility;
 
 /**
  *
@@ -73,13 +74,16 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	protected function initializeAction() {
 		$getExists = function($that) {return $that->exists();};
 		$getSuffix = function($that) {
+			/** @var Iresults\FS\File $that */
 			return pathinfo($that->getPath(), PATHINFO_EXTENSION);
 		};
 		$getExtensionKey = function($that) {
+			/** @var Iresults\FS\File $that */
 			$relativeExtensionPath = substr($that->getPath(), strlen(PATH_typo3conf . 'ext/'));
 			return substr($relativeExtensionPath, 0, strpos($relativeExtensionPath, '/'));
 		};
 		$getExtensionPath = function($that) {
+			/** @var Iresults\FS\File $that */
 			return t3lib_extMgm::extPath($that->getExtensionKey());
 		};
 
@@ -130,13 +134,16 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 */
 	public function showAction($file) {
 		$file = urldecode($file);
-		$absFile = t3lib_div::getFileAbsFileName($file);
+		$absFile = Utility\GeneralUtility::getFileAbsFileName($file);
 		if ($absFile) {
 			$file = $absFile;
 		}
 
 		$fileManager = FS\FileManager::sharedFileManager();
 		$file = $fileManager->getResourceAtUrl($file);
+		if ($file instanceof FS\Directory) {
+			$this->redirect('list', 'IDE', NULL, array('file' => $file->getExtensionPath()));
+		}
 
 		$this->initCodeMirrorForFile($file);
 		#$this->redirect('edit', 'IDE', NULL, array('file' => $file));
@@ -152,8 +159,8 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 */
 	public function getCodeMirrorConfiguration() {
 
-		$absoluteCodeMirrorInstallPath = t3lib_extMgm::extPath('sourcero') . 'Resources/Public/Stylesheets/Library/CodeMirror/';
-		$relativeCodeMirrorInstallPath = t3lib_extMgm::extRelPath('sourcero') . 'Resources/Public/Stylesheets/Library/CodeMirror/';
+		$absoluteCodeMirrorInstallPath = Utility\ExtensionManagementUtility::extPath('sourcero') . 'Resources/Public/Stylesheets/Library/CodeMirror/';
+		$relativeCodeMirrorInstallPath = Utility\ExtensionManagementUtility::extRelPath('sourcero') . 'Resources/Public/Stylesheets/Library/CodeMirror/';
 
 		// Find all Addons
 		$addons = FS\FileManager::find($absoluteCodeMirrorInstallPath . 'addon/*/*.js');
@@ -260,7 +267,7 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		if ($success) {
 			$this->flashMessageContainer->add('File successfully saved');
 		} else {
-			$this->flashMessageContainer->add('Could not save', 'Error', t3lib_Flashmessage::WARNING);
+			$this->flashMessageContainer->add('Could not save', 'Error', \TYPO3\CMS\Core\Messaging\FlashMessage::WARNING);
 		}
 		$this->redirect('show', 'IDE', NULL, array('file' => $path));
 	}
@@ -272,7 +279,7 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 * @return void
 	 */
 	public function deleteAction($file) {
-		$absFile = t3lib_div::getFileAbsFileName($file);
+		$absFile = Utility\GeneralUtility::getFileAbsFileName($file);
 		if ($absFile) {
 			$file = $absFile;
 		}
@@ -284,9 +291,10 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		if ($success) {
 			$this->flashMessageContainer->add('File successfully deleted');
 		} else {
-			$this->flashMessageContainer->add('Could not delete', 'Error', t3lib_Flashmessage::WARNING);
+			$this->flashMessageContainer->add('Could not delete', 'Error', \TYPO3\CMS\Core\Messaging\FlashMessage::WARNING);
 		}
-		$this->redirect('list', 'Repository');
+		$this->redirect('show', 'IDE', NULL, array('file' => $file->getExtensionPath())); // Show IDE
+		// $this->redirect('show', 'Repository', NULL, array('repository' => $file->getExtensionKey())); // Show the Repository overview
 	}
 
 	/**
@@ -321,12 +329,8 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		} else {
 			$path = $file->getPath();
 		}
-
 		$filePath = $file->getPath();
-		$filePathLength = strlen($filePath);
 
-		#act = rootline
-		#cur = current
 
 		/**
 		 * @var SplFileInfo $object

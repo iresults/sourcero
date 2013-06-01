@@ -185,4 +185,59 @@
         root.delegate.saveFile();
     }
     codeFolding = CodeMirror.newFoldFunction(CodeMirror.braceRangeFinder);
+
+    /**
+     * Delete button class
+     */
+    root.DeleteButton = {
+        init: function(selector) {
+            var _this = this;
+            $(selector).click(function () {
+                return _this.click(this);
+            });
+        },
+
+        click: function(button) {
+            var deleteUrl = button.href,
+                message = "Realy delete file '" + $(button).data('filename') + "'";
+            bootbox.confirm(message, function(result) {
+                if (result) {
+                    window.location = deleteUrl;
+                }
+            });
+            return false;
+        }
+    };
+
+    /**
+     * Save button class
+     */
+    root.SaveButton = {
+        init: function(selector) {
+            var _this = this;
+            $(selector).click(function () {
+                return root.delegate.saveFile();
+            });
+        },
+
+        click: function(button) {
+
+            var deleteUrl = button.href,
+                message = "Realy delete file '" + $(button).data('filename') + "'";
+            bootbox.confirm(message, function(result) {
+                if (result) {
+                    window.location = deleteUrl;
+                }
+            });
+            return false;
+        }
+    };
+
+    $(function() {
+        root.deleteButtons = DeleteButton.init('.deleteButton');
+        root.saveButtons = SaveButton.init('.saveButton');
+    });
+
+
+
 })(jQuery);

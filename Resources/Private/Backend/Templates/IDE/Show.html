@@ -34,10 +34,26 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	</div>
 </f:section>
 
-
 <f:section name="editor">
 
 	<f:render partial="FormErrors" />
+
+	<!-- Toolbar -->
+	<div class="btn-toolbar">
+		<div class="btn-group">
+			<a href="#" class="btn btn-inverse saveButton">
+				<i class="icon-save icon-white"></i>
+			</a>
+
+			<f:link.action action="show" controller="Repository" class="btn btn-inverse" arguments="{repository: file.extensionKey}">
+				<i class="icon-remove icon-white"></i>
+			</f:link.action>
+
+			<f:link.action action="delete" arguments="{file: file.path}" class="deleteButton btn btn-inverse" additionalAttributes="{data-filename: '{file.name}'}">
+				<i class="icon-trash icon-white"></i>
+			</f:link.action>
+		</div>
+	</div>
 
 	<f:if condition="{fileIsBinary}">
 		<f:then>
@@ -46,7 +62,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			</div>
 
 			<div>
-				<f:link.action action="delete" arguments="{file: file.uri}">
+				<f:link.action action="delete" arguments="{file: file.path}" class="deleteButton btn btn-inverse" additionalAttributes="{data-filename: '{file.name}'}">
 					Delete file <i class="icon-trash icon-white"></i>
 				</f:link.action>
 			</div>
@@ -57,49 +73,34 @@ Otherwise your changes will be overwritten the next time you save the extension 
 					<sourcero:form.textarea rows="100" cols="100" name="contents" id="code" value="{file.contents -> f:format.raw()}" class="input-block-level" additionalAttributes="{autofocus:autofocus}"/>
 					<f:form.hidden name="path" value="{file.path}" />
 
-					<div class="row-fluid">
-						<div class="span3">
-							<div class="buttons">
-								<button type="submit" class="btn btn-primary">Save</button>
-
-								<f:link.action action="show" controller="Repository" class="btn btn-inverse" arguments="{repository: file.extensionKey}">
-									Cancel <i class="icon-off icon-white"></i>
+					<header class="row-fluid">
+						<f:if condition="{file.exists}">
+							<f:then>
+								<h1 class="editorHeader">Edit File</h1>
+							</f:then>
+							<f:else>
+								<h1 class="editorHeader">New File</h1>
+							</f:else>
+						</f:if>
+					</header>
+					<table class="table editorInfoTable">
+						<tr>
+							<td class="caption">Path</td>
+							<td class="value">{file.path}</td>
+						</tr>
+						<tr>
+							<td class="caption">Mime-Type</td>
+							<td class="value">{fileMimeType}</td>
+						</tr>
+						<tr>
+							<td class="caption">Delete file</td>
+							<td class="value">
+								<f:link.action action="delete" arguments="{file: file.path}" class="deleteButton btn btn-inverse" additionalAttributes="{data-filename: '{file.name}'}">
+									Delete file <i class="icon-trash icon-white"></i>
 								</f:link.action>
-							</div>
-						</div>
-
-
-						<div class="span9">
-							<header class="row-fluid">
-								<f:if condition="{file.exists}">
-									<f:then>
-										<h1 class="editorHeader">Edit File</h1>
-									</f:then>
-									<f:else>
-										<h1 class="editorHeader">New File</h1>
-									</f:else>
-								</f:if>
-							</header>
-							<table class="table editorInfoTable">
-								<tr>
-									<td class="caption">Path</td>
-									<td class="value">{file.path}</td>
-								</tr>
-								<tr>
-									<td class="caption">Mime-Type</td>
-									<td class="value">{fileMimeType}</td>
-								</tr>
-								<tr>
-									<td class="caption">Delete file</td>
-									<td class="value">
-										<f:link.action action="delete" arguments="{file: file.uri}">
-											<i class="icon-trash icon-white"></i>
-										</f:link.action>
-									</td>
-								</tr>
-							</table>
-						</div>
-					</div>
+							</td>
+						</tr>
+					</table>
 				</f:form>
 			</div>
 			<f:render partial="CodeMirror" arguments="{_all}" />
@@ -108,11 +109,5 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		</f:else>
 	</f:if>
 
-
-
-
 </f:section>
-
-
-
 

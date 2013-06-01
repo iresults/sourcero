@@ -123,7 +123,7 @@ class Tx_Sourcero_Service_OutputFormatterService implements t3lib_singleton {
 	public function buildEditLinkForFile($relativePath) {
 		$url = $this->getUriForFileAndAction($relativePath, 'show', 'IDE');
 		$icon = ' <i class="icon-pencil icon-white"></i>';
-		return '<a href="' . $url . '" target="_blank" class="editLink"><span class="editLinkFile">' . $relativePath . '</span>' . $icon . '</a>';
+		return '<a href="' . $url . '" class="editLink"><span class="editLinkFile">' . $relativePath . '</span>' . $icon . '</a>';
 	}
 
 	/**
@@ -139,7 +139,7 @@ class Tx_Sourcero_Service_OutputFormatterService implements t3lib_singleton {
 
 
 		$url = $this->getUriForFileAndAction($relativePath, 'executeCommand', 'Repository', $arguments);
-		return '<a href="' . $url . '" target="" class="diffLink icon-rotate-90 icon-code-fork"></a>';
+		return '<a href="' . $url . '" class="diffLink icon-rotate-90 icon-code-fork"></a>';
 	}
 
 	/**
