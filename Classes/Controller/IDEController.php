@@ -79,23 +79,47 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		};
 		$getExtensionKey = function($that) {
 			/** @var Iresults\FS\File $that */
+
+			// If the file belongs to a composer package
+			if (strpos($that->getPath(), '/cundd_composer/vendor/') !== FALSE) {
+				list ($vendor, $extension) = $that->getVendorAndExtensionNameForComposerPackage();
+				return $vendor . '/' . $extension;
+			}
 			$relativeExtensionPath = substr($that->getPath(), strlen(PATH_typo3conf . 'ext/'));
 			return substr($relativeExtensionPath, 0, strpos($relativeExtensionPath, '/'));
 		};
 		$getExtensionPath = function($that) {
 			/** @var Iresults\FS\File $that */
+
+			// If the file belongs to a composer package
+			if (strpos($that->getPath(), '/cundd_composer/vendor/') !== FALSE) {
+				list ($vendor, $extension) = $that->getVendorAndExtensionNameForComposerPackage();
+				return t3lib_extMgm::extPath('cundd_composer') . '/vendor/' . $vendor . '/' . $extension . '/';
+			}
 			return t3lib_extMgm::extPath($that->getExtensionKey());
+		};
+		$getVendorAndExtensionNameForComposerPackage = function($that) {
+			$path = $that->getPath();
+			$composerVendorDirPosition = strpos($path, '/cundd_composer/vendor/');
+			if ($composerVendorDirPosition !== FALSE) {
+				$extensionRelativePath = substr($path, $composerVendorDirPosition + 23);
+				list ($vendor, $extension, ) = explode(DIRECTORY_SEPARATOR, $extensionRelativePath);
+				return array($vendor, $extension);
+			}
+			return FALSE;
 		};
 
 		FS\File::_instanceMethodForSelector('getExists', $getExists);
 		FS\File::_instanceMethodForSelector('getSuffix', $getSuffix);
 		FS\File::_instanceMethodForSelector('getExtensionKey', $getExtensionKey);
 		FS\File::_instanceMethodForSelector('getExtensionPath', $getExtensionPath);
+		FS\File::_instanceMethodForSelector('getVendorAndExtensionNameForComposerPackage', $getVendorAndExtensionNameForComposerPackage);
 
 		FS\Directory::_instanceMethodForSelector('getExists', $getExists);
 		FS\Directory::_instanceMethodForSelector('getSuffix', $getSuffix);
 		FS\Directory::_instanceMethodForSelector('getExtensionKey', $getExtensionKey);
 		FS\Directory::_instanceMethodForSelector('getExtensionPath', $getExtensionPath);
+		FS\Directory::_instanceMethodForSelector('getVendorAndExtensionNameForComposerPackage', $getVendorAndExtensionNameForComposerPackage);
 	}
 
 	/**
@@ -331,7 +355,6 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		}
 		$filePath = $file->getPath();
 
-
 		/**
 		 * @var SplFileInfo $object
 		 */
@@ -348,7 +371,6 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 			$act = FALSE;
 			$classOpenFiles = '';
 
-
 			// Hide dot-files and folders
 			if (strpos($path, '/.') !== FALSE) {
 				continue;
@@ -356,11 +378,6 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 
 			// Detect open file paths
 			$objectPath = $object->getRealPath();
-
-//			echo 'obp:' . $objectPath . '<br>';
-//			echo 'flp:' . $filePath . '<br>';
-//			echo substr($filePath, 0, strlen($objectPath)) . ' : ' . $objectPath . ' ' . (substr($filePath, 0, strlen($objectPath)) === $objectPath) . '<br>';
-
 			if ($objectPath === $filePath) {
 				$current = TRUE;
 				$act = TRUE;
@@ -382,7 +399,6 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 				$linkElement->setAttribute('href', $link);
 			}
 			$linkElement->setAttribute('class', $class);
-
 
 			if ($objects->getDepth() == $depth) {
 				//the depth hasnt changed so just add another li
@@ -455,16 +471,15 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 			RecursiveTreeIterator::BYPASS_CURRENT);
 
 		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_LEFT, '</div><div class="line" style=""><span class="pop">[');
-//		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_LEFT, '</div><div class="line" style=""><span class="pop" style="width:340px;display:inline-block;">&nbsp;{L&nbsp;&nbsp;');
-		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_MID_HAS_NEXT, '-&nbsp;');
-//		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_MID_HAS_NEXT, '&nbsp;{m&nbsp;&nbsp;');
-		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_MID_LAST, '—&nbsp;');
+//		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_LEFT, '</div><div class="line" style=""><span class="pop" style="width:340px;display:inline-block;"> {L  ');
+		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_MID_HAS_NEXT, '- ');
+//		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_MID_HAS_NEXT, ' {m  ');
+		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_MID_LAST, '— ');
 		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_END_HAS_NEXT, '⎜');
-//		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_END_HAS_NEXT, '&nbsp;{e&nbsp;&nbsp;');
-		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_END_LAST, '⎦&nbsp;'); // Is last
+//		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_END_HAS_NEXT, ' {e  ');
+		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_END_LAST, '⎦ '); // Is last
 		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_RIGHT, '</span>');
-//		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_RIGHT, '&nbsp;&nbsp;R}&nbsp;</span>');
-
+//		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_RIGHT, '  R} </span>');
 
 //		const integer PREFIX_LEFT = 0 ;
 //		const integer PREFIX_MID_HAS_NEXT = 1 ;
@@ -472,8 +487,6 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 //		const integer PREFIX_END_HAS_NEXT = 3 ;
 //		const integer PREFIX_END_LAST = 4 ;
 //		const integer PREFIX_RIGHT = 5 ;
-
-
 
 		echo <<<ECHOS
 <style>
@@ -490,8 +503,6 @@ background: rgba(45, 230, 45, 0.2);
 }
 </style>
 ECHOS;
-
-
 
 		$lastDepth = 0;
 		foreach($treeIterator as $key => $currentPath) {

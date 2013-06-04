@@ -47,10 +47,10 @@ table {
 }
 
 a {
-	transition: color 2s;
-	-moz-transition: color 2s; /* Firefox 4 */
-	-webkit-transition: color 2s; /* Safari and Chrome */
-	-o-transition: color 2s; /* Opera */
+	transition: color 0.5s;
+	-moz-transition: color 0.5s; /* Firefox 4 */
+	-webkit-transition: color 0.5s; /* Safari and Chrome */
+	-o-transition: color 0.5s; /* Opera */
 }
 a:hover {
 	text-decoration: none;
@@ -59,20 +59,15 @@ a:hover {
 a > i,
 a[class^="icon-"], a[class*=" icon-"], a[class^="icon-"]::before, a[class*=" icon-"]::before {
 	opacity: 0.6;
-	transition: color 2s, opacity 2s;
-	-moz-transition: color 2s, opacity 2s; /* Firefox 4 */
-	-webkit-transition: color 2s, opacity 2s; /* Safari and Chrome */
-	-o-transition: color 2s, opacity 2s; /* Opera */
+	transition: color 0.5s, opacity 1s;
+	-moz-transition: color 0.5s, opacity 1s; /* Firefox 4 */
+	-webkit-transition: color 0.5s, opacity 1s; /* Safari and Chrome */
+	-o-transition: color 0.5s, opacity 1s; /* Opera */
 }
 a:hover > i,
 a[class^="icon-"]:hover, a[class*=" icon-"]:hover, a[class^="icon-"]:hover::before, a[class*=" icon-"]:hover::before{
 	opacity: 1;
 }
-
-
-
-
-
 
 .badge-small.badge {
 	padding: 3px;
@@ -108,7 +103,6 @@ textarea.input-block-level:hover {
 #typo3-inner-docbody pre .background-cyan		{	background-color: cyan;		}
 #typo3-inner-docbody pre .background-white		{	background-color: white;	}
 
-
 /* SCM info table */
 .scm-info {
 	margin-bottom: 1em;
@@ -125,7 +119,6 @@ a.editLink i {
 	/*opacity: 1;*/
 /*}*/
 
-
 a.diffLink {
 	font-size: 18px;
 	line-height: 16px;
@@ -133,7 +126,6 @@ a.diffLink {
 	display: inline-block;
 	opacity: 1;
 }
-
 
 /* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW */
 /* SCM COMMAND OUTPUT */
@@ -243,7 +235,6 @@ h1.editorHeader {
 .fileBrowser .act > .directory-container {
 	display: block;
 }
-
 
 .fileBrowser .directoryEdit:after {
 	font-family: FontAwesome;
