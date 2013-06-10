@@ -69,11 +69,6 @@ a[class^="icon-"]:hover, a[class*=" icon-"]:hover, a[class^="icon-"]:hover::befo
 	opacity: 1;
 }
 
-
-
-
-
-
 .badge-small.badge {
 	padding: 3px;
 	-webkit-border-radius: 14px; /* Android ≤ 1.6, iOS 1-3.2, Safari 3-4 */
@@ -108,7 +103,6 @@ textarea.input-block-level:hover {
 #typo3-inner-docbody pre .background-cyan		{	background-color: cyan;		}
 #typo3-inner-docbody pre .background-white		{	background-color: white;	}
 
-
 /* SCM info table */
 .scm-info {
 	margin-bottom: 1em;
@@ -125,7 +119,6 @@ a.editLink i {
 	/*opacity: 1;*/
 /*}*/
 
-
 a.diffLink {
 	font-size: 18px;
 	line-height: 16px;
@@ -133,7 +126,6 @@ a.diffLink {
 	display: inline-block;
 	opacity: 1;
 }
-
 
 /* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW */
 /* SCM COMMAND OUTPUT */
@@ -244,8 +236,7 @@ h1.editorHeader {
 	display: block;
 }
 
-
-.fileBrowser .directoryEdit:after {
+.fileBrowser .directoryEdit:before {
 	font-family: FontAwesome;
 	font-weight: normal;
 	font-style: normal;
@@ -255,7 +246,7 @@ h1.editorHeader {
 	content: "\f0da";
 	padding: 0 5px;
 }
-.fileBrowser .directoryEdit.open:after {
+.fileBrowser .directoryEdit.open:before {
 	content: "\f0d7";
 }
 .fileBrowser .directory-root {
