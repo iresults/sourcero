@@ -3,6 +3,7 @@ div#typo3-docbody {
 }
 
 body {
+	-webkit-font-smoothing: subpixel-antialiased;
 	background-image: url('../../Images/debut_dark/debut_dark.png');
 }
 table {
@@ -47,10 +48,10 @@ table {
 }
 
 a {
-	transition: color 2s;
-	-moz-transition: color 2s; /* Firefox 4 */
-	-webkit-transition: color 2s; /* Safari and Chrome */
-	-o-transition: color 2s; /* Opera */
+	transition: color 0.5s;
+	-moz-transition: color 0.5s; /* Firefox 4 */
+	-webkit-transition: color 0.5s; /* Safari and Chrome */
+	-o-transition: color 0.5s; /* Opera */
 }
 a:hover {
 	text-decoration: none;
@@ -59,10 +60,10 @@ a:hover {
 a > i,
 a[class^="icon-"], a[class*=" icon-"], a[class^="icon-"]::before, a[class*=" icon-"]::before {
 	opacity: 0.6;
-	transition: color 2s, opacity 2s;
-	-moz-transition: color 2s, opacity 2s; /* Firefox 4 */
-	-webkit-transition: color 2s, opacity 2s; /* Safari and Chrome */
-	-o-transition: color 2s, opacity 2s; /* Opera */
+	transition: color 0.5s, opacity 0.5s;
+	-moz-transition: color 0.5s, opacity 0.5s; /* Firefox 4 */
+	-webkit-transition: color 0.5s, opacity 0.5s; /* Safari and Chrome */
+	-o-transition: color 0.5s, opacity 0.5s; /* Opera */
 }
 a:hover > i,
 a[class^="icon-"]:hover, a[class*=" icon-"]:hover, a[class^="icon-"]:hover::before, a[class*=" icon-"]:hover::before{
