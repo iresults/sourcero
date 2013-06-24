@@ -3,6 +3,7 @@ div#typo3-docbody {
 }
 
 body {
+	-webkit-font-smoothing: subpixel-antialiased;
 	background-image: url('../../Images/debut_dark/debut_dark.png');
 }
 table {
@@ -59,10 +60,10 @@ a:hover {
 a > i,
 a[class^="icon-"], a[class*=" icon-"], a[class^="icon-"]::before, a[class*=" icon-"]::before {
 	opacity: 0.6;
-	transition: color 0.5s, opacity 1s;
-	-moz-transition: color 0.5s, opacity 1s; /* Firefox 4 */
-	-webkit-transition: color 0.5s, opacity 1s; /* Safari and Chrome */
-	-o-transition: color 0.5s, opacity 1s; /* Opera */
+	transition: color 0.5s, opacity 0.5s;
+	-moz-transition: color 0.5s, opacity 0.5s; /* Firefox 4 */
+	-webkit-transition: color 0.5s, opacity 0.5s; /* Safari and Chrome */
+	-o-transition: color 0.5s, opacity 0.5s; /* Opera */
 }
 a:hover > i,
 a[class^="icon-"]:hover, a[class*=" icon-"]:hover, a[class^="icon-"]:hover::before, a[class*=" icon-"]:hover::before{
@@ -236,7 +237,7 @@ h1.editorHeader {
 	display: block;
 }
 
-.fileBrowser .directoryEdit:after {
+.fileBrowser .directoryEdit:before {
 	font-family: FontAwesome;
 	font-weight: normal;
 	font-style: normal;
@@ -245,8 +246,10 @@ h1.editorHeader {
 	*margin-right: .3em;
 	content: "\f0da";
 	padding: 0 5px;
+	width: 7px;
+	display: inline-block;;
 }
-.fileBrowser .directoryEdit.open:after {
+.fileBrowser .directoryEdit.open:before {
 	content: "\f0d7";
 }
 .fileBrowser .directory-root {

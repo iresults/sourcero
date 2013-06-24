@@ -142,7 +142,7 @@
                 currentPosition,
                 token;
 
-            if (false && CodeMirror[codeMirrorModeHint]) {
+            if (CodeMirror[codeMirrorModeHint]) {
                 completionCallback = CodeMirror[codeMirrorModeHint];
                 completionObject = completionCallback(editor);
             } else {

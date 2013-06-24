@@ -35,7 +35,7 @@ use Symfony\Component\Process\Process;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Sourcero_Service_SCMService implements t3lib_singleton {
+class Tx_Sourcero_Service_SCMService implements \TYPO3\CMS\Core\SingletonInterface {
 	/**
 	 * Status of the SCM
 	 */
