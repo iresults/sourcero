@@ -1,0 +1,23 @@
+<!-- Button to trigger modal -->
+<a href="#fast-open" role="button" class="btn btn-inverse fastOpenBtn" data-toggle="modal" data-backdrop="">
+	<i class="icon-medkit icon-white"></i>
+</a>
+
+<!-- Modal -->
+<div id="fast-open" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="fast-open-label" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<strong id="fast-open-label">Modal header</strong>
+	</div>
+	<div class="modal-body">
+		<ul>
+			<f:for each="{fileBrowser}" as="fileBrowserFile">
+				<li>
+					<f:link.action action="show" arguments="{file: fileBrowserFile.uri}">{fileBrowserFile.relativePath}</f:link.action>
+				</li>
+			</f:for>
+		</ul>
+	</div>
+</div>
+
+

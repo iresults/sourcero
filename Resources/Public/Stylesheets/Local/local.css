@@ -85,6 +85,9 @@ textarea.input-block-level:hover {
 	-webkit-transition:color 0.5s; /* Safari and Chrome */
 	-o-transition:color 0.5s; /* Opera */
 }
+.navbar-form input {
+	box-sizing: content-box;
+}
 
 /* Styles console output */
 #typo3-inner-docbody pre .bold		{	font-weight: bold;	}

@@ -178,9 +178,11 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		$this->initCodeMirrorForFile($file);
 		#$this->redirect('edit', 'IDE', NULL, array('file' => $file));
 
-		#$this->view->assign('fileBrowser', $this->getFileBrowserForFile($file, TRUE));
+		$this->view->assign('fileBrowser', $this->getFileBrowserForFile($file, FALSE));
 		$this->view->assign('fileBrowserCode', $this->getFileBrowserCodeForFile($file));
 		$this->view->assign('fileBrowserOpen', TRUE);
+
+		$this->view->assign('project', $this->getProjectForFile($file));
 	}
 
 	/**
@@ -364,6 +366,24 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 */
 	public function getFileBrowserForFile($file, $withDirectories = FALSE) {
 		return $this->fileBrowserService->setUriBuilder($this->uriBuilder)->getFileBrowserForFile($file, $withDirectories);
+	}
+
+	/**
+	 * Returns a virtual project for the given file
+	 *
+	 * @param Tx_Sourcero_Domain_Model_File $file
+	 * @return array
+	 */
+	public function getProjectForFile($file) {
+		if ($file instanceof FS\File) {
+			$path = $file->getExtensionPath();
+		} else {
+			$path = $file->getPath();
+		}
+		return array(
+			'name' 		=> $file->getExtensionKey(),
+			'path' 		=> $file->getExtensionPath(),
+		);
 	}
 
 	/**

@@ -71,7 +71,6 @@
 
       return findVariables(editor).filter(
         function (element, index, array) {
-          console.log(element, start);
           return element.indexOf(start) === 0;
         }
       );

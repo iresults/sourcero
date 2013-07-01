@@ -25,7 +25,7 @@
 
 
 
-(function($) {
+(function ($) {
     var root = this,
         codeFolding;
 
@@ -75,62 +75,62 @@
          */
         restoreCursorPosition: function () {
             var cursorPosition = root.localStorage.getItem(this.getCursorPositionKeyForLocalStorage()),
-				scrollInformation = root.localStorage.getItem(this.getScrollInformationKeyForLocalStorage());
+                scrollInformation = root.localStorage.getItem(this.getScrollInformationKeyForLocalStorage());
 
-			if (scrollInformation) {
+            if (scrollInformation) {
                 scrollInformation = JSON.parse(scrollInformation);
                 this.editor.scrollTo(0, scrollInformation.top)
             }
 
-			if (cursorPosition) {
+            if (cursorPosition) {
                 cursorPosition = JSON.parse(cursorPosition);
                 this.editor.setCursor(cursorPosition);
             }
         },
 
-		/**
-		 * Saves the current cursor position
-		 */
-		saveCursorPosition: function () {
-			var serializedCursorPosition = JSON.stringify(this.editor.getCursor()),
-				serializedScrollInformation = JSON.stringify(this.editor.getScrollInfo());
+        /**
+         * Saves the current cursor position
+         */
+        saveCursorPosition: function () {
+            var serializedCursorPosition = JSON.stringify(this.editor.getCursor()),
+                serializedScrollInformation = JSON.stringify(this.editor.getScrollInfo());
 
             root.localStorage.setItem(this.getCursorPositionKeyForLocalStorage(), serializedCursorPosition);
-			root.localStorage.setItem(this.getScrollInformationKeyForLocalStorage(), serializedScrollInformation);
-		},
+            root.localStorage.setItem(this.getScrollInformationKeyForLocalStorage(), serializedScrollInformation);
+        },
 
         /**
          * Save the file
          */
         saveFile: function () {
             // Save the cursor position
-			this.saveCursorPosition();
+            this.saveCursorPosition();
 
             // Save the file
             this.codeTextarea.form.submit();
         },
 
-		/**
-		 * Returns the key to set or get the cursor position
-		 */
-		getCursorPositionKeyForLocalStorage: function() {
-			return this.getKeyPrefixForLocalStorage() + '.editor.cursorPosition';
-		},
+        /**
+         * Returns the key to set or get the cursor position
+         */
+        getCursorPositionKeyForLocalStorage: function () {
+            return this.getKeyPrefixForLocalStorage() + '.editor.cursorPosition';
+        },
 
-		/**
-		 * Returns the key to set or get the scroll information
-		 */
-		getScrollInformationKeyForLocalStorage: function() {
-			return this.getKeyPrefixForLocalStorage() + '.editor.scrollInformation';
-		},
+        /**
+         * Returns the key to set or get the scroll information
+         */
+        getScrollInformationKeyForLocalStorage: function () {
+            return this.getKeyPrefixForLocalStorage() + '.editor.scrollInformation';
+        },
 
-		/**
-		 * Returns the key prefix to distinguish the different editors
-		 */
-		getKeyPrefixForLocalStorage: function() {
-			var relativeFilePath = IDE.currentFile.path.replace(new RegExp(IDE.extension.extensionPath + '', 'g'), '');
-			return (relativeFilePath).replace(/[^a-zA-Z]/g, '.')
-		},
+        /**
+         * Returns the key prefix to distinguish the different editors
+         */
+        getKeyPrefixForLocalStorage: function () {
+            var relativeFilePath = IDE.currentFile.path.replace(new RegExp(IDE.extension.extensionPath + '', 'g'), '');
+            return (relativeFilePath).replace(/[^a-zA-Z]/g, '.')
+        },
 
         /**
          * Get the completion list
@@ -139,21 +139,28 @@
         getCompletionList: function (editor) {
             var completionObject,
                 completionCallback,
-                currentPosition,
-                token;
+                currentPosition = editor.getCursor(),
+                token = editor.getTokenAt(currentPosition);
 
             if (CodeMirror[codeMirrorModeHint]) {
                 completionCallback = CodeMirror[codeMirrorModeHint];
                 completionObject = completionCallback(editor);
             } else {
-                currentPosition = editor.getCursor();
-                token = editor.getTokenAt(currentPosition);
                 completionObject = {
                     from: CodeMirror.Pos(currentPosition.line, token.start),
-                    to: CodeMirror.Pos(currentPosition.line, token.end)
+                    to: CodeMirror.Pos(currentPosition.line, token.end),
+                    list: []
                 }
             }
-            completionObject.list = root.delegate.getGeneralCompletionList(editor, token);
+
+            // Merge the language dependant and general lists
+            completionObject.list = jQuery.merge(
+                completionObject.list,
+                root.delegate.getGeneralCompletionList(editor, token)
+            );
+
+            // Remove duplicate entries
+            completionObject.list = root.delegate.arrayUnique(completionObject.list);
             return completionObject;
         },
 
@@ -165,23 +172,35 @@
             var contents = this.editor.getValue(),
                 contentsArray,
                 start = token.string;
-
-            console.log(contents.split(/\s+/), token);
-
-            contentsArray = contents.split(/\s+/);
+            contentsArray = contents.match(/[a-zA-Z0-9]+/g);
             return contentsArray.filter(function (element, index, array) {
-                console.log(element, start);
                 return element.indexOf(start) === 0 && element !== start;
             });
+        },
+
+        /**
+         * Removes duplicates from an array
+         * @param arr
+         */
+        arrayUnique: function (arr) {
+            // do the default behavior only if we got an array of elements
+            if (!!arr[0].nodeType) {
+                return $.unique.apply(this, arguments);
+            } else {
+                // reduce the array to contain no dupes via grep/inArray
+                return $.grep(arr, function (v, k) {
+                    return $.inArray(v, arr) === k;
+                });
+            }
         }
     }
 
     root.delegate.init();
 
-    CodeMirror.commands.autocomplete = function(cm) {
+    CodeMirror.commands.autocomplete = function (cm) {
         CodeMirror.showHint(cm, root.delegate.getCompletionList);
     }
-    CodeMirror.commands.saveFile = function(cm) {
+    CodeMirror.commands.saveFile = function (cm) {
         root.delegate.saveFile();
     }
     codeFolding = CodeMirror.newFoldFunction(CodeMirror.braceRangeFinder);
@@ -190,17 +209,17 @@
      * Delete button class
      */
     root.DeleteButton = {
-        init: function(selector) {
+        init: function (selector) {
             var _this = this;
             $(selector).click(function () {
                 return _this.click(this);
             });
         },
 
-        click: function(button) {
+        click: function (button) {
             var deleteUrl = button.href,
                 message = "Realy delete file '" + $(button).data('filename') + "'";
-            bootbox.confirm(message, function(result) {
+            bootbox.confirm(message, function (result) {
                 if (result) {
                     window.location = deleteUrl;
                 }
@@ -213,31 +232,18 @@
      * Save button class
      */
     root.SaveButton = {
-        init: function(selector) {
+        init: function (selector) {
             var _this = this;
             $(selector).click(function () {
                 return root.delegate.saveFile();
             });
-        },
-
-        click: function(button) {
-
-            var deleteUrl = button.href,
-                message = "Realy delete file '" + $(button).data('filename') + "'";
-            bootbox.confirm(message, function(result) {
-                if (result) {
-                    window.location = deleteUrl;
-                }
-            });
-            return false;
         }
     };
 
-    $(function() {
+    $(function () {
         root.deleteButtons = DeleteButton.init('.deleteButton');
         root.saveButtons = SaveButton.init('.saveButton');
     });
-
 
 
 })(jQuery);
