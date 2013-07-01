@@ -1,22 +1,37 @@
+<script type="text/javascript" src="{f:uri.resource(path:'Scripts/FastOpen.js')}"></script>
+
 <!-- Button to trigger modal -->
-<a href="#fast-open" role="button" class="btn btn-inverse fastOpenBtn" data-toggle="modal" data-backdrop="">
+<a id="fast-open-button" href="#fast-open" role="button" class="btn btn-inverse fastOpenBtn">
 	<i class="icon-medkit icon-white"></i>
 </a>
 
 <!-- Modal -->
-<div id="fast-open" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="fast-open-label" aria-hidden="true">
+<div id="fast-open-modal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="fast-open-label" aria-hidden="true">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<strong id="fast-open-label">Modal header</strong>
 	</div>
 	<div class="modal-body">
-		<ul>
-			<f:for each="{fileBrowser}" as="fileBrowserFile">
-				<li>
-					<f:link.action action="show" arguments="{file: fileBrowserFile.uri}">{fileBrowserFile.relativePath}</f:link.action>
-				</li>
-			</f:for>
-		</ul>
+		<form id="fast-open-form" action="#">
+			<input id="fast-open-input" type="text" data-provide="typeahead" autocomplete="off" autofocus data-source='[
+		<f:for each="{fileBrowser}" as="fileBrowserFile">
+			"{fileBrowserFile.uri}",
+		</f:for>
+			"null"
+		]' />
+
+
+			<script type="text/javascript">
+				var fastOpenMap = {
+				<f:for each="{fileBrowser}" as="fileBrowserFile">
+					'{fileBrowserFile.uri}': '<f:uri.action action="show" arguments="{file: fileBrowserFile.uri}" />',
+				</f:for>
+					'null': null
+				};
+			</script>
+		</form>
+
+
 	</div>
 </div>
 

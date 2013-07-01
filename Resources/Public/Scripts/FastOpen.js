@@ -28,14 +28,36 @@
 (function($) {
     var root = this;
 
-    $(function () {
-        $('.directoryEdit').click(function() {
-            var _this = $(this),
-                directoryContainer = _this.parent().children('.directory-container');
 
-            _this.toggleClass('open');
-            directoryContainer.toggleClass('open');
-            directoryContainer.toggle();
+
+    $(function () {
+        var modalElement = $('#fast-open-modal'),
+            fastOpenInput = $('#fast-open-input'),
+            modal;
+
+        modal = modalElement.modal({
+            backdrop: false,
+            show: false
+        })
+
+
+        $('#fast-open-button').click(function() {
+            modal.show();
+            fastOpenInput.focus();
+        });
+
+        $('#fast-open-form').submit(function () {
+            var key = fastOpenInput.val();
+            if (!key) {
+                return false;
+            }
+            if (root.fastOpenMap[key]) {
+                window.location = root.fastOpenMap[key];
+            }
+            return false;
         });
     });
+
+
+
 })(jQuery);
