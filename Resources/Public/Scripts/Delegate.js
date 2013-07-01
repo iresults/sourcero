@@ -63,7 +63,10 @@
                     "Cmd-.": "autocomplete",
                     "Ctrl-.": "autocomplete",
                     "Cmd-S": "saveFile",
-                    "Ctrl-S": "saveFile"
+                    "Ctrl-S": "saveFile",
+                    "Cmd-Alt-O": "fastOpen",
+                    "Ctrl-Alt-O": "fastOpen",
+                    "Cmd-O": "fastOpen"
                 }
             });
             this.editor.on("gutterClick", codeFolding);
@@ -79,7 +82,7 @@
 
             if (scrollInformation) {
                 scrollInformation = JSON.parse(scrollInformation);
-                this.editor.scrollTo(0, scrollInformation.top)
+                this.editor.scrollTo(0, scrollInformation.top);
             }
 
             if (cursorPosition) {
@@ -129,7 +132,7 @@
          */
         getKeyPrefixForLocalStorage: function () {
             var relativeFilePath = IDE.currentFile.path.replace(new RegExp(IDE.extension.extensionPath + '', 'g'), '');
-            return (relativeFilePath).replace(/[^a-zA-Z]/g, '.')
+            return (relativeFilePath).replace(/[^a-zA-Z]/g, '.');
         },
 
         /**
@@ -150,7 +153,7 @@
                     from: CodeMirror.Pos(currentPosition.line, token.start),
                     to: CodeMirror.Pos(currentPosition.line, token.end),
                     list: []
-                }
+                };
             }
 
             // Merge the language dependant and general lists
@@ -193,16 +196,21 @@
                 });
             }
         }
-    }
+    };
 
     root.delegate.init();
 
     CodeMirror.commands.autocomplete = function (cm) {
         CodeMirror.showHint(cm, root.delegate.getCompletionList);
-    }
+    };
     CodeMirror.commands.saveFile = function (cm) {
         root.delegate.saveFile();
-    }
+    };
+    CodeMirror.commands.fastOpen = function (cm) {
+        if (root.FastOpen) {
+            root.FastOpen.show();
+        }
+    };
     codeFolding = CodeMirror.newFoldFunction(CodeMirror.braceRangeFinder);
 
     /**

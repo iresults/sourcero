@@ -31,23 +31,27 @@
 
 
     $(function () {
-        var modalElement = $('#fast-open-modal'),
-            fastOpenInput = $('#fast-open-input'),
-            modal;
+        var _modalElement = root.fastOpenModalElement = $('#fast-open-modal'),
+            _fastOpenInput = root.fastOpenInput = $('#fast-open-input');
 
-        modal = modalElement.modal({
+        _fastOpenModal = _modalElement.modal({
             backdrop: false,
             show: false
-        })
+        });
 
+        root.FastOpen = {};
+        root.FastOpen.show = function () {
+            _fastOpenInput.val('');
+            _fastOpenModal.show();
+            _fastOpenInput.focus();
+        };
 
         $('#fast-open-button').click(function() {
-            modal.show();
-            fastOpenInput.focus();
+            root.FastOpen.show();
         });
 
         $('#fast-open-form').submit(function () {
-            var key = fastOpenInput.val();
+            var key = _fastOpenInput.val();
             if (!key) {
                 return false;
             }
@@ -56,6 +60,17 @@
             }
             return false;
         });
+
+        _fastOpenInput.keydown(function (event) {
+            var keyCode = event.keyCode;
+            if (keyCode === 27) {
+                root.fastOpenModal.hide();
+                root.delegate.editor.focus();
+            }
+        });
+
+
+        root.fastOpenModal = _fastOpenModal;
     });
 
 
