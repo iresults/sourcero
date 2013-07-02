@@ -154,6 +154,8 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		#$this->view->assign('fileBrowser', $this->getFileBrowserForFile($file, FALSE));
 		$this->view->assign('fileBrowserCode', $this->getFileBrowserCodeForFile($file));
 		$this->view->assign('fileBrowserOpen', TRUE);
+
+		$this->view->assign('project', $this->getProjectForFile($file));
 	}
 
 	/**
