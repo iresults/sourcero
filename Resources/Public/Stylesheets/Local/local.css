@@ -262,10 +262,12 @@ h1.editorHeader {
 	display: block;
 }
 
-
 /* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW */
 /* FAST OPEN */
 /* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW */
 #fast-open-modal .modal-body {
 	overflow-y: visible;
+}
+#fast-open-input {
+	width: 100%;
 }
