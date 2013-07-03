@@ -312,7 +312,13 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 
 		$contents = $this->removeTrailingWhitespaces($contents);
 		$success = $file->setContents($contents);
-
+		if ($this->request->getFormat() === 'json') {
+			if ($success) {
+				return json_encode(array('success' => TRUE));
+			} else {
+				throw new Exception('Could not save file');
+			}
+		}
 		if ($success) {
 			$this->flashMessageContainer->add('File successfully saved');
 		} else {

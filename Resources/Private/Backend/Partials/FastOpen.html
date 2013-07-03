@@ -10,7 +10,7 @@
 		<form id="fast-open-form" action="#">
 			<input id="fast-open-input" type="text" data-provide="typeahead" autocomplete="off" autofocus data-source='[
 		<f:for each="{fileBrowser}" as="fileBrowserFile">
-			"{fileBrowserFile.uri}",
+			"{fileBrowserFile.relativePath}",
 		</f:for>
 			"null"
 		]' />
@@ -18,7 +18,7 @@
 			<script type="text/javascript">
 				var fastOpenMap = {
 				<f:for each="{fileBrowser}" as="fileBrowserFile">
-					'{fileBrowserFile.uri}': '<f:uri.action action="show" arguments="{file: fileBrowserFile.uri}" />',
+					'{fileBrowserFile.relativePath}': '<f:uri.action action="show" arguments="{file: fileBrowserFile.uri}" />',
 				</f:for>
 					'null': null
 				};

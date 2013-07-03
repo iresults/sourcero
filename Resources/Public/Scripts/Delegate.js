@@ -130,8 +130,45 @@
             // Save the cursor position
             this.saveCursorPosition();
 
+			this.editor.save();
+
             // Save the file
-            this.codeTextarea.form.submit();
+            // this.codeTextarea.form.submit();
+			var _this = this,
+                form = $(this.codeTextarea.form),
+				data = form.serialize(),
+				url = form.attr('action');
+
+			this.editor.doc.markClean();
+
+			if (url && data) {
+				$.ajax({
+					type: "POST",
+					url: url + "&format=json",
+					data: data,
+					dataType: 'text',
+					cache: false,
+					success: function (data, textStatus, jqXHR) {
+						_this.saveSuccess(data, textStatus, jqXHR);
+					},
+					error: function (jqXHR, textStatus, errorThrown) {
+						_this.saveError(jqXHR, textStatus, errorThrown);
+					}
+
+				});
+			}
+        },
+
+        saveSuccess: function (data, textStatus, jqXHR) {
+            this.editor.doc.markClean();
+            this.editor.on("change", this.markPageTitleAsModified);
+            this.updatePageTitle();
+            console.log('File successfully saved');
+        },
+
+        saveError: function (jqXHR, textStatus, errorThrown) {
+            root.alert('Could not save file');
+            console.log(jqXHR, textStatus, errorThrown);
         },
 
         /**
