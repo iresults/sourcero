@@ -86,6 +86,13 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		$getExtensionKey = function($that) {
 			/** @var Iresults\FS\File $that */
 
+			// If the file belongs into framework or fileadmin
+			if (strpos($that->getPath(), '/fileadmin/framework/') !== FALSE) {
+				return 'framework';
+			} else if (strpos($that->getPath(), '/fileadmin/') !== FALSE) {
+				return 'fileadmin';
+			}
+
 			// If the file belongs to a composer package
 			if (strpos($that->getPath(), '/cundd_composer/vendor/') !== FALSE) {
 				list ($vendor, $extension) = $that->getVendorAndExtensionNameForComposerPackage();
@@ -97,10 +104,18 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		$getExtensionPath = function($that) {
 			/** @var Iresults\FS\File $that */
 
+			// If the file belongs into framework or fileadmin
+			if (strpos($that->getPath(), '/fileadmin/framework/') !== FALSE) {
+				return PATH_site . '/fileadmin/framework/';
+			} else if (strpos($that->getPath(), '/fileadmin/') !== FALSE) {
+				return PATH_site . '/fileadmin/';
+			}
+
+
 			// If the file belongs to a composer package
 			if (strpos($that->getPath(), '/cundd_composer/vendor/') !== FALSE) {
 				list ($vendor, $extension) = $that->getVendorAndExtensionNameForComposerPackage();
-				return t3lib_extMgm::extPath('cundd_composer') . '/vendor/' . $vendor . '/' . $extension . '/';
+				return Utility\ExtensionManagementUtility::extPath('cundd_composer') . '/vendor/' . $vendor . '/' . $extension . '/';
 			}
 			return Utility\ExtensionManagementUtility::extPath($that->getExtensionKey());
 		};
@@ -301,7 +316,7 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		if ($success) {
 			$this->flashMessageContainer->add('File successfully saved');
 		} else {
-			$this->flashMessageContainer->add('Could not save', 'Error', \TYPO3\CMS\Core\Messaging\FlashMessage::WARNING);
+			$this->flashMessageContainer->add('Could not save', 'Error', \TYPO3\CMS\Core\Messaging\FlashMessage::ERROR);
 		}
 		$this->redirect('show', 'IDE', NULL, array('file' => $path));
 	}
@@ -325,7 +340,7 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		if ($success) {
 			$this->flashMessageContainer->add('File successfully deleted');
 		} else {
-			$this->flashMessageContainer->add('Could not delete', 'Error', \TYPO3\CMS\Core\Messaging\FlashMessage::WARNING);
+			$this->flashMessageContainer->add('Could not delete', 'Error', \TYPO3\CMS\Core\Messaging\FlashMessage::ERROR);
 		}
 		$this->redirect('show', 'IDE', NULL, array('file' => $file->getExtensionPath())); // Show IDE
 		// $this->redirect('show', 'Repository', NULL, array('repository' => $file->getExtensionKey())); // Show the Repository overview

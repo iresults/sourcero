@@ -23,8 +23,6 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-
-
 (function ($) {
     var root = this,
         codeFolding;
@@ -44,6 +42,8 @@
          * Initialize
          */
         init: function () {
+			var _this = this;
+			this.updatePageTitle();
             this.editor = CodeMirror.fromTextArea(this.codeTextarea, {
                 // Add a comment, so this is not treated as Fluid variable
                 lineNumbers: true,
@@ -70,7 +70,28 @@
                 }
             });
             this.editor.on("gutterClick", codeFolding);
+			this.editor.on("change", _this.markPageTitleAsModified);
             this.restoreCursorPosition();
+        },
+
+		/**
+		 * Updates the page title
+		 */
+		updatePageTitle: function () {
+			var title = IDE.extension.extensionKey + ' - ' + IDE.currentFile.name;
+			if (this.editor && !this.editor.isClean()) {
+				title = '! ' + title;
+			}
+			root.document.title = title;
+		},
+
+        /**
+         * Mark the page title as modified
+         */
+        markPageTitleAsModified: function () {
+            var delegateInstance = root.delegate;
+            delegateInstance.editor.off("change", delegateInstance.markPageTitleAsModified);
+            delegateInstance.updatePageTitle();
         },
 
         /**
@@ -252,6 +273,5 @@
         root.deleteButtons = DeleteButton.init('.deleteButton');
         root.saveButtons = SaveButton.init('.saveButton');
     });
-
 
 })(jQuery);

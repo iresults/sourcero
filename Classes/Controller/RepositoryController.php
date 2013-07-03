@@ -78,7 +78,6 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 		$this->view->assign('repositories', $repositories);
 	}
 
-
 	/**
 	 * Update/pull all repositories
 	 * @return void
@@ -338,7 +337,7 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 	 * @return string            Command output
 	 */
 	protected function _performAction($repository, $action, $arguments = array(), &$error = FALSE) {
-		if (!$this->scmService->hasDriverForRepository($repository)) {
+		if ($repository === NULL || !$this->scmService->hasDriverForRepository($repository)) {
 			return $this->getDriverNotFoundMessage($repository);
 		}
 		return $this->scmService->executeCommand($repository, $action, $arguments, $error);
@@ -367,6 +366,4 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
     }
 }
 ?>
-
-
 

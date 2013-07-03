@@ -134,16 +134,25 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 	 * @api
 	 */
 	public function findOneByTitle($title) {
-		try {
-			$object = $this->_getDirectoryBasedRepositoryWithWildcard($title);
-		} catch (BadFunctionCallException $exception) {
-			/*
-			 * If the given $title is not an $extension name look inside the
-			 * composer directory
-			 */
-			$composerVendorDir = $this->_getComposerVendorDirectory();
-			if ($composerVendorDir && $exception->getCode() === 1270853878) {
-				$object = $this->_getDirectoryBasedRepositoryWithWildcard($title, NULL, '.', $composerVendorDir . $title . '/');
+		$object = NULL;
+		if ($title === 'framework') {
+			$object = $this->_getFileadminFrameworkRepository();
+		} else if ($title === 'fileadmin') {
+			$object = $this->_getFileadminRepository();
+		}
+
+		if (!$object) {
+			try {
+				$object = $this->_getDirectoryBasedRepositoryWithWildcard($title);
+			} catch (BadFunctionCallException $exception) {
+				/*
+				 * If the given $title is not an $extension name look inside the
+				 * composer directory
+				 */
+				$composerVendorDir = $this->_getComposerVendorDirectory();
+				if ($composerVendorDir && $exception->getCode() === 1270853878) {
+					$object = $this->_getDirectoryBasedRepositoryWithWildcard($title, NULL, '.', $composerVendorDir . $title . '/');
+				}
 			}
 		}
 		if ($object) {
@@ -195,7 +204,6 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 	public function getGitRepositories() {
 		return $this->_getDirectoryBasedRepositoriesWithType('git');
 	}
-
 
 	/* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
 	/* GET REPOSITORY WITH KNOWN TYPE   WMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
@@ -311,7 +319,6 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 		return NULL;
 	}
 
-
 	/* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
 	/* GET REPOSITORY WITH UNKNOWN TYPE   WMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
 	/* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
@@ -393,7 +400,6 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 			'directoryName' => $directoryName,
 		);
 	}
-
 
 	/* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
 	/* HELPER METHODS                     WMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
