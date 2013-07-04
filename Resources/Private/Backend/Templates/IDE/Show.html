@@ -75,7 +75,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		</f:then>
 		<f:else>
 			<div class="well">
-				<f:form action="update" method="POST">
+				<f:form action="update" method="POST" format="json">
 					<sourcero:form.textarea rows="100" cols="100" name="contents" id="code" value="{file.contents -> f:format.raw()}" class="input-block-level" additionalAttributes="{autofocus:autofocus}"/>
 					<f:form.hidden name="path" value="{file.path}" />
 

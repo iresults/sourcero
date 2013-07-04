@@ -162,10 +162,14 @@ h1.editorHeader {
 	margin-top: 20px;
 }
 
-.CodeMirror {
-	border: 1px solid #eee;
+.well .CodeMirror.cm-s-monokai,
+.well .CodeMirror.cm-s-sourcero {
+	background: transparent;
 	height: 800px !important;
+	font-family: Menlo, monospace;
+	font-size: 12px;
 }
+
 .CodeMirror-focused .cm-matchhighlight {
 	text-decoration: underline;
 }

@@ -27,6 +27,8 @@
     var root = this,
         codeFolding;
 
+    root.console = root.console || {log: function() {}};
+
     root.delegate = {
         /**
          * Editor instance
@@ -48,7 +50,7 @@
                 // Add a comment, so this is not treated as Fluid variable
                 lineNumbers: true,
                 matchBrackets: true,
-                theme: "monokai",
+                theme: "sourcero",
                 mode: codeMirrorMode,
                 indentUnit: 4,
                 indentWithTabs: true,
@@ -144,7 +146,7 @@
 			if (url && data) {
 				$.ajax({
 					type: "POST",
-					url: url + "&format=json",
+					url: url,
 					data: data,
 					dataType: 'text',
 					cache: false,

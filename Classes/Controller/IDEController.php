@@ -312,6 +312,8 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 
 		$contents = $this->removeTrailingWhitespaces($contents);
 		$success = $file->setContents($contents);
+
+		// Handle AJAX/JSON requests
 		if ($this->request->getFormat() === 'json') {
 			if ($success) {
 				return json_encode(array('success' => TRUE));
