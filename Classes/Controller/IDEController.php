@@ -307,13 +307,13 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 *
 	 * @param string $path
 	 * @param string $contents
-	 * @return void
+	 * @return mixed
 	 */
 	public function updateAction($path, $contents) {
 		$fileManager = FS\FileManager::sharedFileManager();
 		$file = $fileManager->getResourceAtUrl($path);
 
-		$contents = $this->removeTrailingWhitespaces($contents);
+		$contents = $this->formatCode($contents);
 		$success = $file->setContents($contents);
 
 		// Handle AJAX/JSON requests
@@ -321,7 +321,8 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 			if ($success) {
 				return json_encode(array('success' => TRUE));
 			} else {
-				throw new Exception('Could not save file');
+				$this->response->setStatus(500);
+				return json_encode(array('success' => FALSE, 'error' => $this->getUpdateError($file)));
 			}
 		}
 		if ($success) {
@@ -330,6 +331,21 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 			$this->flashMessageContainer->add('Could not save', 'Error', \TYPO3\CMS\Core\Messaging\FlashMessage::ERROR);
 		}
 		$this->redirect('show', 'IDE', NULL, array('file' => $path));
+	}
+
+	/**
+	 * Returns the error description of the update error
+	 * @param FS\File $file
+	 */
+	public function getUpdateError($file) {
+		$message = '';
+		if (!$file->isWriteable()) {
+			$message = 'File not writeable';
+		}
+		return array(
+			'code' => 1373116207,
+			'message' => $message
+		);
 	}
 
 	/**
@@ -362,13 +378,14 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 * @param string $text
 	 * @return string
 	 */
-	protected function removeTrailingWhitespaces($text) {
+	protected function formatCode($text) {
 		// Normalize line endings
 		// Convert all line-endings to UNIX format
 		$text = str_replace("\r\n", "\n", $text);
 		$text = str_replace("\r", "\n", $text);
-		// Don't allow out-of-control blank lines
-		$text = preg_replace("/\n{2,}/", "\n\n", $text);
+
+		// Don't allow multiple new-lines
+		// $text = preg_replace("/\n{2,}/", "\n\n", $text);
 
 		$lines = explode("\n", $text);
 		foreach ($lines as &$line) {

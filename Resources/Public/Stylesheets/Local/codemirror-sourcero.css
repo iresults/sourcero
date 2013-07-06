@@ -1,7 +1,7 @@
 /* Based on Sublime Text's Monokai theme */
 
 .cm-s-sourcero.CodeMirror {background: transparent; color: #f8f8f2;}
-.cm-s-sourcero div.CodeMirror-selected {background: #f90 !important;}
+.cm-s-sourcero div.CodeMirror-selected {background: #08c}
 .cm-s-sourcero .CodeMirror-gutters {background: #272822; border-right: 0px;}
 .cm-s-sourcero .CodeMirror-linenumber {color: #d0d0d0;}
 .cm-s-sourcero .CodeMirror-cursor {border-left: 1px solid #f8f8f0 !important;}
@@ -26,3 +26,4 @@
   text-decoration: underline;
   color: white !important;
 }
+

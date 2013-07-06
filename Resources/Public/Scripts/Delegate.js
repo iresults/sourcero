@@ -165,6 +165,21 @@
         },
 
         saveSuccess: function (data, textStatus, jqXHR) {
+            var jsonData;
+			try {
+				jsonData = JSON.parse(data);
+			} catch (e) {}
+            if (jsonData && !jsonData.success) {
+                if (jsonData.error && jsonData.error.message) {
+                    this.displaySaveError(jsonData.error.message);
+                } else {
+                    this.displaySaveError();
+                }
+                return;
+            } else if(!jsonData) {
+				this.displaySaveError();
+				return;
+			}
             this.editor.doc.markClean();
             this.editor.on("change", this.markPageTitleAsModified);
             this.updatePageTitle();
@@ -172,8 +187,29 @@
         },
 
         saveError: function (jqXHR, textStatus, errorThrown) {
-            root.alert('Could not save file');
+			var jsonData;
+			try {
+				jsonData = JSON.parse(jqXHR.responseText);
+			} catch (e) {}
+            if (jsonData && jsonData.error && jsonData.error.message) {
+                this.displaySaveError(jsonData.error.message);
+            } else {
+                this.displaySaveError();
+            }
             console.log(jqXHR, textStatus, errorThrown);
+        },
+
+        /**
+         * Display the message to inform the user that the file could not be saved
+         * @param message
+         */
+        displaySaveError: function (message) {
+            if (!message) {
+                message = 'Could not save file';
+            }
+            bootbox.alert(message + '', function () {
+				root.delegate.editor.focus();
+			});
         },
 
         /**
