@@ -47,7 +47,6 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 			$current = FALSE;
 			$active = FALSE;
 
-
 			// Hide dot-files and -folders
 			if ($hideDotFiles && strpos($path, '/.') !== FALSE) {
 				continue;
@@ -141,7 +140,6 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 			}
 			$linkElement->setAttribute('class', $class);
 
-
 			if ($currentDepth == $lastDepth) {
 				//the depth hasnt changed so just add another li
 				$li = $dom->createElement('li');
@@ -213,7 +211,11 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 				continue;
 			}
 
-			$uri = substr($currentPath, strlen(PATH_typo3conf . 'ext/'));
+			if (strpos($currentPath, 'fileadmin/') !== FALSE) {
+				$uri = $currentPath;
+			} else {
+				$uri = 'EXT:' . substr($currentPath, strlen(PATH_typo3conf . 'ext/'));
+			}
 			$currentRelativePath = substr($uri, strpos($uri, '/'));
 
 			$files[] = array(
@@ -221,7 +223,7 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 				'path' 			=> $currentPath,
 				'relativePath' 	=> $currentRelativePath,
 				'relativeDir' 	=> dirname($currentRelativePath),
-				'uri' 			=> 'EXT:' . $uri,
+				'uri' 			=> $uri,
 				'isDirectory' 	=> is_dir($currentPath),
 				'isLast' 		=> strpos($key, '{E}'),
 				'depth' 		=> $currentDepth,
@@ -250,6 +252,5 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 	public function getUriBuilder() {
 		return $this->uriBuilder;
 	}
-
 
 }

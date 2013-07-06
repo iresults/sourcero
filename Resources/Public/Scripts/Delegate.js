@@ -62,13 +62,16 @@
                 styleActiveLine: true,
                 highlightSelectionMatches: true,
                 extraKeys: {
-                    "Cmd-.": "autocomplete",
-                    "Ctrl-.": "autocomplete",
-                    "Cmd-S": "saveFile",
-                    "Ctrl-S": "saveFile",
-                    "Cmd-Alt-O": "fastOpen",
-                    "Ctrl-Alt-O": "fastOpen",
-                    "Cmd-O": "fastOpen"
+                    "Cmd-.": 		"autocomplete",
+                    "Ctrl-.": 		"autocomplete",
+                    "Cmd-S": 		"saveFile",
+                    "Ctrl-S": 		"saveFile",
+                    "Cmd-O": 		"fastOpen",
+					"Ctrl-O":		"fastOpen",
+					"Cmd-/": 		"toggleComment",
+					"Ctrl-/": 		"toggleComment",
+					"Cmd-Shift-C": 	"toggleComment",
+					"Ctrl-Shift-C": "toggleComment"
                 }
             });
             this.editor.on("gutterClick", codeFolding);
@@ -235,7 +238,7 @@
             var contents = this.editor.getValue(),
                 contentsArray,
                 start = token.string;
-            contentsArray = contents.match(/[a-zA-Z0-9]+/g);
+            contentsArray = contents.match(/[a-zA-Z0-9\$\-\_]+/g);
             return contentsArray.filter(function (element, index, array) {
                 return element.indexOf(start) === 0 && element !== start;
             });
@@ -247,7 +250,7 @@
          */
         arrayUnique: function (arr) {
             // do the default behavior only if we got an array of elements
-            if (!!arr[0].nodeType) {
+            if (arr[0] && !!arr[0].nodeType) {
                 return $.unique.apply(this, arguments);
             } else {
                 // reduce the array to contain no dupes via grep/inArray
@@ -286,7 +289,7 @@
 
         click: function (button) {
             var deleteUrl = button.href,
-                message = "Realy delete file '" + $(button).data('filename') + "'";
+                message = "Really delete file '" + $(button).data('filename') + "'";
             bootbox.confirm(message, function (result) {
                 if (result) {
                     window.location = deleteUrl;

@@ -75,6 +75,7 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		'html' => 'text/html',
 		'xhtml' => 'text/html',
 		'phtml' => 'text/html',
+		'ts' => 'text/x-typoscript',
 	);
 
 	protected function initializeAction() {
@@ -110,7 +111,6 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 			} else if (strpos($that->getPath(), '/fileadmin/') !== FALSE) {
 				return PATH_site . '/fileadmin/';
 			}
-
 
 			// If the file belongs to a composer package
 			if (strpos($that->getPath(), '/cundd_composer/vendor/') !== FALSE) {
@@ -256,6 +256,9 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	protected function getMimeTypeOfFile($file) {
 		$suffix = $file->getSuffix();
 
+		if ($file->getName() === 'setup.txt' || $file->getName() === 'constants.txt') {
+			return 'text/x-typoscript';
+		}
 		if (isset($this->mimeTypeForSuffix[$suffix])) {
 			return $this->mimeTypeForSuffix[$suffix];
 		}
