@@ -69,6 +69,7 @@ a[class^="icon-"]:hover, a[class*=" icon-"]:hover, a[class^="icon-"]:hover::befo
 
 .badge-small.badge {
 	padding: 3px;
+	line-height: 10px;
 	-webkit-border-radius: 14px; /* Android ≤ 1.6, iOS 1-3.2, Safari 3-4 */
       border-radius: 14px; /* Android 2.1+, Chrome, Firefox 4+, IE 9+, iOS */
 }
@@ -171,7 +172,7 @@ h1.editorHeader {
 	text-decoration: underline;
 }
 .CodeMirror-activeline-background {
-	background: rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.1);
 }
 .CodeMirror-matchingbracket {
 	background: rgba(255, 255, 255, 0.3);
@@ -261,7 +262,7 @@ body .CodeMirror-hint-active {
 
 /* FileBrowser */
 .fileBrowser {
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
 }
 .fileBrowser h3 {
 	margin: 0;
@@ -281,6 +282,7 @@ body .CodeMirror-hint-active {
 .fileBrowser .fileBrowserInner .item > a {
 	width: 100%;
 	display: block;
+	white-space: nowrap;
 }
 
 .fileBrowser .fileBrowserInner .item > a:hover {
@@ -331,6 +333,7 @@ body .CodeMirror-hint-active {
 }
 .fileBrowser .node > a {
 	display: block;
+	white-space: nowrap;
 }
 
 /* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW */

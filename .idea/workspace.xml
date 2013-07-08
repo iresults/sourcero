@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="225cf487-373c-44f3-a29c-0ed742c9060a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Layouts/Default.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Layouts/Default.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js" afterPath="$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Controller/IDEController.php" afterPath="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Partials/Menu.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/Menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/codemirror-sourcero.css" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/codemirror-sourcero.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="225cf487-373c-44f3-a29c-0ed742c9060a" name="Default" comment="" />
     <ignored path="sourcero.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1373112218278" ignored="false" />
