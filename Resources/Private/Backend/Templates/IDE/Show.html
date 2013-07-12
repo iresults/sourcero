@@ -41,25 +41,39 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	<!-- Toolbar -->
 	<div class="btn-toolbar">
 		<div class="btn-group">
-			<a href="#" class="btn btn-inverse saveButton">
+			<a href="#" class="btn btn-inverse saveButton" title="Save">
 				<i class="icon-save icon-white"></i>
 			</a>
 
-			<f:link.action action="show" controller="Repository" class="btn btn-inverse" arguments="{repository: file.extensionKey}">
+			<f:link.action action="show" controller="Repository" class="btn btn-inverse" arguments="{repository: file.extensionKey}" title="Close">
 				<i class="icon-remove icon-white"></i>
 			</f:link.action>
 
-			<f:link.action action="delete" arguments="{file: file.path}" class="deleteButton btn btn-inverse" additionalAttributes="{data-filename: '{file.name}'}">
+			<f:link.action action="delete" arguments="{file: file.path}" class="deleteButton btn btn-inverse" additionalAttributes="{data-filename: '{file.name}'}" title="Delete file">
 				<i class="icon-trash icon-white"></i>
 			</f:link.action>
 
-			<a id="fast-open-button" href="#fast-open" role="button" class="btn btn-inverse fastOpenBtn">
+			<a id="fast-open-button" href="#fast-open" role="button" class="btn btn-inverse fastOpenBtn" title="FastOpen">
 				<i class="icon-folder-open icon-white"></i>
 			</a>
+
+			<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#" title="Open project">
+				<i class="icon-briefcase icon-white"></i>
+			</a>
+			<ul class="dropdown-menu">
+				<f:for each="{repositories}" as="repository">
+					<li class="title">
+						<f:link.action action="show" controller="Repository" arguments="{repository : repository.title}" target="_blank">{repository.title}</f:link.action>
+						<!-- <f:link.action action="show" controller="Repository" arguments="{repository : repository.title}" target="_blank"> {repository.type}</f:link.action>
+						<f:link.action action="show" controller="Repository" arguments="{repository : repository.title}" target="_blank"> {repository.url}</f:link.action> -->
+					</li>
+				</f:for>
+			</ul>
 		</div>
 
 	</div>
 	<f:render partial="FastOpen" arguments="{_all}" />
+	<!-- Toolbar End -->
 
 	<f:if condition="{fileIsBinary}">
 		<f:then>

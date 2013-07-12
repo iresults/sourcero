@@ -40,6 +40,9 @@
 		extensionPath: "{file.extensionPath}"
 	};
 
+	<f:if condition="{customFavicon}">
+		$("#favicon").attr("href", "{customFavicon}");
+	</f:if>
 </script>
 
 <script type="text/javascript" src="{f:uri.resource(path:'Scripts/Delegate.js')}"></script>

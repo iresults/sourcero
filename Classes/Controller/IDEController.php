@@ -42,7 +42,7 @@ use \TYPO3\CMS\Core\Utility as Utility;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_AbstractController {
 
 	/**
 	 * repositoryRepository
@@ -171,6 +171,8 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		$this->view->assign('fileBrowserOpen', TRUE);
 
 		$this->view->assign('project', $this->getProjectForFile($file));
+
+		$this->setCustomFaviconWithBasePath($file->getExtensionPath());
 	}
 
 	/**
@@ -200,6 +202,10 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		$this->view->assign('fileBrowserOpen', TRUE);
 
 		$this->view->assign('project', $this->getProjectForFile($file));
+
+		$this->setCustomFaviconWithBasePath($file->getExtensionPath());
+
+		$this->view->assign('repositories', $this->repositoryRepository->findAll());
 	}
 
 	/**

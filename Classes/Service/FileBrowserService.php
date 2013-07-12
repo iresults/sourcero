@@ -233,8 +233,6 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 
 			$lastDepth = $currentDepth;
 		}
-
-		Iresults::pd($files);
 		return $files;
 	}
 

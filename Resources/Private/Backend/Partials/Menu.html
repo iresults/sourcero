@@ -54,4 +54,8 @@
 	Repository.title = "{repository.title}";
 
 	window.document.title = Repository.title;
+
+	<f:if condition="{customFavicon}">
+		$("#favicon").attr("href", "{customFavicon}");
+	</f:if>
 </script>

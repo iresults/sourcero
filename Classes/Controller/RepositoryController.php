@@ -35,7 +35,7 @@ use Symfony\Component\Process\Process;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_Sourcero_Controller_RepositoryController extends Tx_Sourcero_Controller_AbstractController {
 
 	/**
 	 * repositoryRepository
@@ -116,6 +116,8 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 		}
 		$this->view->assign('repository', $repository);
 		$this->view->assign('commandOutput', $this->_performAction($repository, 'status'));
+
+		$this->setCustomFaviconWithBasePath($repository->getPath());
 	}
 
 	/**
@@ -130,6 +132,8 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 		}
 		$this->view->assign('repository', $repository);
 		$this->view->assign('commandOutput', $this->_performAction($repository, 'log'));
+
+		$this->setCustomFaviconWithBasePath($repository->getPath());
 	}
 
 	/**
@@ -150,6 +154,8 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 		} else {
 			$this->view->assign('commandOutput', 'Nothing to add');
 		}
+
+		$this->setCustomFaviconWithBasePath($repository->getPath());
 	}
 
 	/**
@@ -221,6 +227,8 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 		}
 		$this->view->assign('repository', $repository);
 		$this->view->assign('commandOutput', $this->_performAction($repository, 'status'));
+
+		$this->setCustomFaviconWithBasePath($repository->getPath());
 	}
 
 	/**
@@ -243,6 +251,8 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 		$this->view->assign('repository', $repository);
 		$this->view->assign('command', $command);
 		$this->view->assign('commandOutput', $this->_performAction($repository, $command, $arguments));
+
+		$this->setCustomFaviconWithBasePath($repository->getPath());
 	}
 
 	/**
@@ -256,6 +266,8 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 			$repository = $this->repositoryRepository->findByUid($repository);
 		}
 		$this->view->assign('repository', $repository);
+
+		$this->setCustomFaviconWithBasePath($repository->getPath());
 	}
 
 	/**
@@ -273,6 +285,8 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 		$this->view->assign('repository', $repository);
 		$this->view->assign('commitMessage', $commitMessage);
 		$this->view->assign('commandOutput', $this->_performAction($repository, 'commit', array('-a', '-m' => $commitMessage)));
+
+		$this->setCustomFaviconWithBasePath($repository->getPath());
 	}
 
 	/**
@@ -298,6 +312,8 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 		$this->view->assign('repository', $repository);
 		$this->view->assign('command', $command);
 		$this->view->assign('commandOutput', $this->_performAction($repository, $command, $arguments));
+
+		$this->setCustomFaviconWithBasePath($repository->getPath());
 	}
 
 	/**
@@ -312,6 +328,8 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 		}
 		$this->view->assign('repository', $repository);
 		$this->view->assign('commandOutput', $this->_performAction($repository, 'push', array('origin', 'master')));
+
+		$this->setCustomFaviconWithBasePath($repository->getPath());
 	}
 
 	/**
@@ -326,6 +344,8 @@ class Tx_Sourcero_Controller_RepositoryController extends Tx_Extbase_MVC_Control
 		}
 		$this->view->assign('repository', $repository);
 		$this->view->assign('commandOutput', $this->_performAction($repository, 'pull', array('origin', 'master')));
+
+		$this->setCustomFaviconWithBasePath($repository->getPath());
 	}
 
 	/**
