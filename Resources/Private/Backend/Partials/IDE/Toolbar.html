@@ -1,0 +1,61 @@
+<!-- Toolbar -->
+<div class="btn-toolbar toolbar">
+	<div class="btn-group">
+		<f:link.action action="show" controller="Repository" arguments="{repository:repository.title}" class="btn btn-inverse brand">
+			{project.name}
+		</f:link.action>
+
+		<a href="#" class="btn btn-inverse saveButton" title="Save">
+			<i class="icon-save icon-white"></i>
+		</a>
+
+		<f:link.action action="show" controller="Repository" class="btn btn-inverse" arguments="{repository: file.extensionKey}" title="Close">
+			<i class="icon-remove icon-white"></i>
+		</f:link.action>
+
+		<f:link.action action="delete" arguments="{file: file.path}" class="deleteButton btn btn-inverse" additionalAttributes="{data-filename: '{file.name}'}" title="Delete file">
+			<i class="icon-trash icon-white"></i>
+		</f:link.action>
+
+		<a id="fast-open-button" href="#fast-open" role="button" class="btn btn-inverse fastOpenBtn" title="FastOpen">
+			<i class="icon-folder-open icon-white"></i>
+		</a>
+
+		<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#" title="Open project">
+			<i class="icon-briefcase icon-white"></i>
+		</a>
+		<ul class="dropdown-menu project-switcher">
+			<f:for each="{repositories}" as="repository">
+				<li class="title">
+					<f:link.action action="show" controller="Repository" arguments="{repository : repository.title}" target="_blank">
+						<span class="project-icon">
+							<f:if condition="{repository.customFavicon}">
+								<f:image src="{repository.customFavicon}" alt="" />
+							</f:if>
+						</span>
+						{repository.title}
+					</f:link.action>
+				</li>
+			</f:for>
+		</ul>
+	</div>
+
+	<span class="editorInfo">
+		<f:if condition="{file.exists}">
+			<f:then>
+				<span class="editorHeader">Edit File: </span>
+			</f:then>
+			<f:else>
+				<span class="editorHeader">New File: </span>
+			</f:else>
+		</f:if>
+		<span class="value">{file.path}</span>
+
+		<span class="caption">Type: </span>
+		<span class="value">{fileMimeType}</span>
+	</span>
+
+</div>
+<f:render partial="FastOpen" arguments="{_all}" />
+
+<!-- Toolbar End -->

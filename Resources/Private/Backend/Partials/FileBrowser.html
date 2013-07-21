@@ -1,11 +1,5 @@
 <script type="text/javascript" src="{f:uri.resource(path:'Scripts/FileBrowser.js')}"></script>
 
-<div class="navbar">
-	<div class="navbar-inner">
-		<f:link.action action="show" arguments="{repository:repository.title}" class="brand">{project.name}</f:link.action>
-	</div>
-</div>
-
 <div class="well fileBrowser {f:if(condition: fileBrowserOpen, then: 'open', else: 'toggle')}"
 	 xmlns="http://www.w3.org/1999/html">
 	<h3>File Browser</h3>

@@ -160,20 +160,11 @@ h1.editorHeader {
 	margin-top: 20px;
 }
 
-.editor-container {
-	top: 60px;
-	bottom: 0;
-	position: absolute;
-
-	box-sizing: border-box;
-	right: 20px;
-	width: 73%;
-}
-.editor-container .CodeMirror.cm-s-monokai,
-.editor-container .CodeMirror.cm-s-sourcero {
+.well .CodeMirror.cm-s-monokai,
+.well .CodeMirror.cm-s-sourcero {
 	background: transparent;
-	/*height: 10vh;*/
-	height: 600px;
+	height: 10vh;
+	/*height: 800px;*/
 	font-family: Menlo, monospace;
 	font-size: 12px;
 }
@@ -270,31 +261,9 @@ body .CodeMirror-hint-active {
 /*}*/
 
 
-/* Toolbar */
-.toolbar .editorInfo {
-	display: inline-block;
-	padding: 4px 12px;
-	margin-bottom: 0;
-	font-size: 14px;
-	line-height: 20px;
-	/*color: #333;*/
-	color: #999;
-	text-align: center;
-	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
-	vertical-align: middle;
-}
-
 /* FileBrowser */
 .fileBrowser {
-	/* height: 83vh; */
-
 	overflow: scroll;
-	top: 60px;
-	bottom: 0;
-	position: absolute;
-
-	width: 23.4%;
-	box-sizing: border-box;
 }
 .fileBrowser h3 {
 	margin: 0;

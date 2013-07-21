@@ -44,9 +44,9 @@
          * Initialize
          */
         init: function () {
-			var _this = this;
-			this.updatePageTitle();
-            this.editor = CodeMirror.fromTextArea(this.codeTextarea, {
+			var _this = this, _editor;
+
+			_editor = this.editor = CodeMirror.fromTextArea(this.codeTextarea, {
                 // Add a comment, so this is not treated as Fluid variable
                 lineNumbers: true,
                 matchBrackets: true,
@@ -75,15 +75,24 @@
 					"Cmd-D":			"duplicateLine"
                 }
             });
-            this.editor.on("gutterClick", codeFolding);
-			this.editor.on("change", _this.markPageTitleAsModified);
+            _editor.on("gutterClick", codeFolding);
+			_editor.on("change", _this.markPageTitleAsModified);
+
             this.restoreCursorPosition();
+			this.resizeEditor();
+			this.updatePageTitle();
 
 			$('body').keydown(function (event) {
 				return _this.captureKeydown(event);
 			});
         },
 
+		resizeEditor: function () {
+			var _editor = this.editor,
+				browserHeight = $('.editor-container').height();
+			$(_editor.getWrapperElement()).css('height', browserHeight);
+			_editor.refresh();
+		},
 
 		captureKeydown: function (event) {
 			var handled = false;

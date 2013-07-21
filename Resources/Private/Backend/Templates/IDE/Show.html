@@ -21,64 +21,24 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	</f:link.action>
 	-->
 
-	<div class="container-fluid">
-		<div class="row-fluid">
-			<div class="span3">
-				<f:render partial="FileBrowser" arguments="{_all}" />
-			</div>
-			<div class="span9">
-				<!--Body content-->
-				<f:render section="editor" arguments="{_all}" />
-			</div>
+	<f:render partial="IDE/Toolbar" arguments="{_all}" />
+
+	<div class="row-fluid">
+		<div class="span3">
+			<f:render partial="FileBrowser" arguments="{_all}" />
+		</div>
+		<div class="span9">
+			<!--Body content-->
+			<f:render section="editor" arguments="{_all}" />
 		</div>
 	</div>
+
 </f:section>
 
 <f:section name="editor">
 
 	<f:render partial="FormErrors" />
 
-	<!-- Toolbar -->
-	<div class="btn-toolbar">
-		<div class="btn-group">
-			<a href="#" class="btn btn-inverse saveButton" title="Save">
-				<i class="icon-save icon-white"></i>
-			</a>
-
-			<f:link.action action="show" controller="Repository" class="btn btn-inverse" arguments="{repository: file.extensionKey}" title="Close">
-				<i class="icon-remove icon-white"></i>
-			</f:link.action>
-
-			<f:link.action action="delete" arguments="{file: file.path}" class="deleteButton btn btn-inverse" additionalAttributes="{data-filename: '{file.name}'}" title="Delete file">
-				<i class="icon-trash icon-white"></i>
-			</f:link.action>
-
-			<a id="fast-open-button" href="#fast-open" role="button" class="btn btn-inverse fastOpenBtn" title="FastOpen">
-				<i class="icon-folder-open icon-white"></i>
-			</a>
-
-			<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#" title="Open project">
-				<i class="icon-briefcase icon-white"></i>
-			</a>
-			<ul class="dropdown-menu project-switcher">
-				<f:for each="{repositories}" as="repository">
-					<li class="title">
-						<f:link.action action="show" controller="Repository" arguments="{repository : repository.title}" target="_blank">
-							<span class="project-icon">
-								<f:if condition="{repository.customFavicon}">
-									<f:image src="{repository.customFavicon}" alt="" />
-								</f:if>
-							</span>
-							{repository.title}
-						</f:link.action>
-					</li>
-				</f:for>
-			</ul>
-		</div>
-
-	</div>
-	<f:render partial="FastOpen" arguments="{_all}" />
-	<!-- Toolbar End -->
 
 	<f:if condition="{fileIsBinary}">
 		<f:then>
@@ -93,11 +53,12 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			</div>
 		</f:then>
 		<f:else>
-			<div class="well">
+			<div class="well editor-container">
 				<f:form action="update" method="POST" format="json">
 					<sourcero:form.textarea rows="100" cols="100" name="contents" id="code" value="{file.contents -> f:format.raw()}" class="input-block-level" additionalAttributes="{autofocus:autofocus}"/>
 					<f:form.hidden name="path" value="{file.path}" />
 
+					<!--
 					<header class="row-fluid">
 						<f:if condition="{file.exists}">
 							<f:then>
@@ -126,6 +87,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 							</td>
 						</tr>
 					</table>
+					-->
 				</f:form>
 			</div>
 			<f:render partial="CodeMirror" arguments="{_all}" />
