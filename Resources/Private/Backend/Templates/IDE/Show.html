@@ -60,12 +60,17 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#" title="Open project">
 				<i class="icon-briefcase icon-white"></i>
 			</a>
-			<ul class="dropdown-menu">
+			<ul class="dropdown-menu project-switcher">
 				<f:for each="{repositories}" as="repository">
 					<li class="title">
-						<f:link.action action="show" controller="Repository" arguments="{repository : repository.title}" target="_blank">{repository.title}</f:link.action>
-						<!-- <f:link.action action="show" controller="Repository" arguments="{repository : repository.title}" target="_blank"> {repository.type}</f:link.action>
-						<f:link.action action="show" controller="Repository" arguments="{repository : repository.title}" target="_blank"> {repository.url}</f:link.action> -->
+						<f:link.action action="show" controller="Repository" arguments="{repository : repository.title}" target="_blank">
+							<span class="project-icon">
+								<f:if condition="{repository.customFavicon}">
+									<f:image src="{repository.customFavicon}" alt="" />
+								</f:if>
+							</span>
+							{repository.title}
+						</f:link.action>
 					</li>
 				</f:for>
 			</ul>

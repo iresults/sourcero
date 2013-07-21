@@ -39,21 +39,34 @@ if (!defined('TYPO3_MODE') || TYPO3_MODE !== 'BE') {
  */
 abstract class Tx_Sourcero_Controller_AbstractController extends Tx_Extbase_MVC_Controller_ActionController {
 	/**
-	 * Returns the path to the custom favicon or FALSE if none is found
+	 * Assigns the path to the custom favicon to the view or FALSE if none is found
 	 *
 	 * @param string $basePath
 	 * @return string|FALSE
 	 */
 	protected function setCustomFaviconWithBasePath($basePath) {
+		$this->view->assign('customFavicon', static::getCustomFaviconWithBasePath($basePath));
+	}
+
+	/**
+	 * Returns the path to the custom favicon or FALSE if none is found
+	 *
+	 * @param string $basePath
+	 * @return string|FALSE
+	 */
+	static public function getCustomFaviconWithBasePath($basePath) {
 		$customFavicon = FALSE;
 		if (file_exists($basePath . 'ext_icon.gif')) {
 			$customFavicon = $basePath . 'ext_icon.gif';
 		} else if (file_exists($basePath . 'ext_icon.png')) {
 			$customFavicon = $basePath . 'ext_icon.png';
 		}
+		$customFavicon = str_replace(PATH_site, '', $customFavicon);
+		if ($customFavicon) {
+			return '/' . $customFavicon;
+		}
+		return FALSE;
 
-		$customFavicon = '/' . str_replace(PATH_site, '', $customFavicon);
-		$this->view->assign('customFavicon', $customFavicon);
 	}
 }
 ?>

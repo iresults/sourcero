@@ -62,22 +62,44 @@
                 styleActiveLine: true,
                 highlightSelectionMatches: true,
                 extraKeys: {
-                    "Cmd-.": 		"autocomplete",
-                    "Ctrl-.": 		"autocomplete",
-                    "Cmd-S": 		"saveFile",
-                    "Ctrl-S": 		"saveFile",
-                    "Cmd-O": 		"fastOpen",
-					"Ctrl-O":		"fastOpen",
-					"Cmd-/": 		"toggleComment",
-					"Ctrl-/": 		"toggleComment",
-					"Cmd-Shift-C": 	"toggleComment",
-					"Ctrl-Shift-C": "toggleComment"
+                    "Cmd-.": 			"autocomplete",
+                    "Ctrl-.": 			"autocomplete",
+                    "Cmd-S": 			"saveFile",
+                    "Cmd-O": 			"fastOpen",
+					"Ctrl-O":			"fastOpen",
+					"Ctrl-/": 			"toggleComment",
+					"Cmd-Shift-C": 		"toggleComment",
+					"Ctrl-Shift-C": 	"toggleComment",
+					"Cmd-Left":			"goLineStartSmart",
+					"Cmd-Backspace":	"removeLine",
+					"Cmd-D":			"duplicateLine"
                 }
             });
             this.editor.on("gutterClick", codeFolding);
 			this.editor.on("change", _this.markPageTitleAsModified);
             this.restoreCursorPosition();
+
+			$('body').keydown(function (event) {
+				return _this.captureKeydown(event);
+			});
         },
+
+
+		captureKeydown: function (event) {
+			var handled = false;
+			if (event.ctrlKey || event.metaKey) {
+				if (event.keyCode === 83) { // Save
+					this.saveFile();
+					handled = true;
+				} else if (event.keyCode === 79) { // Open
+					if (root.FastOpen) {
+						root.FastOpen.show();
+						handled = true;
+					}
+				}
+			}
+			return !handled;
+		},
 
 		/**
 		 * Updates the page title
@@ -212,6 +234,33 @@
 			});
         },
 
+		/**
+		 * Duplicates the current line or selection
+		 */
+		duplicateLine: function () {
+			var _editor = this.editor,
+				document = _editor.doc,
+				selection = document.getSelection();
+			if (selection && selection !== '') {
+				document.replaceSelection(selection + selection);
+			}
+
+		},
+
+		/**
+		 * Duplicates the current line or selection
+		 */
+		removeLine: function () {
+			var _editor = this.editor,
+				document = _editor.doc,
+				cursor = _editor.getCursor();
+
+			if (cursor) {
+				document.removeLine(cursor.line);
+				_editor.setCursor(cursor);
+			}
+		},
+
         /**
          * Returns the key to set or get the cursor position
          */
@@ -274,7 +323,7 @@
             var contents = this.editor.getValue(),
                 contentsArray,
                 start = token.string;
-            contentsArray = contents.match(/[a-zA-Z0-9\$\-\_]+/g);
+            contentsArray = contents.match(/[a-zA-Z0-9\$\-\_@]+/g);
             return contentsArray.filter(function (element, index, array) {
                 return element.indexOf(start) === 0 && element !== start;
             });
@@ -304,6 +353,12 @@
     };
     CodeMirror.commands.saveFile = function (cm) {
         root.delegate.saveFile();
+    };
+    CodeMirror.commands.duplicateLine = function (cm) {
+        root.delegate.duplicateLine();
+    };
+    CodeMirror.commands.removeLine = function (cm) {
+        root.delegate.removeLine();
     };
     CodeMirror.commands.fastOpen = function (cm) {
         if (root.FastOpen) {
