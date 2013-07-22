@@ -64,15 +64,18 @@
                 extraKeys: {
                     "Cmd-.": 			"autocomplete",
                     "Ctrl-.": 			"autocomplete",
-                    "Cmd-S": 			"saveFile",
-                    "Cmd-O": 			"fastOpen",
-					"Ctrl-O":			"fastOpen",
-					"Ctrl-/": 			"toggleComment",
+                    "Ctrl-/": 			"toggleComment",
 					"Cmd-Shift-C": 		"toggleComment",
 					"Ctrl-Shift-C": 	"toggleComment",
 					"Cmd-Left":			"goLineStartSmart",
 					"Cmd-Backspace":	"removeLine",
 					"Cmd-D":			"duplicateLine"
+
+					// Captured globally
+					// "Cmd-S": 			"saveFile",
+					// "Ctrl-S": 			"saveFile",
+                    // "Cmd-O": 			"fastOpen",
+					// "Ctrl-O":			"fastOpen",
                 }
             });
             _editor.on("gutterClick", codeFolding);
@@ -87,13 +90,20 @@
 			});
         },
 
+		/**
+		 * Resize the editor
+		 */
 		resizeEditor: function () {
 			var _editor = this.editor,
-				browserHeight = $('.editor-container').height();
-			$(_editor.getWrapperElement()).css('height', browserHeight);
+				editorContainerHeight = $('.editor-container').height();
+			$(_editor.getWrapperElement()).css('height', editorContainerHeight);
 			_editor.refresh();
 		},
 
+		/**
+		 * On keydown
+		 * @param {Event} event
+		 */
 		captureKeydown: function (event) {
 			var handled = false;
 			if (event.ctrlKey || event.metaKey) {
@@ -169,7 +179,6 @@
 			this.editor.save();
 
             // Save the file
-            // this.codeTextarea.form.submit();
 			var _this = this,
                 form = $(this.codeTextarea.form),
 				data = form.serialize(),
