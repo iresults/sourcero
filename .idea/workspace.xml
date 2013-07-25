@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="225cf487-373c-44f3-a29c-0ed742c9060a" name="Default" comment="" />
+    <list default="true" id="225cf487-373c-44f3-a29c-0ed742c9060a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Service/FileBrowserService.php" afterPath="$PROJECT_DIR$/Classes/Service/FileBrowserService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Controller/IDEController.php" afterPath="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="sourcero.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1373112218278" ignored="false" />
+    <file path="/Dummy.txt" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1374775780579" ignored="false" />
     <file path="/preg.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367242173745" ignored="false" />
     <file path="/OutputFormatterService.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1369910073315" ignored="false" />
     <file path="/AbstractDriver.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367003721849" ignored="false" />
@@ -16,17 +24,17 @@
     <file path="/a.xml" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052108735" ignored="false" />
     <file path="/SCMService.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367004981067" ignored="false" />
     <file path="/RepositoryController.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367004052404" ignored="false" />
-    <file path="/local.css" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1373119133888" ignored="false" />
+    <file path="/local.css" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1374783366967" ignored="false" />
     <file path="/a.twig" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052106222" ignored="false" />
     <file path="/Add.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052531461" ignored="false" />
     <file path="/Delegate.js" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1373117800709" ignored="false" />
     <file path="/CodeMirror.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367053854942" ignored="false" />
-    <file path="/Show.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1373118630585" ignored="false" />
-    <file path="/IDEController.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1373116213176" ignored="false" />
+    <file path="/Show.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1374780631721" ignored="false" />
+    <file path="/IDEController.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1374777942406" ignored="false" />
     <file path="/FileBrowser.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1372517102731" ignored="false" />
     <file path="/a.dummy" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1370698229249" ignored="false" />
     <file path="/ACE.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367414666400" ignored="false" />
-    <file path="/RepositoryRepository.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1368729225908" ignored="false" />
+    <file path="/RepositoryRepository.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1374777785363" ignored="false" />
     <file path="$PROJECT_DIR$/../rest/Classes/Cundd/Rest/App.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1368734735633" ignored="false" />
     <file path="/App.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1368734735305" ignored="false" />
     <file path="$PROJECT_DIR$/../rest/Classes/Cundd/Rest/Bootstrap.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1368730392771" ignored="false" />
@@ -36,13 +44,13 @@
     <file path="/Default.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1373118785309" ignored="false" />
     <file path="/ExecuteCommand.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1369915537851" ignored="false" />
     <file path="/Menu.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1373119036461" ignored="false" />
-    <file path="/dummy.xml" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1369915529768" ignored="false" />
+    <file path="/dummy.xml" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1374781998508" ignored="false" />
     <file path="/PerformCommit.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1369915676137" ignored="false" />
     <file path="/Core.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1369918002903" ignored="false" />
     <file path="/FileBrowser.js" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1370005094772" ignored="false" />
-    <file path="/List.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1370090416388" ignored="false" />
-    <file path="/FileBrowserService.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1372518077294" ignored="false" />
-    <file path="/FastOpen.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1372670366679" ignored="false" />
+    <file path="/List.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1374782945502" ignored="false" />
+    <file path="/FileBrowserService.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1374778949586" ignored="false" />
+    <file path="/FastOpen.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1374779082401" ignored="false" />
     <file path="/FastOpen.js" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1372670494176" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/core-scripting.rnc" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1373112229581" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5.rnc" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1373112229581" ignored="false" />
@@ -73,7 +81,16 @@
       <file leaf-file-name="Show.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="0" selection-start="1831" selection-end="1831" vertical-scroll-proportion="-38.75">
+            <state line="55" column="47" selection-start="1445" selection-end="1480" vertical-scroll-proportion="-32.333332">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="List.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="16" selection-start="891" selection-end="891" vertical-scroll-proportion="0.44927537">
               <folding />
             </state>
           </provider>
@@ -82,34 +99,25 @@
       <file leaf-file-name="CodeMirror.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="4" selection-start="1286" selection-end="1767" vertical-scroll-proportion="-13.75">
+            <state line="47" column="91" selection-start="1874" selection-end="1965" vertical-scroll-proportion="-29.375">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Menu.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/Menu.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="0" selection-start="2169" selection-end="2169" vertical-scroll-proportion="-31.25">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IDEController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="IDEController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="172" column="8" selection-start="6097" selection-end="6161" vertical-scroll-proportion="0.2753623">
+            <state line="167" column="8" selection-start="5906" selection-end="5906" vertical-scroll-proportion="-7.6530614">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="typoscript.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/CodeMirrorAddons/mode/typoscript/typoscript.js">
+      <file leaf-file-name="FileBrowserService.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/Service/FileBrowserService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="0" selection-start="5013" selection-end="5013" vertical-scroll-proportion="11.2">
+            <state line="225" column="13" selection-start="6843" selection-end="6843" vertical-scroll-proportion="-14.510204">
               <folding />
             </state>
           </provider>
@@ -118,34 +126,25 @@
       <file leaf-file-name="local.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="22" selection-start="139" selection-end="139" vertical-scroll-proportion="0.0">
+            <state line="150" column="0" selection-start="3317" selection-end="3317" vertical-scroll-proportion="-14.96">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Default.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Layouts/Default.html">
+      <file leaf-file-name="RepositoryRepository.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/Domain/Repository/RepositoryRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="4" selection-start="1251" selection-end="1251" vertical-scroll-proportion="-15.625">
+            <state line="342" column="20" selection-start="10984" selection-end="10989" vertical-scroll-proportion="-6.857143">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Show.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html">
+      <file leaf-file-name="ExtensionManagementUtility.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../typo3/sysext/core/Classes/Utility/ExtensionManagementUtility.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="24" selection-start="24" selection-end="24" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FastOpen.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/FastOpen.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="45" selection-start="2131" selection-end="2160" vertical-scroll-proportion="0.0">
+            <state line="83" column="27" selection-start="3147" selection-end="3147" vertical-scroll-proportion="-14.5">
               <folding />
             </state>
           </provider>
@@ -154,7 +153,16 @@
       <file leaf-file-name="Delegate.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="40" selection-start="2943" selection-end="2971" vertical-scroll-proportion="-28.16">
+            <state line="86" column="0" selection-start="2838" selection-end="3598" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FastOpen.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="7" selection-start="738" selection-end="738" vertical-scroll-proportion="-21.25">
               <folding />
             </state>
           </provider>
@@ -179,22 +187,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Classes/Service/Tx_Sourcero_Service_FileBrowserService.php" />
-        <option value="$PROJECT_DIR$/Classes/Service/SCMService.php" />
         <option value="$PROJECT_DIR$/Resources/Public/Scripts/CodeMirrorAddons/hint/php-hint.js" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" />
-        <option value="$PROJECT_DIR$/Classes/Service/FileBrowserService.php" />
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" />
         <option value="$PROJECT_DIR$/Resources/Public/Scripts/FileBrowser.js" />
         <option value="$PROJECT_DIR$/Resources/Public/Scripts/FastOpen.js" />
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html" />
         <option value="$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js" />
-        <option value="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
         <option value="$PROJECT_DIR$/Resources/Public/Scripts/CodeMirrorAddons/mode/typoscript/typoscript.js" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/Menu.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Layouts/Default.html" />
+        <option value="$PROJECT_DIR$/Classes/Domain/Repository/RepositoryRepository.php" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html" />
+        <option value="$PROJECT_DIR$/Classes/Service/FileBrowserService.php" />
+        <option value="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" />
         <option value="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html" />
       </list>
     </option>
   </component>
@@ -283,7 +291,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -868,6 +875,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IDE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -918,12 +955,53 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Domain" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Repository" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Domain" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1017,10 +1095,9 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924527" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19339623" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24932066" sideWeight="0.8431002" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18452722" sideWeight="0.8066038" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18681948" sideWeight="0.8066038" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
@@ -1030,6 +1107,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19339623" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986766" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1100,58 +1178,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/addon/hint/show-hint.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="1" selection-start="0" selection-end="660" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Local/codemirror-sourcero.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="56" selection-start="167" selection-end="170" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../typo3/sysext/extbase/Classes/Mvc/Controller/AbstractController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="39" selection-start="2016" selection-end="2016" vertical-scroll-proportion="-12.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../typo3/sysext/extbase/Classes/Mvc/Response.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="35" selection-start="1864" selection-end="1864" vertical-scroll-proportion="-24.375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../typo3/sysext/extbase/Classes/Mvc/Web/Response.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="29" selection-start="3583" selection-end="3592" vertical-scroll-proportion="-13.125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../cundd_composer/vendor/iresults/fs/Classes/Iresults/FS/FilesystemInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="20" selection-start="4436" selection-end="4436" vertical-scroll-proportion="0.47246376">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/FastOpen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="45" selection-start="2131" selection-end="2160" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/CodeMirrorAddons/mode/typoscript/typoscript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="0" selection-start="5013" selection-end="5013" vertical-scroll-proportion="11.2">
+        <state line="119" column="0" selection-start="5013" selection-end="5013" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1163,51 +1192,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js">
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Layouts/Default.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="40" selection-start="2943" selection-end="2971" vertical-scroll-proportion="-28.16">
+        <state line="25" column="4" selection-start="1262" selection-end="1262" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html">
+    <entry file="file://$PROJECT_DIR$/../../../typo3/sysext/core/Migrations/Code/LegacyClassesForIde.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="0" selection-start="1831" selection-end="1831" vertical-scroll-proportion="-38.75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="4" selection-start="1286" selection-end="1767" vertical-scroll-proportion="-13.75">
+        <state line="1096" column="6" selection-start="32924" selection-end="32924" vertical-scroll-proportion="0.34050882">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/Menu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="2169" selection-end="2169" vertical-scroll-proportion="-31.25">
+        <state line="54" column="0" selection-start="2287" selection-end="2287" vertical-scroll-proportion="-33.75">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Layouts/Default.html">
+    <entry file="file://$PROJECT_DIR$/../../../typo3/sysext/core/Classes/Utility/ExtensionManagementUtility.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="4" selection-start="1251" selection-end="1251" vertical-scroll-proportion="-15.625">
+        <state line="83" column="27" selection-start="3147" selection-end="3147" vertical-scroll-proportion="-14.5">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css">
+    <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="22" selection-start="139" selection-end="139" vertical-scroll-proportion="0.0">
+        <state line="86" column="0" selection-start="2838" selection-end="3598" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="7" selection-start="738" selection-end="738" vertical-scroll-proportion="-21.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/IDE/Toolbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="8" selection-start="78" selection-end="240" vertical-scroll-proportion="-1.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="47" selection-start="1445" selection-end="1480" vertical-scroll-proportion="-32.333332">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Domain/Repository/RepositoryRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="342" column="20" selection-start="10984" selection-end="10989" vertical-scroll-proportion="-6.857143">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="91" selection-start="1874" selection-end="1965" vertical-scroll-proportion="-29.375">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="172" column="8" selection-start="6097" selection-end="6161" vertical-scroll-proportion="0.2753623">
+        <state line="167" column="8" selection-start="5906" selection-end="5906" vertical-scroll-proportion="-7.6530614">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="150" column="0" selection-start="3317" selection-end="3317" vertical-scroll-proportion="-14.96">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Service/FileBrowserService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="225" column="13" selection-start="6843" selection-end="6843" vertical-scroll-proportion="-14.510204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="16" selection-start="891" selection-end="891" vertical-scroll-proportion="0.44927537">
           <folding />
         </state>
       </provider>

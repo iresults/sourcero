@@ -58,6 +58,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 					<sourcero:form.textarea rows="100" cols="100" name="contents" id="code" value="{file.contents -> f:format.raw()}" class="input-block-level" additionalAttributes="{autofocus:autofocus}"/>
 					<f:form.hidden name="path" value="{file.path}" />
 
+					<f:comment>
 					<!--
 					<header class="row-fluid">
 						<f:if condition="{file.exists}">
@@ -88,6 +89,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 						</tr>
 					</table>
 					-->
+					</f:comment>
 				</f:form>
 			</div>
 			<f:render partial="CodeMirror" arguments="{_all}" />

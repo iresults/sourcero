@@ -95,7 +95,8 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_Abstra
 			}
 
 			// If the file belongs to a composer package
-			if (strpos($that->getPath(), '/cundd_composer/vendor/') !== FALSE) {
+			$path = str_replace('//', '/', $that->getPath());
+			if (strpos($path, 'cundd_composer/vendor/') !== FALSE) {
 				list ($vendor, $extension) = $that->getVendorAndExtensionNameForComposerPackage();
 				return $vendor . '/' . $extension;
 			}
@@ -113,17 +114,18 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_Abstra
 			}
 
 			// If the file belongs to a composer package
-			if (strpos($that->getPath(), '/cundd_composer/vendor/') !== FALSE) {
+			$path = str_replace('//', '/', $that->getPath());
+			if (strpos($path, 'cundd_composer/vendor/') !== FALSE) {
 				list ($vendor, $extension) = $that->getVendorAndExtensionNameForComposerPackage();
-				return Utility\ExtensionManagementUtility::extPath('cundd_composer') . '/vendor/' . $vendor . '/' . $extension . '/';
+				return Utility\ExtensionManagementUtility::extPath('cundd_composer') . 'vendor/' . $vendor . '/' . $extension . '/';
 			}
 			return Utility\ExtensionManagementUtility::extPath($that->getExtensionKey());
 		};
 		$getVendorAndExtensionNameForComposerPackage = function($that) {
-			$path = $that->getPath();
-			$composerVendorDirPosition = strpos($path, '/cundd_composer/vendor/');
+			$path = str_replace('//', '/', $that->getPath());
+			$composerVendorDirPosition = strpos($path, 'cundd_composer/vendor/');
 			if ($composerVendorDirPosition !== FALSE) {
-				$extensionRelativePath = substr($path, $composerVendorDirPosition + 23);
+				$extensionRelativePath = substr($path, $composerVendorDirPosition + 22);
 				list ($vendor, $extension, ) = explode(DIRECTORY_SEPARATOR, $extensionRelativePath);
 				return array($vendor, $extension);
 			}
@@ -160,13 +162,10 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_Abstra
 	 * @return void
 	 */
 	public function listAction($file) {
-		#$file = urldecode($file);
-		#$file = t3lib_div::getFileAbsFileName($file);
-
 		$fileManager = FS\FileManager::sharedFileManager();
 		$file = $fileManager->getResourceAtUrl($file);
 		$this->view->assign('file', $file);
-		#$this->view->assign('fileBrowser', $this->getFileBrowserForFile($file, FALSE));
+		$this->view->assign('fileBrowser', $this->getFileBrowserForFile($file, FALSE));
 		$this->view->assign('fileBrowserCode', $this->getFileBrowserCodeForFile($file));
 		$this->view->assign('fileBrowserOpen', TRUE);
 

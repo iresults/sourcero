@@ -187,6 +187,8 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 	 */
 	public function getFileBrowserForFile($file, $withDirectories = FALSE) {
 		$files = array();
+		$lengthOfPathToSite = strlen(PATH_site) + 1; // +1 for the slash
+		$lengthOfPathToExtensionDir = strlen(PATH_typo3conf . 'ext/');
 
 		if ($file instanceof FS\File) {
 			$path = $file->getExtensionPath();
@@ -205,6 +207,7 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 			if (strpos($currentPath, '/.')) {
 				continue;
 			}
+			Iresults\Core\Iresults::pd($currentPath . '');
 
 			// Filter off directories
 			if (!$withDirectories && is_dir($currentPath)) {
@@ -212,11 +215,15 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 			}
 
 			if (strpos($currentPath, 'fileadmin/') !== FALSE) {
-				$uri = $currentPath;
+				$uri = substr($currentPath, $lengthOfPathToSite);
 			} else {
-				$uri = 'EXT:' . substr($currentPath, strlen(PATH_typo3conf . 'ext/'));
+				$uri = 'EXT:' . substr($currentPath, $lengthOfPathToExtensionDir);
 			}
-			$currentRelativePath = substr($uri, strpos($uri, '/'));
+			if (strpos($path, 'cundd_composer/vendor/') !== FALSE) {
+				$currentRelativePath = substr($uri, strpos($uri, 'cundd_composer/vendor') + 21);
+			} else {
+				$currentRelativePath = substr($uri, strpos($uri, '/'));
+			}
 
 			$files[] = array(
 				'name' 			=> basename($currentRelativePath),
