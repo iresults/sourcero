@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225cf487-373c-44f3-a29c-0ed742c9060a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Service/FileBrowserService.php" afterPath="$PROJECT_DIR$/Classes/Service/FileBrowserService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Controller/IDEController.php" afterPath="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sourcero.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,7 +18,7 @@
     <file path="/a.xml" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052108735" ignored="false" />
     <file path="/SCMService.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367004981067" ignored="false" />
     <file path="/RepositoryController.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367004052404" ignored="false" />
-    <file path="/local.css" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1374783366967" ignored="false" />
+    <file path="/local.css" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1374866096726" ignored="false" />
     <file path="/a.twig" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052106222" ignored="false" />
     <file path="/Add.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052531461" ignored="false" />
     <file path="/Delegate.js" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1373117800709" ignored="false" />
@@ -87,10 +81,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="List.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="List.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="16" selection-start="891" selection-end="891" vertical-scroll-proportion="0.44927537">
+            <state line="31" column="16" selection-start="891" selection-end="891" vertical-scroll-proportion="-19.375">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Info.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Info.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -108,8 +111,10 @@
       <file leaf-file-name="IDEController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="8" selection-start="5906" selection-end="5906" vertical-scroll-proportion="-7.6530614">
-              <folding />
+            <state line="25" column="65" selection-start="1025" selection-end="1025" vertical-scroll-proportion="87.85714">
+              <folding>
+                <element signature="e#7#1025#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -123,10 +128,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="local.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="local.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="0" selection-start="3317" selection-end="3317" vertical-scroll-proportion="-14.96">
+            <state line="155" column="107" selection-start="3815" selection-end="3815" vertical-scroll-proportion="0.89715964">
               <folding />
             </state>
           </provider>
@@ -136,15 +141,6 @@
         <entry file="file://$PROJECT_DIR$/Classes/Domain/Repository/RepositoryRepository.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="342" column="20" selection-start="10984" selection-end="10989" vertical-scroll-proportion="-6.857143">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExtensionManagementUtility.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../typo3/sysext/core/Classes/Utility/ExtensionManagementUtility.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="27" selection-start="3147" selection-end="3147" vertical-scroll-proportion="-14.5">
               <folding />
             </state>
           </provider>
@@ -201,8 +197,8 @@
         <option value="$PROJECT_DIR$/Classes/Service/FileBrowserService.php" />
         <option value="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" />
-        <option value="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html" />
+        <option value="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" />
       </list>
     </option>
   </component>
@@ -1178,13 +1174,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/CodeMirrorAddons/mode/typoscript/typoscript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="0" selection-start="5013" selection-end="5013" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="24" selection-start="24" selection-end="24" vertical-scroll-proportion="0.0">
@@ -1262,20 +1251,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="8" selection-start="5906" selection-end="5906" vertical-scroll-proportion="-7.6530614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="0" selection-start="3317" selection-end="3317" vertical-scroll-proportion="-14.96">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/Service/FileBrowserService.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="225" column="13" selection-start="6843" selection-end="6843" vertical-scroll-proportion="-14.510204">
@@ -1285,7 +1260,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="16" selection-start="891" selection-end="891" vertical-scroll-proportion="0.44927537">
+        <state line="31" column="16" selection-start="891" selection-end="891" vertical-scroll-proportion="-19.375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="65" selection-start="1025" selection-end="1025" vertical-scroll-proportion="87.85714">
+          <folding>
+            <element signature="e#7#1025#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="155" column="107" selection-start="3815" selection-end="3815" vertical-scroll-proportion="0.89715964">
           <folding />
         </state>
       </provider>

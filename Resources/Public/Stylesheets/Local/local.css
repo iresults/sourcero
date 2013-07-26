@@ -149,19 +149,16 @@ h2.pre-caption {
 	text-shadow: 0 0 4px #000;
 }
 
-.editor-container .hero-unit h1 {
-	background: #1ab2ff; /* Old browsers */
-	background: -moz-linear-gradient(top,  #1ab2ff 0%, #0088cc 51%, #005580 85%, #0088cc 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1ab2ff), color-stop(51%,#0088cc), color-stop(85%,#005580), color-stop(100%,#0088cc)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #1ab2ff 0%,#0088cc 51%,#005580 85%,#0088cc 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #1ab2ff 0%,#0088cc 51%,#005580 85%,#0088cc 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #1ab2ff 0%,#0088cc 51%,#005580 85%,#0088cc 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #1ab2ff 0%,#0088cc 51%,#005580 85%,#0088cc 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1ab2ff', endColorstr='#0088cc',GradientType=0 ); /* IE6-9 */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.editor-container .hero-unit h1 {
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1ab2ff), color-stop(51%,#0088cc), color-stop(85%,#005580), color-stop(100%,#0088cc)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #1ab2ff 0%,#0088cc 51%,#005580 85%,#0088cc 100%); /* Chrome10+,Safari5.1+ */
+		background: linear-gradient(to bottom,  #1ab2ff 0%,#0088cc 51%,#005580 85%,#0088cc 100%); /* W3C */
 
-	margin: 0;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+		margin: 0;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
 }
 
 /* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW */
@@ -198,6 +195,7 @@ h1.editorHeader {
 	position: absolute;
 
 	box-sizing: border-box;
+	-moz-box-sizing: border-box;
 	right: 20px;
 	width: 73%;
 }
@@ -400,13 +398,14 @@ h1.editorHeader {
 .fileBrowser {
 	/* height: 83vh; */
 
-	overflow: scroll;
+	overflow: auto;
 	top: 60px;
 	bottom: 0;
 	position: absolute;
 
 	width: 23.4%;
 	box-sizing: border-box;
+	-moz-box-sizing: border-box;
 }
 .fileBrowser h3 {
 	margin: 0;
@@ -490,6 +489,7 @@ h1.editorHeader {
 	width: 100%;
 	height: 30px;
 	box-sizing: border-box;
+	-moz-box-sizing: border-box;
 }
 
 /* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW */
