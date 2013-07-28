@@ -131,7 +131,9 @@ h1.editorHeader {
 .CodeMirror-activeline-background {
 	background: rgba(255, 255, 255, 0.2);
 }
-
+.CodeMirror-matchingbracket {
+	background: rgba(255, 255, 255, 0.3);
+}
 
 /* FileBrowser */
 .fileBrowser {
@@ -147,9 +149,17 @@ h1.editorHeader {
 .fileBrowser.toggle:hover .fileBrowserInner {
 	display: block;
 }
-.fileBrowser .fileBrowserInner .item {
+
+.fileBrowser .fileBrowserInner .item,
+.fileBrowser .fileBrowserInner .item > a {
 	width: 100%;
+	display: block;
 }
+
+.fileBrowser .fileBrowserInner .item > a:hover {
+	background: rgba(0, 136, 204, 0.2);
+}
+
 .fileBrowser .fileBrowserInner .itemFile .fileDirectory {
 	color: rgba(0, 136, 204, 0.4);
 }

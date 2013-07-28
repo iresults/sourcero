@@ -10,24 +10,11 @@
         {
             "type": "git",
             "url": "http://git.iresults.me/Iresults.FS.git/"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "marijnh/codemirror",
-                "version": "1.0",
-                "source": {
-                    "url": "https://github.com/marijnh/CodeMirror.git",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
         }
     ],
     "require": {
         "symfony/process": "*",
-        "iresults/fs": "*",
-        "marijnh/codemirror": "*"
+        "iresults/fs": "*"
     },
     "authors": [
         {
