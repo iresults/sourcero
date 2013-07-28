@@ -30,8 +30,6 @@
 
     $(function () {
         $('.directoryEdit').click(function() {
-            console.log(this);
-//        console.log($(this).parent());
             var _this = $(this),
                 directoryContainer = _this.parent().children('.directory-container');
 
@@ -40,7 +38,4 @@
             directoryContainer.toggle();
         });
     });
-
-
-    console.log('hello');
 })(jQuery);

@@ -1,0 +1,64 @@
+<script type="text/javascript" src="{f:uri.resource(path:'Scripts/FastOpen.js')}"></script>
+
+<f:comment>
+	<!--
+	<style type="text/css">
+		.testTable {
+			position: absolute;
+			z-index: 2000;
+			/*display: none;*/
+		}
+		.testTable td {
+			width: 300px;
+		}
+	</style>
+
+	<div class="testTable">
+
+		<table class="table table-striped">
+			<tr>
+				<th>relativePath</th>
+				<th>uri</th>
+				<th>path</th>
+				<th>link</th>
+			</tr>
+			<f:for each="{fileBrowser}" as="fileBrowserFile">
+				<tr>
+					<td>{fileBrowserFile.relativePath}</td>
+					<td>{fileBrowserFile.uri}</td>
+					<td>{fileBrowserFile.path}</td>
+					<td><f:uri.action action="show" arguments="{file: fileBrowserFile.uri}" /></td>
+				</tr>
+			</f:for>
+		</table>
+	</div>
+	-->
+</f:comment>
+
+<!-- Modal -->
+<div id="fast-open-modal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="fast-open-label" aria-hidden="true">
+	<div class="modal-header">
+		<strong id="fast-open-label">FastOpen</strong>
+	</div>
+	<div class="modal-body">
+		<form id="fast-open-form" action="#">
+			<input id="fast-open-input" type="text" data-provide="typeahead" autocomplete="off" autofocus data-source='[
+		<f:for each="{fileBrowser}" as="fileBrowserFile">
+			"{fileBrowserFile.relativePath}",
+		</f:for>
+			"null"
+		]' />
+
+			<script type="text/javascript">
+				var fastOpenMap = {
+				<f:for each="{fileBrowser}" as="fileBrowserFile">
+					'{fileBrowserFile.relativePath}': '<f:uri.action action="show" arguments="{file: fileBrowserFile.uri}" />',
+				</f:for>
+					'null': null
+				};
+			</script>
+		</form>
+
+	</div>
+</div>
+

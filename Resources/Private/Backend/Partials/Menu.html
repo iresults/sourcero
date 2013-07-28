@@ -48,3 +48,14 @@
 		</f:if>
 	</div>
 </div>
+
+<script type="text/javascript">
+	var Repository = window.Repository || {};
+	Repository.title = "{repository.title}";
+
+	window.document.title = Repository.title;
+
+	<f:if condition="{customFavicon}">
+		$("#favicon").attr("href", "{customFavicon}");
+	</f:if>
+</script>

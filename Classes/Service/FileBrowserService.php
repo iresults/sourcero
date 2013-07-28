@@ -47,7 +47,6 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 			$current = FALSE;
 			$active = FALSE;
 
-
 			// Hide dot-files and -folders
 			if ($hideDotFiles && strpos($path, '/.') !== FALSE) {
 				continue;
@@ -141,7 +140,6 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 			}
 			$linkElement->setAttribute('class', $class);
 
-
 			if ($currentDepth == $lastDepth) {
 				//the depth hasnt changed so just add another li
 				$li = $dom->createElement('li');
@@ -189,6 +187,8 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 	 */
 	public function getFileBrowserForFile($file, $withDirectories = FALSE) {
 		$files = array();
+		$lengthOfPathToSite = strlen(PATH_site) + 1; // +1 for the slash
+		$lengthOfPathToExtensionDir = strlen(PATH_typo3conf . 'ext/');
 
 		if ($file instanceof FS\File) {
 			$path = $file->getExtensionPath();
@@ -199,45 +199,6 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 			new RecursiveDirectoryIterator($path),
 			RecursiveTreeIterator::BYPASS_CURRENT);
 
-		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_LEFT, '</div><div class="line" style=""><span class="pop">[');
-//		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_LEFT, '</div><div class="line" style=""><span class="pop" style="width:340px;display:inline-block;">&nbsp;{L&nbsp;&nbsp;');
-		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_MID_HAS_NEXT, '-&nbsp;');
-//		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_MID_HAS_NEXT, '&nbsp;{m&nbsp;&nbsp;');
-		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_MID_LAST, '—&nbsp;');
-		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_END_HAS_NEXT, '⎜');
-//		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_END_HAS_NEXT, '&nbsp;{e&nbsp;&nbsp;');
-		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_END_LAST, '⎦&nbsp;'); // Is last
-		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_RIGHT, '</span>');
-//		$treeIterator->setPrefixPart(RecursiveTreeIterator::PREFIX_RIGHT, '&nbsp;&nbsp;R}&nbsp;</span>');
-
-
-//		const integer PREFIX_LEFT = 0 ;
-//		const integer PREFIX_MID_HAS_NEXT = 1 ;
-//		const integer PREFIX_MID_LAST = 2 ;
-//		const integer PREFIX_END_HAS_NEXT = 3 ;
-//		const integer PREFIX_END_LAST = 4 ;
-//		const integer PREFIX_RIGHT = 5 ;
-
-
-
-		echo <<<ECHOS
-<style>
-.line {
-}
-
-.line:hover {
-background: rgba(230, 45, 45, 0.5);
-}
-.pop {
-width:110px;
-display:inline-block;
-background: rgba(45, 230, 45, 0.2);
-}
-</style>
-ECHOS;
-
-
-
 		$lastDepth = 0;
 		foreach($treeIterator as $key => $currentPath) {
 			$currentDepth = $treeIterator->getDepth();
@@ -246,23 +207,30 @@ ECHOS;
 			if (strpos($currentPath, '/.')) {
 				continue;
 			}
+			Iresults\Core\Iresults::pd($currentPath . '');
 
 			// Filter off directories
 			if (!$withDirectories && is_dir($currentPath)) {
 				continue;
 			}
 
-			#echo $key . '<br>';
-
-			$uri = substr($currentPath, strlen(PATH_typo3conf . 'ext/'));
-			$currentRelativePath = substr($uri, strpos($uri, '/'));
+			if (strpos($currentPath, 'fileadmin/') !== FALSE) {
+				$uri = substr($currentPath, $lengthOfPathToSite);
+			} else {
+				$uri = 'EXT:' . substr($currentPath, $lengthOfPathToExtensionDir);
+			}
+			if (strpos($path, 'cundd_composer/vendor/') !== FALSE) {
+				$currentRelativePath = substr($uri, strpos($uri, 'cundd_composer/vendor') + 21);
+			} else {
+				$currentRelativePath = substr($uri, strpos($uri, '/'));
+			}
 
 			$files[] = array(
 				'name' 			=> basename($currentRelativePath),
 				'path' 			=> $currentPath,
 				'relativePath' 	=> $currentRelativePath,
 				'relativeDir' 	=> dirname($currentRelativePath),
-				'uri' 			=> 'EXT:' . $uri,
+				'uri' 			=> $uri,
 				'isDirectory' 	=> is_dir($currentPath),
 				'isLast' 		=> strpos($key, '{E}'),
 				'depth' 		=> $currentDepth,
@@ -289,6 +257,5 @@ ECHOS;
 	public function getUriBuilder() {
 		return $this->uriBuilder;
 	}
-
 
 }

@@ -20,16 +20,37 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		</div>
 	</f:link.action>
 
-	<div class="container-fluid">
-		<div class="row-fluid">
-			<div class="span3">
-				<f:render partial="FileBrowser" arguments="{_all}" />
-			</div>
-			<div class="span9">
-				<!--Body content-->
+	<div class="row-fluid">
+		<div class="span3">
+			<f:render partial="FileBrowser" arguments="{_all}" />
+		</div>
+		<div class="span9">
+			<!--Body content-->
+
+			<div class="editor-container">
+				<div class="hero-unit">
+					<h1>{project.name}</h1>
+				</div>
+
 			</div>
 		</div>
 	</div>
 
+	<script type="text/javascript">
+		(function() {
+			var root = this;
+			jQuery('body').keydown(function (event) {
+				var handled = false;
+				if ((event.ctrlKey || event.metaKey) && event.keyCode === 79) { // Open
+					if (root.FastOpen) {
+						root.FastOpen.show();
+						handled = true;
+					}
+				}
+				return !handled;
+			});
+		})();
+	</script>
+	<f:render partial="FastOpen" arguments="{_all}" />
 
 </f:section>

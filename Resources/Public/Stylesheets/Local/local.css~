@@ -149,18 +149,6 @@ h2.pre-caption {
 	text-shadow: 0 0 4px #000;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-	.editor-container .hero-unit h1 {
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1ab2ff), color-stop(51%,#0088cc), color-stop(85%,#005580), color-stop(100%,#0088cc)); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(top,  #1ab2ff 0%,#0088cc 51%,#005580 85%,#0088cc 100%); /* Chrome10+,Safari5.1+ */
-		background: linear-gradient(to bottom,  #1ab2ff 0%,#0088cc 51%,#005580 85%,#0088cc 100%); /* W3C */
-
-		margin: 0;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-}
-
 /* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW */
 /* EDITOR */
 /* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW */
@@ -168,42 +156,17 @@ h1.editorHeader {
 	text-align: left;
 }
 
-.editor-container .CodeMirror,
-.editor-container .CodeMirror.cm-s-monokai,
-.editor-container .CodeMirror.cm-s-sourcero,
-.editor-container .CodeMirror-dialog input,
-.editor-container .CodeMirror-hints .CodeMirror-hint {
-	font-family: Menlo, monospace;
-	font-size: 12px;
-}
-
-/* CodeMirror UI */
-.editor-container .CodeMirror-dialog,
-.editor-container .CodeMirror-dialog input,
-.editor-container .CodeMirror-hints .CodeMirror-hint {
-	font-size: 13px;
-}
-
-
 .buttons {
 	margin-top: 20px;
 }
 
-.editor-container {
-	top: 60px;
-	bottom: 0;
-	position: absolute;
-
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	right: 20px;
-	width: 73%;
-}
-.editor-container .CodeMirror.cm-s-monokai,
-.editor-container .CodeMirror.cm-s-sourcero {
+.well .CodeMirror.cm-s-monokai,
+.well .CodeMirror.cm-s-sourcero {
 	background: transparent;
-	/*height: 10vh;*/
-	height: 600px;
+	height: 10vh;
+	/*height: 800px;*/
+	font-family: Menlo, monospace;
+	font-size: 12px;
 }
 
 .CodeMirror-focused .cm-matchhighlight {
@@ -250,13 +213,13 @@ h1.editorHeader {
 
 	/*background: white;*/
 	/*font-size: 90%;*/
-	/* font-family: Menlo, monospace; */
+	font-family: Menlo, monospace;
 
 	/*max-height: 20em;*/
 	/*overflow-y: auto;*/
 }
 
-.editor-container .CodeMirror-hints {
+body .CodeMirror-hints {
 	/*margin-left: -280px;*/
 	background: #444;
 	color: #c6c6c6;
@@ -273,10 +236,10 @@ h1.editorHeader {
 	-moz-background-clip: padding-box;
 	background-clip: padding-box;
 }
-.editor-container .CodeMirror-hint {
+body .CodeMirror-hint {
 	color: #c6c6c6;
 }
-.editor-container .CodeMirror-hint-active {
+body .CodeMirror-hint-active {
 	color: #fff;
 	background: #08c;
 }
@@ -296,116 +259,11 @@ h1.editorHeader {
 	/*background: #08f;*/
 	/*color: white;*/
 /*}*/
-.editor-container .CodeMirror-dialog {
-	background: #444;
-	background: rgba(68, 68, 68, 0.8);
-	color: #c6c6c6;
 
-
-	outline: 0;
-	-webkit-box-shadow: 0 3px 7px rgba(0,0,0,0.3);
-	-moz-box-shadow: 0 3px 7px rgba(0,0,0,0.3);
-	box-shadow: 0 3px 7px rgba(0,0,0,0.3);
-	-webkit-background-clip: padding-box;
-	-moz-background-clip: padding-box;
-	background-clip: padding-box;
-}
-
-.editor-container .CodeMirror-dialog-top {
-	border-bottom: 1px solid #999;
-	border-bottom: 1px solid rgba(0,0,0,0.3);
-
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-
-	top: 0;
-}
-
-.editor-container .CodeMirror-dialog-bottom {
-	border-top: 1px solid #999;
-	border-top: 1px solid rgba(0,0,0,0.3);
-
-	border-bottom-left-radius: 6px;
-	border-bottom-right-radius: 6px;
-
-	bottom: 0;
-}
-
-.editor-container .CodeMirror-dialog button {
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-	/* Bootstrap button */
-	display: inline-block;
-	padding: 4px 12px;
-	margin-bottom: 0;
-	/*font-size: 14px;*/
-	line-height: 20px;
-	text-align: center;
-	vertical-align: middle;
-	cursor: pointer;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-
-	color: #ffffff;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	background-color: #363636;
-	background-image: -moz-linear-gradient(top, #444444, #222222);
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444444), to(#222222));
-	background-image: -webkit-linear-gradient(top, #444444, #222222);
-	background-image: -o-linear-gradient(top, #444444, #222222);
-	background-image: linear-gradient(to bottom, #444444, #222222);
-	background-repeat: repeat-x;
-	border-color: #222222 #222222 #000000;
-	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff444444', endColorstr='#ff222222', GradientType=0);
-	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-}
-
-
-
-.editor-container .CodeMirror-dialog input {
-	margin: 2px 0;
-	-webkit-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
-	-moz-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
-	box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
-}
-/*
-.CodeMirror-dialog button {
-	font-size: 70%;
-}
-*/
-
-
-/* Toolbar */
-.toolbar .editorInfo {
-	display: inline-block;
-	padding: 4px 12px;
-	margin-bottom: 0;
-	font-size: 12px;
-	line-height: 20px;
-	/*color: #333;*/
-	color: #999;
-	text-align: center;
-	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
-	vertical-align: middle;
-}
 
 /* FileBrowser */
 .fileBrowser {
-	/* height: 83vh; */
-
-	overflow: auto;
-	top: 60px;
-	bottom: 0;
-	position: absolute;
-
-	width: 23.4%;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
+	overflow: scroll;
 }
 .fileBrowser h3 {
 	margin: 0;
@@ -489,7 +347,6 @@ h1.editorHeader {
 	width: 100%;
 	height: 30px;
 	box-sizing: border-box;
-	-moz-box-sizing: border-box;
 }
 
 /* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW */

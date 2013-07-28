@@ -42,7 +42,7 @@ use \TYPO3\CMS\Core\Utility as Utility;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_AbstractController {
 
 	/**
 	 * repositoryRepository
@@ -75,6 +75,7 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		'html' => 'text/html',
 		'xhtml' => 'text/html',
 		'phtml' => 'text/html',
+		'ts' => 'text/x-typoscript',
 	);
 
 	protected function initializeAction() {
@@ -86,8 +87,16 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		$getExtensionKey = function($that) {
 			/** @var Iresults\FS\File $that */
 
+			// If the file belongs into framework or fileadmin
+			if (strpos($that->getPath(), '/fileadmin/framework/') !== FALSE) {
+				return 'framework';
+			} else if (strpos($that->getPath(), '/fileadmin/') !== FALSE) {
+				return 'fileadmin';
+			}
+
 			// If the file belongs to a composer package
-			if (strpos($that->getPath(), '/cundd_composer/vendor/') !== FALSE) {
+			$path = str_replace('//', '/', $that->getPath());
+			if (strpos($path, 'cundd_composer/vendor/') !== FALSE) {
 				list ($vendor, $extension) = $that->getVendorAndExtensionNameForComposerPackage();
 				return $vendor . '/' . $extension;
 			}
@@ -97,18 +106,26 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		$getExtensionPath = function($that) {
 			/** @var Iresults\FS\File $that */
 
+			// If the file belongs into framework or fileadmin
+			if (strpos($that->getPath(), '/fileadmin/framework/') !== FALSE) {
+				return PATH_site . '/fileadmin/framework/';
+			} else if (strpos($that->getPath(), '/fileadmin/') !== FALSE) {
+				return PATH_site . '/fileadmin/';
+			}
+
 			// If the file belongs to a composer package
-			if (strpos($that->getPath(), '/cundd_composer/vendor/') !== FALSE) {
+			$path = str_replace('//', '/', $that->getPath());
+			if (strpos($path, 'cundd_composer/vendor/') !== FALSE) {
 				list ($vendor, $extension) = $that->getVendorAndExtensionNameForComposerPackage();
-				return t3lib_extMgm::extPath('cundd_composer') . '/vendor/' . $vendor . '/' . $extension . '/';
+				return Utility\ExtensionManagementUtility::extPath('cundd_composer') . 'vendor/' . $vendor . '/' . $extension . '/';
 			}
 			return Utility\ExtensionManagementUtility::extPath($that->getExtensionKey());
 		};
 		$getVendorAndExtensionNameForComposerPackage = function($that) {
-			$path = $that->getPath();
-			$composerVendorDirPosition = strpos($path, '/cundd_composer/vendor/');
+			$path = str_replace('//', '/', $that->getPath());
+			$composerVendorDirPosition = strpos($path, 'cundd_composer/vendor/');
 			if ($composerVendorDirPosition !== FALSE) {
-				$extensionRelativePath = substr($path, $composerVendorDirPosition + 23);
+				$extensionRelativePath = substr($path, $composerVendorDirPosition + 22);
 				list ($vendor, $extension, ) = explode(DIRECTORY_SEPARATOR, $extensionRelativePath);
 				return array($vendor, $extension);
 			}
@@ -145,15 +162,16 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 * @return void
 	 */
 	public function listAction($file) {
-		#$file = urldecode($file);
-		#$file = t3lib_div::getFileAbsFileName($file);
-
 		$fileManager = FS\FileManager::sharedFileManager();
 		$file = $fileManager->getResourceAtUrl($file);
 		$this->view->assign('file', $file);
-		#$this->view->assign('fileBrowser', $this->getFileBrowserForFile($file, FALSE));
+		$this->view->assign('fileBrowser', $this->getFileBrowserForFile($file, FALSE));
 		$this->view->assign('fileBrowserCode', $this->getFileBrowserCodeForFile($file));
 		$this->view->assign('fileBrowserOpen', TRUE);
+
+		$this->view->assign('project', $this->getProjectForFile($file));
+
+		$this->setCustomFaviconWithBasePath($file->getExtensionPath());
 	}
 
 	/**
@@ -178,9 +196,15 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		$this->initCodeMirrorForFile($file);
 		#$this->redirect('edit', 'IDE', NULL, array('file' => $file));
 
-		#$this->view->assign('fileBrowser', $this->getFileBrowserForFile($file, TRUE));
+		$this->view->assign('fileBrowser', $this->getFileBrowserForFile($file, FALSE));
 		$this->view->assign('fileBrowserCode', $this->getFileBrowserCodeForFile($file));
 		$this->view->assign('fileBrowserOpen', TRUE);
+
+		$this->view->assign('project', $this->getProjectForFile($file));
+
+		$this->setCustomFaviconWithBasePath($file->getExtensionPath());
+
+		$this->view->assign('repositories', $this->repositoryRepository->findAll());
 	}
 
 	/**
@@ -237,6 +261,9 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	protected function getMimeTypeOfFile($file) {
 		$suffix = $file->getSuffix();
 
+		if ($file->getName() === 'setup.txt' || $file->getName() === 'constants.txt') {
+			return 'text/x-typoscript';
+		}
 		if (isset($this->mimeTypeForSuffix[$suffix])) {
 			return $this->mimeTypeForSuffix[$suffix];
 		}
@@ -285,21 +312,45 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 *
 	 * @param string $path
 	 * @param string $contents
-	 * @return void
+	 * @return mixed
 	 */
 	public function updateAction($path, $contents) {
 		$fileManager = FS\FileManager::sharedFileManager();
 		$file = $fileManager->getResourceAtUrl($path);
 
-		$contents = $this->removeTrailingWhitespaces($contents);
+		$contents = $this->formatCode($contents);
 		$success = $file->setContents($contents);
 
+		// Handle AJAX/JSON requests
+		if ($this->request->getFormat() === 'json') {
+			if ($success) {
+				return json_encode(array('success' => TRUE));
+			} else {
+				$this->response->setStatus(500);
+				return json_encode(array('success' => FALSE, 'error' => $this->getUpdateError($file)));
+			}
+		}
 		if ($success) {
 			$this->flashMessageContainer->add('File successfully saved');
 		} else {
-			$this->flashMessageContainer->add('Could not save', 'Error', \TYPO3\CMS\Core\Messaging\FlashMessage::WARNING);
+			$this->flashMessageContainer->add('Could not save', 'Error', \TYPO3\CMS\Core\Messaging\FlashMessage::ERROR);
 		}
 		$this->redirect('show', 'IDE', NULL, array('file' => $path));
+	}
+
+	/**
+	 * Returns the error description of the update error
+	 * @param FS\File $file
+	 */
+	public function getUpdateError($file) {
+		$message = '';
+		if (!$file->isWriteable()) {
+			$message = 'File not writeable';
+		}
+		return array(
+			'code' => 1373116207,
+			'message' => $message
+		);
 	}
 
 	/**
@@ -321,7 +372,7 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		if ($success) {
 			$this->flashMessageContainer->add('File successfully deleted');
 		} else {
-			$this->flashMessageContainer->add('Could not delete', 'Error', \TYPO3\CMS\Core\Messaging\FlashMessage::WARNING);
+			$this->flashMessageContainer->add('Could not delete', 'Error', \TYPO3\CMS\Core\Messaging\FlashMessage::ERROR);
 		}
 		$this->redirect('show', 'IDE', NULL, array('file' => $file->getExtensionPath())); // Show IDE
 		// $this->redirect('show', 'Repository', NULL, array('repository' => $file->getExtensionKey())); // Show the Repository overview
@@ -332,13 +383,14 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 * @param string $text
 	 * @return string
 	 */
-	protected function removeTrailingWhitespaces($text) {
+	protected function formatCode($text) {
 		// Normalize line endings
 		// Convert all line-endings to UNIX format
 		$text = str_replace("\r\n", "\n", $text);
 		$text = str_replace("\r", "\n", $text);
-		// Don't allow out-of-control blank lines
-		$text = preg_replace("/\n{2,}/", "\n\n", $text);
+
+		// Don't allow multiple new-lines
+		// $text = preg_replace("/\n{2,}/", "\n\n", $text);
 
 		$lines = explode("\n", $text);
 		foreach ($lines as &$line) {
@@ -364,6 +416,24 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 */
 	public function getFileBrowserForFile($file, $withDirectories = FALSE) {
 		return $this->fileBrowserService->setUriBuilder($this->uriBuilder)->getFileBrowserForFile($file, $withDirectories);
+	}
+
+	/**
+	 * Returns a virtual project for the given file
+	 *
+	 * @param Tx_Sourcero_Domain_Model_File $file
+	 * @return array
+	 */
+	public function getProjectForFile($file) {
+		if ($file instanceof FS\File) {
+			$path = $file->getExtensionPath();
+		} else {
+			$path = $file->getPath();
+		}
+		return array(
+			'name' 		=> $file->getExtensionKey(),
+			'path' 		=> $file->getExtensionPath(),
+		);
 	}
 
 	/**

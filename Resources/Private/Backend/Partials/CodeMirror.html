@@ -3,6 +3,7 @@
 <!-- Use the combined file -->
 <script type="text/javascript" src="{f:uri.resource(path:'Scripts/codemirror-compressed.js')}"></script>
 <script type="text/javascript" src="{f:uri.resource(path:'Scripts/CodeMirrorAddons/hint/php-hint.js')}"></script>
+<script type="text/javascript" src="{f:uri.resource(path:'Scripts/CodeMirrorAddons/mode/typoscript/typoscript.js')}"></script>
 
 <!-- Or load the JavaScript files manually -->
 <!-- <script type="text/javascript" src="{codeMirror.installPath}/lib/codemirror.js"></script> -->
@@ -12,6 +13,7 @@
 <!-- </f:for> -->
 
 <link rel="stylesheet" href="{codeMirror.installPath}/theme/monokai.css">
+<link rel="stylesheet" href="{f:uri.resource(path:'Stylesheets/Local/codemirror-sourcero.css')}">
 
 <link rel="stylesheet" href="{codeMirror.installPath}/addon/dialog/dialog.css"/>
 <link rel="stylesheet" href="{codeMirror.installPath}/addon/hint/show-hint.css"/>
@@ -38,6 +40,9 @@
 		extensionPath: "{file.extensionPath}"
 	};
 
+	<f:if condition="{customFavicon}">
+		$("#favicon").attr("href", "{customFavicon}");
+	</f:if>
 </script>
 
 <script type="text/javascript" src="{f:uri.resource(path:'Scripts/Delegate.js')}"></script>
