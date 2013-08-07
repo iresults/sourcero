@@ -1,6 +1,6 @@
 /* Based on Sublime Text's Monokai theme */
 
-.cm-s-sourcero.CodeMirror {background: transparent; color: #f8f8f2;}
+.cm-s-sourcero.CodeMirror {background: transparent; color: #f8f8f2; line-height: 1.2em;}
 .cm-s-sourcero div.CodeMirror-selected {background: #08c}
 .cm-s-sourcero .CodeMirror-gutters {background: #272822; border-right: 0px;}
 .cm-s-sourcero .CodeMirror-linenumber {color: #d0d0d0;}
@@ -23,7 +23,10 @@
 .cm-s-sourcero span.cm-link {color: #ae81ff;}
 
 .cm-s-sourcero .CodeMirror-matchingbracket {
-  text-decoration: underline;
-  color: white !important;
+	text-decoration: underline;
+	color: white !important;
 }
 
+.cm-s-sourcero .cm-trailingspace {
+	background: rgba(249, 38, 114, 0.5);
+}

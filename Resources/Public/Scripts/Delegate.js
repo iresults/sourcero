@@ -44,7 +44,7 @@
          * Initialize
          */
         init: function () {
-			var _this = this, _editor;
+			var _this = this, _editor, throttled;
 
 			_editor = this.editor = CodeMirror.fromTextArea(this.codeTextarea, {
                 // Add a comment, so this is not treated as Fluid variable
@@ -61,12 +61,13 @@
                 lineWrapping: true,
                 styleActiveLine: true,
                 highlightSelectionMatches: true,
+				showTrailingSpace: true,
                 extraKeys: {
                     "Cmd-.": 			"autocomplete",
                     "Ctrl-.": 			"autocomplete",
                     "Ctrl-/": 			"toggleComment",
-					"Cmd-Shift-C": 		"toggleComment",
-					"Ctrl-Shift-C": 	"toggleComment",
+					"Shift-Cmd-C": 		"toggleComment",
+					"Shift-Ctrl-C": 	"toggleComment",
 					"Cmd-Left":			"goLineStartSmart",
 					"Cmd-Backspace":	"removeLine",
 					"Cmd-D":			"duplicateLine"
@@ -85,9 +86,20 @@
 			this.resizeEditor();
 			this.updatePageTitle();
 
+			/* Load the mode */
+			CodeMirror.autoLoadMode(_editor, (codeMirrorMode === 'text/x-scss' ? 'css' : codeMirrorMode));
+
+
 			$('body').keydown(function (event) {
 				return _this.captureKeydown(event);
 			});
+
+
+			throttled = jQuery.throttle(0, false, function () {
+				_this.resizeEditor();
+			});
+			$(window).resize(throttled);
+			return this;
         },
 
 		/**
@@ -341,7 +353,8 @@
             var contents = this.editor.getValue(),
                 contentsArray,
                 start = token.string;
-            contentsArray = contents.match(/[a-zA-Z0-9\$\-\_@]+/g);
+
+            contentsArray = contents.match(/[a-zA-Z0-9\$\-\_@]*[a-z0-9_]/g);
             return contentsArray.filter(function (element, index, array) {
                 return element.indexOf(start) === 0 && element !== start;
             });
@@ -383,7 +396,7 @@
             root.FastOpen.show();
         }
     };
-    codeFolding = CodeMirror.newFoldFunction(CodeMirror.braceRangeFinder);
+//    codeFolding = CodeMirror.newFoldFunction(CodeMirror.braceRangeFinder);
 
     /**
      * Delete button class

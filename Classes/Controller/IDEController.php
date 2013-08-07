@@ -213,8 +213,10 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_Abstra
 	 */
 	public function getCodeMirrorConfiguration() {
 
-		$absoluteCodeMirrorInstallPath = Utility\ExtensionManagementUtility::extPath('sourcero') . 'Resources/Public/Stylesheets/Library/CodeMirror/';
-		$relativeCodeMirrorInstallPath = Utility\ExtensionManagementUtility::extRelPath('sourcero') . 'Resources/Public/Stylesheets/Library/CodeMirror/';
+//		$absoluteCodeMirrorInstallPath = Utility\ExtensionManagementUtility::extPath('sourcero') . 'Resources/Public/Stylesheets/Library/CodeMirror/';
+//		$relativeCodeMirrorInstallPath = Utility\ExtensionManagementUtility::extRelPath('sourcero') . 'Resources/Public/Stylesheets/Library/CodeMirror/';
+		$absoluteCodeMirrorInstallPath = Utility\ExtensionManagementUtility::extPath('sourcero') . 'Resources/Public/Library/codemirror-3.15/';
+		$relativeCodeMirrorInstallPath = Utility\ExtensionManagementUtility::extRelPath('sourcero') . 'Resources/Public/Library/codemirror-3.15/';
 
 		// Find all Addons
 		$addons = FS\FileManager::find($absoluteCodeMirrorInstallPath . 'addon/*/*.js');
