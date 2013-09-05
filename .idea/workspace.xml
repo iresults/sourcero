@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225cf487-373c-44f3-a29c-0ed742c9060a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Driver/DriverInterface.php" afterPath="$PROJECT_DIR$/Classes/Driver/DriverInterface.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Driver/GitDriver.php" afterPath="$PROJECT_DIR$/Classes/Driver/GitDriver.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/List.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/List.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Domain/Model/Repository.php" afterPath="$PROJECT_DIR$/Classes/Domain/Model/Repository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Service/SCMService.php" afterPath="$PROJECT_DIR$/Classes/Service/SCMService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/Unit/Service/SCMServiceTest.php" afterPath="$PROJECT_DIR$/Tests/Unit/Service/SCMServiceTest.php" />
     </list>
     <ignored path="sourcero.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,6 +31,7 @@
     <file path="/List.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1378383955675" ignored="false" />
     <file path="/locallang.xlf" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1378382447880" ignored="false" />
     <file path="/Properties.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1378383371401" ignored="false" />
+    <file path="/a.dummy" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1378384001442" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,19 +118,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Repository.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Repository.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Classes/Domain/Model/Repository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="13" selection-start="2062" selection-end="2062" vertical-scroll-proportion="-36.666668">
+            <state line="88" column="15" selection-start="1915" selection-end="1915" vertical-scroll-proportion="-2.6280193">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="List.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="List.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/List.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="141" selection-start="1851" selection-end="1851" vertical-scroll-proportion="0.6731898">
+            <state line="49" column="141" selection-start="1828" selection-end="1851" vertical-scroll-proportion="-28.666666">
               <folding />
             </state>
           </provider>
@@ -277,12 +273,12 @@
         <option value="$PROJECT_DIR$/Resources/Private/Language/locallang.xlf" />
         <option value="$PROJECT_DIR$/Resources/Private/Language/locallang_db.xlf" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/Repository/Properties.html" />
-        <option value="$PROJECT_DIR$/Classes/Domain/Model/Repository.php" />
         <option value="$PROJECT_DIR$/Classes/Driver/GitDriver.php" />
         <option value="$PROJECT_DIR$/Classes/Service/SCMService.php" />
         <option value="$PROJECT_DIR$/Classes/Driver/DriverInterface.php" />
         <option value="$PROJECT_DIR$/Tests/Unit/Service/SCMServiceTest.php" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/List.html" />
+        <option value="$PROJECT_DIR$/Classes/Domain/Model/Repository.php" />
       </list>
     </option>
   </component>
@@ -944,13 +940,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Domain/Model/Repository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="13" selection-start="2062" selection-end="2062" vertical-scroll-proportion="-36.666668">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="30" selection-start="411" selection-end="411" vertical-scroll-proportion="0.0">
@@ -1009,7 +998,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/List.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="141" selection-start="1851" selection-end="1851" vertical-scroll-proportion="0.6731898">
+        <state line="49" column="141" selection-start="1828" selection-end="1851" vertical-scroll-proportion="-28.666666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Domain/Model/Repository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="15" selection-start="1915" selection-end="1915" vertical-scroll-proportion="-2.6280193">
           <folding />
         </state>
       </provider>
