@@ -73,8 +73,22 @@ class Tx_Sourcero_Driver_GitDriver extends Tx_Sourcero_Driver_AbstractCliDriver 
 	public function getVersionInformation() {
 		$error = NULL;
 		return $this->executeCommand('log', array(
-			'-n' => 2,
+			'-n' => 1,
 			'--pretty=format:"%s | %H"'
+		), $error);
+	}
+
+	/**
+	 * Returns information about the current version/the last commit of the
+	 * given repository
+	 *
+	 * @return string
+	 */
+	public function getShortVersionInformation() {
+		$error = NULL;
+		return $this->executeCommand('log', array(
+			'-n' => 1,
+			'--pretty=format:"%h"'
 		), $error);
 	}
 

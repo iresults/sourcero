@@ -149,6 +149,19 @@ class Tx_Sourcero_Service_SCMService implements \TYPO3\CMS\Core\SingletonInterfa
 	}
 
 	/**
+	 * Returns a short information about the current version/the last commit of
+	 * the given repository
+	 * @param  Tx_Sourcero_Domain_Model_Repository $repository
+	 * @return string
+	 */
+	public function getShortVersionInformationForRepository($repository) {
+		if (!$this->hasDriverForRepository($repository)) {
+			return '';
+		}
+		return $this->getDriverForRepository($repository)->getShortVersionInformation();
+	}
+
+	/**
 	 * Executes the given command
 	 * @param  Tx_Sourcero_Domain_Model_Repository $repository
 	 * @param  string $command    Command to execute

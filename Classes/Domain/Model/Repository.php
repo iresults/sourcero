@@ -95,6 +95,12 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 	protected $_versionInformation;
 
 	/**
+	 * Short information about the current version/the last commit
+	 * @var string
+	 */
+	protected $_versionInformationShort;
+
+	/**
 	 * The custom favicon URI
 	 * @return string
 	 */
@@ -233,14 +239,25 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 	}
 
 	/**
-	 * Returns the status code
-	 * @return integer
+	 * Returns information about the current version/the last commit
+	 * @return string
 	 */
 	public function getVersionInformation() {
 		if ($this->_versionInformation === NULL) {
 			$this->_versionInformation = $this->_scmService->getVersionInformationForRepository($this);
 		}
 		return $this->_versionInformation;
+	}
+
+	/**
+	 * Returns a short information about the current version/the last commit
+	 * @return string
+	 */
+	public function getVersionInformationShort() {
+		if ($this->_versionInformationShort === NULL) {
+			$this->_versionInformationShort = $this->_scmService->getVersionInformationForRepository($this);
+		}
+		return $this->_versionInformationShort;
 	}
 
 	/**
