@@ -1,22 +1,67 @@
 <link rel="stylesheet" href="{codeMirror.installPath}/lib/codemirror.css">
 
-<!-- Use the combined file -->
-<script type="text/javascript" src="{f:uri.resource(path:'Scripts/codemirror-compressed.js')}"></script>
-<script type="text/javascript" src="{f:uri.resource(path:'Scripts/CodeMirrorAddons/hint/php-hint.js')}"></script>
-<script type="text/javascript" src="{f:uri.resource(path:'Scripts/CodeMirrorAddons/mode/typoscript/typoscript.js')}"></script>
+<script type="text/javascript" src="{f:uri.resource(path:'Library/diff_match_patch/diff_match_patch.js')}"></script>
 
-<!-- Or load the JavaScript files manually -->
-<!-- <script type="text/javascript" src="{codeMirror.installPath}/lib/codemirror.js"></script> -->
-<!-- <script type="text/javascript" src="{codeMirror.installPath}/mode/php/php.js"></script> -->
-<!-- <f:for each="{codeMirror.addons}" as="addon"> -->
-<!--	<script type="text/javascript" src="{addon.uri}"></script> -->
-<!-- </f:for> -->
+<script type="text/javascript" src="{codeMirror.installPath}/lib/codemirror.js"></script>
+
+<script type="text/javascript" src="{codeMirror.installPath}/addon/mode/loadmode.js"></script>
+
+<script type="text/javascript" src="{codeMirror.installPath}/addon/comment/comment.js"></script>
+
+<script type="text/javascript" src="{codeMirror.installPath}/addon/dialog/dialog.js"></script>
+<link rel="stylesheet" href="{codeMirror.installPath}/addon/dialog/dialog.css"/>
+
+<script type="text/javascript" src="{codeMirror.installPath}/addon/edit/closebrackets.js"></script>
+<script type="text/javascript" src="{codeMirror.installPath}/addon/edit/closetag.js"></script>
+<script type="text/javascript" src="{codeMirror.installPath}/addon/edit/continuecomment.js"></script>
+<script type="text/javascript" src="{codeMirror.installPath}/addon/edit/continuelist.js"></script>
+<script type="text/javascript" src="{codeMirror.installPath}/addon/edit/matchbrackets.js"></script>
+<script type="text/javascript" src="{codeMirror.installPath}/addon/edit/matchtags.js"></script>
+<script type="text/javascript" src="{codeMirror.installPath}/addon/edit/trailingspace.js"></script>
+
+<script type="text/javascript" src="{codeMirror.installPath}/addon/hint/show-hint.js"></script>
+<script type="text/javascript" src="{codeMirror.installPath}/addon/hint/anyword-hint.js"></script>
+<script type="text/javascript" src="{codeMirror.installPath}/addon/hint/html-hint.js"></script>
+<script type="text/javascript" src="{codeMirror.installPath}/addon/hint/javascript-hint.js"></script>
+<!--<script type="text/javascript" src="{codeMirror.installPath}/addon/hint/pig-hint.js"></script>-->
+<script type="text/javascript" src="{codeMirror.installPath}/addon/hint/python-hint.js"></script>
+<script type="text/javascript" src="{codeMirror.installPath}/addon/hint/xml-hint.js"></script>
+<link rel="stylesheet" href="{codeMirror.installPath}/addon/hint/show-hint.css"/>
+
+<script type="text/javascript" src="{codeMirror.installPath}/addon/search/match-highlighter.js"></script>
+<script type="text/javascript" src="{codeMirror.installPath}/addon/search/search.js"></script>
+<script type="text/javascript" src="{codeMirror.installPath}/addon/search/searchcursor.js"></script>
+
+<script type="text/javascript" src="{codeMirror.installPath}/addon/selection/active-line.js"></script>
+<script type="text/javascript" src="{codeMirror.installPath}/addon/selection/mark-selection.js"></script>
+
+<script type="text/javascript" src="{codeMirror.installPath}/addon/tern/tern.js"></script>
+<link rel="stylesheet" href="{codeMirror.installPath}/addon/tern/tern.css"/>
+
+<script type="text/javascript" src="{codeMirror.installPath}/addon/lint/coffeescript-lint.js"></script>
+<script type="text/javascript" src="{codeMirror.installPath}/addon/lint/javascript-lint.js"></script>
+<script type="text/javascript" src="{codeMirror.installPath}/addon/lint/json-lint.js"></script>
+<script type="text/javascript" src="{codeMirror.installPath}/addon/lint/lint.js"></script>
+<link rel="stylesheet" href="{codeMirror.installPath}/addon/lint/lint.css"/>
+
+
+
+<f:if condition="{0:codeMirror.mode} === {0:'php'}">
+	<script type="text/javascript" src="{f:uri.resource(path:'Scripts/CodeMirrorAddons/hint/php-hint.js')}"></script>
+</f:if>
+<f:if condition="{0:codeMirror.mode} === {0:'scss'}">
+	<script type="text/javascript" src="{codeMirror.installPath}/mode/css/css.js"></script>
+</f:if>
+<f:if condition="{0:codeMirror.mode} === {0:'ts'}">
+	<script type="text/javascript" src="{f:uri.resource(path:'Scripts/CodeMirrorAddons/mode/typoscript/typoscript.js')}"></script>
+</f:if>
+
 
 <link rel="stylesheet" href="{codeMirror.installPath}/theme/monokai.css">
 <link rel="stylesheet" href="{f:uri.resource(path:'Stylesheets/Local/codemirror-sourcero.css')}">
 
-<link rel="stylesheet" href="{codeMirror.installPath}/addon/dialog/dialog.css"/>
-<link rel="stylesheet" href="{codeMirror.installPath}/addon/hint/show-hint.css"/>
+
+
 <link rel="stylesheet" href="{codeMirror.installPath}/addon/lint/lint.css"/>
 
 <script type="text/javascript">
@@ -43,7 +88,10 @@
 	<f:if condition="{customFavicon}">
 		$("#favicon").attr("href", "{customFavicon}");
 	</f:if>
+
+	CodeMirror.modeURL = "{codeMirror.installPath}/mode/%N/%N.js";
 </script>
 
+<script type="text/javascript" src="{f:uri.resource(path:'Library/jquery-throttle-debounce/jquery-throttle-debounce.min.js')}"></script>
 <script type="text/javascript" src="{f:uri.resource(path:'Scripts/Delegate.js')}"></script>
 

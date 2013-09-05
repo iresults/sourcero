@@ -256,6 +256,11 @@ h1.editorHeader {
 	/*overflow-y: auto;*/
 }
 
+.editor-container .cm-trailingspace {
+
+}
+
+body ul.CodeMirror-hints,
 .editor-container .CodeMirror-hints {
 	/*margin-left: -280px;*/
 	background: #444;
@@ -272,10 +277,15 @@ h1.editorHeader {
 	-webkit-background-clip: padding-box;
 	-moz-background-clip: padding-box;
 	background-clip: padding-box;
+
+	bottom: 0;
 }
-.editor-container .CodeMirror-hint {
+
+body .CodeMirror-hint {
 	color: #c6c6c6;
 }
+
+body .CodeMirror-hint-active,
 .editor-container .CodeMirror-hint-active {
 	color: #fff;
 	background: #08c;
