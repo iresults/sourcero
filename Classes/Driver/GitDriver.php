@@ -95,6 +95,7 @@ class Tx_Sourcero_Driver_GitDriver extends Tx_Sourcero_Driver_AbstractCliDriver 
 	/**
 	 * Checks if the FETCH_HEAD is old and needs to be refetched
 	 * @return boolean Returns TRUE if the remote data was fetched, otherwise FALSE
+	 * @throws UnexpectedValueException
 	 */
 	protected function _fetchIfRequired() {
 		$fetchIsRequired = FALSE;
@@ -123,6 +124,7 @@ class Tx_Sourcero_Driver_GitDriver extends Tx_Sourcero_Driver_AbstractCliDriver 
 	 * @param  string $subCommand   Command to execute
 	 * @param  array  $arguments	Additional arguments
 	 * @return string            	Raw command output
+	 * @throws UnexpectedValueException
 	 */
 	protected function _buildProcess($subCommand, $arguments = array()) {
 		if (is_object($subCommand)) {

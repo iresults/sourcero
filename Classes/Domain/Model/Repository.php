@@ -255,7 +255,7 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function getShortVersionInformation() {
 		if ($this->_shortVersionInformation === NULL) {
-			$this->_shortVersionInformation = $this->_scmService->getVersionInformationForRepository($this);
+			$this->_shortVersionInformation = $this->_scmService->getShortVersionInformationForRepository($this);
 		}
 		return $this->_shortVersionInformation;
 	}
