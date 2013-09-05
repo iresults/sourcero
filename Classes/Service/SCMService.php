@@ -35,7 +35,7 @@ use Symfony\Component\Process\Process;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Sourcero_Service_SCMService implements t3lib_singleton {
+class Tx_Sourcero_Service_SCMService implements \TYPO3\CMS\Core\SingletonInterface {
 	/**
 	 * Status of the SCM
 	 */
@@ -90,7 +90,7 @@ class Tx_Sourcero_Service_SCMService implements t3lib_singleton {
 	 * @param  Tx_Sourcero_Domain_Model_Repository $repository
 	 * @return Tx_Sourcero_Driver_DriverInterface
 	 */
-	public function getDriverForRepository($repository) {
+	public function getDriverForRepository(Tx_Sourcero_Domain_Model_Repository $repository) {
 		$type = $repository->getType();
 		$driverClassName = 'Tx_Sourcero_Driver_' . ucfirst($type) . 'Driver';
 		return $this->createDriverInstanceWithClass($driverClassName, $repository);
@@ -101,7 +101,7 @@ class Tx_Sourcero_Service_SCMService implements t3lib_singleton {
 	 * @param  Tx_Sourcero_Domain_Model_Repository $repository
 	 * @return Tx_Sourcero_Driver_DriverInterface
 	 */
-	public function hasDriverForRepository($repository) {
+	public function hasDriverForRepository(Tx_Sourcero_Domain_Model_Repository $repository) {
 		$type = $repository->getType();
 		$driverClassName = 'Tx_Sourcero_Driver_' . ucfirst($type) . 'Driver';
 		return class_exists($driverClassName);
@@ -164,7 +164,5 @@ class Tx_Sourcero_Service_SCMService implements t3lib_singleton {
 	public function getFormatCode() {
 		return $this->formatCode;
 	}
-
-
 
 }

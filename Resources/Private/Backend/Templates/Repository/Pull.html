@@ -13,12 +13,15 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="content">
 
-<f:render partial="Menu" arguments="{repository:repository}" />
+<f:render partial="Menu" arguments="{_all}" />
 
 <h1>Pull</h1>
 
 <f:flashMessages />
 
-<pre class="scm-output"><f:format.htmlentitiesDecode>{commandOutput}</f:format.htmlentitiesDecode></pre>
+<div class="scm-output-container">
+	<h2 class="pre-caption">Output</h2>
+	<pre class="scm-output"><f:format.htmlentitiesDecode>{commandOutput}</f:format.htmlentitiesDecode></pre>
+</div>
 
 </f:section>

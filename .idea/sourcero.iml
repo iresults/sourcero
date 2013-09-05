@@ -7,14 +7,16 @@
     <orderEntry type="module-library">
       <library name="PHP">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../Iresults.Core" />
-          <root url="file://$MODULE_DIR$/../Iresults.FS" />
-          <root url="file://$MODULE_DIR$/../iresults.framework" />
+          <root url="file://$MODULE_DIR$/../cundd_composer/vendor/iresults/core" />
+          <root url="file://$MODULE_DIR$/../cundd_composer/vendor/symfony/process/Symfony" />
+          <root url="file://$MODULE_DIR$/../cundd_composer/vendor/iresults/fs" />
+          <root url="file://$MODULE_DIR$/../../../typo3/sysext" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../Iresults.Core" />
-          <root url="file://$MODULE_DIR$/../Iresults.FS" />
-          <root url="file://$MODULE_DIR$/../iresults.framework" />
+          <root url="file://$MODULE_DIR$/../cundd_composer/vendor/iresults/core" />
+          <root url="file://$MODULE_DIR$/../cundd_composer/vendor/symfony/process/Symfony" />
+          <root url="file://$MODULE_DIR$/../cundd_composer/vendor/iresults/fs" />
+          <root url="file://$MODULE_DIR$/../../../typo3/sysext" />
         </SOURCES>
       </library>
     </orderEntry>

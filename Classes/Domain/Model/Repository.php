@@ -89,6 +89,12 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 	protected $_statusCode;
 
 	/**
+	 * The custom favicon URI
+	 * @return string
+	 */
+	protected $_customFavicon = NULL;
+
+	/**
 	 * Returns the title
 	 *
 	 * @return string $title
@@ -226,6 +232,17 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function getHasDriver() {
 		return $this->_scmService->hasDriverForRepository($this);
+	}
+
+	/**
+	 * Returns the custom favicon URI
+	 * @return string
+	 */
+	public function getCustomFavicon() {
+		if ($this->_customFavicon === NULL) {
+			$this->_customFavicon = Tx_Sourcero_Controller_AbstractController::getCustomFaviconWithBasePath($this->getPath());
+		}
+		return $this->_customFavicon;
 	}
 
 	/**

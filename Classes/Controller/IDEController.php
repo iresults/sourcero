@@ -33,7 +33,7 @@ if (!defined('TYPO3_MODE') || TYPO3_MODE !== 'BE') {
 Tx_CunddComposer_Autoloader::register();
 use Symfony\Component\Process\Process;
 use Iresults\FS as FS;
-
+use \TYPO3\CMS\Core\Utility as Utility;
 
 /**
  *
@@ -42,7 +42,7 @@ use Iresults\FS as FS;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_AbstractController {
 
 	/**
 	 * repositoryRepository
@@ -58,6 +58,12 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	protected $scmService;
 
 	/**
+	 * @var Tx_Sourcero_Service_FileBrowserService
+	 * @inject
+	 */
+	protected $fileBrowserService;
+
+	/**
 	 * Map of Mime Types for file suffix
 	 * @var array
 	 */
@@ -69,20 +75,74 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		'html' => 'text/html',
 		'xhtml' => 'text/html',
 		'phtml' => 'text/html',
+		'ts' => 'text/x-typoscript',
 	);
 
 	protected function initializeAction() {
-		FS\File::_instanceMethodForSelector('getExists', function($that) {return $that->exists();});
-		FS\File::_instanceMethodForSelector('getSuffix', function($that) {
+		$getExists = function($that) {return $that->exists();};
+		$getSuffix = function($that) {
+			/** @var Iresults\FS\File $that */
 			return pathinfo($that->getPath(), PATHINFO_EXTENSION);
-		});
-		FS\File::_instanceMethodForSelector('getExtensionKey', function($that) {
+		};
+		$getExtensionKey = function($that) {
+			/** @var Iresults\FS\File $that */
+
+			// If the file belongs into framework or fileadmin
+			if (strpos($that->getPath(), '/fileadmin/framework/') !== FALSE) {
+				return 'framework';
+			} else if (strpos($that->getPath(), '/fileadmin/') !== FALSE) {
+				return 'fileadmin';
+			}
+
+			// If the file belongs to a composer package
+			$path = str_replace('//', '/', $that->getPath());
+			if (strpos($path, 'cundd_composer/vendor/') !== FALSE) {
+				list ($vendor, $extension) = $that->getVendorAndExtensionNameForComposerPackage();
+				return $vendor . '/' . $extension;
+			}
 			$relativeExtensionPath = substr($that->getPath(), strlen(PATH_typo3conf . 'ext/'));
 			return substr($relativeExtensionPath, 0, strpos($relativeExtensionPath, '/'));
-		});
-		FS\File::_instanceMethodForSelector('getExtensionPath', function($that) {
-			return t3lib_extMgm::extPath($that->getExtensionKey());
-		});
+		};
+		$getExtensionPath = function($that) {
+			/** @var Iresults\FS\File $that */
+
+			// If the file belongs into framework or fileadmin
+			if (strpos($that->getPath(), '/fileadmin/framework/') !== FALSE) {
+				return PATH_site . '/fileadmin/framework/';
+			} else if (strpos($that->getPath(), '/fileadmin/') !== FALSE) {
+				return PATH_site . '/fileadmin/';
+			}
+
+			// If the file belongs to a composer package
+			$path = str_replace('//', '/', $that->getPath());
+			if (strpos($path, 'cundd_composer/vendor/') !== FALSE) {
+				list ($vendor, $extension) = $that->getVendorAndExtensionNameForComposerPackage();
+				return Utility\ExtensionManagementUtility::extPath('cundd_composer') . 'vendor/' . $vendor . '/' . $extension . '/';
+			}
+			return Utility\ExtensionManagementUtility::extPath($that->getExtensionKey());
+		};
+		$getVendorAndExtensionNameForComposerPackage = function($that) {
+			$path = str_replace('//', '/', $that->getPath());
+			$composerVendorDirPosition = strpos($path, 'cundd_composer/vendor/');
+			if ($composerVendorDirPosition !== FALSE) {
+				$extensionRelativePath = substr($path, $composerVendorDirPosition + 22);
+				list ($vendor, $extension, ) = explode(DIRECTORY_SEPARATOR, $extensionRelativePath);
+				return array($vendor, $extension);
+			}
+			return FALSE;
+		};
+
+		FS\File::_instanceMethodForSelector('getExists', $getExists);
+		FS\File::_instanceMethodForSelector('getSuffix', $getSuffix);
+		FS\File::_instanceMethodForSelector('getExtensionKey', $getExtensionKey);
+		FS\File::_instanceMethodForSelector('getExtensionPath', $getExtensionPath);
+		FS\File::_instanceMethodForSelector('getVendorAndExtensionNameForComposerPackage', $getVendorAndExtensionNameForComposerPackage);
+
+		FS\Directory::_instanceMethodForSelector('getExists', $getExists);
+		FS\Directory::_instanceMethodForSelector('getSuffix', $getSuffix);
+		FS\Directory::_instanceMethodForSelector('getExtensionKey', $getExtensionKey);
+		FS\Directory::_instanceMethodForSelector('getExtensionPath', $getExtensionPath);
+		FS\Directory::_instanceMethodForSelector('getVendorAndExtensionNameForComposerPackage', $getVendorAndExtensionNameForComposerPackage);
 	}
 
 	/**
@@ -102,13 +162,16 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 * @return void
 	 */
 	public function listAction($file) {
-		#$file = urldecode($file);
-		#$file = t3lib_div::getFileAbsFileName($file);
-
 		$fileManager = FS\FileManager::sharedFileManager();
 		$file = $fileManager->getResourceAtUrl($file);
+		$this->view->assign('file', $file);
 		$this->view->assign('fileBrowser', $this->getFileBrowserForFile($file, FALSE));
+		$this->view->assign('fileBrowserCode', $this->getFileBrowserCodeForFile($file));
 		$this->view->assign('fileBrowserOpen', TRUE);
+
+		$this->view->assign('project', $this->getProjectForFile($file));
+
+		$this->setCustomFaviconWithBasePath($file->getExtensionPath());
 	}
 
 	/**
@@ -119,18 +182,29 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 */
 	public function showAction($file) {
 		$file = urldecode($file);
-		$absFile = t3lib_div::getFileAbsFileName($file);
+		$absFile = Utility\GeneralUtility::getFileAbsFileName($file);
 		if ($absFile) {
 			$file = $absFile;
 		}
 
 		$fileManager = FS\FileManager::sharedFileManager();
 		$file = $fileManager->getResourceAtUrl($file);
+		if ($file instanceof FS\Directory) {
+			$this->redirect('list', 'IDE', NULL, array('file' => $file->getExtensionPath()));
+		}
 
 		$this->initCodeMirrorForFile($file);
 		#$this->redirect('edit', 'IDE', NULL, array('file' => $file));
 
 		$this->view->assign('fileBrowser', $this->getFileBrowserForFile($file, FALSE));
+		$this->view->assign('fileBrowserCode', $this->getFileBrowserCodeForFile($file));
+		$this->view->assign('fileBrowserOpen', TRUE);
+
+		$this->view->assign('project', $this->getProjectForFile($file));
+
+		$this->setCustomFaviconWithBasePath($file->getExtensionPath());
+
+		$this->view->assign('repositories', $this->repositoryRepository->findAll());
 	}
 
 	/**
@@ -138,8 +212,9 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 * @return array
 	 */
 	public function getCodeMirrorConfiguration() {
-		$absoluteCodeMirrorInstallPath = t3lib_extMgm::extPath('cundd_composer') . 'vendor/marijnh/codemirror/';
-		$relativeCodeMirrorInstallPath = t3lib_extMgm::extRelPath('cundd_composer') . 'vendor/marijnh/codemirror/';
+
+		$absoluteCodeMirrorInstallPath = Utility\ExtensionManagementUtility::extPath('sourcero') . 'Resources/Public/Stylesheets/Library/CodeMirror/';
+		$relativeCodeMirrorInstallPath = Utility\ExtensionManagementUtility::extRelPath('sourcero') . 'Resources/Public/Stylesheets/Library/CodeMirror/';
 
 		// Find all Addons
 		$addons = FS\FileManager::find($absoluteCodeMirrorInstallPath . 'addon/*/*.js');
@@ -186,20 +261,16 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	protected function getMimeTypeOfFile($file) {
 		$suffix = $file->getSuffix();
 
-		if ($suffix === 'scss') {
-			return $this->mimeTypeForSuffix['scss'];
+		if ($file->getName() === 'setup.txt' || $file->getName() === 'constants.txt') {
+			return 'text/x-typoscript';
+		}
+		if (isset($this->mimeTypeForSuffix[$suffix])) {
+			return $this->mimeTypeForSuffix[$suffix];
 		}
 
 		$finfo = finfo_open(FILEINFO_MIME_TYPE);
 		$mimeType = finfo_file($finfo, $file->getPath());
 		finfo_close($finfo);
-
-		if ($mimeType === 'text/plain') {
-			if (isset($this->mimeTypeForSuffix[$suffix])) {
-				$mimeType = $this->mimeTypeForSuffix[$suffix];
-			}
-		}
-
 		return $mimeType;
 	}
 
@@ -234,7 +305,6 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		$fileManager = FS\FileManager::sharedFileManager();
 		$file = $fileManager->getResourceAtUrl($file);
 
-
 	}
 
 	/**
@@ -242,21 +312,45 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 *
 	 * @param string $path
 	 * @param string $contents
-	 * @return void
+	 * @return mixed
 	 */
 	public function updateAction($path, $contents) {
 		$fileManager = FS\FileManager::sharedFileManager();
 		$file = $fileManager->getResourceAtUrl($path);
 
-		$contents = $this->removeTrailingWhitespaces($contents);
+		$contents = $this->formatCode($contents);
 		$success = $file->setContents($contents);
 
+		// Handle AJAX/JSON requests
+		if ($this->request->getFormat() === 'json') {
+			if ($success) {
+				return json_encode(array('success' => TRUE));
+			} else {
+				$this->response->setStatus(500);
+				return json_encode(array('success' => FALSE, 'error' => $this->getUpdateError($file)));
+			}
+		}
 		if ($success) {
 			$this->flashMessageContainer->add('File successfully saved');
 		} else {
-			$this->flashMessageContainer->add('Could not save', 'Error', t3lib_Flashmessage::WARNING);
+			$this->flashMessageContainer->add('Could not save', 'Error', \TYPO3\CMS\Core\Messaging\FlashMessage::ERROR);
 		}
 		$this->redirect('show', 'IDE', NULL, array('file' => $path));
+	}
+
+	/**
+	 * Returns the error description of the update error
+	 * @param FS\File $file
+	 */
+	public function getUpdateError($file) {
+		$message = '';
+		if (!$file->isWriteable()) {
+			$message = 'File not writeable';
+		}
+		return array(
+			'code' => 1373116207,
+			'message' => $message
+		);
 	}
 
 	/**
@@ -266,7 +360,7 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 * @return void
 	 */
 	public function deleteAction($file) {
-		$absFile = t3lib_div::getFileAbsFileName($file);
+		$absFile = Utility\GeneralUtility::getFileAbsFileName($file);
 		if ($absFile) {
 			$file = $absFile;
 		}
@@ -278,9 +372,10 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		if ($success) {
 			$this->flashMessageContainer->add('File successfully deleted');
 		} else {
-			$this->flashMessageContainer->add('Could not delete', 'Error', t3lib_Flashmessage::WARNING);
+			$this->flashMessageContainer->add('Could not delete', 'Error', \TYPO3\CMS\Core\Messaging\FlashMessage::ERROR);
 		}
-		$this->redirect('list', 'Repository');
+		$this->redirect('show', 'IDE', NULL, array('file' => $file->getExtensionPath())); // Show IDE
+		// $this->redirect('show', 'Repository', NULL, array('repository' => $file->getExtensionKey())); // Show the Repository overview
 	}
 
 	/**
@@ -288,13 +383,14 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	 * @param string $text
 	 * @return string
 	 */
-	protected function removeTrailingWhitespaces($text) {
+	protected function formatCode($text) {
 		// Normalize line endings
 		// Convert all line-endings to UNIX format
 		$text = str_replace("\r\n", "\n", $text);
 		$text = str_replace("\r", "\n", $text);
-		// Don't allow out-of-control blank lines
-		$text = preg_replace("/\n{2,}/", "\n\n", $text);
+
+		// Don't allow multiple new-lines
+		// $text = preg_replace("/\n{2,}/", "\n\n", $text);
 
 		$lines = explode("\n", $text);
 		foreach ($lines as &$line) {
@@ -304,47 +400,40 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	}
 
 	/**
+	 * Returns the filebrowser HTML code of the extensions files
+	 * @param Tx_Sourcero_Domain_Model_File $file
+	 * @return array
+	 */
+	public function getFileBrowserCodeForFile($file) {
+		return $this->fileBrowserService->setUriBuilder($this->uriBuilder)->getFileBrowserCodeForFile($file);
+	}
+
+	/**
 	 * Returns the list of the extensions files
 	 * @param Tx_Sourcero_Domain_Model_File $file
 	 * @param boolean $wit
 	 * @return array
 	 */
 	public function getFileBrowserForFile($file, $withDirectories = FALSE) {
-		$files = array();
+		return $this->fileBrowserService->setUriBuilder($this->uriBuilder)->getFileBrowserForFile($file, $withDirectories);
+	}
 
+	/**
+	 * Returns a virtual project for the given file
+	 *
+	 * @param Tx_Sourcero_Domain_Model_File $file
+	 * @return array
+	 */
+	public function getProjectForFile($file) {
 		if ($file instanceof FS\File) {
 			$path = $file->getExtensionPath();
 		} else {
 			$path = $file->getPath();
 		}
-		$treeIterator = new RecursiveTreeIterator(
-			new RecursiveDirectoryIterator($path),
-			RecursiveTreeIterator::BYPASS_CURRENT);
-
-		foreach($treeIterator as $currentPath) {
-			// Hide dot-files and folders
-			if (strpos($currentPath, '/.')) {
-				continue;
-			}
-
-			// Filter off directories
-			if (!$withDirectories && is_dir($currentPath)) {
-				continue;
-			}
-
-			$uri = substr($currentPath, strlen(PATH_typo3conf . 'ext/'));
-			$currentRelativePath = substr($uri, strpos($uri, '/'));
-
-			$files[] = array(
-				'name' => basename($currentRelativePath),
-				'path' => $currentPath,
-				'relativePath' => $currentRelativePath,
-				'relativeDir' => dirname($currentRelativePath),
-				'uri' => 'EXT:' . $uri,
-				'isDirectory' => is_dir($currentPath),
-			);
-		}
-		return $files;
+		return array(
+			'name' 		=> $file->getExtensionKey(),
+			'path' 		=> $file->getExtensionPath(),
+		);
 	}
 
 	/**
@@ -362,7 +451,6 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 		$this->view->assign('fileMimeType', $mimeType);
 		$this->view->assign('codeMirror', $codeMirrorConfiguration);
 
-
 		// Detect binary files
 		if (substr($mimeType, 0, 6) === 'image/') {
 			$this->view->assign('fileBinaryData', '<img alt="Embedded Image" src="data:' . $mimeType . ';base64,' . base64_encode($file->getContents()) . '" />');
@@ -376,6 +464,4 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Extbase_MVC_Controller_Act
 	}
 }
 ?>
-
-
 

@@ -1,4 +1,4 @@
-<f:layout name="Default" />
+<f:layout name="Default"/>
 
 This Template is responsible for displaying a single view for a domain object
 
@@ -13,13 +13,15 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="content">
 
-<f:render partial="Menu" arguments="{repository:repository}" />
+<f:render partial="Menu" arguments="{_all}" />
 
 <h1>Status</h1>
 
 <f:flashMessages />
 <f:render partial="Repository/Properties" arguments="{repository:repository}" />
 
-<pre class="scm-output"><f:format.htmlentitiesDecode>{commandOutput}</f:format.htmlentitiesDecode></pre>
+<div class="scm-output-container">
+	<pre class="scm-output"><f:format.htmlentitiesDecode>{commandOutput}</f:format.htmlentitiesDecode></pre>
+</div>
 
 </f:section>

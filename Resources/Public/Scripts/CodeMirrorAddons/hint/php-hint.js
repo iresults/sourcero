@@ -64,14 +64,11 @@
   function getCompletions(token, context, editor) {
     var found = [], start = token.string;
 
-    console.log(token, context, start, editor.getValue());
-
     // Find variables
     if (start.substring(0, 1) === '$') {
 
       return findVariables(editor).filter(
         function (element, index, array) {
-          console.log(element, start);
           return element.indexOf(start) === 0;
         }
       );
@@ -95,8 +92,7 @@
         matches;
 
         matches = contents.match(/\$[a-z0-9\-_]*[a-z0-9_]/ig);
-        // Use prototype's method uniq()
-        return matches.uniq();
+		return window.delegate.arrayUnique(matches);
     }
 
     if (context) {

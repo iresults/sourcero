@@ -13,110 +13,90 @@ Edit.html: keep
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
+	<!--
+	<f:link.action action="show" controller="Repository" class="pull-right" arguments="{repository: file.extensionKey}">
+		<div class="btn btn-inverse">
+			<i class="icon-off icon-white"></i>
+		</div>
+	</f:link.action>
+	-->
 
-<style type="text/css">
-	.CodeMirror {
-		border: 1px solid #eee;
-		height: 600px !important;
-	}
-	.CodeMirror-scroll {
-		height: 800px;
-	}
-	.CodeMirror pre {
-		-webkit-box-shadow: none;
-		-moz-box-shadow: none;
-		box-shadow: none;
-	}
-</style>
+	<f:render partial="IDE/Toolbar" arguments="{_all}" />
 
-
-<header class="row-fluid">
-	<div class="span11">
-		<f:if condition="{file.exists}">
-			<f:then>
-				<h1 class="editorHeader">Edit File</h1>
-			</f:then>
-			<f:else>
-				<h1 class="editorHeader">New File</h1>
-			</f:else>
-		</f:if>
+	<div class="row-fluid">
+		<div class="span3">
+			<f:render partial="FileBrowser" arguments="{_all}" />
+		</div>
+		<div class="span9">
+			<!--Body content-->
+			<f:render section="editor" arguments="{_all}" />
+		</div>
 	</div>
 
-	<div class="span1">
-		<f:flashMessages />
-		<f:link.action action="list" controller="Repository" class="pull-right">
-			<div class="btn btn-inverse">
-				<i class="icon-off icon-white"></i>
+</f:section>
+
+<f:section name="editor">
+
+	<f:render partial="FormErrors" />
+
+
+	<f:if condition="{fileIsBinary}">
+		<f:then>
+			<div class="well">
+				<f:format.raw>{fileBinaryData}</f:format.raw>
 			</div>
-		</f:link.action>
-	</div>
-</header>
 
+			<div>
+				<f:link.action action="delete" arguments="{file: file.path}" class="deleteButton btn btn-inverse" additionalAttributes="{data-filename: '{file.name}'}">
+					Delete file <i class="icon-trash icon-white"></i>
+				</f:link.action>
+			</div>
+		</f:then>
+		<f:else>
+			<div class="well editor-container">
+				<f:form action="update" method="POST" format="json">
+					<sourcero:form.textarea rows="100" cols="100" name="contents" id="code" value="{file.contents -> f:format.raw()}" class="input-block-level" additionalAttributes="{autofocus:autofocus}"/>
+					<f:form.hidden name="path" value="{file.path}" />
 
-<f:render partial="FormErrors" />
-
-
-
-<f:if condition="{fileIsBinary}">
-	<f:then>
-		<div class="well">
-			<f:format.raw>{fileBinaryData}</f:format.raw>
-		</div>
-
-		<div>
-			<f:link.action action="delete" arguments="{file: file.uri}">
-				Delete file <i class="icon-trash icon-white"></i>
-			</f:link.action>
-		</div>
-	</f:then>
-	<f:else>
-
-		<f:form action="update" method="POST">
-			<sourcero:form.textarea rows="100" cols="100" name="contents" id="code" value="{file.contents -> f:format.raw()}" class="input-block-level" additionalAttributes="{autofocus:autofocus}"/>
-			<f:form.hidden name="path" value="{file.path}" />
-
-
-			<div class="row-fluid">
-				<div class="span3">
-					<div class="buttons">
-						<button type="submit" class="btn btn-primary">Save</button>
-					</div>
-				</div>
-
-				<div class="span9">
-					<table class="table">
+					<f:comment>
+					<!--
+					<header class="row-fluid">
+						<f:if condition="{file.exists}">
+							<f:then>
+								<h1 class="editorHeader">Edit File</h1>
+							</f:then>
+							<f:else>
+								<h1 class="editorHeader">New File</h1>
+							</f:else>
+						</f:if>
+					</header>
+					<table class="table editorInfoTable">
 						<tr>
-							<td>Path</td>
-							<td>{file.path}</td>
+							<td class="caption">Path</td>
+							<td class="value">{file.path}</td>
 						</tr>
 						<tr>
-							<td>Mime-Type</td>
-							<td>{fileMimeType}</td>
+							<td class="caption">Mime-Type</td>
+							<td class="value">{fileMimeType}</td>
 						</tr>
 						<tr>
-							<td>Delete file</td>
-							<td>
-								<f:link.action action="delete" arguments="{file: file.uri}">
-									<i class="icon-trash icon-white"></i>
+							<td class="caption">Delete file</td>
+							<td class="value">
+								<f:link.action action="delete" arguments="{file: file.path}" class="deleteButton btn btn-inverse" additionalAttributes="{data-filename: '{file.name}'}">
+									Delete file <i class="icon-trash icon-white"></i>
 								</f:link.action>
 							</td>
 						</tr>
 					</table>
-				</div>
+					-->
+					</f:comment>
+				</f:form>
 			</div>
-		</f:form>
+			<f:render partial="CodeMirror" arguments="{_all}" />
+			<!--<f:render partial="FileBrowser" arguments="{_all}" />-->
 
-
-
-		<f:render partial="CodeMirror" arguments="{_all}" />
-		<f:render partial="FileBrowser" arguments="{_all}" />
-
-
-	</f:else>
-</f:if>
-
-
-
-
+		</f:else>
+	</f:if>
 
 </f:section>
+

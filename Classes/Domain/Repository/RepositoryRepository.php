@@ -112,7 +112,7 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 	 * Finds an object matching the given identifier.
 	 *
 	 * @param string $uid The identifier of the object to find
-	 * @return object The matching object if found, otherwise NULL
+	 * @return Tx_Sourcero_Domain_Model_Repository The matching object if found, otherwise NULL
 	 * @api
 	 */
 	public function findByUid($uid) {
@@ -130,20 +130,29 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 	 * Finds an object matching the given title.
 	 *
 	 * @param string $title Extension key
-	 * @return object The matching object if found, otherwise NULL
+	 * @return Tx_Sourcero_Domain_Model_Repository The matching object if found, otherwise NULL
 	 * @api
 	 */
 	public function findOneByTitle($title) {
-		try {
-			$object = $this->_getDirectoryBasedRepositoryWithWildcard($title);
-		} catch (BadFunctionCallException $exception) {
-			/*
-			 * If the given $title is not an $extension name look inside the
-			 * composer directory
-			 */
-			$composerVendorDir = $this->_getComposerVendorDirectory();
-			if ($composerVendorDir && $exception->getCode() === 1270853878) {
-				$object = $this->_getDirectoryBasedRepositoryWithWildcard($title, NULL, '.', $composerVendorDir . $title . '/');
+		$object = NULL;
+		if ($title === 'framework') {
+			$object = $this->_getFileadminFrameworkRepository();
+		} else if ($title === 'fileadmin') {
+			$object = $this->_getFileadminRepository();
+		}
+
+		if (!$object) {
+			try {
+				$object = $this->_getDirectoryBasedRepositoryWithWildcard($title);
+			} catch (BadFunctionCallException $exception) {
+				/*
+				 * If the given $title is not an $extension name look inside the
+				 * composer directory
+				 */
+				$composerVendorDir = $this->_getComposerVendorDirectory();
+				if ($composerVendorDir && $exception->getCode() === 1270853878) {
+					$object = $this->_getDirectoryBasedRepositoryWithWildcard($title, NULL, '.', $composerVendorDir . $title . '/');
+				}
 			}
 		}
 		if ($object) {
@@ -159,7 +168,7 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 	 * This method only wraps the result of findOneByTitle() into an array
 	 *
 	 * @param string $title Extension key
-	 * @return array<object> The matching object if found, otherwise NULL
+	 * @return array<Tx_Sourcero_Domain_Model_Repository> The matching object if found, otherwise NULL
 	 * @api
 	 */
 	public function findByTitle($title) {
@@ -195,7 +204,6 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 	public function getGitRepositories() {
 		return $this->_getDirectoryBasedRepositoriesWithType('git');
 	}
-
 
 	/* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
 	/* GET REPOSITORY WITH KNOWN TYPE   WMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
@@ -262,6 +270,30 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 	}
 
 	/**
+	 * Returns a (virtual) repository for the fileadmin directory
+	 * @return array<string>
+	 */
+	protected function _getFileadminRepository() {
+		$fileadminPath = PATH_site . '/fileadmin/';
+		if (!file_exists($fileadminPath)) {
+			return NULL;
+		}
+		return $this->_getDirectoryBasedRepositoryWithWildcard('fileadmin', NULL, '.', $fileadminPath);
+	}
+
+	/**
+	 * Returns a (virtual) repository for the framework directory
+	 * @return array<string>
+	 */
+	protected function _getFileadminFrameworkRepository() {
+		$fileadminFrameworkPath = PATH_site . '/fileadmin/framework/';
+		if (!file_exists($fileadminFrameworkPath)) {
+			return NULL;
+		}
+		return $this->_getDirectoryBasedRepositoryWithWildcard('framework', NULL, '.', $fileadminFrameworkPath);
+	}
+
+	/**
 	 * Returns the repository data for the repository with the given key and SCM type
 	 *
 	 * @param string $extensionKey
@@ -287,7 +319,6 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 		return NULL;
 	}
 
-
 	/* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
 	/* GET REPOSITORY WITH UNKNOWN TYPE   WMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
 	/* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
@@ -309,9 +340,21 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 			}
 		}
 
+		// Add composer repositories
 		if ($this->_getComposerVendorDirectory()) {
 			$repositories = array_merge($repositories, $this->_getComposerDirectoryBasedRepositoriesWithType($wildcard, $prefix));
 		}
+
+		// Add fileadmin and/or fileadmin/framework
+		$fileadminRepository = $this->_getFileadminRepository();
+		if ($fileadminRepository) {
+			array_unshift($repositories, $fileadminRepository);
+		}
+		$fileadminFrameworkRepository = $this->_getFileadminFrameworkRepository();
+		if ($fileadminFrameworkRepository) {
+			array_unshift($repositories, $fileadminFrameworkRepository);
+		}
+
 		if (!$repositories) {
 			$repositories = array();
 		}
@@ -357,7 +400,6 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 			'directoryName' => $directoryName,
 		);
 	}
-
 
 	/* MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */
 	/* HELPER METHODS                     WMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM */

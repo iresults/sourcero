@@ -14,17 +14,21 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="content">
 
-<f:render partial="Menu" arguments="{repository:repository}" />
+<f:render partial="Menu" arguments="{_all}" />
 
 <h1>Commit view</h1>
 
 <f:flashMessages />
 <f:render partial="Repository/Properties" arguments="{repository:repository}" />
 
-<h3>Commit message</h3>
-<pre>{commitMessage}</pre>
+<div class"commit-message-container">
+	<h2 class="pre-caption">Commit message</h2>
+	<pre>{commitMessage}</pre>
+</div>
 
-<h3>Output</h3>
-<pre class="scm-output"><f:format.htmlentitiesDecode>{commandOutput}</f:format.htmlentitiesDecode></pre>
+<div class="scm-output-container">
+	<h2 class="pre-caption">Output</h2>
+	<pre class="scm-output"><f:format.htmlentitiesDecode>{commandOutput}</f:format.htmlentitiesDecode></pre>
+</div>
 
 </f:section>

@@ -1,12 +1,34 @@
-<f:be.container addCssFile="{f:uri.resource(path:'Stylesheets/Local/bootstrap-darkstep.css')}">
-<f:be.container addCssFile="{f:uri.resource(path:'Stylesheets/Local/local.css')}">
-	<div class="typo3-fullDoc">
-		<div id="typo3-docbody">
-			<div id="typo3-inner-docbody">
-				<f:flashMessages renderMode="div" />
-				<f:render section="content" />
-			</div>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sourcero</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="shortcut icon" href="{f:uri.resource(path:'Icons/ext_icon.png')}" id="favicon">
+
+        <link rel="stylesheet" href="{f:uri.resource(path:'Stylesheets/Local/bootstrap-darkstep.css')}">
+		<link rel="stylesheet" href="{f:uri.resource(path:'Stylesheets/Library/font-awesome/css/font-awesome.min.css')}">
+		<link rel="stylesheet" href="{f:uri.resource(path:'Stylesheets/Local/local.css')}">
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+		<div class="container-fluid">
+			<f:flashMessages renderMode="div" />
+			<f:render section="content" />
 		</div>
-	</div>
-</f:be.container>
-</f:be.container>
+
+		<script src="{f:uri.resource(path:'Stylesheets/Library/Bootstrap/js/bootstrap.min.js')}"></script>
+		<script src="{f:uri.resource(path:'Library/bootbox/bootbox.min.js')}"></script>
+    </body>
+</html>

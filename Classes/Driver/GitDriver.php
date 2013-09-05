@@ -115,7 +115,7 @@ class Tx_Sourcero_Driver_GitDriver extends Tx_Sourcero_Driver_AbstractCliDriver 
 			'GIT_AUTHOR_NAME' => $name,
 			'GIT_AUTHOR_EMAIL' => $email,
 			'GIT_COMMITTER_NAME' => $name,
-			'GIT_COMMITTER_EMAIL' => $email,
+			'GIT_COMMITTER_EMAIL' => $email, 
 		);
 
 		foreach ($arguments as $key => $argument) {

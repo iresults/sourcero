@@ -1,18 +1,43 @@
-<div class="well fileBrowser {f:if(condition: fileBrowserOpen, then: 'open', else: 'toggle')}">
+<script type="text/javascript" src="{f:uri.resource(path:'Scripts/FileBrowser.js')}"></script>
+
+<div class="well fileBrowser {f:if(condition: fileBrowserOpen, then: 'open', else: 'toggle')}"
+	 xmlns="http://www.w3.org/1999/html">
 	<h3>File Browser</h3>
 
 	<div class="fileBrowserInner">
+		<f:format.raw>{fileBrowserCode}</f:format.raw>
+
+		<f:comment>
+
+		<ul id="fileBrowserInner">
+
 		<f:for each="{fileBrowser}" as="currentFile">
+
+			<f:format.raw>{currentFile.close}</f:format.raw>
+
 			<f:if condition="{currentFile.isDirectory}">
 				<f:then>
-					<div class="item itemDirectory"><span class="directory">{currentFile.relativePath}</span></div>
+					<li>
+						<div class="item itemDirectory"><span class="directory">{currentFile.relativePath}</span></div>
+						<ul>
 				</f:then>
 				<f:else>
-					<div class="item itemFile"><f:link.action action="show" arguments="{file: currentFile.uri}"><span class="fileDirectory">{currentFile.relativeDir}/</span>{currentFile.name}</f:link.action></div>
+					<li>
+						<!--<div class="item itemFile"><f:link.action action="show" arguments="{file: currentFile.uri}"><span class="fileDirectory">{currentFile.relativeDir}/</span>{currentFile.name}</f:link.action></div>-->
+						<div class="item itemFile"><f:link.action action="show" arguments="{file: currentFile.uri}">{currentFile.name}</f:link.action></div>
+					</li>
+					<f:if condition="{currentFile.isLast}">
+
+					</li>
+					</f:if>
 				</f:else>
 			</f:if>
 
 		</f:for>
+
+		</ul>
+
+		</f:comment>
 	</div>
 </div>
 
