@@ -74,7 +74,7 @@ class Tx_Sourcero_Driver_GitDriver extends Tx_Sourcero_Driver_AbstractCliDriver 
 		$error = NULL;
 		return $this->executeCommand('log', array(
 			'-n' => 1,
-			'--pretty=format:"%s | %H"'
+			'--pretty=format:%s | %H'
 		), $error);
 	}
 
@@ -88,7 +88,7 @@ class Tx_Sourcero_Driver_GitDriver extends Tx_Sourcero_Driver_AbstractCliDriver 
 		$error = NULL;
 		return $this->executeCommand('log', array(
 			'-n' => 1,
-			'--pretty=format:"%h"'
+			'--pretty=format:%h'
 		), $error);
 	}
 
