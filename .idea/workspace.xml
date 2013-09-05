@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225cf487-373c-44f3-a29c-0ed742c9060a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Driver/GitDriver.php" afterPath="$PROJECT_DIR$/Classes/Driver/GitDriver.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Domain/Model/Repository.php" afterPath="$PROJECT_DIR$/Classes/Domain/Model/Repository.php" />
     </list>
     <ignored path="sourcero.iws" />
@@ -52,15 +51,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Show.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="0" selection-start="1481" selection-end="1481" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="local.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -122,7 +112,16 @@
       <file leaf-file-name="Repository.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Classes/Domain/Model/Repository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="255" column="46" selection-start="4899" selection-end="4925" vertical-scroll-proportion="0.39516908">
+            <state line="244" column="46" selection-start="4576" selection-end="4602" vertical-scroll-proportion="0.37971014">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractDriver.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/Driver/AbstractDriver.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -278,8 +277,8 @@
         <option value="$PROJECT_DIR$/Classes/Driver/DriverInterface.php" />
         <option value="$PROJECT_DIR$/Tests/Unit/Service/SCMServiceTest.php" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/List.html" />
-        <option value="$PROJECT_DIR$/Classes/Domain/Model/Repository.php" />
         <option value="$PROJECT_DIR$/Classes/Driver/GitDriver.php" />
+        <option value="$PROJECT_DIR$/Classes/Domain/Model/Repository.php" />
       </list>
     </option>
   </component>
@@ -890,26 +889,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Language/locallang.xlf">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="25" selection-start="898" selection-end="1033" vertical-scroll-proportion="-15.407408">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Language/locallang_db.xlf">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="25" selection-start="1010" selection-end="1010" vertical-scroll-proportion="-15.407408">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Private/Language/locallang_sourcero.xlf">
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
@@ -1004,9 +983,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="0" selection-start="1481" selection-end="1481" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Driver/AbstractDriver.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/Domain/Model/Repository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="255" column="46" selection-start="4899" selection-end="4925" vertical-scroll-proportion="0.39516908">
+        <state line="244" column="46" selection-start="4576" selection-end="4602" vertical-scroll-proportion="0.37971014">
           <folding />
         </state>
       </provider>

@@ -239,17 +239,6 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 	}
 
 	/**
-	 * Returns information about the current version/the last commit
-	 * @return string
-	 */
-	public function getVersionInformation() {
-		if ($this->_versionInformation === NULL) {
-			$this->_versionInformation = $this->_scmService->getVersionInformationForRepository($this);
-		}
-		return $this->_versionInformation;
-	}
-
-	/**
 	 * Returns a short information about the current version/the last commit
 	 * @return string
 	 */
@@ -258,6 +247,17 @@ class Tx_Sourcero_Domain_Model_Repository extends Tx_Extbase_DomainObject_Abstra
 			$this->_shortVersionInformation = $this->_scmService->getShortVersionInformationForRepository($this);
 		}
 		return $this->_shortVersionInformation;
+	}
+
+	/**
+	 * Returns information about the current version/the last commit
+	 * @return string
+	 */
+	public function getVersionInformation() {
+		if ($this->_versionInformation === NULL) {
+			$this->_versionInformation = $this->_scmService->getVersionInformationForRepository($this);
+		}
+		return $this->_versionInformation;
 	}
 
 	/**
