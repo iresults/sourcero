@@ -22,6 +22,9 @@
 			<trans-unit id="tx_sourcero_domain_model_repository.remote_url">
 				<source>Remote Url</source>
 			</trans-unit>
+			<trans-unit id="tx_sourcero_domain_model_repository.version_information">
+				<source>Version information</source>
+			</trans-unit>
 
 		</body>
 	</file>

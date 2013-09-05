@@ -29,10 +29,12 @@ if (!class_exists('Tx_Sourcero_Driver_SvnDriver')) {
 	class Tx_Sourcero_Driver_SubversionDriver extends Tx_Sourcero_Driver_AbstractDriver {
 		public function getStatusCode($onlyLocal = FALSE) {}
 		protected function _executeCommand($command, $arguments = array(), &$error = FALSE) {}
+		public function getVersionInformation() {}
 	}
 	class Tx_Sourcero_Driver_MercurialDriver extends Tx_Sourcero_Driver_AbstractDriver {
 		public function getStatusCode($onlyLocal = FALSE) {}
 		protected function _executeCommand($command, $arguments = array(), &$error = FALSE) {}
+		public function getVersionInformation() {}
 	}
 }
 
