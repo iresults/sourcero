@@ -235,7 +235,7 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 				'isLast' 		=> strpos($key, '{E}'),
 				'depth' 		=> $currentDepth,
 				'depthDiff'		=> $lastDepth - $currentDepth,
-				'close' 		=> str_repeat('</ul>', $lastDepth - $currentDepth),
+				'close' 		=> str_repeat('</ul>', (($lastDepth - $currentDepth) < 0 ? 0 : ($lastDepth - $currentDepth))),
 			);
 
 			$lastDepth = $currentDepth;
