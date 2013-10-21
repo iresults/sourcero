@@ -130,7 +130,7 @@ class Tx_Sourcero_Driver_GitDriver extends Tx_Sourcero_Driver_AbstractCliDriver 
 		if (is_object($subCommand)) {
 			throw new UnexpectedValueException('The given sub command is an object', 1365424413);
 		}
-		$timeout = 30;
+		$timeout = 10;
 		$command = 'git ' . $subCommand . ' ';
 
 		$username = $GLOBALS['BE_USER']->user['username'];

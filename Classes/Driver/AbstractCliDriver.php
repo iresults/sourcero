@@ -54,7 +54,13 @@ abstract class Tx_Sourcero_Driver_AbstractCliDriver extends Tx_Sourcero_Driver_A
 	protected function _executeCommand($command, $arguments = array(), &$error = FALSE) {
 		$process = $this->_buildProcess($command, $arguments);
 
-		$process->run();
+		try {
+			$process->run();
+		} catch (Exception $exception) {
+			$error = TRUE;
+			return $exception->getCode() . ': ' . $exception->getMessage();
+		}
+
 		if (!$process->isSuccessful()) {
 			$error = TRUE;
 			return $process->getErrorOutput();

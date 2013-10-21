@@ -28,34 +28,6 @@
 }
 
 .cm-s-sourcero .cm-trailingspace {
-	opacity: 1;
-
-    -webkit-animation: fadein 2s; /* Safari and Chrome */
-	animation: fadein 2s;
-
 	background: rgba(249, 38, 114, 0.1);
-	outline: dotted 2px rgba(249, 38, 114, 0.3);
-}
-
-@keyframes fadein {
-    0% {
-        opacity:0;
-    }
-	90% {
-        opacity:0;
-    }
-    100% {
-        opacity:1;
-    }
-}
-@-webkit-keyframes fadein { /* Safari and Chrome */
-    0% {
-        opacity:0;
-    }
-	90% {
-        opacity:0;
-    }
-    100% {
-        opacity:1;
-    }
+/* 	outline: dotted 2px rgba(249, 38, 114, 0.3); */
 }
