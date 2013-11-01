@@ -2,133 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225cf487-373c-44f3-a29c-0ed742c9060a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/font/FontAwesome.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/font/fontawesome-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/font/fontawesome-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/font/fontawesome-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Library/bootbox/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/Controller/AbstractController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Library/bootbox/CONTRIBUTING.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Scripts/FastOpen.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Scripts/FileBrowser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/Service/FileBrowserService.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Library/bootbox/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/IDE/Toolbar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/ambiance-mobile.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/ambiance.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/blackboard.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Library/bootbox/bootbox.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Library/bootbox/bootbox.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/less/bootstrap.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Library/bootbox/build.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/cobalt.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/codemirror-sourcero.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/lib/codemirror.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/less/core.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/daniel.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/addon/dialog/dialog.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/eclipse.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/elegant.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/erlang-dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/less/extras.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/css/font-awesome-ie7.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/less/font-awesome-ie7.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/css/font-awesome-ie7.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/css/font-awesome.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/less/font-awesome.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/css/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/font/fontawesome-webfont.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Library/bootbox/header.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/less/icons.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/lesser-dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/addon/lint/lint.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/midnight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/less/mixins.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/monokai.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/neat.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/night.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/less/path.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/rubyblue.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/addon/hint/show-hint.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/solarized.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/twilight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Scripts/CodeMirrorAddons/mode/typoscript/typoscript.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/font-awesome/less/variables.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/vibrant-ink.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/xq-dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Library/CodeMirror/theme/xq-light.css" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/AdministratorManual.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/DeveloperCorner.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/Images/AdministratorManual/ExtensionManager.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/Images/IntroductionPackage.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/Images/Typo3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/Images/UserManual/BackendView.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/Index.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/ProjectInformation.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/RestructuredtextHelp.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/TyposcriptReference.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/UserManual.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/_De/Images/UserManual/BackendView.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/_De/UserManual.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/_Fr/Images/UserManual/BackendView.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/_Fr/UserManual.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/_IncludedDirectives.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/manual.sxw" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Add.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Add.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/webResources.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Resources/Public/Scripts/CodeMirrorAddons/hint/php-hint.js" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/CodeMirrorAddons/hint/php-hint.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Resources/Public/Scripts/CodeMirrorAddons/mode/typoscript/typoscript.js" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/CodeMirrorAddons/mode/typoscript/typoscript.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/Delegate.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Resources/Public/Scripts/FastOpen.js" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/FastOpen.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Resources/Public/Scripts/FileBrowser.js" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/FileBrowser.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Resources/Public/Scripts/codemirror-compressed.js" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/codemirror-compressed.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Commit.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Commit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Layouts/Default.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Layouts/Default.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js" afterPath="$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/ExecuteCommand.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/ExecuteCommand.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Driver/GitDriver.php" afterPath="$PROJECT_DIR$/Classes/Driver/GitDriver.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Controller/IDEController.php" afterPath="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/List.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/List.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/List.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Log.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Log.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Partials/Menu.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/Menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Service/OutputFormatterService.php" afterPath="$PROJECT_DIR$/Classes/Service/OutputFormatterService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformCommit.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformCommit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformReset.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformReset.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Pull.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Pull.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Push.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Push.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Domain/Model/Repository.php" afterPath="$PROJECT_DIR$/Classes/Domain/Model/Repository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Controller/RepositoryController.php" afterPath="$PROJECT_DIR$/Classes/Controller/RepositoryController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Domain/Repository/RepositoryRepository.php" afterPath="$PROJECT_DIR$/Classes/Domain/Repository/RepositoryRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Reset.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Reset.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Service/SCMService.php" afterPath="$PROJECT_DIR$/Classes/Service/SCMService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" afterPath="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Public/Scripts/CodeMirrorAddons/hint/php-hint.js" afterPath="$PROJECT_DIR$/Resources/Public/Scripts/CodeMirrorAddons/hint/php-hint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Public/Images/debut_dark/readme.txt" afterPath="$PROJECT_DIR$/Resources/Public/Images/debut_dark/readme.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sourcero.iml" afterPath="$PROJECT_DIR$/.idea/sourcero.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sourcero.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1378380552624" ignored="false" />
-    <file path="/preg.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367242173745" ignored="false" />
-    <file path="/OutputFormatterService.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367051205403" ignored="false" />
-    <file path="/AbstractDriver.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367003721849" ignored="false" />
-    <file path="/GitDriver.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367227483944" ignored="false" />
-    <file path="/a.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052112770" ignored="false" />
-    <file path="/a.css" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052113625" ignored="false" />
-    <file path="/a.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052114797" ignored="false" />
-    <file path="/a.sass" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052104147" ignored="false" />
-    <file path="/a.xml" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052108735" ignored="false" />
-    <file path="/SCMService.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367004981067" ignored="false" />
-    <file path="/RepositoryController.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367004052404" ignored="false" />
-    <file path="/local.css" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367070846102" ignored="false" />
-    <file path="/a.twig" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052106222" ignored="false" />
-    <file path="/Add.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367052531461" ignored="false" />
-    <file path="/Delegate.js" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367069702032" ignored="false" />
-    <file path="/CodeMirror.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367053854942" ignored="false" />
-    <file path="/Show.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367066221613" ignored="false" />
-    <file path="/IDEController.php" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367242707798" ignored="false" />
-    <file path="/FileBrowser.html" changelist="225cf487-373c-44f3-a29c-0ed742c9060a" time="1367070652216" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,16 +39,16 @@
       <file leaf-file-name="CodeMirror.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="30" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0">
+            <state line="47" column="0" selection-start="3274" selection-end="3274" vertical-scroll-proportion="-9.4" vertical-offset="0" max-vertical-offset="1545">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="php-hint.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/CodeMirrorAddons/hint/php-hint.js">
+        <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/CodeMirrorAddons/hint/php-hint.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="46" selection-start="502" selection-end="502" vertical-scroll-proportion="0.0">
+            <state line="20" column="46" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="15480">
               <folding />
             </state>
           </provider>
@@ -169,7 +57,7 @@
       <file leaf-file-name="Show.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="0" selection-start="1481" selection-end="1481" vertical-scroll-proportion="0.0">
+            <state line="56" column="0" selection-start="1481" selection-end="1481" vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="1620">
               <folding />
             </state>
           </provider>
@@ -178,7 +66,7 @@
       <file leaf-file-name="local.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="0" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0">
+            <state line="40" column="0" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="7755">
               <folding />
             </state>
           </provider>
@@ -187,28 +75,38 @@
       <file leaf-file-name="FileBrowser.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0">
+            <state line="0" column="69" selection-start="57" selection-end="69" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="750">
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FastOpen.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="57" selection-start="57" selection-end="57" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1050">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sourcero.sublime-workspace" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Resources/Private/IDE/sourcero.sublime-workspace">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="846" column="35" selection-start="24172" selection-end="24172" vertical-scroll-proportion="0.28982726" vertical-offset="12388" max-vertical-offset="71850">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="IDEController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="330" column="13" selection-start="10563" selection-end="10563" vertical-scroll-proportion="0.0">
+            <state line="330" column="12" selection-start="10716" selection-end="10716" vertical-scroll-proportion="0.0" vertical-offset="4950" max-vertical-offset="7125">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Iresults.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../Iresults.Core/Classes/Iresults/Core/Iresults.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="961" column="37" selection-start="30002" selection-end="30002" vertical-scroll-proportion="0.015655577">
-              <folding>
-                <marker date="1378217481000" expanded="false" signature="26537:26553" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -216,7 +114,7 @@
       <file leaf-file-name="GitDriver.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Classes/Driver/GitDriver.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="5" selection-start="3301" selection-end="3301" vertical-scroll-proportion="0.0">
+            <state line="97" column="7" selection-start="3353" selection-end="3353" vertical-scroll-proportion="-16.958334" vertical-offset="703" max-vertical-offset="1785">
               <folding />
             </state>
           </provider>
@@ -241,22 +139,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Log.html" />
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformCommit.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformReset.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Pull.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Push.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Reset.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html" />
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html" />
         <option value="$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js" />
         <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" />
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" />
         <option value="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" />
         <option value="$PROJECT_DIR$/Classes/Driver/GitDriver.php" />
         <option value="$PROJECT_DIR$/../../../preg.php" />
         <option value="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
         <option value="$PROJECT_DIR$/../Iresults.Core/Classes/Iresults/Core/Iresults.php" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" />
+        <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html" />
+        <option value="$PROJECT_DIR$/Resources/Private/IDE/sourcero.sublime-workspace" />
       </list>
     </option>
   </component>
@@ -268,7 +166,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1856" />
+    <option name="width" value="1156" />
     <option name="height" value="1178" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -297,15 +195,20 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files" />
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="sourcero" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.jetbrains.php.config.PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PHP" />
+              <option name="myItemType" value="com.jetbrains.php.config.PhpExternalLibrariesNodePatcher$PatchedLibraryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -315,6 +218,108 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Partials" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -334,6 +339,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files" />
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -342,69 +350,12 @@
     <property name="options.lastSelected" value="com.magicento.ui.forms.MagicentoSettingsForm" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../cundd_composer/vendor/iresults/fs" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PublishConfig">
     <servers>
-      <server id="06455ad3-f162-4ed6-a19c-1736981b40a1">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="0f84060d-5b3c-4232-9a94-fe29faec61ab">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="35438d42-534a-4c1f-b0d7-347b6ec35dcf">
-        <serverdata />
-      </server>
-      <server id="3caebe67-3df1-487a-ae72-3a400318535b">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="3cbd634a-9641-42f9-ab57-db068873974e">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="42e9bb1c-8165-4697-b2bd-6e26f2835b30">
-        <serverdata />
-      </server>
-      <server id="5c365259-672e-41f4-b632-87a69c82ceb1">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="7c68d7e0-e6ab-4a9c-ae75-393a753b7c19">
-        <serverdata />
-      </server>
-      <server id="7ce4f203-0ad2-42fa-97ad-a79684c44e65">
-        <serverdata />
-      </server>
-      <server id="8051c2aa-db4e-47d0-b625-0f2cc6629eb3">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="9f090c1b-f5bc-4ca7-8d9f-d28fb2eda40f">
-        <serverdata />
-      </server>
-      <server id="dd3a6667-6c15-4f49-b027-105fca301f67">
+      <server id="4d2882d2-9c7b-4635-8e9b-c0ae49b64fa7">
         <serverdata />
       </server>
     </servers>
@@ -415,6 +366,12 @@
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -446,14 +403,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1856" height="1178" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="22" width="1156" height="1178" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986766" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963988" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27900553" sideWeight="0.67013234" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27854672" sideWeight="0.6703601" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -462,7 +421,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -472,165 +430,117 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="CHECK_NEW_TODO" value="true" />
     <option name="myTodoPanelSettings">
-      <value>
-        <are-packages-shown value="false" />
-        <are-modules-shown value="false" />
-        <flatten-packages value="false" />
-        <is-autoscroll-to-source value="false" />
-      </value>
+      <TodoPanelSettings />
     </option>
-    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
-    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
-    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
-    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
-    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
-    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
-    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
-    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
-    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
-    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
-    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
-    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
-    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
-    <option name="LIMIT_HISTORY" value="true" />
-    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
-    <option name="UPDATE_FILTER_SCOPE_NAME" />
-    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
-    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
-    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
-    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
-    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
-    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
-    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
-    <option name="ACTIVE_VCS_NAME" />
-    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
-    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
-    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
-    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
-    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="349" selection-end="349" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="250" column="0" selection-start="6809" selection-end="6809" vertical-scroll-proportion="0.0">
+        <state line="250" column="0" selection-start="6809" selection-end="6809" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Classes/Driver/GitDriver.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="5" selection-start="3226" selection-end="3226" vertical-scroll-proportion="0.0">
+        <state line="94" column="5" selection-start="3226" selection-end="3226" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Reset.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="23" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.464666" />
+        <state line="32" column="23" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.464666" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="23" selection-start="643" selection-end="643" vertical-scroll-proportion="0.3194579" />
+        <state line="22" column="23" selection-start="643" selection-end="643" vertical-scroll-proportion="0.3194579" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/UpdateAll.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Classes/Controller/RepositoryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="45" selection-start="1005" selection-end="1005" vertical-scroll-proportion="-15.0" />
+        <state line="25" column="45" selection-start="1005" selection-end="1005" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="4" selection-start="6" selection-end="6" vertical-scroll-proportion="0.014492754" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="30" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Scripts/CodeMirrorAddons/hint/php-hint.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="46" selection-start="502" selection-end="502" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="1" column="4" selection-start="6" selection-end="6" vertical-scroll-proportion="0.014492754" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="1481" selection-end="1481" vertical-scroll-proportion="0.0">
+        <state line="56" column="0" selection-start="1481" selection-end="1481" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0">
+        <state line="40" column="0" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="330" column="13" selection-start="10563" selection-end="10563" vertical-scroll-proportion="0.0">
+        <state line="330" column="12" selection-start="10716" selection-end="10716" vertical-scroll-proportion="0.0" vertical-offset="4950" max-vertical-offset="7125">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Classes/Driver/GitDriver.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="5" selection-start="3301" selection-end="3301" vertical-scroll-proportion="0.0">
+        <state line="97" column="7" selection-start="3353" selection-end="3353" vertical-scroll-proportion="-16.958334" vertical-offset="703" max-vertical-offset="1785">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Iresults.Core/Classes/Iresults/Core/Iresults.php">
+    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/CodeMirrorAddons/hint/php-hint.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="961" column="37" selection-start="30002" selection-end="30002" vertical-scroll-proportion="0.015655577">
-          <folding>
-            <marker date="1378217481000" expanded="false" signature="26537:26553" placeholder="..." />
-          </folding>
+        <state line="20" column="46" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="15480">
+          <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="0" selection-start="3274" selection-end="3274" vertical-scroll-proportion="-9.4" vertical-offset="0" max-vertical-offset="1545">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="69" selection-start="57" selection-end="69" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="994">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="57" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Private/IDE/sourcero.sublime-workspace">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="846" column="35" selection-start="24172" selection-end="24172" vertical-scroll-proportion="0.28982726" vertical-offset="12388" max-vertical-offset="71850">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
   </component>

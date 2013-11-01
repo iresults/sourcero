@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/Tests/Unit" isTestSource="true" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library name="PHP">
         <CLASSES>
           <root url="file://$MODULE_DIR$/../cundd_composer/vendor/iresults/core" />
-          <root url="file://$MODULE_DIR$/../cundd_composer/vendor/symfony/process/Symfony" />
           <root url="file://$MODULE_DIR$/../cundd_composer/vendor/iresults/fs" />
-          <root url="file://$MODULE_DIR$/../../../typo3/sysext" />
         </CLASSES>
         <SOURCES>
           <root url="file://$MODULE_DIR$/../cundd_composer/vendor/iresults/core" />
-          <root url="file://$MODULE_DIR$/../cundd_composer/vendor/symfony/process/Symfony" />
           <root url="file://$MODULE_DIR$/../cundd_composer/vendor/iresults/fs" />
-          <root url="file://$MODULE_DIR$/../../../typo3/sysext" />
         </SOURCES>
       </library>
     </orderEntry>
