@@ -1,0 +1,39 @@
+<div class="row-fluid">
+	<div class="span2 col-md-2 full-height">
+		<ul class="nav nav-stacked">
+			{{#if fileTree}}
+				{{control "treeBranch" fileTree}}
+				{{log fileTree}}
+
+			{{/if}}
+
+		</ul>
+	</div>
+
+
+	<div class="span10 col-md-10 full-height">
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs">
+			{{#each openFiles}}
+				<li data-editor="{{unbound id}}">
+					<a {{action changeTab this}}>{{name}}</a>
+				</li>
+				<li>
+					<a {{action closeTab this}}>x</a>
+				</li>
+			{{/each}}
+
+			<li>
+				<a {{action newTab this}}>+</a>
+			</li>
+		</ul>
+
+		<!-- Tab panes -->
+		<div class="tab-content">
+			{{#each openFiles}}
+				{{file-editor file=this}}
+			{{/each}}
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,12 @@
+@import "bootstrap-sass/lib/variables";
+@import "variables";
+@import "bootstrap-sass/lib/bootstrap";
+@import "monokai";
+@import "codemirror-sourcero";
+
+/* Put your CSS here */
+body {
+  -webkit-font-smoothing: subpixel-antialiased;
+  background-image: url('../../../../Images/debut_dark/debut_dark.png');
+  padding-top: 60px;
+}

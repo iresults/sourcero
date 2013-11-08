@@ -31,9 +31,9 @@ if (!defined('TYPO3_MODE') || TYPO3_MODE !== 'BE') {
 }
 
 Tx_CunddComposer_Autoloader::register();
-use Symfony\Component\Process\Process;
 use Iresults\FS as FS;
-use \TYPO3\CMS\Core\Utility as Utility;
+use Symfony\Component\Process\Process;
+use TYPO3\CMS\Core\Utility as Utility;
 
 /**
  *
@@ -63,22 +63,10 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_Abstra
 	 */
 	protected $fileBrowserService;
 
-	/**
-	 * Map of Mime Types for file suffix
-	 * @var array
-	 */
-	protected $mimeTypeForSuffix = array(
-		'js' => 'application/x-javascript',
-		'json' => 'application/x-javascript',
-		'css' => 'text/css',
-		'scss' => 'text/x-scss',
-		'html' => 'text/html',
-		'xhtml' => 'text/html',
-		'phtml' => 'text/html',
-		'ts' => 'text/x-typoscript',
-	);
-
 	protected function initializeAction() {
+		\Iresults\Core\Iresults::setDebugRenderer(\Iresults\Core\Iresults::RENDERER_KINT);
+
+
 		$getExists = function($that) {return $that->exists();};
 		$getSuffix = function($that) {
 			/** @var Iresults\FS\File $that */
@@ -208,6 +196,71 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_Abstra
 	}
 
 	/**
+	 * Returns the list of files
+	 * @param string $file
+	 * @return mixed
+	 */
+	public function fileListAction($file) {
+		$file = urldecode($file);
+		$absFile = Utility\GeneralUtility::getFileAbsFileName($file);
+		if ($absFile) {
+			$file = $absFile;
+		}
+
+		/** @var FS\FileManager $fileManager */
+		$fileManager = FS\FileManager::sharedFileManager();
+		/** @var FS\FilesystemInterface $fileObject */
+		$fileObject = $fileManager->getResourceAtUrl($file);
+		/** @var array $fileArray */
+		$fileArray = $this->getFileBrowserArrayForFile($fileObject);
+		return !$this->prepareJsonResponse(array(
+			'fileTree' => $fileArray
+		));
+	}
+
+	/**
+	 * Returns the file's content
+	 * @param string $file
+	 * @return mixed
+	 */
+	public function fileAction($file) {
+		$file = urldecode($file);
+		$absFile = Utility\GeneralUtility::getFileAbsFileName($file);
+		if ($absFile) {
+			$file = $absFile;
+		}
+
+		/** @var FS\FileManager $fileManager */
+		$fileManager = FS\FileManager::sharedFileManager();
+		/** @var FS\FilesystemInterface $fileObject */
+		$fileObject = $fileManager->getResourceAtUrl($file);
+		/** @var array $fileInformation */
+		$fileInformation = Tx_Sourcero_Service_FileBrowserService::buildFileInformationArrayOfFile($fileObject);
+		return !$this->prepareJsonResponse($fileInformation);
+	}
+
+	/**
+	 * Prepares the response with the given JSON content
+	 *
+	 * @param mixed $content
+	 * @return bool Returns TRUE if the response was prepared correctly
+	 */
+	protected function prepareJsonResponse($content) {
+		if (is_string($content)) {
+			$contentString = $content;
+		} else {
+			$contentString = json_encode($content);
+		}
+		/** @var \TYPO3\CMS\Extbase\Mvc\Web\Response $response */
+		$response = $this->response;
+		$response->setHeader('Content-Type', 'application/json');
+		$response->setContent($contentString);
+		$this->response = $response;
+		return TRUE;
+	}
+
+
+	/**
 	 * Returns the default CodeMirror configuration
 	 * @return array
 	 */
@@ -261,19 +314,7 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_Abstra
 	 * @return string
 	 */
 	protected function getMimeTypeOfFile($file) {
-		$suffix = $file->getSuffix();
-
-		if ($file->getName() === 'setup.txt' || $file->getName() === 'constants.txt') {
-			return 'text/x-typoscript';
-		}
-		if (isset($this->mimeTypeForSuffix[$suffix])) {
-			return $this->mimeTypeForSuffix[$suffix];
-		}
-
-		$finfo = finfo_open(FILEINFO_MIME_TYPE);
-		$mimeType = finfo_file($finfo, $file->getPath());
-		finfo_close($finfo);
-		return $mimeType;
+		return Tx_Sourcero_Service_FileBrowserService::getMimeTypeOfFile($file);
 	}
 
 	/**
@@ -317,19 +358,36 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_Abstra
 	 * @return mixed
 	 */
 	public function updateAction($path, $contents) {
+		$path = Tx_Sourcero_Service_FileBrowserService::buildPathOfId($path);
 		$fileManager = FS\FileManager::sharedFileManager();
 		$file = $fileManager->getResourceAtUrl($path);
 
 		$contents = $this->formatCode($contents);
 		$success = $file->setContents($contents);
 
+		/** @var array $fileInformation */
+		$fileInformation = Tx_Sourcero_Service_FileBrowserService::buildFileInformationArrayOfFile($file);
+
 		// Handle AJAX/JSON requests
 		if ($this->request->getFormat() === 'json') {
 			if ($success) {
-				return json_encode(array('success' => TRUE));
+				return json_encode(
+					array_merge($fileInformation, array(
+						'meta' => array(
+							'success' => TRUE,
+						)
+					))
+				);
 			} else {
 				$this->response->setStatus(500);
-				return json_encode(array('success' => FALSE, 'error' => $this->getUpdateError($file)));
+				return json_encode(
+					array_merge($fileInformation, array(
+						'meta' => array(
+							'success' => FALSE,
+							'error' => $this->getUpdateError($file)
+						)
+					))
+				);
 			}
 		}
 		if ($success) {
@@ -342,7 +400,9 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_Abstra
 
 	/**
 	 * Returns the error description of the update error
+	 *
 	 * @param FS\File $file
+	 * @return array
 	 */
 	public function getUpdateError($file) {
 		$message = '';
@@ -413,11 +473,20 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_Abstra
 	/**
 	 * Returns the list of the extensions files
 	 * @param Tx_Sourcero_Domain_Model_File $file
-	 * @param boolean $wit
+	 * @param boolean $withDirectories
 	 * @return array
 	 */
 	public function getFileBrowserForFile($file, $withDirectories = FALSE) {
 		return $this->fileBrowserService->setUriBuilder($this->uriBuilder)->getFileBrowserForFile($file, $withDirectories);
+	}
+
+	/**
+	 * Returns the nested array of the extensions files
+	 * @param Tx_Sourcero_Domain_Model_File $file
+	 * @return array
+	 */
+	public function getFileBrowserArrayForFile($file) {
+		return $this->fileBrowserService->setUriBuilder($this->uriBuilder)->getFileBrowserArrayForFile($file);
 	}
 
 	/**

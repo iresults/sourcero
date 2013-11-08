@@ -1,18 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="225cf487-373c-44f3-a29c-0ed742c9060a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/webResources.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Resources/Public/Scripts/CodeMirrorAddons/hint/php-hint.js" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/CodeMirrorAddons/hint/php-hint.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Resources/Public/Scripts/CodeMirrorAddons/mode/typoscript/typoscript.js" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/CodeMirrorAddons/mode/typoscript/typoscript.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/Delegate.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Resources/Public/Scripts/FastOpen.js" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/FastOpen.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Resources/Public/Scripts/FileBrowser.js" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/FileBrowser.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Resources/Public/Scripts/codemirror-compressed.js" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/codemirror-compressed.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" afterPath="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" />
+    <list default="true" id="225cf487-373c-44f3-a29c-0ed742c9060a" name="Default" comment="Fixed some namespace bugs&#10;Fixed the author in the license">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/.bowerrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/.editorconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/.gitattributes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/.jshintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/Gruntfile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/styles/_codemirror-sourcero.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/styles/_local.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/styles/_monokai.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/styles/_variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/data/adapter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/app.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/templates/application.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/routes/application_route.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/test/lib/chai.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/helpers/code_mirror_helper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/models/directory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/templates/editor.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/views/editor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/views/editor_container.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/test/lib/expect.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/templates/components/file-editor.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/templates/file.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/models/file.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/controllers/file_controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/components/file_editor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/routes/file_route.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/templates/index.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/test/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/controllers/index_controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/test/lib/mocha/mocha.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/test/lib/mocha/mocha.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/styles/off.style.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/router.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/store.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/styles/style.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/test/spec/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/templates/tree-branch.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/templates/tree-node.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/plugin/tree/controllers/tree_branch_controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/plugin/tree/views/tree_branch_view.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/plugin/tree/controllers/tree_node_controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/plugin/tree/views/tree_node_view.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cundd_composer/vendor/iresults/core/Classes/Iresults/Core/AbstractBase.php" afterPath="$PROJECT_DIR$/../cundd_composer/vendor/iresults/core/Classes/Iresults/Core/AbstractBase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cundd_composer/vendor/iresults/core/Classes/Iresults/Core/Model/PathAccess/AbstractContainer.php" afterPath="$PROJECT_DIR$/../cundd_composer/vendor/iresults/core/Classes/Iresults/Core/Model/PathAccess/AbstractContainer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cundd_composer/vendor/iresults/core/Classes/Iresults/Core/Model/DataTree.php" afterPath="$PROJECT_DIR$/../cundd_composer/vendor/iresults/core/Classes/Iresults/Core/Model/DataTree.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cundd_composer/vendor/iresults/core/Classes/Iresults/Core/DateTime.php" afterPath="$PROJECT_DIR$/../cundd_composer/vendor/iresults/core/Classes/Iresults/Core/DateTime.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Service/FileBrowserService.php" afterPath="$PROJECT_DIR$/Classes/Service/FileBrowserService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Controller/IDEController.php" afterPath="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cundd_composer/vendor/iresults/core/Classes/Iresults/Core/IresultsBaseConstants.php" afterPath="$PROJECT_DIR$/../cundd_composer/vendor/iresults/core/Classes/Iresults/Core/IresultsBaseConstants.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/daniel.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/daniel.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ext_tables.php" afterPath="$PROJECT_DIR$/ext_tables.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sourcero.iml" afterPath="$PROJECT_DIR$/.idea/sourcero.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sourcero.iws" />
@@ -24,6 +71,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="ComposerSettings">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <pharPath>$USER_HOME$/Applications/bin/composer</pharPath>
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -36,85 +87,93 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CodeMirror.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="0" selection-start="3274" selection-end="3274" vertical-scroll-proportion="-9.4" vertical-offset="0" max-vertical-offset="1545">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="php-hint.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/CodeMirrorAddons/hint/php-hint.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="46" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="15480">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Show.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="0" selection-start="1481" selection-end="1481" vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="1620">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="local.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="0" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="7755">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileBrowser.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="69" selection-start="57" selection-end="69" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="750">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FastOpen.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="57" selection-start="57" selection-end="57" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1050">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sourcero.sublime-workspace" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Resources/Private/IDE/sourcero.sublime-workspace">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="846" column="35" selection-start="24172" selection-end="24172" vertical-scroll-proportion="0.28982726" vertical-offset="12388" max-vertical-offset="71850">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="IDEController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="330" column="12" selection-start="10716" selection-end="10716" vertical-scroll-proportion="0.0" vertical-offset="4950" max-vertical-offset="7125">
+            <state line="256" column="34" selection-start="8818" selection-end="8818" vertical-scroll-proportion="-10.816326" vertical-offset="3280" max-vertical-offset="8130">
+              <folding>
+                <element signature="e#7#1025#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileBrowserService.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/Service/FileBrowserService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="137" column="0" selection-start="3725" selection-end="3725" vertical-scroll-proportion="-9.0" vertical-offset="1614" max-vertical-offset="8040">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GitDriver.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/Driver/GitDriver.php">
+      <file leaf-file-name="adapter.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/data/adapter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="7" selection-start="3353" selection-end="3353" vertical-scroll-proportion="-16.958334" vertical-offset="703" max-vertical-offset="1785">
+            <state line="0" column="29" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3645">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adapter.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/bower_components/ember-data/packages/ember-data/lib/system/adapter.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="66" column="0" selection-start="1820" selection-end="1820" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3270">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EcmaScript.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="68" column="0" selection-start="946" selection-end="946" vertical-scroll-proportion="0.0" vertical-offset="668" max-vertical-offset="13785">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chai.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/test/lib/chai.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2547" column="8" selection-start="73388" selection-end="73388" vertical-scroll-proportion="0.0" vertical-offset="37857" max-vertical-offset="57210">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="file_editor.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/components/file_editor.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="366" column="33" selection-start="8022" selection-end="8039" vertical-scroll-proportion="0.0" vertical-offset="4890" max-vertical-offset="8205">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.scss" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/styles/style.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="1" selection-start="328" selection-end="328" vertical-scroll-proportion="0.16582915" vertical-offset="0" max-vertical-offset="9240">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ember-data.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/bower_components/ember-data-shim/ember-data.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5362" column="0" selection-start="145488" selection-end="145488" vertical-scroll-proportion="0.0" vertical-offset="82767" max-vertical-offset="108240">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="file_controller.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/controllers/file_controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="125" column="48" selection-start="2926" selection-end="2926" vertical-scroll-proportion="-24.56" vertical-offset="1261" max-vertical-offset="4155">
               <folding />
             </state>
           </provider>
@@ -139,22 +198,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/PerformReset.html" />
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Pull.html" />
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Push.html" />
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Reset.html" />
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html" />
-        <option value="$PROJECT_DIR$/Resources/Public/Scripts/Delegate.js" />
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html" />
-        <option value="$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css" />
-        <option value="$PROJECT_DIR$/Classes/Driver/GitDriver.php" />
-        <option value="$PROJECT_DIR$/../../../preg.php" />
+        <option value="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/bower.json" />
+        <option value="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/index.html" />
+        <option value="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/routes/application_route.js" />
+        <option value="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/routes/file_route.js" />
+        <option value="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/templates/file.hbs" />
+        <option value="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/templates/tree-node.hbs" />
+        <option value="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/store.js" />
+        <option value="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/views/application_view.js" />
+        <option value="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/models/file.js" />
+        <option value="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/controllers/file_controller.js" />
+        <option value="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/components/file_editor.js" />
+        <option value="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/data/adapter.js" />
+        <option value="$PROJECT_DIR$/Classes/Service/FileBrowserService.php" />
         <option value="$PROJECT_DIR$/Classes/Controller/IDEController.php" />
-        <option value="$PROJECT_DIR$/../Iresults.Core/Classes/Iresults/Core/Iresults.php" />
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html" />
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html" />
-        <option value="$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html" />
-        <option value="$PROJECT_DIR$/Resources/Private/IDE/sourcero.sublime-workspace" />
+        <option value="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/styles/style.scss" />
       </list>
     </option>
   </component>
@@ -162,21 +221,24 @@
     <include_path>
       <path value="$PROJECT_DIR$/../cundd_composer/vendor/iresults/core" />
       <path value="$PROJECT_DIR$/../cundd_composer/vendor/iresults/fs" />
+      <path value="$PROJECT_DIR$/../../../typo3_src-6.1.5/typo3/sysext" />
+      <path value="$PROJECT_DIR$/../cundd_composer/vendor/raveren/kint" />
+      <path value="$PROJECT_DIR$/../cundd_composer/vendor/symfony" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1156" />
+    <option name="width" value="1704" />
     <option name="height" value="1178" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -206,9 +268,19 @@
               <option name="myItemId" value="External Libraries" />
               <option name="myItemType" value="com.jetbrains.php.config.PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PHP" />
-              <option name="myItemType" value="com.jetbrains.php.config.PhpExternalLibrariesNodePatcher$PatchedLibraryNode" />
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -218,31 +290,7 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sourcero" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sourcero" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sourcero" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sourcero" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sourcero" />
@@ -264,6 +312,302 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaScript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaScript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaScript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaScript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaScript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaScript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaScript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaScript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -279,6 +623,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="sourcero" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sourcero" />
@@ -296,11 +644,53 @@
               <option name="myItemId" value="Backend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="sourcero" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IDE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sourcero" />
@@ -330,10 +720,280 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IDE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Iresults" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Iresults" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Iresults" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Locale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sourcero" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Iresults" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Helpers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -347,8 +1007,8 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="com.magicento.ui.forms.MagicentoSettingsForm" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cundd_composer/vendor/iresults/fs" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cundd_composer/vendor/symfony" />
     <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -359,6 +1019,19 @@
         <serverdata />
       </server>
     </servers>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/templates" />
+      <recent name="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/components" />
+      <recent name="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/styles" />
+      <recent name="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/bower_components/codemirror/addon/lint" />
+      <recent name="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/controllers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/templates" />
+      <recent name="$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/styles" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -400,30 +1073,40 @@
       <created>1366828979119</created>
       <updated>1366828979119</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fixed some namespace bugs&#10;Fixed the author in the license">
+      <created>1383820559678</created>
+      <updated>1383820559678</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fixed a typo in the doc comment">
+      <created>1383820688945</created>
+      <updated>1383820688945</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1156" height="1178" extended-state="0" />
+    <frame x="0" y="22" width="1704" height="1178" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986766" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963988" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986766" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963988" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27854672" sideWeight="0.6703601" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24944974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18757538" sideWeight="0.6703601" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986766" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986766" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963988" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -433,114 +1116,128 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="Fixed some namespace bugs&#10;Fixed the author in the license" />
+    <MESSAGE value="Fixed a typo in the doc comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a typo in the doc comment" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
+    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/store.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="250" column="0" selection-start="6809" selection-end="6809" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Driver/GitDriver.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="5" selection-start="3226" selection-end="3226" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Reset.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="23" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.464666" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/Show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="23" selection-start="643" selection-end="643" vertical-scroll-proportion="0.3194579" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/Repository/UpdateAll.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Controller/RepositoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="45" selection-start="1005" selection-end="1005" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="4" selection-start="6" selection-end="6" vertical-scroll-proportion="0.014492754" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="1481" selection-end="1481" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/Stylesheets/Local/local.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="330" column="12" selection-start="10716" selection-end="10716" vertical-scroll-proportion="0.0" vertical-offset="4950" max-vertical-offset="7125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Driver/GitDriver.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="7" selection-start="3353" selection-end="3353" vertical-scroll-proportion="-16.958334" vertical-offset="703" max-vertical-offset="1785">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/CodeMirrorAddons/hint/php-hint.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="46" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="15480">
+        <state line="23" column="2" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="9210">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/CodeMirror.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="0" selection-start="3274" selection-end="3274" vertical-scroll-proportion="-9.4" vertical-offset="0" max-vertical-offset="1545">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1545">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/FileBrowser.html">
+    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/templates/tree-node.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="69" selection-start="57" selection-end="69" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="994">
+        <state line="8" column="22" selection-start="193" selection-end="193" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="315">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Partials/FastOpen.html">
+    <entry file="file://$PROJECT_DIR$/Resources/Private/Backend/Templates/IDE/Show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="57" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
+        <state line="55" column="22" selection-start="1455" selection-end="1455" vertical-scroll-proportion="-16.25" vertical-offset="435" max-vertical-offset="1620">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Private/IDE/sourcero.sublime-workspace">
+    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="846" column="35" selection-start="24172" selection-end="24172" vertical-scroll-proportion="0.28982726" vertical-offset="12388" max-vertical-offset="71850">
+        <state line="57" column="0" selection-start="2339" selection-end="2339" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/models/file.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="20" selection-start="418" selection-end="418" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/controllers/file_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="48" selection-start="2926" selection-end="2926" vertical-scroll-proportion="-24.56" vertical-offset="1261" max-vertical-offset="4155">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/components/file_editor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="366" column="33" selection-start="8022" selection-end="8039" vertical-scroll-proportion="0.0" vertical-offset="4890" max-vertical-offset="8205">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="0" selection-start="946" selection-end="946" vertical-scroll-proportion="0.0" vertical-offset="668" max-vertical-offset="13785">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/test/lib/chai.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2547" column="8" selection-start="73388" selection-end="73388" vertical-scroll-proportion="0.0" vertical-offset="37857" max-vertical-offset="57210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/scripts/data/adapter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="29" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3645">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/bower_components/ember-data-shim/ember-data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5362" column="0" selection-start="145488" selection-end="145488" vertical-scroll-proportion="0.0" vertical-offset="82767" max-vertical-offset="108240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/bower_components/ember-data/packages/ember-data/lib/system/adapter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="0" selection-start="1820" selection-end="1820" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Service/FileBrowserService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="0" selection-start="3725" selection-end="3725" vertical-scroll-proportion="-9.0" vertical-offset="1614" max-vertical-offset="8040">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Controller/IDEController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="256" column="34" selection-start="8818" selection-end="8818" vertical-scroll-proportion="-10.816326" vertical-offset="3280" max-vertical-offset="8130">
+          <folding>
+            <element signature="e#7#1025#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Public/JavaScript/webapp/app/styles/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="1" selection-start="328" selection-end="328" vertical-scroll-proportion="0.16582915" vertical-offset="0" max-vertical-offset="9240">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

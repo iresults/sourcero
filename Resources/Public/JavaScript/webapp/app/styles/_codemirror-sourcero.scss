@@ -1,0 +1,68 @@
+/* Based on Sublime Text's Monokai theme */
+
+.cm-s-sourcero {
+  &.CodeMirror {
+    background: transparent;
+    color: #f8f8f2;
+    line-height: 1.2em;
+  }
+  div.CodeMirror-selected {
+    background: #08c;
+  }
+  .CodeMirror-gutters {
+    background: #272822;
+    border-right: 0px;
+  }
+  .CodeMirror-linenumber {
+    color: #d0d0d0;
+  }
+  .CodeMirror-cursor {
+    border-left: 1px solid #f8f8f0 !important;
+  }
+  span {
+    &.cm-comment {
+      color: #75715e;
+    }
+    &.cm-atom, &.cm-number {
+      color: #ae81ff;
+    }
+    &.cm-property, &.cm-attribute {
+      color: #a6e22e;
+    }
+    &.cm-keyword {
+      color: #f92672;
+    }
+    &.cm-string {
+      color: #e6db74;
+    }
+    &.cm-variable {
+      color: #a6e22e;
+    }
+    &.cm-variable-2 {
+      color: #9effff;
+    }
+    &.cm-def {
+      color: #fd971f;
+    }
+    &.cm-error {
+      background: #f92672;
+      color: #f8f8f0;
+    }
+    &.cm-bracket {
+      color: #f8f8f2;
+    }
+    &.cm-tag {
+      color: #f92672;
+    }
+    &.cm-link {
+      color: #ae81ff;
+    }
+  }
+  .CodeMirror-matchingbracket {
+    text-decoration: underline;
+    color: white !important;
+  }
+  .cm-trailingspace {
+    background: rgba(249, 38, 114, 0.5);
+  }
+}
