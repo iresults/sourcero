@@ -13,12 +13,19 @@
         <!--</div>-->
     <!--</nav>-->
     <div class="container-fluid" id="main">
-        <div class="row">
-            <div>
-                <div class="col-md-12 col-static">
-                    {{outlet}}
-                </div>
-            </div>
-        </div>
-    </div>
+		<div class="row-fluid">
+			<div class="span2 col-md-2 full-height fileBrowser">
+				{{#if fileTree}}
+					{{control "treeBranch" fileTree}}
+					{{log fileTree}}
+
+				{{/if}}
+			</div>
+
+
+			<div class="span10 col-md-10 full-height">
+				{{outlet}}
+			</div>
+		</div>
+	</div>
 </div>

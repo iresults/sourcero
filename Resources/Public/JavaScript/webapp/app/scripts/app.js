@@ -1,4 +1,6 @@
-var Sourcero = window.Sourcero = Ember.Application.create(),
+var Sourcero = window.Sourcero = Ember.Application.create({
+		LOG_TRANSITIONS: true
+	}),
 	CodeMirror = {};
 
 /* CodeMirror */
