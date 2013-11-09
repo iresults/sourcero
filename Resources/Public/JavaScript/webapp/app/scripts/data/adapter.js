@@ -126,7 +126,6 @@ Sourcero.DataAdapter = DS.Adapter.extend({
 		if (id) {
 			path = id;
 			path = path.replace(/\-_\-/g, '/').replace(/_\-_/g, '.').replace(/_\-\-/g, ':');
-			console.log(path)
 			pathUrlComponent = encodeURIComponent(encodeURIComponent(path));
 		} else {
 			pathUrlComponent = encodeURIComponent(encodeURIComponent(pkg.path));
@@ -232,7 +231,6 @@ Sourcero.DataAdapter = DS.Adapter.extend({
 		if (jqXHR) {
 			jqXHR.then = null;
 		}
-
 		return jqXHR;
 	}
 });

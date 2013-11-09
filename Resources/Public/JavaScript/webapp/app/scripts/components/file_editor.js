@@ -14,6 +14,11 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 	editor: null,
 
 	/**
+	 * Collection of CodeMirror documents
+	 */
+	documents: Ember.A(),
+
+	/**
 	 * Defines if the editor was initialized
 	 */
 	editorIsInitialized: false,
@@ -77,15 +82,20 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 		return contents ? contents : '';
 	}.property('file'),
 
+
+
+	// INITIALIZE
 	init: function() {
-		var fileId = this.get('file.id');
+		var fileId;
+		this._super();
+
+		fileId = this.get('file.id');
+		console.log('fileEditor init', fileId)
 		if (fileId) {
 			this.set('elementId', fileId);
 		}
 	},
 
-
-	// INITIALIZE
 	/**
 	 * Initialize the CodeMirror instance
 	 */
@@ -112,15 +122,15 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 		// */
 //		_editor.on("gutterClick", codeFolding);
 		_editor.on("change", function() {
-			_this.markPageTitleAsModified();
+			_this.fileContentsChanged();
 		});
 
-		this.restoreCursorPosition();
+//		this.restoreCursorPosition();
 //		this.resizeEditor();
-		this.updatePageTitle();
 
 		/* Load the mode */
 		CodeMirror.autoLoadMode(_editor, (codeMirrorMode === 'text/x-scss' ? 'css' : codeMirrorMode));
+
 
 
 //		$('body').keydown(function (event) {
@@ -148,19 +158,11 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 				return _this.getCompletionList(editor);
 			});
 		};
-		CodeMirror.commands.saveFile = function (cm) {
-			_this.saveFile();
-		};
 		CodeMirror.commands.duplicateLine = function (cm) {
 			_this.duplicateLine();
 		};
 		CodeMirror.commands.removeLine = function (cm) {
 			_this.removeLine();
-		};
-		CodeMirror.commands.fastOpen = function (cm) {
-			if (window.FastOpen) {
-				window.FastOpen.show();
-			}
 		};
 	},
 
@@ -171,8 +173,6 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 	 */
 	getCodeMirrorModeForFile: function(file) {
 		mimeType = file.get('type');
-
-
 		mode = mimeType.split(';', 1)[0]
 			.replace(/application\/x-/, '')
 			.replace(/text\/x-/, 		'')
@@ -209,11 +209,43 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 //	}.observes('targetObject.file'),
 
 	/**
+	 * Invoked when the file content changed
+	 */
+	fileContentsChanged: function() {
+
+	},
+
+	/**
+	 * Invoked when the active file changed
+	 */
+	fileChanged: function() {
+		var file = this.get('file'),
+			contents = file.get('contents'),
+			mode = this.getCodeMirrorModeForFile(file),
+			cmDocument = CodeMirror.Doc(contents, mode);
+
+		console.log('Swap doc', cmDocument);
+		this.editor.swapDoc(cmDocument);
+		this.refresh();
+		this.restoreCursorPosition();
+	},
+
+	/**
+	 * Observes external changes of the edited file
+	 */
+	fileChangedObserver: function() {
+		console.log('Changed file')
+		Ember.run.once(this, 'fileChanged');
+	}.observes('file'),
+
+	/**
 	 * Initialize the editor as soon as the view is inserted
 	 */
 	didInsertElement: function() {
 		this._super();
 		this.initializeCodeMirror();
+
+		console.log('didInsertElement fileEditor')
 //		this.fileChangedExternal();
 
 	},
@@ -222,11 +254,15 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 	 * Refresh the editor
 	 */
 	refresh: function() {
-		Ember.Logger.info('Refresh component ' + this);
-		console.log(this);
+		console.log('Refresh component ' + this);
 		this.editor.refresh();
 	},
 
+
+	// PAGE TITLE
+
+
+	// EDITOR GUI
 	/**
 	 * Resize the editor
 	 */
@@ -235,59 +271,6 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 			editorContainerHeight = $('.editor-container').height();
 		$(_editor.getWrapperElement()).css('height', editorContainerHeight);
 		_editor.refresh();
-	},
-
-	/**
-	 * On keydown
-	 * @param {Event} event
-	 */
-	captureKeydown: function (event) {
-		var handled = false;
-		if (event.ctrlKey || event.metaKey) {
-			if (event.keyCode === 83) { // Save
-				this.saveFile();
-				handled = true;
-			} else if (event.keyCode === 79) { // Open
-				if (window.FastOpen) {
-					window.FastOpen.show();
-					handled = true;
-				}
-			}
-		}
-		return !handled;
-	},
-
-	// PAGE TITLE
-	/**
-	 * Updates the page title
-	 */
-	updatePageTitle: function () {
-		var _controller = this.get('targetObject'),
-			title = this.get('file.name');
-
-		if (_controller) {
-			title += ' - ' + _controller.get('pkg.name');
-		}
-		if (this.editor && !this.editor.isClean()) {
-			title = '! ' + title;
-		}
-		window.document.title = title;
-	},
-
-	/**
-	 * Mark the page title as modified
-	 */
-	markPageTitleAsModified: function () {
-		this.editor.off("change", this.markPageTitleAsModified);
-		this.updatePageTitle();
-	},
-
-	/**
-	 * Mark the page title as modified
-	 */
-	markPageTitleAsUnmodified: function () {
-		this.editor.markClean();
-		this.updatePageTitle();
 	},
 
 
@@ -339,92 +322,29 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 		});
 	},
 
-
-
-
 	/**
-	 * Save the file
+	 * Returns the key to set or get the cursor position
 	 */
-	saveFile: function () {
-		// Save the cursor position
-		this.saveCursorPosition();
-
-		this.editor.save();
-
-		// Save the file
-		var _this = this,
-			form = $(this.codeTextarea.form),
-			data = form.serialize(),
-			url = form.attr('action');
-
-		this.editor.doc.markClean();
-
-		if (url && data) {
-			$.ajax({
-				type: "POST",
-				url: url,
-				data: data,
-				dataType: 'text',
-				cache: false,
-				success: function (data, textStatus, jqXHR) {
-					_this.saveSuccess(data, textStatus, jqXHR);
-				},
-				error: function (jqXHR, textStatus, errorThrown) {
-					_this.saveError(jqXHR, textStatus, errorThrown);
-				}
-
-			});
-		}
-	},
-
-	saveSuccess: function (data, textStatus, jqXHR) {
-		var jsonData;
-		try {
-			jsonData = JSON.parse(data);
-		} catch (e) {}
-		if (jsonData && !jsonData.success) {
-			if (jsonData.error && jsonData.error.message) {
-				this.displaySaveError(jsonData.error.message);
-			} else {
-				this.displaySaveError();
-			}
-			return;
-		} else if(!jsonData) {
-			this.displaySaveError();
-			return;
-		}
-		this.editor.doc.markClean();
-		this.editor.on("change", this.markPageTitleAsModified);
-		this.updatePageTitle();
-		console.log('File successfully saved');
-	},
-
-	saveError: function (jqXHR, textStatus, errorThrown) {
-		var jsonData;
-		try {
-			jsonData = JSON.parse(jqXHR.responseText);
-		} catch (e) {}
-		if (jsonData && jsonData.error && jsonData.error.message) {
-			this.displaySaveError(jsonData.error.message);
-		} else {
-			this.displaySaveError();
-		}
-		console.log(jqXHR, textStatus, errorThrown);
+	getCursorPositionKeyForLocalStorage: function () {
+		return this.getKeyPrefixForLocalStorage() + '.editor.cursorPosition';
 	},
 
 	/**
-	 * Display the message to inform the user that the file could not be saved
-	 * @param message
+	 * Returns the key to set or get the scroll information
 	 */
-	displaySaveError: function (message) {
-		if (!message) {
-			message = 'Could not save file';
-		}
-		bootbox.alert(message + '', function () {
-			_this.editor.focus();
-		});
+	getScrollInformationKeyForLocalStorage: function () {
+		return this.getKeyPrefixForLocalStorage() + '.editor.scrollInformation';
 	},
 
+	/**
+	 * Returns the key prefix to distinguish the different editors
+	 */
+	getKeyPrefixForLocalStorage: function () {
+		return this.get('file.path').replace(/[^a-zA-Z]/g, '.');
+	},
+
+
+	// EDITOR ADDITIONS
 	/**
 	 * Duplicates the current line or selection
 	 */
@@ -452,26 +372,7 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 		}
 	},
 
-	/**
-	 * Returns the key to set or get the cursor position
-	 */
-	getCursorPositionKeyForLocalStorage: function () {
-		return this.getKeyPrefixForLocalStorage() + '.editor.cursorPosition';
-	},
 
-	/**
-	 * Returns the key to set or get the scroll information
-	 */
-	getScrollInformationKeyForLocalStorage: function () {
-		return this.getKeyPrefixForLocalStorage() + '.editor.scrollInformation';
-	},
-
-	/**
-	 * Returns the key prefix to distinguish the different editors
-	 */
-	getKeyPrefixForLocalStorage: function () {
-		return this.get('file.path').replace(/[^a-zA-Z]/g, '.');
-	},
 
 	/**
 	 * Get the completion list

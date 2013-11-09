@@ -3,7 +3,7 @@
 //});
 Sourcero.Router.map(function(){
 	this.resource('files', function(){
-		this.resource('file', { path:'/:path' }, function(){
+		this.resource('file', { path:'/:id' }, function(){
 			this.route('edit');
 		});
 //		this.route('create');

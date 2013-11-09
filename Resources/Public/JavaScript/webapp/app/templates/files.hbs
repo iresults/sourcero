@@ -1,0 +1,27 @@
+<!-- Nav tabs -->
+
+<div class="editor-tabs-container">
+	<ul class="nav nav-tabs">
+		{{#each file in controller}}
+			<li data-editor="{{unbound file.id}}">
+				{{#link-to "file.edit" file.id class="text"}}{{file.name}}{{/link-to}}
+			</li>
+			<li>
+				<a {{action closeTab file}}>x</a>
+			</li>
+		{{else}}
+			No open files
+		{{/each}}
+
+		<!--
+	<li>
+		<a {{action newTab this}}>+</a>
+	</li>
+	-->
+	</ul>
+</div>
+
+<!-- Tab panes -->
+<div class="tab-content">
+	{{outlet}}
+</div>

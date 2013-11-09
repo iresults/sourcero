@@ -1,33 +1,31 @@
-Sourcero.FilesController = Ember.ObjectController.extend({
-	fileTree: null,
+Sourcero.FilesController = Ember.ArrayController.extend({
+	model: function() {
+		var _this = this;
+
+		console.log(
+			'Sourcero.LocalStorageController',
+			Sourcero.LocalStorageController.get('openFiles', function() {})
+		);
+
+		return Ember.RSVP.resolve(
+			Sourcero.LocalStorageController.get('openFiles', function() {
+				return _this.get('store').findAll('file');
+			})
+		);
+	},
 
 	/**
-	 * Loads the full file system tree
+	 * Invoked when the open files changed
 	 */
-	loadFileTree: function () {
-		var _this = this,
-			pkg = this.get('pkg'),
-			pathUrlComponent = encodeURIComponent(encodeURIComponent(pkg.path)),
-			url;
+	openFilesChanged: function() {
+		console.log('ofc', this.get('content').slice())
+		Sourcero.LocalStorageController.set('openFiles', this.get('content'));
+	},
 
-		url = '/typo3/mod.php?M=tools_SourceroSourcero&'
-			+ 'tx_sourcero_tools_sourcerosourcero%5Baction%5D={{action}}&'.replace(/\{\{action\}\}/, 'fileList')
-			+ 'tx_sourcero_tools_sourcerosourcero%5Bcontroller%5D=IDE'
-			+ '&tx_sourcero_tools_sourcerosourcero%5Bfile%5D='
-			+ pathUrlComponent;
-
-		console.log(url);
-
-		if (Sourcero.FileSystemDummy) {
-			this.fileTree = {
-				children: Ember.A(Sourcero.FileSystemDummy.fileTree.children)
-			};
-		}
-		Ember.$.getJSON(url).then(function (data) {
-			_this.set('fileTree', Ember.Object.create({
-				children: Ember.A(data.fileTree.children)
-			}));
-			_this.propertyDidChange('fileTree.children');
-		});
-	}
+	/**
+	 * Observes external changes of the open files
+	 */
+	openFilesChangedObserver: function() {
+		Ember.run.once(this, 'openFilesChanged');
+	}.observes('@each')
 });

@@ -8,7 +8,7 @@
 	</span>
 	<a {{action toggle}} class="text">{{obj.name}}</a>
 {{else}}
-	<a {{action fileTreeClick content}} class="text">{{obj.name}}</a>
+	{{#link-to "file.edit" obj.id class="text"}}{{obj.name}}{{/link-to}}
 {{/if}}
 
 {{#if isExpanded}}

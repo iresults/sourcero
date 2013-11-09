@@ -80,7 +80,7 @@ Sourcero.FileController = Ember.ObjectController.extend({
 	 * Returns the editor for the active file
 	 */
 	editorForActiveFile: function() {
-		var activeFile = this.get('activeFile');
+		var activeFile = this.get('model');
 		if (!activeFile) return null;
 		return this.editorForFile(activeFile);
 	},
@@ -90,33 +90,28 @@ Sourcero.FileController = Ember.ObjectController.extend({
 	 */
 	saveActiveFile: function() {
 		var editorComponent = this.editorForActiveFile();
-		if (editorComponent) editorComponent.save();
+		if (editorComponent) {
+			editorComponent.save();
+		} else {
+			throw "Could not find editor";
+		}
 	},
 
 	/**
 	 * Invoked when the active file changed
 	 */
 	activeFileChanged: function() {
-		var file = this.get('activeFile'),
-			fileId, editorComponent;
+		var file = this.get('model'),
+			fileId;
 
 		if (file) {
 			fileId = file.get('id');
 
-			$('.tab-pane').removeClass('active');
-			$('#' + fileId).addClass('active');
+			// $('.tab-pane').removeClass('active');
+			// $('#' + fileId).addClass('active');
 
 			$('[data-editor]').removeClass('active');
 			$('[data-editor="' + fileId + '"]').addClass('active');
-			editorComponent = this.editorForFile(file);
-
-
-			Ember.Logger.info('Editor component for file ID ' + fileId + " " + editorComponent);
-
-			if(editorComponent) {
-				Ember.Logger.info('Refresh editor component ' + editorComponent);
-				editorComponent.refresh()
-			}
 		}
 	},
 
@@ -125,47 +120,17 @@ Sourcero.FileController = Ember.ObjectController.extend({
 	 */
 	activeFileChangedObserver: function() {
 		Ember.run.once(this, 'activeFileChanged');
-	}.observes('activeFile'),
+	}.observes('hmodel'),
 
 
 	init: function() {
 		var _this = this;
 		this._super();
 
-//		console.log('FileController');
-//		console.log(this.get('openFiles'));
-//		console.log($('a[data-toggle="tab"]'));
-//
-//
-//
-//		$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-//			e.target // activated tab
-//			e.relatedTarget // previous tab
-//			console.log('bingo')
-//		})
-
-//		this.openFiles = this.get('store').findAll('file');
-//		this.loadFileTree();
-
-
-		//		$('body').keydown(function (event) {
-//			return _this.captureKeydown(event);
-//		});
-
 		Ember.$('body').keydown(function(event) {
-			console.log(event);
 			return _this.handleKey(event);
 		});
-
-//		this.set('fileTree', Ember.Object.create({
-//			children: this.get('store').findAll('file')
-////			children: Ember.A(Sourcero.FileSystemDummy.fileTree.children)
-//		}));
-
 		Sourcero.FileController._instance = this;
-
-		console.log(this.get('model'))
-		this.activeFileChanged();
 	},
 
 	/**

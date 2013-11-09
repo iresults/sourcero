@@ -41,8 +41,10 @@ require('bower_components/codemirror/addon/lint/coffeescript-lint');
 require('bower_components/codemirror/addon/lint/javascript-lint');
 require('bower_components/codemirror/addon/lint/json-lint');
 require('bower_components/codemirror/addon/lint/lint');
-
 //require('bower_components/codemirror/mode/*/*');
+
+/* Libs */
+//require('bower_components/locstor/locstor');
 
 
 /* Application */

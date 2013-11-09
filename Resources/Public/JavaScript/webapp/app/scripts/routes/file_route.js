@@ -1,5 +1,6 @@
 Sourcero.FileRoute = Ember.Route.extend({
-//	model: function(params) {
-//		return this.get('store').find('file', params.path);
-//	}
+	model: function(params) {
+		console.log(params)
+		return this.get('store').find('file', params.id);
+	}
 });

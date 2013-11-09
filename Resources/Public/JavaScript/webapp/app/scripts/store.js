@@ -6,6 +6,7 @@ Sourcero.AdapterConfiguration = {
 	 * Currently active project
 	 */
 	pkg: {
+		name: 'bingo',
 		path: '/Applications/MAMP/web_cvjm/typo3conf/ext/bingo'
 //		path: 'EXT:sourcero/'
 	}
