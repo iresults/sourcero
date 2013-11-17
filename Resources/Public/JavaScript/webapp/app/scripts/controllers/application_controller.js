@@ -16,8 +16,6 @@ Sourcero.ApplicationController = Ember.Controller.extend({
 			+ '&tx_sourcero_tools_sourcerosourcero%5Bfile%5D='
 			+ pathUrlComponent;
 
-		console.log('loadFileTree', url);
-
 		if (Sourcero.FileSystemDummy) {
 			this.fileTree = {
 				children: Ember.A(Sourcero.FileSystemDummy.fileTree.children)

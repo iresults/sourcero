@@ -303,9 +303,21 @@ body {
 		padding: $padding-base-vertical $padding-base-horizontal;
 	}
 
-	.toggle-icon {
-		font-size: 0.8em;
+	.tree-node {
+		white-space: nowrap;
+
+		> a,
+		> .toggle-icon {
+			cursor: pointer;
+			display: inline-block;
+		}
+
+		> .toggle-icon {
+			font-size: 0.8em;
+			width: 1em;
+		}
 	}
+
 
 	&.toggle {
 		.fileBrowserInner {

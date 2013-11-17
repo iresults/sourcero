@@ -1,12 +1,14 @@
 var Sourcero = window.Sourcero = Ember.Application.create({
 		LOG_TRANSITIONS: true
 	}),
+	ENV = window.ENV || {},
 	CodeMirror = {};
 
 /* CodeMirror */
 require('bower_components/codemirror/lib/codemirror');
 
-CodeMirror.modeURL = CodeMirror.modeURL || 'bower_components/codemirror/mode/%N/%N.js';
+
+CodeMirror.modeURL = ENV.CodeMirrorModeURL || 'bower_components/codemirror/mode/%N/%N.js';
 require('bower_components/codemirror/addon/mode/loadmode');
 
 require('bower_components/codemirror/addon/comment/comment');

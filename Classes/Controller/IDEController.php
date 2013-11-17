@@ -88,7 +88,9 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_Abstra
 				list ($vendor, $extension) = $that->getVendorAndExtensionNameForComposerPackage();
 				return $vendor . '/' . $extension;
 			}
-			$relativeExtensionPath = substr($that->getPath(), strlen(PATH_typo3conf . 'ext/'));
+			$relativeExtensionPath = substr($path, strlen(PATH_typo3conf . 'ext/'));
+
+			\Iresults\Core\Iresults::pd($relativeExtensionPath, $path, PATH_typo3conf);
 			return substr($relativeExtensionPath, 0, strpos($relativeExtensionPath, '/'));
 		};
 		$getExtensionPath = function($that) {
@@ -163,6 +165,47 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_Abstra
 	}
 
 	/**
+	 * Start the web app
+	 *
+	 * @param string $file
+	 * @return void
+	 */
+	public function appAction($file) {
+		$scripts = array();
+		$stylesheets = array();
+		$fileManager = FS\FileManager::sharedFileManager();
+		$fileObject = $fileManager->getResourceAtUrl($file);
+
+
+		$builtIndexFile = $fileManager->getResourceAtUrl(
+			Utility\GeneralUtility::getFileAbsFileName('EXT:sourcero/Resources/Public/JavaScript/webapp/dist/index.html')
+		);
+		\Iresults\Core\Iresults::pd($builtIndexFile);
+
+
+		\Iresults\Core\Iresults::pd(
+			preg_match_all('!<link rel="stylesheet" href="(.*)"!', $builtIndexFile->contents())
+		);
+
+		if (preg_match_all('!<script src="(.*)"!', $builtIndexFile->contents(), $scripts)) {
+			$scripts = $scripts[1];
+		} else {
+			$scripts = array();
+		}
+		if (preg_match_all('!<link rel="stylesheet" href="(.*)"!', $builtIndexFile->contents(), $stylesheets)) {
+			$stylesheets = $stylesheets[1];
+		} else {
+			$stylesheets = array();
+		}
+
+		$this->view->assign('scripts', $scripts);
+		$this->view->assign('stylesheets', $stylesheets);
+		$this->view->assign('project', $this->getProjectForFile($fileObject));
+
+		$this->setCustomFaviconWithBasePath($fileObject->getExtensionPath());
+	}
+
+	/**
 	 * action show
 	 *
 	 * @param string $file
@@ -203,16 +246,24 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_Abstra
 	public function fileListAction($file) {
 		$file = urldecode($file);
 		$absFile = Utility\GeneralUtility::getFileAbsFileName($file);
+		if (!$absFile) {
+			$absFile = Utility\GeneralUtility::getFileAbsFileName($file . '/ext_emconf.php');
+		}
 		if ($absFile) {
 			$file = $absFile;
 		}
+
+		\Iresults\Core\Iresults::pd('ENDE');
 
 		/** @var FS\FileManager $fileManager */
 		$fileManager = FS\FileManager::sharedFileManager();
 		/** @var FS\FilesystemInterface $fileObject */
 		$fileObject = $fileManager->getResourceAtUrl($file);
 		/** @var array $fileArray */
-		$fileArray = $this->getFileBrowserArrayForFile($fileObject);
+		$fileArray = $this->getFileBrowserArrayForFile($fileObject, FALSE);
+
+		\Iresults\Core\Iresults::pd($fileArray);
+		\Iresults\Core\Iresults::pd(json_encode($fileArray));
 		return !$this->prepareJsonResponse(array(
 			'fileTree' => $fileArray
 		));
@@ -243,13 +294,26 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_Abstra
 	 * Prepares the response with the given JSON content
 	 *
 	 * @param mixed $content
+	 * @throws InvalidArgumentException
 	 * @return bool Returns TRUE if the response was prepared correctly
 	 */
 	protected function prepareJsonResponse($content) {
 		if (is_string($content)) {
 			$contentString = $content;
 		} else {
-			$contentString = json_encode($content);
+			if (defined('JSON_UNESCAPED_UNICODE')) {
+				$contentString = json_encode($content, JSON_UNESCAPED_UNICODE);
+//				var_dump(gettype($content));
+//				var_dump(($content));
+//				var_dump(($contentString));
+//			var_dump($contentString);
+//			var_dump(json_last_error_msg());
+				if ($contentString === FALSE) {
+					throw new InvalidArgumentException(json_last_error_msg(), json_last_error());
+				}
+			} else {
+				$contentString = json_encode($content);
+			}
 		}
 		/** @var \TYPO3\CMS\Extbase\Mvc\Web\Response $response */
 		$response = $this->response;
@@ -482,11 +546,13 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_Abstra
 
 	/**
 	 * Returns the nested array of the extensions files
+	 *
 	 * @param Tx_Sourcero_Domain_Model_File $file
+	 * @param boolean $withContents
 	 * @return array
 	 */
-	public function getFileBrowserArrayForFile($file) {
-		return $this->fileBrowserService->setUriBuilder($this->uriBuilder)->getFileBrowserArrayForFile($file);
+	public function getFileBrowserArrayForFile($file, $withContents = TRUE) {
+		return $this->fileBrowserService->setUriBuilder($this->uriBuilder)->getFileBrowserArrayForFile($file, $withContents);
 	}
 
 	/**

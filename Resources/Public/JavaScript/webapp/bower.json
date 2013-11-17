@@ -1,14 +1,18 @@
 {
-	"name": "webapp",
-	"version": "0.0.0",
-	"dependencies": {
-		"ember": "1.0.0",
-		"ember-data-shim": "1.0.0-beta.2",
-		"bootstrap-sass": "~3.0.0",
-		"codemirror": "3.*",
-		"ember-localstorage-adapter": "*"
-	},
-	"devDependencies": {
-		"ember-mocha-adapter": "0.1.2"
-	}
+  "name": "webapp",
+  "version": "0.0.0",
+  "ember": "1.0.0",
+  "dependencies": {
+    "ember": "1.1.2",
+    "ember-data-shim": "1.0.0-beta.2",
+    "bootstrap-sass": "~3.0.0",
+    "codemirror": "3.*",
+    "ember-localstorage-adapter": "*"
+  },
+  "devDependencies": {
+    "ember-mocha-adapter": "0.1.2"
+  },
+  "resolutions": {
+    "ember": "1.1.2"
+  }
 }

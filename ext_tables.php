@@ -15,7 +15,7 @@ if (TYPO3_MODE === 'BE') {
 		'',						// Position
 		array(
 			'Repository' => 'list, show, new, create, edit, update, delete, commit, performCommit, push, pull, log, status, add, executeCommand, info, reset, performReset, updateAll',
-			'IDE' => 'list, show, new, create, edit, update, delete, fileList, file',
+			'IDE' => 'list, show, new, create, edit, update, delete, fileList, file, app',
 		),
 		array(
 			'access' => 'user,group',

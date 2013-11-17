@@ -332,10 +332,12 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 
 	/**
 	 * Returns the list of the extensions files
+	 *
 	 * @param Tx_Sourcero_Domain_Model_File $file
+	 * @param boolean $withContents
 	 * @return array
 	 */
-	public function getFileBrowserArrayForFile($file) {
+	public function getFileBrowserArrayForFile($file, $withContents = TRUE) {
 		$files = array();
 		if ($file instanceof FS\File) {
 			$path = $file->getExtensionPath();
@@ -351,7 +353,7 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 			!$lengthOfPathToExtensionDir ? $lengthOfPathToExtensionDir = strlen(PATH_typo3conf . 'ext/') : 0;
 
 			$currentObjectArray = array();
-			$currentFile = Tx_Sourcero_Service_FileBrowserService::buildFileInformationArrayOfFile($foundObject);
+			$currentFile = Tx_Sourcero_Service_FileBrowserService::buildFileInformationArrayOfFile($foundObject, $withContents);
 			if ($foundObject instanceof FS\Directory && !$children) {
 				/** @var \Iresults\Core\Model\DataTree $treeObject */
 				$children = array_values($treeObject->getChildObjectsAtPathRecursiveWithCallback($foundPath, $callback));
@@ -369,7 +371,33 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 		/** @var \Iresults\Core\Model\DataTree $fileTree */
 		$allPaths = array();
 		$fileTree = FS\FileManager::generateTreeFromPath($path, $allPaths, 5);
-		$files = array_values($fileTree->getChildObjectsAtPathRecursiveWithCallback('*', $createChildObjectCallback));
+		$files = $fileTree->getChildObjectsAtPathRecursiveWithCallback('*', $createChildObjectCallback);
+
+
+//		ksort($files, SORT_STRING | SORT_FLAG_CASE);
+		usort($files, function($a, $b) {
+			$pathA = $a['obj']['path'];
+			$pathB = $b['obj']['path'];
+
+			$lastCharA = substr($pathA, -1);
+			$lastCharB = substr($pathB, -1);
+
+//			echo ($pathA . ' <> ' . $pathB) . PHP_EOL;
+
+			switch (TRUE) {
+				case $lastCharA === '/' && $lastCharB !== '/':
+					return -1;
+
+				case $lastCharA !== '/' && $lastCharB === '/':
+					return 1;
+			}
+
+			if ($pathA == $pathB) {
+				return 0;
+			}
+			return ($pathA < $pathB) ? -1 : 1;
+		});
+//		$files = array_values($files);
 //		\Iresults\Core\Iresults::pd(($createChildObjectCallback($file, $path, $createChildObjectCallback, $fileTree, $files)));
 		return $createChildObjectCallback($file, $path, $createChildObjectCallback, $fileTree, $files);
 

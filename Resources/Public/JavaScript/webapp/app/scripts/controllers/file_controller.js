@@ -181,10 +181,6 @@ Sourcero.FileController = Ember.ObjectController.extend({
 //			this.currentView
 		},
 
-		closeTab: function(file) {
-			this.openFiles.removeObject(file);
-		},
-
 		fileTreeClick: function(fileNode) {
 			var _this = this,
 				store = this.get('store');

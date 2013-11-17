@@ -1,0 +1,61 @@
+{namespace sourcero=Tx_Sourcero_ViewHelpers}
+<f:layout name="Blank"/>
+
+This template displays a EDIT form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+Edit.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+</f:section>
+
+<f:section name="head">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sourcero</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <script type="text/javascript">
+        window.ENV = window.ENV || {};
+        ENV.EXPERIMENTAL_CONTROL_HELPER = true;
+        (function(){
+            var name = '{project.name}',
+                    path = '{project.path}';
+
+
+            ENV.AdapterConfiguration = {
+                /**
+                 * Currently active project
+                 */
+                pkg: {
+                    /* Name */
+                    name: name,
+
+                    /* Path */
+                    path: path
+                }
+            };
+
+            ENV.CodeMirrorModeURL = '/typo3conf/ext/sourcero/Resources/Public/JavaScript/webapp/app/bower_components/codemirror/mode/%N/%N.js';
+        }());
+    </script>
+
+
+    <f:for each="{stylesheets}" as="stylesheet">
+        <link rel="stylesheet" href="/typo3conf/ext/sourcero/Resources/Public/JavaScript/webapp/dist/{stylesheet}"/>
+    </f:for>
+
+    <f:for each="{scripts}" as="script">
+        <script src="/typo3conf/ext/sourcero/Resources/Public/JavaScript/webapp/dist/{script}"></script>
+    </f:for>
+
+</f:section>
+

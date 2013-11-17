@@ -4,7 +4,7 @@
 	<ul class="nav nav-tabs">
 		{{#each file in controller}}
 			<li data-editor="{{unbound file.id}}">
-				{{#link-to "file.edit" file.id class="text"}}{{file.name}}{{/link-to}}
+				{{#link-to "file.edit" file.id class="text"}}{{file.name}}{{#if file.isDirty}} *{{/if}}{{/link-to}}
 			</li>
 			<li>
 				<a {{action closeTab file}}>x</a>

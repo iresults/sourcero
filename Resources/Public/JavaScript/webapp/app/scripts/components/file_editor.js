@@ -125,7 +125,8 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 			_this.fileContentsChanged();
 		});
 
-//		this.restoreCursorPosition();
+		this.refresh();
+
 //		this.resizeEditor();
 
 		/* Load the mode */
@@ -172,8 +173,8 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 	 * @return string
 	 */
 	getCodeMirrorModeForFile: function(file) {
-		mimeType = file.get('type');
-		mode = mimeType.split(';', 1)[0]
+		var mimeType = file.get('type'),
+			mode = mimeType.split(';', 1)[0]
 			.replace(/application\/x-/, '')
 			.replace(/text\/x-/, 		'')
 			.replace(/application\//, 	'')
@@ -185,6 +186,8 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 		} else if (mode === 'scss') {
 			mode = 'text/x-scss';
 		}
+
+		console.log('Loading editor with mode ' + mode);
 		return mode;
 	},
 
@@ -212,7 +215,8 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 	 * Invoked when the file content changed
 	 */
 	fileContentsChanged: function() {
-
+		Ember.run.throttle(this, 'synchronizeEditorWithModel', 500);
+//		Ember.run.once(this, 'synchronizeEditorWithModel');
 	},
 
 	/**
@@ -256,6 +260,8 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 	refresh: function() {
 		console.log('Refresh component ' + this);
 		this.editor.refresh();
+		this.restoreCursorPosition();
+		this.editor.focus();
 	},
 
 
@@ -279,16 +285,16 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 	 * Tries to restore the cursor position from the localStorage
 	 */
 	restoreCursorPosition: function () {
-		var cursorPosition = window.localStorage.getItem(this.getCursorPositionKeyForLocalStorage()),
-			scrollInformation = window.localStorage.getItem(this.getScrollInformationKeyForLocalStorage());
+		var cursorPosition = Sourcero.LocalStorageHelper.get(this.getCursorPositionKeyForLocalStorage()),
+			scrollInformation = Sourcero.LocalStorageHelper.get(this.getScrollInformationKeyForLocalStorage());
+
+		console.log('restoreCursorPosition', cursorPosition, scrollInformation)
 
 		if (scrollInformation) {
-			scrollInformation = JSON.parse(scrollInformation);
 			this.editor.scrollTo(0, scrollInformation.top);
 		}
 
 		if (cursorPosition) {
-			cursorPosition = JSON.parse(cursorPosition);
 			this.editor.setCursor(cursorPosition);
 		}
 	},
@@ -297,11 +303,8 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 	 * Saves the current cursor position
 	 */
 	saveCursorPosition: function () {
-		var serializedCursorPosition = JSON.stringify(this.editor.getCursor()),
-			serializedScrollInformation = JSON.stringify(this.editor.getScrollInfo());
-
-		window.localStorage.setItem(this.getCursorPositionKeyForLocalStorage(), serializedCursorPosition);
-		window.localStorage.setItem(this.getScrollInformationKeyForLocalStorage(), serializedScrollInformation);
+		Sourcero.LocalStorageHelper.set(this.getCursorPositionKeyForLocalStorage(), this.editor.getCursor());
+		Sourcero.LocalStorageHelper.set(this.getScrollInformationKeyForLocalStorage(), this.editor.getScrollInfo());
 	},
 
 	/**
@@ -320,6 +323,22 @@ Sourcero.FileEditorComponent = Ember.Component.extend({
 		file.save().then(function() {
 			_this.editor.doc.markClean();
 		});
+	},
+
+	/**
+	 * Synchronize the editor content with the model
+	 */
+	synchronizeEditorWithModel: function () {
+		var file = this.get('file'),
+			clean = this.editor.doc.isClean(),
+			contents;
+
+		console.log('synchronizeEditorWithModel')
+
+		if (!clean) {
+			contents = this.editor.doc.getValue();
+			file.set('contents', contents);
+		}
 	},
 
 	/**

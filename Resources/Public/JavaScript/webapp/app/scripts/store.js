@@ -1,13 +1,15 @@
 Sourcero.Store = DS.Store.extend();
 //Sourcero.ApplicationAdapter = DS.FixtureAdapter;
 
-Sourcero.AdapterConfiguration = {
+
+Sourcero.AdapterConfiguration = ENV.AdapterConfiguration || {
 	/**
 	 * Currently active project
 	 */
 	pkg: {
 		name: 'bingo',
-		path: '/Applications/MAMP/web_cvjm/typo3conf/ext/bingo'
+		path: 'EXT:bingo'
+//		path: '/Applications/MAMP/htdocs/typo3conf/ext/bingo'
 //		path: 'EXT:sourcero/'
 	}
 }
