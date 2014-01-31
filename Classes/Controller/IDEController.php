@@ -64,7 +64,7 @@ class Tx_Sourcero_Controller_IDEController extends Tx_Sourcero_Controller_Abstra
 	protected $fileBrowserService;
 
 	protected function initializeAction() {
-		\Iresults\Core\Iresults::setDebugRenderer(\Iresults\Core\Iresults::RENDERER_KINT);
+		#\Iresults\Core\Iresults::setDebugRenderer(\Iresults\Core\Iresults::RENDERER_KINT);
 
 
 		$getExists = function($that) {return $that->exists();};

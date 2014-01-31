@@ -221,7 +221,7 @@
 			try {
 				jsonData = JSON.parse(data);
 			} catch (e) {}
-            if (jsonData && !jsonData.success) {
+            if (jsonData && (!jsonData.meta || !jsonData.meta.success)) {
                 if (jsonData.error && jsonData.error.message) {
                     this.displaySaveError(jsonData.error.message);
                 } else {
