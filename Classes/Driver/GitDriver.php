@@ -65,8 +65,37 @@ class Tx_Sourcero_Driver_GitDriver extends Tx_Sourcero_Driver_AbstractCliDriver 
 	}
 
 	/**
+	 * Returns information about the current version/the last commit of the
+	 * given repository
+	 *
+	 * @return string
+	 */
+	public function getVersionInformation() {
+		$error = NULL;
+		return $this->executeCommand('log', array(
+			'-n' => 1,
+			'--pretty=format:%s | %H'
+		), $error);
+	}
+
+	/**
+	 * Returns information about the current version/the last commit of the
+	 * given repository
+	 *
+	 * @return string
+	 */
+	public function getShortVersionInformation() {
+		$error = NULL;
+		return $this->executeCommand('log', array(
+			'-n' => 1,
+			'--pretty=format:%h'
+		), $error);
+	}
+
+	/**
 	 * Checks if the FETCH_HEAD is old and needs to be refetched
 	 * @return boolean Returns TRUE if the remote data was fetched, otherwise FALSE
+	 * @throws UnexpectedValueException
 	 */
 	protected function _fetchIfRequired() {
 		$fetchIsRequired = FALSE;
@@ -95,12 +124,13 @@ class Tx_Sourcero_Driver_GitDriver extends Tx_Sourcero_Driver_AbstractCliDriver 
 	 * @param  string $subCommand   Command to execute
 	 * @param  array  $arguments	Additional arguments
 	 * @return string            	Raw command output
+	 * @throws UnexpectedValueException
 	 */
 	protected function _buildProcess($subCommand, $arguments = array()) {
 		if (is_object($subCommand)) {
 			throw new UnexpectedValueException('The given sub command is an object', 1365424413);
 		}
-		$timeout = 30;
+		$timeout = 10;
 		$command = 'git ' . $subCommand . ' ';
 
 		$username = $GLOBALS['BE_USER']->user['username'];
@@ -115,7 +145,7 @@ class Tx_Sourcero_Driver_GitDriver extends Tx_Sourcero_Driver_AbstractCliDriver 
 			'GIT_AUTHOR_NAME' => $name,
 			'GIT_AUTHOR_EMAIL' => $email,
 			'GIT_COMMITTER_NAME' => $name,
-			'GIT_COMMITTER_EMAIL' => $email, 
+			'GIT_COMMITTER_EMAIL' => $email,
 		);
 
 		foreach ($arguments as $key => $argument) {

@@ -2,6 +2,7 @@
     "name": "iresults/sourcero",
     "description": "Source code management from the TYPO3 CMS Backend",
     "keywords": ["typo3cms"],
+	"homepage": "https://github.com/iresults/sourcero",
     "repositories": [
         {
             "type": "git",

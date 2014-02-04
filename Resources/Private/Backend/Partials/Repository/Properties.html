@@ -29,7 +29,7 @@
 			<f:translate key="tx_sourcero_domain_model_repository.homepage" />
 		</td>
 		<td>
-			{repository.homepage}
+			<a href="{repository.homepage}" target="_blank">{repository.homepage}</a>
 		</td>
 	</tr>
 	<tr>
@@ -38,6 +38,14 @@
 		</td>
 		<td>
 			{repository.remoteUrl}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_sourcero_domain_model_repository.version_information" />
+		</td>
+		<td>
+			{repository.versionInformation}
 		</td>
 	</tr>
 	<tr>

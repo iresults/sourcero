@@ -208,7 +208,7 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 			if ($objectPath === $currentFile) {
 				$current = TRUE;
 				$active = TRUE;
-			} else if (substr($currentFile, 0, strlen($objectPath)) === $objectPath) {
+			} else if (substr($currentFile, strlen($objectPath), 1) === '/' && substr($currentFile, 0, strlen($objectPath)) === $objectPath) {
 				$active = TRUE;
 			}
 
@@ -288,6 +288,7 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 				$class = $classOpenFiles . 'directoryEdit';
 			} else {
 				$linkElement->setAttribute('href', $link);
+				//$linkElement->setAttribute('target', $object->getFilename());
 			}
 			$linkElement->setAttribute('class', $class);
 
@@ -533,7 +534,7 @@ class Tx_Sourcero_Service_FileBrowserService implements \TYPO3\CMS\Core\Singleto
 				'isLast' 		=> strpos($key, '{E}'),
 				'depth' 		=> $currentDepth,
 				'depthDiff'		=> $lastDepth - $currentDepth,
-				'close' 		=> str_repeat('</ul>', $lastDepth - $currentDepth),
+				'close' 		=> str_repeat('</ul>', (($lastDepth - $currentDepth) < 0 ? 0 : ($lastDepth - $currentDepth))),
 			);
 
 			$lastDepth = $currentDepth;

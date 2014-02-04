@@ -270,9 +270,20 @@
 		duplicateLine: function () {
 			var _editor = this.editor,
 				document = _editor.doc,
-				selection = document.getSelection();
-			if (selection && selection !== '') {
-				document.replaceSelection(selection + selection);
+				selectionedText = document.getSelection(),
+				selectionStart = _editor.getCursor(true),
+				selectionEnd = _editor.getCursor(false);
+			if (selectionedText && selectionedText !== '') {
+				_editor.setSelection(selectionEnd);
+				document.replaceSelection(selectionedText);
+				document.replaceSelection(selectionedText);
+			} else {
+				//selectionEnd = _editor.findPosH(selectionStart, 1, 'column', true);
+				selectionedText = document.getLine(selectionEnd.line);
+				selectionEnd.ch = 100000;
+				_editor.setSelection(selectionEnd);
+				document.replaceSelection("\n" + selectionedText);
+				_editor.setSelection(selectionStart);
 			}
 
 		},

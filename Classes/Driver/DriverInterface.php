@@ -106,6 +106,18 @@ interface Tx_Sourcero_Driver_DriverInterface {
 	public function getStatusCode($onlyLocal = FALSE);
 
 	/**
+	 * Returns information about the current version/the last commit
+	 * @return string
+	 */
+	public function getVersionInformation();
+
+	/**
+	 * Returns a short information about the current version/the last commit
+	 * @return string
+	 */
+	public function getShortVersionInformation();
+
+	/**
 	 * Executes the given command
 	 * @param  string $command   	Command to execute
 	 * @param  array  $arguments	Additional arguments
