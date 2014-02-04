@@ -92,15 +92,13 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 			$this->repositories = new \SplObjectStorage();
 
 			$repositoryList = $this->_getDirectoryBasedRepositoriesWithWildcard();
-			ksort($repositories);
-			$index = 0;
-			foreach ($repositories as &$repository) {
-				$repository->_setProperty('uid', $index++);
-			}
+			ksort($repositoryList);
 
+			$index = 0;
 			foreach ($repositoryList as $repositoryData) {
 				$repository = $this->_getObjectFromRepositoryData($repositoryData);
 				if ($repository) {
+					$repository->_setProperty('uid', $index++);
 					$this->repositories->attach($repository);
 				}
 			}
@@ -378,7 +376,7 @@ class Tx_Sourcero_Domain_Repository_RepositoryRepository extends Tx_Extbase_Pers
 			$wildcard = '{' . implode(',', $this->_getAllDirectoryNameForSCMTypes()) . '}';
 		}
 		$directoryPath = $directoryRootPath . $prefix . $wildcard;
-		$foundPaths = glob($directoryPath, GLOB_BRACE);
+		$foundPaths = (array)glob($directoryPath, GLOB_BRACE);
 
 		$currentPath = current($foundPaths);
 		$currentDirectoryName = basename($currentPath);
